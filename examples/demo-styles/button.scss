@@ -1,0 +1,26 @@
+.demo-block.demo-button {
+  .top-row {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+  .top-button + .top-button {
+    margin-left: 10px;
+  }
+
+  .top-button-group {
+    .top-button + .top-button {
+      margin-left: 0;
+    }
+
+    & + .top-button-group {
+      margin-left: 10px;
+    }
+
+  }
+
+}
