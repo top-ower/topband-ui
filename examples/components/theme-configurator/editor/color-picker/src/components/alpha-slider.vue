@@ -1,13 +1,13 @@
 <template>
-  <div class="top-color-alpha-slider" :class="{ 'is-vertical': vertical }">
-    <div class="top-color-alpha-slider__bar"
+  <div class="el-color-alpha-slider" :class="{ 'is-vertical': vertical }">
+    <div class="el-color-alpha-slider__bar"
          @click="handleClick"
          ref="bar"
          :style="{
            background: background
          }">
     </div>
-    <div class="top-color-alpha-slider__thumb"
+    <div class="el-color-alpha-slider__thumb"
          ref="thumb"
          :style="{
            left: thumbLeft + 'px',
@@ -21,7 +21,7 @@
   import draggable from '../draggable';
 
   export default {
-    name: 'top-color-alpha-slider',
+    name: 'el-color-alpha-slider',
 
     props: {
       color: {

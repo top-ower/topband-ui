@@ -10,8 +10,8 @@
 
 ```html
 <template>
-  <top-radio v-model="radio" label="1">备选项</top-radio>
-  <top-radio v-model="radio" label="2">备选项</top-radio>
+  <el-radio v-model="radio" label="1">备选项</el-radio>
+  <el-radio v-model="radio" label="2">备选项</el-radio>
 </template>
 
 <script>
@@ -30,11 +30,11 @@
 
 单选框不可用的状态。
 
-:::demo 只要在`top-radio`元素中设置`disabled`属性即可，它接受一个`Boolean`，`true`为禁用。
+:::demo 只要在`el-radio`元素中设置`disabled`属性即可，它接受一个`Boolean`，`true`为禁用。
 ```html
 <template>
-  <top-radio disabled v-model="radio1" label="禁用">备选项</top-radio>
-  <top-radio disabled v-model="radio1" label="选中且禁用">备选项</top-radio>
+  <el-radio disabled v-model="radio1" label="禁用">备选项</el-radio>
+  <el-radio disabled v-model="radio1" label="选中且禁用">备选项</el-radio>
 </template>
 
 <script>
@@ -53,15 +53,15 @@
 
 适用于在多个互斥的选项中选择的场景
 
-:::demo 结合`top-radio-group`元素和子元素`top-radio`可以实现单选组，在`top-radio-group`中绑定`v-model`，在`top-radio`中设置好`label`即可，无需再给每一个`top-radio`绑定变量，另外，还提供了`change`事件来响应变化，它会传入一个参数`value`。
+:::demo 结合`el-radio-group`元素和子元素`el-radio`可以实现单选组，在`el-radio-group`中绑定`v-model`，在`el-radio`中设置好`label`即可，无需再给每一个`el-radio`绑定变量，另外，还提供了`change`事件来响应变化，它会传入一个参数`value`。
 
 ```html
 <template>
-  <top-radio-group v-model="radio2">
-    <top-radio :label="3">备选项</top-radio>
-    <top-radio :label="6">备选项</top-radio>
-    <top-radio :label="9">备选项</top-radio>
-  </top-radio-group>
+  <el-radio-group v-model="radio2">
+    <el-radio :label="3">备选项</el-radio>
+    <el-radio :label="6">备选项</el-radio>
+    <el-radio :label="9">备选项</el-radio>
+  </el-radio-group>
 </template>
 
 <script>
@@ -80,40 +80,40 @@
 
 按钮样式的单选组合。
 
-:::demo 只需要把`top-radio`元素换成`top-radio-button`元素即可，此外，Element 还提供了`size`属性。
+:::demo 只需要把`el-radio`元素换成`el-radio-button`元素即可，此外，Element 还提供了`size`属性。
 ```html
 <template>
   <div>
-    <top-radio-group v-model="radio3">
-      <top-radio-button label="上海"></top-radio-button>
-      <top-radio-button label="北京"></top-radio-button>
-      <top-radio-button label="广州"></top-radio-button>
-      <top-radio-button label="深圳"></top-radio-button>
-    </top-radio-group>
+    <el-radio-group v-model="radio3">
+      <el-radio-button label="上海"></el-radio-button>
+      <el-radio-button label="北京"></el-radio-button>
+      <el-radio-button label="广州"></el-radio-button>
+      <el-radio-button label="深圳"></el-radio-button>
+    </el-radio-group>
   </div>
   <div style="margin-top: 20px">
-    <top-radio-group v-model="radio4" size="medium">
-      <top-radio-button label="上海" ></top-radio-button>
-      <top-radio-button label="北京"></top-radio-button>
-      <top-radio-button label="广州"></top-radio-button>
-      <top-radio-button label="深圳"></top-radio-button>
-    </top-radio-group>
+    <el-radio-group v-model="radio4" size="medium">
+      <el-radio-button label="上海" ></el-radio-button>
+      <el-radio-button label="北京"></el-radio-button>
+      <el-radio-button label="广州"></el-radio-button>
+      <el-radio-button label="深圳"></el-radio-button>
+    </el-radio-group>
   </div>
   <div style="margin-top: 20px">
-    <top-radio-group v-model="radio5" size="small">
-      <top-radio-button label="上海"></top-radio-button>
-      <top-radio-button label="北京" disabled ></top-radio-button>
-      <top-radio-button label="广州"></top-radio-button>
-      <top-radio-button label="深圳"></top-radio-button>
-    </top-radio-group>
+    <el-radio-group v-model="radio5" size="small">
+      <el-radio-button label="上海"></el-radio-button>
+      <el-radio-button label="北京" disabled ></el-radio-button>
+      <el-radio-button label="广州"></el-radio-button>
+      <el-radio-button label="深圳"></el-radio-button>
+    </el-radio-group>
   </div>
   <div style="margin-top: 20px">
-    <top-radio-group v-model="radio6" disabled size="mini">
-      <top-radio-button label="上海"></top-radio-button>
-      <top-radio-button label="北京"></top-radio-button>
-      <top-radio-button label="广州"></top-radio-button>
-      <top-radio-button label="深圳"></top-radio-button>
-    </top-radio-group>
+    <el-radio-group v-model="radio6" disabled size="mini">
+      <el-radio-button label="上海"></el-radio-button>
+      <el-radio-button label="北京"></el-radio-button>
+      <el-radio-button label="广州"></el-radio-button>
+      <el-radio-button label="深圳"></el-radio-button>
+    </el-radio-group>
   </div>
 </template>
 
@@ -138,24 +138,24 @@
 ```html
 <template>
   <div>
-    <top-radio v-model="radio7" label="1" border>备选项1</top-radio>
-    <top-radio v-model="radio7" label="2" border>备选项2</top-radio>
+    <el-radio v-model="radio7" label="1" border>备选项1</el-radio>
+    <el-radio v-model="radio7" label="2" border>备选项2</el-radio>
   </div>
   <div style="margin-top: 20px">
-    <top-radio v-model="radio8" label="1" border size="medium">备选项1</top-radio>
-    <top-radio v-model="radio8" label="2" border size="medium">备选项2</top-radio>
+    <el-radio v-model="radio8" label="1" border size="medium">备选项1</el-radio>
+    <el-radio v-model="radio8" label="2" border size="medium">备选项2</el-radio>
   </div>
   <div style="margin-top: 20px">
-    <top-radio-group v-model="radio9" size="small">
-      <top-radio label="1" border>备选项1</top-radio>
-      <top-radio label="2" border disabled>备选项2</top-radio>
-    </top-radio-group>
+    <el-radio-group v-model="radio9" size="small">
+      <el-radio label="1" border>备选项1</el-radio>
+      <el-radio label="2" border disabled>备选项2</el-radio>
+    </el-radio-group>
   </div>
   <div style="margin-top: 20px">
-    <top-radio-group v-model="radio10" size="mini" disabled>
-      <top-radio label="1" border>备选项1</top-radio>
-      <top-radio label="2" border>备选项2</top-radio>
-    </top-radio-group>
+    <el-radio-group v-model="radio10" size="mini" disabled>
+      <el-radio label="1" border>备选项1</el-radio>
+      <el-radio label="2" border>备选项2</el-radio>
+    </el-radio-group>
   </div>
 </template>
 

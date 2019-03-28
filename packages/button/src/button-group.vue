@@ -1,10 +1,10 @@
 <template>
-  <div class="top-button-group">
+  <div class="el-button-group">
     <slot></slot>
   </div>
 </template>
 <script>
   export default {
-    name: 'TOPButtonGroup'
+    name: 'ElButtonGroup'
   };
 </script>

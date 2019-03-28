@@ -7,7 +7,6 @@
   text-align: center;
   cursor: pointer;
   outline: none;
-
   @include e(input) {
     display: none;
   }
@@ -48,19 +47,15 @@
       border-color: $--color-primary;
       color: $--color-primary;
     }
-
   }
-
   &:focus {
     border-color: $--color-primary;
     color: $--color-primary;
 
-    .top-upload-dragger {
+    .el-upload-dragger {
       border-color: $--color-primary;
     }
-
   }
-
 }
 
 @include b(upload-dragger) {
@@ -75,24 +70,24 @@
   position: relative;
   overflow: hidden;
 
-  .top-icon-upload {
+  .el-icon-upload {
     font-size: 67px;
     color: $--color-text-placeholder;
     margin: 40px 0 16px;
     line-height: 50px;
   }
 
-  + .top-upload__tip {
+  + .el-upload__tip {
     text-align: center;
   }
 
-  ~ .top-upload__files {
+  ~ .el-upload__files {
     border-top: $--border-base;
     margin-top: 7px;
     padding-top: 5px;
   }
 
-  .top-upload__text {
+  .el-upload__text {
     color: $--color-text-regular;
     font-size: 14px;
     text-align: center;
@@ -101,7 +96,6 @@
       color: $--color-primary;
       font-style: normal;
     }
-
   }
 
   &:hover {
@@ -112,7 +106,6 @@
     background-color: rgba(32, 159, 255, .06);
     border: 2px dashed $--color-primary;
   }
-
 }
 
 @include b(upload-list) {
@@ -121,7 +114,7 @@
   list-style: none;
 
   @include e(item) {
-    transition: all .5s cubic-bezier(.55, 0, .1, 1);
+    transition: all .5s cubic-bezier(.55,0,.1,1);
     font-size: 14px;
     color: $--color-text-regular;
     line-height: 1.8;
@@ -131,19 +124,19 @@
     border-radius: 4px;
     width: 100%;
 
-    .top-progress {
+    .el-progress {
       position: absolute;
       top: 20px;
       width: 100%;
     }
 
-    .top-progress__text {
+    .el-progress__text {
       position: absolute;
       right: 0;
       top: -13px;
     }
 
-    .top-progress-bar {
+    .el-progress-bar {
       margin-right: 0;
       padding-right: 0;
     }
@@ -152,11 +145,11 @@
       margin-top: 10px;
     }
 
-    & .top-icon-upload-success {
+    & .el-icon-upload-success {
       color: $--color-success;
     }
 
-    .top-icon-close {
+    .el-icon-close {
       display: none;
       position: absolute;
       top: 5px;
@@ -169,10 +162,9 @@
       &:hover {
         opacity: 1;
       }
-
     }
 
-    & .top-icon-close-tip {
+    & .el-icon-close-tip {
       display: none;
       position: absolute;
       top: 5px;
@@ -182,66 +174,54 @@
       opacity: 1;
       color: $--color-primary;
     }
-
+    
     &:hover {
       background-color: $--background-color-base;
 
-      .top-icon-close {
+      .el-icon-close {
         display: inline-block;
       }
 
-      .top-progress__text {
+      .el-progress__text {
         display: none;
       }
-
     }
 
     @include when(success) {
-      .top-upload-list__item-status-label {
+      .el-upload-list__item-status-label {
         display: block;
       }
 
-      .top-upload-list__item-name:hover, .top-upload-list__item-name:focus {
+      .el-upload-list__item-name:hover, .el-upload-list__item-name:focus {
         color: $--link-hover-color;
         cursor: pointer;
       }
 
-      &:focus:not(:hover) {
-
-        /* 键盘focus */
-        .top-icon-close-tip {
+      &:focus:not(:hover) {  /* 键盘focus */
+        .el-icon-close-tip {
           display: inline-block;
         }
-
       }
 
-      &:not(.focusing):focus, &:active {
-
-        /* click时 */
+      &:not(.focusing):focus, &:active { /* click时 */
         outline-width: 0;
-
-        .top-icon-close-tip {
+        .el-icon-close-tip {
           display: none;
         }
-
       }
 
       &:hover, &:focus {
-        .top-upload-list__item-status-label {
+        .el-upload-list__item-status-label {
           display: none;
         }
-
       }
-
     }
-
   }
 
   @include when(disabled) {
-    .top-upload-list__item:hover .top-upload-list__item-status-label {
+    .el-upload-list__item:hover .el-upload-list__item-status-label {
       display: block;
     }
-
   }
 
   @include e(item-name) {
@@ -254,13 +234,12 @@
     transition: color .3s;
     white-space: nowrap;
 
-    [class^="top-icon"] {
+    [class^="el-icon"] {
       height: 100%;
       margin-right: 7px;
       color: $--color-text-secondary;
       line-height: inherit;
     }
-
   }
 
   @include e(item-status-label) {
@@ -282,7 +261,6 @@
     &:hover {
       color: $--color-primary;
     }
-
   }
 
   @include m(picture-card) {
@@ -290,7 +268,7 @@
     display: inline;
     vertical-align: top;
 
-    .top-upload-list__item {
+    .el-upload-list__item {
       overflow: hidden;
       background-color: #fff;
       border: 1px solid #c0ccda;
@@ -301,37 +279,35 @@
       margin: 0 8px 8px 0;
       display: inline-block;
 
-      .top-icon-check, .top-icon-circle-check {
+      .el-icon-check,
+      .el-icon-circle-check {
         color: $--color-white;
       }
 
-      .top-icon-close {
+      .el-icon-close {
         display: none;
       }
-
       &:hover {
-        .top-upload-list__item-status-label {
+        .el-upload-list__item-status-label {
           display: none;
         }
 
-        .top-progress__text {
+        .el-progress__text {
           display: block;
         }
-
       }
-
     }
 
-    .top-upload-list__item-name {
+    .el-upload-list__item-name {
       display: none;
     }
 
-    .top-upload-list__item-thumbnail {
+    .el-upload-list__item-thumbnail {
       width: 100%;
       height: 100%;
     }
 
-    .top-upload-list__item-status-label {
+    .el-upload-list__item-status-label {
       position: absolute;
       right: -15px;
       top: -6px;
@@ -340,17 +316,16 @@
       background: #13ce66;
       text-align: center;
       transform: rotate(45deg);
-      box-shadow: 0 0 1pc 1px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 1pc 1px rgba(0,0,0,0.2);
 
       i {
         font-size: 12px;
         margin-top: 11px;
         transform: rotate(-45deg);
       }
-
     }
 
-    .top-upload-list__item-actions {
+    .el-upload-list__item-actions {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -363,7 +338,6 @@
       font-size: 20px;
       background-color: rgba(0, 0, 0, .5);
       transition: opacity .3s;
-
       &::after {
         display: inline-block;
         content: "";
@@ -380,7 +354,7 @@
         margin-left: 15px;
       }
 
-      .top-upload-list__item-delete {
+      .el-upload-list__item-delete {
         position: static;
         font-size: inherit;
         color: inherit;
@@ -388,32 +362,27 @@
 
       &:hover {
         opacity: 1;
-
         span {
           display: inline-block;
         }
-
       }
-
     }
 
-    .top-progress {
+    .el-progress {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       bottom: auto;
       width: 126px;
 
-      .top-progress__text {
+      .el-progress__text {
         top: 50%;
       }
-
     }
-
   }
 
   @include m(picture) {
-    .top-upload-list__item {
+    .el-upload-list__item {
       overflow: hidden;
       z-index: 0;
       background-color: #fff;
@@ -424,40 +393,36 @@
       padding: 10px 10px 10px 90px;
       height: 92px;
 
-      .top-icon-check, .top-icon-circle-check {
+      .el-icon-check,
+      .el-icon-circle-check {
         color: $--color-white;
       }
 
       &:hover {
-        .top-upload-list__item-status-label {
+        .el-upload-list__item-status-label {
           background: transparent;
           box-shadow: none;
           top: -2px;
           right: -12px;
         }
 
-        .top-progress__text {
+        .el-progress__text {
           display: block;
         }
-
       }
 
       &.is-success {
-        .top-upload-list__item-name {
+        .el-upload-list__item-name {
           line-height: 70px;
           margin-top: 0;
-
           i {
             display: none;
           }
-
         }
-
       }
-
     }
 
-    .top-upload-list__item-thumbnail {
+    .el-upload-list__item-thumbnail {
       vertical-align: middle;
       display: inline-block;
       width: 70px;
@@ -468,7 +433,7 @@
       margin-left: -80px;
     }
 
-    .top-upload-list__item-name {
+    .el-upload-list__item-name {
       display: block;
       margin-top: 20px;
 
@@ -479,10 +444,9 @@
         left: 9px;
         top: 10px;
       }
-
     }
 
-    .top-upload-list__item-status-label {
+    .el-upload-list__item-status-label {
       position: absolute;
       right: -17px;
       top: -7px;
@@ -498,16 +462,13 @@
         margin-top: 12px;
         transform: rotate(-45deg);
       }
-
     }
 
-    .top-progress {
+    .el-progress {
       position: relative;
       top: -7px;
     }
-
   }
-
 }
 
 @include b(upload-cover) {
@@ -536,7 +497,7 @@
     background: #13ce66;
     text-align: center;
     transform: rotate(45deg);
-    box-shadow: 0 0 1pc 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 1pc 1px rgba(0,0,0,0.2);
 
     i {
       font-size: 12px;
@@ -544,7 +505,6 @@
       transform: rotate(-45deg);
       color: #fff;
     }
-
   }
 
   @include e(progress) {
@@ -553,10 +513,9 @@
     position: static;
     width: 243px;
 
-    + .top-upload__inner {
+    + .el-upload__inner {
       opacity: 0;
     }
-
   }
 
   @include e(content) {
@@ -604,7 +563,6 @@
         span {
           opacity: 1;
         }
-
       }
 
       i {
@@ -614,9 +572,7 @@
         line-height: inherit;
         margin: 0 auto 5px;
       }
-
     }
-
   }
 
   @include e(title) {
@@ -638,10 +594,9 @@
     color: $--color-text-primary;
   }
 
-  + .top-upload__inner {
+  + .el-upload__inner {
     opacity: 0;
     position: relative;
     z-index: 1;
   }
-
 }

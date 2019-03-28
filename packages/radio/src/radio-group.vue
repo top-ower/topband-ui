@@ -1,6 +1,6 @@
 <template>
   <div
-    class="top-radio-group"
+    class="el-radio-group"
     role="radiogroup"
     @keydown="handleKeydown"
   >
@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-  import Emitter from 'topband-ui/src/mixins/emitter';
+  import Emitter from 'element-ui/src/mixins/emitter';
 
   const keyCode = Object.freeze({
     LEFT: 37,

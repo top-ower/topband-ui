@@ -9,19 +9,19 @@ Le Dialog ouvre un modal personnalisable.
 :::demo Configurez l'attribut `visible` avec un `Boolean`, un modal apparaîtra quand la valeur sera à `true`. Le Dialog possède deux parties: `body` et `footer`, ce-dernier nécessitant un `slot` appelé `footer`. L'attribut optionnel `title` (vide par défaut) définit le titre. Cet exemple montre également comment `before-close` peut être utilisé.
 
 ```html
-<top-button type="text" @click="dialogVisible = true">Cliquez pour ouvrir le modal</top-button>
+<el-button type="text" @click="dialogVisible = true">Cliquez pour ouvrir le modal</el-button>
 
-<top-dialog
+<el-dialog
   title="Tips"
   :visible.sync="dialogVisible"
   width="30%"
   :before-close="handleClose">
   <span>Ceci est un message</span>
   <span slot="footer" class="dialog-footer">
-    <top-button @click="dialogVisible = false">Annuler</top-button>
-    <top-button type="primary" @click="dialogVisible = false">Confirmer</top-button>
+    <el-button @click="dialogVisible = false">Annuler</el-button>
+    <el-button type="primary" @click="dialogVisible = false">Confirmer</el-button>
   </span>
-</top-dialog>
+</el-dialog>
 
 <script>
   export default {
@@ -56,36 +56,36 @@ Le contenu du modal peut être n'importe quoi, tableau ou formulaire compris.
 
 ```html
 <!-- Table -->
-<top-button type="text" @click="dialogTableVisible = true">Ouvir un modal avec tableau</top-button>
+<el-button type="text" @click="dialogTableVisible = true">Ouvir un modal avec tableau</el-button>
 
-<top-dialog title="Adresse d'expédition" :visible.sync="dialogTableVisible">
-  <top-table :data="gridData">
-    <top-table-column property="date" label="Date" width="150"></top-table-column>
-    <top-table-column property="name" label="Nom" width="200"></top-table-column>
-    <top-table-column property="address" label="Adresse"></top-table-column>
-  </top-table>
-</top-dialog>
+<el-dialog title="Adresse d'expédition" :visible.sync="dialogTableVisible">
+  <el-table :data="gridData">
+    <el-table-column property="date" label="Date" width="150"></el-table-column>
+    <el-table-column property="name" label="Nom" width="200"></el-table-column>
+    <el-table-column property="address" label="Adresse"></el-table-column>
+  </el-table>
+</el-dialog>
 
 <!-- Form -->
-<top-button type="text" @click="dialogFormVisible = true">Ouvrir un modal avec formulaire</top-button>
+<el-button type="text" @click="dialogFormVisible = true">Ouvrir un modal avec formulaire</el-button>
 
-<top-dialog title="Adresse d'expédition" :visible.sync="dialogFormVisible">
-  <top-form :model="form">
-    <top-form-item label="Nom de promotion" :labtop-width="formLabelWidth">
-      <top-input v-model="form.name" autocomplete="off"></top-input>
-    </top-form-item>
-    <top-form-item label="Zones" :labtop-width="formLabelWidth">
-      <top-select v-model="form.region" placeholder="Sélectionnez une zone">
-        <top-option label="Zone No.1" value="shanghai"></top-option>
-        <top-option label="Zone No.2" value="beijing"></top-option>
-      </top-select>
-    </top-form-item>
-  </top-form>
+<el-dialog title="Adresse d'expédition" :visible.sync="dialogFormVisible">
+  <el-form :model="form">
+    <el-form-item label="Nom de promotion" :label-width="formLabelWidth">
+      <el-input v-model="form.name" autocomplete="off"></el-input>
+    </el-form-item>
+    <el-form-item label="Zones" :label-width="formLabelWidth">
+      <el-select v-model="form.region" placeholder="Sélectionnez une zone">
+        <el-option label="Zone No.1" value="shanghai"></el-option>
+        <el-option label="Zone No.2" value="beijing"></el-option>
+      </el-select>
+    </el-form-item>
+  </el-form>
   <span slot="footer" class="dialog-footer">
-    <top-button @click="dialogFormVisible = false">Annuler</top-button>
-    <top-button type="primary" @click="dialogFormVisible = false">Confirmer</top-button>
+    <el-button @click="dialogFormVisible = false">Annuler</el-button>
+    <el-button type="primary" @click="dialogFormVisible = false">Confirmer</el-button>
   </span>
-</top-dialog>
+</el-dialog>
 
 <script>
   export default {
@@ -135,20 +135,20 @@ Si un Dialog est imbriqué dans un autre Dialog, `append-to-body` est requis.
 :::demo Normalement l'utilisation de Dialog imbriqué est déconseillée. Si vous avez besoin de plusieurs Dialogs sur la page, vous pouvez les aplatir afin qu'ils soit au même niveau. SI vous devez absolument utiliser un Dialog imbriqué, configurez l'attribut `append-to-body` du Dialog imbriqué à `true` et il sera ajouté au body au lieu de son noeud parent, afin d'avoir un affichage correct.
 ```html
 <template>
-  <top-button type="text" @click="outerVisible = true">Ouvrir le modal extérieur</top-button>
+  <el-button type="text" @click="outerVisible = true">Ouvrir le modal extérieur</el-button>
 
-  <top-dialog title="Modal extérieur" :visible.sync="outerVisible">
-    <top-dialog
+  <el-dialog title="Modal extérieur" :visible.sync="outerVisible">
+    <el-dialog
         width="30%"
         title="Modal intérieur"
         :visible.sync="innerVisible"
         append-to-body>
-    </top-dialog>
+    </el-dialog>
     <div slot="footer" class="dialog-footer">
-      <top-button @click="outerVisible = false">Annuler</top-button>
-      <top-button type="primary" @click="innerVisible = true">Ouvrir le modal intérieur</top-button>
+      <el-button @click="outerVisible = false">Annuler</el-button>
+      <el-button type="primary" @click="innerVisible = true">Ouvrir le modal intérieur</el-button>
     </div>
-  </top-dialog>
+  </el-dialog>
 </template>
 
 <script>
@@ -171,19 +171,19 @@ Le contenu du modal peut être centré.
 :::demo Régler `center` à `true` centrera horizontalement le header et le footer. `center` n'affecte que le header et le footer. Le contenu du body pouvant être n'importe quoi, si vous désirez le centrer vous devrez ajouter des règles CSS.
 
 ```html
-<top-button type="text" @click="centerDialogVisible = true">Cliquez pour ouvrir le modal</top-button>
+<el-button type="text" @click="centerDialogVisible = true">Cliquez pour ouvrir le modal</el-button>
 
-<top-dialog
+<el-dialog
   title="Attention"
   :visible.sync="centerDialogVisible"
   width="30%"
   center>
   <span>Le contenu du modal n'est pas centré par défaut.</span>
   <span slot="footer" class="dialog-footer">
-    <top-button @click="centerDialogVisible = false">Annuler</top-button>
-    <top-button type="primary" @click="centerDialogVisible = false">Confirmer</top-button>
+    <el-button @click="centerDialogVisible = false">Annuler</el-button>
+    <el-button type="primary" @click="centerDialogVisible = false">Confirmer</el-button>
   </span>
-</top-dialog>
+</el-dialog>
 
 <script>
   export default {

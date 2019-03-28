@@ -10,20 +10,20 @@
 ```html
 <div class="block">
   <span class="demonstration">默认 click 触发子菜单</span>
-  <top-cascader
+  <el-cascader
     :options="options"
     v-model="selectedOptions"
     @change="handleChange">
-  </top-cascader>
+  </el-cascader>
 </div>
 <div class="block">
   <span class="demonstration">hover 触发子菜单</span>
-  <top-cascader
+  <el-cascader
     expand-trigger="hover"
     :options="options"
     v-model="selectedOptions2"
     @change="handleChange">
-  </top-cascader>
+  </el-cascader>
 </div>
 
 <script>
@@ -245,9 +245,9 @@
 
 :::demo 本例中，`options`指定的数组中的第一个元素含有`disabled: true`键值对，因此是禁用的。在默认情况下，Cascader 会检查数据中每一项的`disabled`字段是否为`true`，如果你的数据中表示禁用含义的字段名不为`disabled`，可以通过`props`属性来指定（详见下方 API 表格）。当然，`value`、`label`和`children`这三个字段名也可以通过同样的方式指定。
 ```html
-<top-cascader
+<el-cascader
   :options="optionsWithDisabled"
-></top-cascader>
+></el-cascader>
 <script>
   export default {
     data() {
@@ -461,10 +461,10 @@
 
 :::demo 属性`show-all-levels`定义了是否显示完整的路径，将其赋值为`false`则仅显示最后一级
 ```html
-<top-cascader
+<el-cascader
   :options="options"
   :show-all-levels="false"
-></top-cascader>
+></el-cascader>
 <script>
   export default {
     data() {
@@ -675,10 +675,10 @@
 
 :::demo 默认值通过数组的方式指定。
 ```html
-<top-cascader
+<el-cascader
   :options="options"
   v-model="selectedOptions3"
-></top-cascader>
+></el-cascader>
 <script>
   export default {
     data() {
@@ -892,10 +892,10 @@
 
 :::demo 若需要允许用户选择任意一级选项，则可将`change-on-select`赋值为`true`
 ```html
-<top-cascader
+<el-cascader
   :options="options"
   change-on-select
-></top-cascader>
+></el-cascader>
 <script>
   export default {
     data() {
@@ -1108,11 +1108,11 @@
 
 :::demo 本例的选项数据源在初始化时不包含城市数据。利用`active-item-change`事件，可以在用户点击某个省份时拉取该省份下的城市数据。此外，本例还展示了`props`属性的用法。
 ```html
-<top-cascader
+<el-cascader
   :options="options2"
   @active-item-change="handleItemChange"
   :props="props"
-></top-cascader>
+></el-cascader>
 
 <script>
   export default {
@@ -1161,20 +1161,20 @@
 ```html
 <div class="block">
   <span class="demonstration">只可选择最后一级菜单的选项</span>
-  <top-cascader
+  <el-cascader
     placeholder="试试搜索：指南"
     :options="options"
     filterable
-  ></top-cascader>
+  ></el-cascader>
 </div>
 <div class="block">
   <span class="demonstration">可选择任意一级菜单的选项</span>
-  <top-cascader
+  <el-cascader
     placeholder="试试搜索：指南"
     :options="options"
     filterable
     change-on-select
-  ></top-cascader>
+  ></el-cascader>
 </div>
 
 <script>
@@ -1386,10 +1386,9 @@
 ### Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
-| value / v-model | 绑定值 | boolean / string / number | — | — |
+| value / v-model | 选中项绑定值 | array | — | — |
 | options | 可选项数据源，键名可通过 `props` 属性配置 | array | — | — |
 | props | 配置选项，具体见下表 | object | — | — |
-| value | 选中项绑定值   | array | — | — |
 | separator | 选项分隔符 | string | — | 斜杠'/' |
 | popper-class | 自定义浮层类名   | string | —  | — |
 | placeholder | 输入框占位文本 | string | — | 请选择 |

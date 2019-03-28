@@ -16,7 +16,6 @@
       margin: 0 6px;
       font-weight: normal;
     }
-
   }
 
   @include e(item) {
@@ -35,27 +34,22 @@
           color: $--color-primary;
           cursor: pointer;
         }
-
       }
-
     }
 
     &:last-child {
-      .top-breadcrumb__inner, .top-breadcrumb__inner a {
+      .el-breadcrumb__inner,
+      .el-breadcrumb__inner a {
         &, &:hover {
           font-weight: normal;
           color: $--color-text-regular;
           cursor: text;
         }
-
       }
 
-      .top-breadcrumb__separator {
+      .el-breadcrumb__separator {
         display: none;
       }
-
     }
-
   }
-
 }

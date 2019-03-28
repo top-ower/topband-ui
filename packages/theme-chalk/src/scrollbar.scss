@@ -5,12 +5,13 @@
   overflow: hidden;
   position: relative;
 
-  &:hover, &:active, &:focus {
-    > .top-scrollbar__bar {
+  &:hover,
+  &:active,
+  &:focus {
+    > .el-scrollbar__bar {
       opacity: 1;
       transition: opacity 340ms ease-out;
     }
-
   }
 
   @include e(wrap) {
@@ -22,9 +23,7 @@
         width: 0;
         height: 0;
       }
-
     }
-
   }
 
   @include e(thumb) {
@@ -40,7 +39,6 @@
     &:hover {
       background-color: $--scrollbar-hover-background-color;
     }
-
   }
 
   @include e(bar) {
@@ -59,7 +57,6 @@
       > div {
         width: 100%;
       }
-
     }
 
     @include when(horizontal) {
@@ -69,9 +66,6 @@
       > div {
         height: 100%;
       }
-
     }
-
   }
-
 }

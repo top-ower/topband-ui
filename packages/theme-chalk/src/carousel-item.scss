@@ -10,19 +10,10 @@
     height: 100%;
     display: inline-block;
     overflow: hidden;
-
-    z-index:# {
-      $--index-normal - 1
-    }
-
-    ;
+    z-index: #{$--index-normal - 1};
 
     @include when(active) {
-      z-index:# {
-        $--index-normal + 1
-      }
-
-      ;
+      z-index: #{$--index-normal + 1};
     }
 
     @include when(animating) {
@@ -32,27 +23,18 @@
     @include m(card) {
       width: 50%;
       transition: transform .4s ease-in-out;
-
       &.is-in-stage {
         cursor: pointer;
         z-index: $--index-normal;
-
-        &:hover .top-carousel__mask, &.is-hover .top-carousel__mask {
+        &:hover .el-carousel__mask,
+        &.is-hover .el-carousel__mask {
           opacity: 0.12;
         }
-
       }
-
       &.is-active {
-        z-index:# {
-          $--index-normal + 1
-        }
-
-        ;
+        z-index: #{$--index-normal + 1};
       }
-
     }
-
   }
 
   @include e(mask) {
@@ -65,5 +47,4 @@
     opacity: 0.24;
     transition: .2s;
   }
-
 }

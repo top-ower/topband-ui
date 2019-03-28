@@ -1,8 +1,8 @@
-import TOPButton from './src/button';
+import ElButton from './src/button';
 
 /* istanbul ignore next */
-TOPButton.install = function(Vue) {
-  Vue.component(TOPButton.name, TOPButton);
+ElButton.install = function(Vue) {
+  Vue.component(ElButton.name, ElButton);
 };
 
-export default TOPButton;
+export default ElButton;

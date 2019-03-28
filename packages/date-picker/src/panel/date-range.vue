@@ -1,40 +1,40 @@
 <template>
-  <transition name="top-zoom-in-top" @after-leave="$emit('dodestroy')">
+  <transition name="el-zoom-in-top" @after-leave="$emit('dodestroy')">
     <div
       v-show="visible"
-      class="top-picker-panel top-date-range-picker top-popper"
+      class="el-picker-panel el-date-range-picker el-popper"
       :class="[{
         'has-sidebar': $slots.sidebar || shortcuts,
         'has-time': showTime
       }, popperClass]">
-      <div class="top-picker-panel__body-wrapper">
-        <slot name="sidebar" class="top-picker-panel__sidebar"></slot>
-        <div class="top-picker-panel__sidebar" v-if="shortcuts">
+      <div class="el-picker-panel__body-wrapper">
+        <slot name="sidebar" class="el-picker-panel__sidebar"></slot>
+        <div class="el-picker-panel__sidebar" v-if="shortcuts">
           <button
             type="button"
-            class="top-picker-panel__shortcut"
+            class="el-picker-panel__shortcut"
             v-for="(shortcut, key) in shortcuts"
             :key="key"
             @click="handleShortcutClick(shortcut)">{{shortcut.text}}</button>
         </div>
-        <div class="top-picker-panel__body">
-          <div class="top-date-range-picker__time-header" v-if="showTime">
-            <span class="top-date-range-picker__editors-wrap">
-              <span class="top-date-range-picker__time-picker-wrap">
-                <top-input
+        <div class="el-picker-panel__body">
+          <div class="el-date-range-picker__time-header" v-if="showTime">
+            <span class="el-date-range-picker__editors-wrap">
+              <span class="el-date-range-picker__time-picker-wrap">
+                <el-input
                   size="small"
                   :disabled="rangeState.selecting"
                   ref="minInput"
                   :placeholder="t('el.datepicker.startDate')"
-                  class="top-date-range-picker__editor"
+                  class="el-date-range-picker__editor"
                   :value="minVisibleDate"
                   @input="val => handleDateInput(val, 'min')"
                   @change="val => handleDateChange(val, 'min')" />
               </span>
-              <span class="top-date-range-picker__time-picker-wrap" v-clickoutside="handleMinTimeClose">
-                <top-input
+              <span class="el-date-range-picker__time-picker-wrap" v-clickoutside="handleMinTimeClose">
+                <el-input
                   size="small"
-                  class="top-date-range-picker__editor"
+                  class="el-date-range-picker__editor"
                   :disabled="rangeState.selecting"
                   :placeholder="t('el.datepicker.startTime')"
                   :value="minVisibleTime"
@@ -50,12 +50,12 @@
                 </time-picker>
               </span>
             </span>
-            <span class="top-icon-arrow-right"></span>
-            <span class="top-date-range-picker__editors-wrap is-right">
-              <span class="top-date-range-picker__time-picker-wrap">
-                <top-input
+            <span class="el-icon-arrow-right"></span>
+            <span class="el-date-range-picker__editors-wrap is-right">
+              <span class="el-date-range-picker__time-picker-wrap">
+                <el-input
                   size="small"
-                  class="top-date-range-picker__editor"
+                  class="el-date-range-picker__editor"
                   :disabled="rangeState.selecting"
                   :placeholder="t('el.datepicker.endDate')"
                   :value="maxVisibleDate"
@@ -63,10 +63,10 @@
                   @input="val => handleDateInput(val, 'max')"
                   @change="val => handleDateChange(val, 'max')" />
               </span>
-              <span class="top-date-range-picker__time-picker-wrap" v-clickoutside="handleMaxTimeClose">
-                <top-input
+              <span class="el-date-range-picker__time-picker-wrap" v-clickoutside="handleMaxTimeClose">
+                <el-input
                   size="small"
-                  class="top-date-range-picker__editor"
+                  class="el-date-range-picker__editor"
                   :disabled="rangeState.selecting"
                   :placeholder="t('el.datepicker.endTime')"
                   :value="maxVisibleTime"
@@ -84,30 +84,30 @@
               </span>
             </span>
           </div>
-          <div class="top-picker-panel__content top-date-range-picker__content is-left">
-            <div class="top-date-range-picker__header">
+          <div class="el-picker-panel__content el-date-range-picker__content is-left">
+            <div class="el-date-range-picker__header">
               <button
                 type="button"
                 @click="leftPrevYear"
-                class="top-picker-panel__icon-btn top-icon-d-arrow-left"></button>
+                class="el-picker-panel__icon-btn el-icon-d-arrow-left"></button>
               <button
                 type="button"
                 @click="leftPrevMonth"
-                class="top-picker-panel__icon-btn top-icon-arrow-left"></button>
+                class="el-picker-panel__icon-btn el-icon-arrow-left"></button>
               <button
                 type="button"
                 @click="leftNextYear"
                 v-if="unlinkPanels"
                 :disabled="!enableYearArrow"
                 :class="{ 'is-disabled': !enableYearArrow }"
-                class="top-picker-panel__icon-btn top-icon-d-arrow-right"></button>
+                class="el-picker-panel__icon-btn el-icon-d-arrow-right"></button>
               <button
                 type="button"
                 @click="leftNextMonth"
                 v-if="unlinkPanels"
                 :disabled="!enableMonthArrow"
                 :class="{ 'is-disabled': !enableMonthArrow }"
-                class="top-picker-panel__icon-btn top-icon-arrow-right"></button>
+                class="el-picker-panel__icon-btn el-icon-arrow-right"></button>
               <div>{{ leftLabel }}</div>
             </div>
             <date-table
@@ -123,30 +123,30 @@
               @pick="handleRangePick">
             </date-table>
           </div>
-          <div class="top-picker-panel__content top-date-range-picker__content is-right">
-            <div class="top-date-range-picker__header">
+          <div class="el-picker-panel__content el-date-range-picker__content is-right">
+            <div class="el-date-range-picker__header">
               <button
                 type="button"
                 @click="rightPrevYear"
                 v-if="unlinkPanels"
                 :disabled="!enableYearArrow"
                 :class="{ 'is-disabled': !enableYearArrow }"
-                class="top-picker-panel__icon-btn top-icon-d-arrow-left"></button>
+                class="el-picker-panel__icon-btn el-icon-d-arrow-left"></button>
               <button
                 type="button"
                 @click="rightPrevMonth"
                 v-if="unlinkPanels"
                 :disabled="!enableMonthArrow"
                 :class="{ 'is-disabled': !enableMonthArrow }"
-                class="top-picker-panel__icon-btn top-icon-arrow-left"></button>
+                class="el-picker-panel__icon-btn el-icon-arrow-left"></button>
               <button
                 type="button"
                 @click="rightNextYear"
-                class="top-picker-panel__icon-btn top-icon-d-arrow-right"></button>
+                class="el-picker-panel__icon-btn el-icon-d-arrow-right"></button>
               <button
                 type="button"
                 @click="rightNextMonth"
-                class="top-picker-panel__icon-btn top-icon-arrow-right"></button>
+                class="el-picker-panel__icon-btn el-icon-arrow-right"></button>
               <div>{{ rightLabel }}</div>
             </div>
             <date-table
@@ -164,22 +164,22 @@
           </div>
         </div>
       </div>
-      <div class="top-picker-panel__footer" v-if="showTime">
-        <top-button
+      <div class="el-picker-panel__footer" v-if="showTime">
+        <el-button
           size="mini"
           type="text"
-          class="top-picker-panel__link-btn"
+          class="el-picker-panel__link-btn"
           @click="handleClear">
           {{ t('el.datepicker.clear') }}
-        </top-button>
-        <top-button
+        </el-button>
+        <el-button
           plain
           size="mini"
-          class="top-picker-panel__link-btn"
+          class="el-picker-panel__link-btn"
           :disabled="btnDisabled"
           @click="handleConfirm(false)">
           {{ t('el.datepicker.confirm') }}
-        </top-button>
+        </el-button>
       </div>
     </div>
   </transition>
@@ -197,27 +197,24 @@
     nextYear,
     prevMonth,
     nextMonth,
+    nextDate,
     extractDateFormat,
     extractTimeFormat
   } from '../util';
-  import Clickoutside from 'topband-ui/src/utils/clickoutside';
-  import Locale from 'topband-ui/src/mixins/locale';
+  import Clickoutside from 'element-ui/src/utils/clickoutside';
+  import Locale from 'element-ui/src/mixins/locale';
   import TimePicker from './time';
   import DateTable from '../basic/date-table';
-  import TOPInput from 'topband-ui/packages/input';
-  import TOPButton from 'topband-ui/packages/button';
-
-  const advanceDate = (date, amount) => {
-    return new Date(new Date(date).getTime() + amount);
-  };
+  import ElInput from 'element-ui/packages/input';
+  import ElButton from 'element-ui/packages/button';
 
   const calcDefaultValue = (defaultValue) => {
     if (Array.isArray(defaultValue)) {
       return [new Date(defaultValue[0]), new Date(defaultValue[1])];
     } else if (defaultValue) {
-      return [new Date(defaultValue), advanceDate(defaultValue, 24 * 60 * 60 * 1000)];
+      return [new Date(defaultValue), nextDate(new Date(defaultValue), 1)];
     } else {
-      return [new Date(), advanceDate(Date.now(), 24 * 60 * 60 * 1000)];
+      return [new Date(), nextDate(new Date(), 1)];
     }
   };
 
@@ -674,6 +671,6 @@
       }
     },
 
-    components: { TimePicker, DateTable, TOPInput, TOPButton }
+    components: { TimePicker, DateTable, ElInput, ElButton }
   };
 </script>

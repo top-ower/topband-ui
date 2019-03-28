@@ -1,6 +1,6 @@
 <template>
   <div
-    class="top-tree-node"
+    class="el-tree-node"
     @click.stop="handleClick"
     @contextmenu="($event) => this.handleContextMenu($event)"
     v-show="node.visible"
@@ -23,18 +23,18 @@
     @drop.stop="handleDrop"
     ref="node"
   >
-    <div class="top-tree-node__content"
+    <div class="el-tree-node__content"
       :style="{ 'padding-left': (node.level - 1) * tree.indent + 'px' }">
       <span
         @click.stop="handleExpandIconClick"
         :class="[
           { 'is-leaf': node.isLeaf, expanded: !node.isLeaf && expanded },
-          'top-tree-node__expand-icon',
-          tree.iconClass ? tree.iconClass : 'top-icon-caret-right'
+          'el-tree-node__expand-icon',
+          tree.iconClass ? tree.iconClass : 'el-icon-caret-right'
         ]"
       >
       </span>
-      <top-checkbox
+      <el-checkbox
         v-if="showCheckbox"
         v-model="node.checked"
         :indeterminate="node.indeterminate"
@@ -42,22 +42,22 @@
         @click.native.stop
         @change="handleCheckChange"
       >
-      </top-checkbox>
+      </el-checkbox>
       <span
         v-if="node.loading"
-        class="top-tree-node__loading-icon top-icon-loading">
+        class="el-tree-node__loading-icon el-icon-loading">
       </span>
       <node-content :node="node"></node-content>
     </div>
-    <top-collapse-transition>
+    <el-collapse-transition>
       <div
-        class="top-tree-node__children"
+        class="el-tree-node__children"
         v-if="!renderAfterExpand || childNodeRendered"
         v-show="expanded"
         role="group"
         :aria-expanded="expanded"
       >
-        <top-tree-node
+        <el-tree-node
           :render-content="renderContent"
           v-for="child in node.childNodes"
           :render-after-expand="renderAfterExpand"
@@ -65,16 +65,16 @@
           :key="getNodeKey(child)"
           :node="child"
           @node-expand="handleChildNodeExpand">
-        </top-tree-node>
+        </el-tree-node>
       </div>
-    </top-collapse-transition>
+    </el-collapse-transition>
   </div>
 </template>
 
 <script type="text/jsx">
-  import ElCollapseTransition from 'topband-ui/src/transitions/collapse-transition';
-  import ElCheckbox from 'topband-ui/packages/checkbox';
-  import emitter from 'topband-ui/src/mixins/emitter';
+  import ElCollapseTransition from 'element-ui/src/transitions/collapse-transition';
+  import ElCheckbox from 'element-ui/packages/checkbox';
+  import emitter from 'element-ui/src/mixins/emitter';
   import { getNodeKey } from './model/util';
 
   export default {
@@ -121,7 +121,7 @@
               ? parent.renderContent.call(parent._renderProxy, h, { _self: tree.$vnode.context, node, data, store })
               : tree.$scopedSlots.default
                 ? tree.$scopedSlots.default({ node, data })
-                : <span class="top-tree-node__label">{ node.label }</span>
+                : <span class="el-tree-node__label">{ node.label }</span>
           );
         }
       }

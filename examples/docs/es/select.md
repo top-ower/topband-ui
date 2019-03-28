@@ -4,18 +4,18 @@ Cuando haya muchas opciones, utilice un menú desplegable para mostrar y selecci
 
 ### Uso básico
 
-:::demo `v-model` es el valor de  `top-option` que está seleccionado actualmente.
+:::demo `v-model` es el valor de  `el-option` que está seleccionado actualmente.
 
 ```html
 <template>
-  <top-select v-model="value" placeholder="Select">
-    <top-option
+  <el-select v-model="value" placeholder="Select">
+    <el-option
       v-for="item in options"
       :key="item.value"
       :label="item.label"
       :value="item.value">
-    </top-option>
-  </top-select>
+    </el-option>
+  </el-select>
 </template>
 
 <script>
@@ -46,21 +46,21 @@ Cuando haya muchas opciones, utilice un menú desplegable para mostrar y selecci
 ```
 :::
 
-### Disabled en top-option
+### Disabled en el-option
 
-:::demo Establezca el valor de `disabled` en `top-option`  como `true` para deshabilitar esta opción.
+:::demo Establezca el valor de `disabled` en `el-option`  como `true` para deshabilitar esta opción.
 
 ```html
 <template>
-  <top-select v-model="value2" placeholder="Select">
-    <top-option
+  <el-select v-model="value2" placeholder="Select">
+    <el-option
       v-for="item in options2"
       :key="item.value"
       :label="item.label"
       :value="item.value"
       :disabled="item.disabled">
-    </top-option>
-  </top-select>
+    </el-option>
+  </el-select>
 </template>
 
 <script>
@@ -92,22 +92,22 @@ Cuando haya muchas opciones, utilice un menú desplegable para mostrar y selecci
 ```
 :::
 
-### Disabled en top-select
+### Disabled en el-select
 
 Desactivar todo el componente.
 
-:::demo Configure `disabled` de `top-select` para deshabilitarla.
+:::demo Configure `disabled` de `el-select` para deshabilitarla.
 
 ```html
 <template>
-  <top-select v-model="value3" disabled placeholder="Select">
-    <top-option
+  <el-select v-model="value3" disabled placeholder="Select">
+    <el-option
       v-for="item in options"
       :key="item.value"
       :label="item.label"
       :value="item.value">
-    </top-option>
-  </top-select>
+    </el-option>
+  </el-select>
 </template>
 
 <script>
@@ -142,18 +142,18 @@ Desactivar todo el componente.
 
 Puede limpiar un Select con un icono.
 
-:::demo Establezca el atributo `clearable` para `top-select`  y aparecerá un icono. Tenga en cuenta que la opción `clearable` es sólo para una selección individual.
+:::demo Establezca el atributo `clearable` para `el-select`  y aparecerá un icono. Tenga en cuenta que la opción `clearable` es sólo para una selección individual.
 
 ```html
 <template>
-  <top-select v-model="value4" clearable placeholder="Select">
-    <top-option
+  <el-select v-model="value4" clearable placeholder="Select">
+    <el-option
       v-for="item in options"
       :key="item.value"
       :label="item.label"
       :value="item.value">
-    </top-option>
-  </top-select>
+    </el-option>
+  </el-select>
 </template>
 
 <script>
@@ -188,32 +188,32 @@ Puede limpiar un Select con un icono.
 
 Selección multiple utiliza tags para mostrar las opciones seleccionadas.
 
-:::demo Configure el atributo `multiple` para `top-select` para habilitar el modo múltiple. En este caso, el valor del `v-model` será un array de opciones seleccionadas. De forma predeterminada, las opciones seleccionadas se mostrarán como tags. Se pueden contraer a un texto utilizando el atributo  `collapse-tags`.
+:::demo Configure el atributo `multiple` para `el-select` para habilitar el modo múltiple. En este caso, el valor del `v-model` será un array de opciones seleccionadas. De forma predeterminada, las opciones seleccionadas se mostrarán como tags. Se pueden contraer a un texto utilizando el atributo  `collapse-tags`.
 
 ```html
 <template>
-  <top-select v-model="value5" multiple placeholder="Select">
-    <top-option
+  <el-select v-model="value5" multiple placeholder="Select">
+    <el-option
       v-for="item in options"
       :key="item.value"
       :label="item.label"
       :value="item.value">
-    </top-option>
-  </top-select>
+    </el-option>
+  </el-select>
 
-  <top-select
+  <el-select
     v-model="value11"
     multiple
     collapse-tags
     style="margin-left: 20px;"
     placeholder="Select">
-    <top-option
+    <el-option
         v-for="item in options"
         :key="item.value"
         :label="item.label"
         :value="item.value">
-    </top-option>
-  </top-select>
+    </el-option>
+  </el-select>
 </template>
 
 <script>
@@ -248,20 +248,20 @@ Selección multiple utiliza tags para mostrar las opciones seleccionadas.
 
 Puede personalizar templates HTML para las opciones.
 
-:::demo Inserte templates HTML personalizados en el slot de `top-option`.
+:::demo Inserte templates HTML personalizados en el slot de `el-option`.
 
 ```html
 <template>
-  <top-select v-model="value6" placeholder="Select">
-    <top-option
+  <el-select v-model="value6" placeholder="Select">
+    <el-option
       v-for="item in cities"
       :key="item.value"
       :label="item.label"
       :value="item.value">
       <span style="float: left">{{ item.label }}</span>
       <span style="float: right; color: #8492a6; font-size: 13px">{{ item.value }}</span>
-    </top-option>
-  </top-select>
+    </el-option>
+  </el-select>
 </template>
 
 <script>
@@ -299,23 +299,23 @@ Puede personalizar templates HTML para las opciones.
 
 Mostrar opciones en grupos.
 
-:::demo Utilice `top-option-group` para agrupar las opciones, y su atributo `label` representa el nombre del grupo.
+:::demo Utilice `el-option-group` para agrupar las opciones, y su atributo `label` representa el nombre del grupo.
 
 ```html
 <template>
-  <top-select v-model="value7" placeholder="Select">
-    <top-option-group
+  <el-select v-model="value7" placeholder="Select">
+    <el-option-group
       v-for="group in options3"
       :key="group.label"
       :label="group.label">
-      <top-option
+      <el-option
         v-for="item in group.options"
         :key="item.value"
         :label="item.label"
         :value="item.value">
-      </top-option>
-    </top-option-group>
-  </top-select>
+      </el-option>
+    </el-option-group>
+  </el-select>
 </template>
 
 <script>
@@ -359,18 +359,18 @@ Mostrar opciones en grupos.
 
 Puede filtrar opciones como lo desee.
 
-:::demo Añadir `filterable` a `top-select` permite filtrar. Por defecto, Select buscará todas las opciones cuyo atributo`label` contenga el valor del input. Si prefiere otras estrategias de filtrado, puede pasar el `filter-method`. `filter-method` es una función que se llama cuando el valor del input cambia, y su parámetro es el valor del input actual.
+:::demo Añadir `filterable` a `el-select` permite filtrar. Por defecto, Select buscará todas las opciones cuyo atributo`label` contenga el valor del input. Si prefiere otras estrategias de filtrado, puede pasar el `filter-method`. `filter-method` es una función que se llama cuando el valor del input cambia, y su parámetro es el valor del input actual.
 
 ```html
 <template>
-  <top-select v-model="value8" filterable placeholder="Select">
-    <top-option
+  <el-select v-model="value8" filterable placeholder="Select">
+    <el-option
       v-for="item in options"
       :key="item.value"
       :label="item.label"
       :value="item.value">
-    </top-option>
-  </top-select>
+    </el-option>
+  </el-select>
 </template>
 
 <script>
@@ -405,11 +405,11 @@ Puede filtrar opciones como lo desee.
 
 Introduzca palabras y datos para buscar desde el servidor.
 
-:::demo Configure el valor de `filterable` y `remote` con `true` para habilitar la búsqueda remota, y debería pasar el método `remote-method`. `remote-method` es una función que se llama cuando el valor del input cambia, y su parámetro es el valor del input actual. Tenga en cuenta que si `top-option` se presenta con la directiva `v-for`, debe agregar el atributo `key` para `top-option`. Su valor tiene que ser unívoco, como el valor de `item.value` en el ejemplo siguiente.
+:::demo Configure el valor de `filterable` y `remote` con `true` para habilitar la búsqueda remota, y debería pasar el método `remote-method`. `remote-method` es una función que se llama cuando el valor del input cambia, y su parámetro es el valor del input actual. Tenga en cuenta que si `el-option` se presenta con la directiva `v-for`, debe agregar el atributo `key` para `el-option`. Su valor tiene que ser unívoco, como el valor de `item.value` en el ejemplo siguiente.
 
 ```html
 <template>
-  <top-select
+  <el-select
     v-model="value9"
     multiple
     filterable
@@ -418,13 +418,13 @@ Introduzca palabras y datos para buscar desde el servidor.
     placeholder="Please enter a keyword"
     :remote-method="remoteMethod"
     :loading="loading">
-    <top-option
+    <el-option
       v-for="item in options4"
       :key="item.value"
       :label="item.label"
       :value="item.value">
-    </top-option>
-  </top-select>
+    </el-option>
+  </el-select>
 </template>
 
 <script>
@@ -487,19 +487,19 @@ Crear y seleccionar nuevos items que no están incluidas en las opciones de sele
 
 ```html
 <template>
-  <top-select
+  <el-select
     v-model="value10"
     multiple
     filterable
     allow-create
     placeholder="Choose tags for your article">
-    <top-option
+    <el-option
       v-for="item in options5"
       :key="item.value"
       :label="item.label"
       :value="item.value">
-    </top-option>
-  </top-select>
+    </el-option>
+  </el-select>
 </template>
 
 <script>

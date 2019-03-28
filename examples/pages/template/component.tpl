@@ -3,7 +3,7 @@
     height: calc(100% - 80px);
     margin-top: 80px;
 
-    .top-scrollbar__wrap {
+    .el-scrollbar__wrap {
       overflow-x: auto;
     }
   }
@@ -24,7 +24,7 @@
       margin-top: 80px;
       transition: padding-top .3s;
 
-      .top-scrollbar__wrap {
+      .el-scrollbar__wrap {
         height: 100%;
       }
 
@@ -196,11 +196,11 @@
   }
 </style>
 <template>
-  <top-scrollbar class="page-component__scroll" ref="componentScrollBar">
+  <el-scrollbar class="page-component__scroll" ref="componentScrollBar">
   <div class="page-container page-component" :class="{'theme-config': isThemeConfigVisible}">
-    <top-scrollbar class="page-component__nav">
+    <el-scrollbar class="page-component__nav">
       <side-nav :data="navsData[lang]" :base="`/${ lang }/component`"></side-nav>
-    </top-scrollbar>
+    </el-scrollbar>
     <div class="page-component__content" :class="{'theme-config': isThemeConfigVisible}">
       <router-view class="content"></router-view>
       <footer-nav></footer-nav>
@@ -213,11 +213,11 @@
         @mouseenter="hover = true"
         @mouseleave="hover = false"
         @click="toTop">
-        <i class="top-icon-caret-top"></i>
+        <i class="el-icon-caret-top"></i>
       </div>
     </transition>
   </div>
-  </top-scrollbar>
+  </el-scrollbar>
 </template>
 <script>
   import bus from '../../bus';
@@ -305,7 +305,7 @@
         this.isThemeConfigVisible = window.userThemeConfigVisible;
       }
       this.componentScrollBar = this.$refs.componentScrollBar;
-      this.componentScrollBox = this.componentScrollBar.$el.querySelector('.top-scrollbar__wrap');
+      this.componentScrollBox = this.componentScrollBar.$el.querySelector('.el-scrollbar__wrap');
       this.throttledScrollHandler = throttle(300, this.handleScroll);
       this.componentScrollBox.addEventListener('scroll', this.throttledScrollHandler);
       this.renderAnchorHref();

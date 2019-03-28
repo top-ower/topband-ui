@@ -12,23 +12,23 @@ El valor actual se muestra cuando se inicia el arrastre del slider.
 <template>
   <div class="block">
     <span class="demonstration">Default value</span>
-    <top-slider v-model="value1"></top-slider>
+    <el-slider v-model="value1"></el-slider>
   </div>
   <div class="block">
     <span class="demonstration">Customized initial value</span>
-    <top-slider v-model="value2"></top-slider>
+    <el-slider v-model="value2"></el-slider>
   </div>
   <div class="block">
     <span class="demonstration">Hide Tooltip</span>
-    <top-slider v-model="value3" :show-tooltip="false"></top-slider>
+    <el-slider v-model="value3" :show-tooltip="false"></el-slider>
   </div>
   <div class="block">
     <span class="demonstration">Format Tooltip</span>
-    <top-slider v-model="value4" :format-tooltip="formatTooltip"></top-slider>
+    <el-slider v-model="value4" :format-tooltip="formatTooltip"></el-slider>
   </div>
   <div class="block">
     <span class="demonstration">Disabled</span>
-    <top-slider v-model="value5" disabled></top-slider>
+    <el-slider v-model="value5" disabled></el-slider>
   </div>
 </template>
 
@@ -63,18 +63,18 @@ Las opciones pueden ser discretas.
 <template>
   <div class="block">
     <span class="demonstration">Breakpoints not displayed</span>
-    <top-slider
+    <el-slider
       v-model="value6"
       :step="10">
-    </top-slider>
+    </el-slider>
   </div>
   <div class="block">
     <span class="demonstration">Breakpoints displayed</span>
-    <top-slider
+    <el-slider
       v-model="value7"
       :step="10"
       show-stops>
-    </top-slider>
+    </el-slider>
   </div>
 </template>
 
@@ -100,10 +100,10 @@ Inserte el valor a traves de un input
 ```html
 <template>
   <div class="block">
-    <top-slider
+    <el-slider
       v-model="value8"
       show-input>
-    </top-slider>
+    </el-slider>
   </div>
 </template>
 
@@ -128,12 +128,12 @@ Se soporta la selección de un rango de valores.
 ```html
 <template>
   <div class="block">
-    <top-slider
+    <el-slider
       v-model="value9"
       range
       show-stops
       :max="10">
-    </top-slider>
+    </el-slider>
   </div>
 </template>
 
@@ -156,11 +156,11 @@ Se soporta la selección de un rango de valores.
 ```html
 <template>
   <div class="block">
-    <top-slider
+    <el-slider
       v-model="value10"
       vertical
       height="200px">
-    </top-slider>
+    </el-slider>
   </div>
 </template>
 

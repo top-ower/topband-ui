@@ -20,7 +20,6 @@
     @include e((main, description)) {
       padding-right: 0;
     }
-
   }
 
   @include e(head) {
@@ -51,7 +50,6 @@
       color: $--color-primary;
       border-color: $--color-primary;
     }
-
   }
 
   @include e(icon) {
@@ -76,7 +74,6 @@
     @include when(icon) {
       width: 40px;
     }
-
   }
 
   @include e(icon-inner) {
@@ -87,7 +84,7 @@
     line-height: 1;
     color: inherit;
 
-    &[class*=top-icon]:not(.is-status) {
+    &[class*=el-icon]:not(.is-status) {
       font-size: 25px;
       font-weight: normal;
     }
@@ -96,7 +93,6 @@
     @include when(status) {
       transform: translateY(1px);
     }
-
   }
 
   @include e(line) {
@@ -145,7 +141,6 @@
     @include when(finish) {
       color: $--color-primary;
     }
-
   }
 
   @include e(description) {
@@ -174,7 +169,6 @@
     @include when(finish) {
       color: $--color-primary;
     }
-
   }
 
   @include when(horizontal) {
@@ -186,7 +180,6 @@
       left: 0;
       right: 0;
     }
-
   }
 
   @include when(vertical) {
@@ -218,12 +211,11 @@
       @include when(icon) {
         width: 24px;
       }
-
     }
-
   }
 
   @include when(center) {
+
     @include e(head) {
       text-align: center;
     }
@@ -241,7 +233,6 @@
       left: 50%;
       right: -50%;
     }
-
   }
 
   @include when(simple) {
@@ -262,14 +253,13 @@
     }
 
     @include e(icon-inner) {
-      &[class*=top-icon]:not(.is-status) {
+      &[class*=el-icon]:not(.is-status) {
         font-size: 18px;
       }
 
       &.is-status {
         transform: scale(.8) translateY(1px);
       }
-
     }
 
     @include e(main) {
@@ -289,7 +279,6 @@
         max-width: 50%;
         word-break: break-all;
       }
-
     }
 
     @include e(arrow) {
@@ -298,7 +287,8 @@
       align-items: center;
       justify-content: center;
 
-      &::before, &::after {
+      &::before,
+      &::after {
         content: '';
         display: inline-block;
         position: absolute;
@@ -316,16 +306,12 @@
         transform: rotate(45deg) translateY(4px);
         transform-origin: 100% 100%;
       }
-
     }
 
     @include pseudo(last-of-type) {
       @include e(arrow) {
         display: none;
       }
-
     }
-
   }
-
 }

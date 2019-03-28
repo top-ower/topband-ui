@@ -1,17 +1,17 @@
 <template>
   <div
-    class="top-slider"
-    :class="{ 'is-vertical': vertical, 'top-slider--with-input': showInput }"
+    class="el-slider"
+    :class="{ 'is-vertical': vertical, 'el-slider--with-input': showInput }"
     role="slider"
     :aria-valuemin="min"
     :aria-valuemax="max"
     :aria-orientation="vertical ? 'vertical': 'horizontal'"
     :aria-disabled="sliderDisabled"
   >
-    <top-input-number
+    <el-input-number
       v-model="firstValue"
       v-if="showInput && !range"
-      class="top-slider__input"
+      class="el-slider__input"
       ref="input"
       @change="$nextTick(emitChange)"
       :step="step"
@@ -21,15 +21,15 @@
       :max="max"
       :debounce="debounce"
       :size="inputSize">
-    </top-input-number>
+    </el-input-number>
     <div
-      class="top-slider__runway"
+      class="el-slider__runway"
       :class="{ 'show-input': showInput, 'disabled': sliderDisabled }"
       :style="runwayStyle"
       @click="onSliderClick"
       ref="slider">
       <div
-        class="top-slider__bar"
+        class="el-slider__bar"
         :style="barStyle">
       </div>
       <slider-button
@@ -46,7 +46,7 @@
         v-if="range">
       </slider-button>
       <div
-        class="top-slider__stop"
+        class="el-slider__stop"
         v-for="(item, key) in stops"
         :key="key"
         :style="vertical ? { 'bottom': item + '%' } : { 'left': item + '%' }"
@@ -57,9 +57,9 @@
 </template>
 
 <script type="text/babel">
-  import ElInputNumber from 'topband-ui/packages/input-number';
+  import ElInputNumber from 'element-ui/packages/input-number';
   import SliderButton from './button.vue';
-  import Emitter from 'topband-ui/src/mixins/emitter';
+  import Emitter from 'element-ui/src/mixins/emitter';
 
   export default {
     name: 'ElSlider',

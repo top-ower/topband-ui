@@ -11,7 +11,7 @@ import { ElButton } from './button'
 import { ElButtonGroup } from './button-group'
 import { ElCard } from './card'
 import { ElCarousel } from './carousel'
-import { ElCarouselItem } from './caroustop-item'
+import { ElCarouselItem } from './carousel-item'
 import { ElCascader } from './cascader'
 import { ElCheckbox } from './checkbox'
 import { ElCheckboxButton } from './checkbox-button'
@@ -76,11 +76,11 @@ export interface InstallationOptions {
   size: string
 }
 
-/** The version of topband-ui */
+/** The version of element-ui */
 export const version: string
 
 /**
- * Install all topband-ui components into Vue.
+ * Install all element-ui components into Vue.
  * Please do not invoke this method directly.
  * Call `Vue.use(ElementUI)` to install.
  */

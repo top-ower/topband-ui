@@ -10,7 +10,8 @@
   font-weight: bold;
   @include utils-clearfix;
 
-  span:not([class*=suffix]), button {
+  span:not([class*=suffix]),
+  button {
     display: inline-block;
     font-size: $--pagination-font-size;
     min-width: $--pagination-button-width;
@@ -20,27 +21,26 @@
     box-sizing: border-box;
   }
 
-  .top-input__inner {
+  .el-input__inner {
     text-align: center;
     -moz-appearance: textfield;
     line-height: normal;
   }
 
   // pagesize 的下拉 icon
-  .top-input__suffix {
+  .el-input__suffix {
     right: 0;
     transform: scale(.8);
   }
 
-  .top-select .top-input {
+  .el-select .el-input {
     width: 100px;
     margin: 0 5px;
 
-    .top-input__inner {
+    .el-input__inner {
       padding-right: 25px;
       border-radius: $--pagination-border-radius;
     }
-
   }
 
   button {
@@ -61,10 +61,10 @@
       background-color: $--pagination-button-disabled-fill;
       cursor: not-allowed;
     }
-
   }
 
-  .btn-prev, .btn-next {
+  .btn-prev,
+  .btn-next {
     background: center center no-repeat;
     background-size: 16px;
     background-color: $--pagination-fill;
@@ -72,12 +72,11 @@
     margin: 0;
     color: $--pagination-button-color;
 
-    .top-icon {
+    .el-icon {
       display: block;
       font-size: 12px;
       font-weight: bold;
     }
-
   }
 
   .btn-prev {
@@ -85,16 +84,21 @@
   }
 
   .btn-next {
-    padding-left: 12px;
+    padding-left: 12px;    
   }
 
-  .top-pager li.disabled {
+  .el-pager li.disabled {
     color: $--color-text-placeholder;
     cursor: not-allowed;
   }
 
   @include m(small) {
-    .btn-prev, .btn-next, .top-pager li, .top-pager li.btn-quicknext, .top-pager li.btn-quickprev, .top-pager li:last-child {
+    .btn-prev,
+    .btn-next,
+    .el-pager li,
+    .el-pager li.btn-quicknext,
+    .el-pager li.btn-quickprev,
+    .el-pager li:last-child {
       border-color: transparent;
       font-size: 12px;
       line-height: 22px;
@@ -106,24 +110,23 @@
       visibility: hidden;
     }
 
-    .more::before, li.more::before {
+    .more::before,
+    li.more::before {
       line-height: 24px;
     }
 
-    span:not([class*=suffix]), button {
+    span:not([class*=suffix]),
+    button {
       height: 22px;
       line-height: 22px;
     }
 
     @include e(editor) {
       height: 22px;
-
-      &.top-input .top-input__inner {
+      &.el-input .el-input__inner {
         height: 22px;
       }
-
     }
-
   }
 
   @include e(sizes) {
@@ -131,16 +134,14 @@
     font-weight: normal;
     color: $--color-text-regular;
 
-    .top-input .top-input__inner {
+    .el-input .el-input__inner {
       font-size: $--pagination-font-size;
       padding-left: 8px;
 
       &:hover {
         border-color: $--pagination-hover-fill;
       }
-
     }
-
   }
 
   @include e(total) {
@@ -154,10 +155,9 @@
     font-weight: normal;
     color: $--color-text-regular;
 
-    .top-input__inner {
+    .el-input__inner {
       padding: 0 3px;
     }
-
   }
 
   @include e(rightwrapper) {
@@ -168,28 +168,31 @@
     line-height: 18px;
     padding: 0 2px;
     height: $--pagination-button-height;
+      
     text-align: center;
     margin: 0 2px;
     box-sizing: border-box;
     border-radius: $--pagination-border-radius;
 
-    &.top-input {
+    &.el-input {
       width: 50px;
     }
 
-    &.top-input .top-input__inner {
+    &.el-input .el-input__inner {
       height: $--pagination-button-height;
     }
 
-    .top-input__inner::-webkit-inner-spin-button, .top-input__inner::-webkit-outer-spin-button {
+    .el-input__inner::-webkit-inner-spin-button,
+    .el-input__inner::-webkit-outer-spin-button {
       -webkit-appearance: none;
       margin: 0;
     }
-
   }
 
   @include when(background) {
-    .btn-prev, .btn-next, .top-pager li {
+    .btn-prev,
+    .btn-next,
+    .el-pager li {
       margin: 0 5px;
       background-color: $--color-info-lighter;
       color: $--color-text-regular;
@@ -199,7 +202,6 @@
       &.disabled {
         color: $--color-text-placeholder;
       }
-
     }
 
     .btn-prev, .btn-next {
@@ -208,10 +210,9 @@
       &:disabled {
         color: $--color-text-placeholder;
       }
-
     }
 
-    .top-pager li:not(.disabled) {
+    .el-pager li:not(.disabled) {
       &:hover {
         color: $--pagination-hover-fill;
       }
@@ -220,19 +221,17 @@
         background-color: $--color-primary;
         color: $--color-white;
       }
-
     }
 
-    &.top-pagination--small {
-      .btn-prev, .btn-next, .top-pager li {
+    &.el-pagination--small {
+      .btn-prev,
+      .btn-next,
+      .el-pager li {
         margin: 0 3px;
         min-width: 22px;
       }
-
     }
-
   }
-
 }
 
 @include b(pager) {
@@ -262,14 +261,14 @@
     text-align: center;
     margin: 0;
 
-    &.btn-quicknext, &.btn-quickprev {
+    &.btn-quicknext,
+    &.btn-quickprev {
       line-height: 28px;
       color: $--pagination-button-color;
 
       &.disabled {
         color: $--color-text-placeholder;
       }
-
     }
 
     &.btn-quickprev:hover {
@@ -292,7 +291,5 @@
       color: $--pagination-hover-fill;
       cursor: default;
     }
-
   }
-
 }

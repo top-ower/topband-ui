@@ -2,10 +2,9 @@
 
 @include b(time-spinner) {
   &.has-seconds {
-    .top-time-spinner__wrapper {
+    .el-time-spinner__wrapper {
       width: 33.3%;
     }
-
   }
 
   @include e(wrapper) {
@@ -16,7 +15,7 @@
     vertical-align: top;
     position: relative;
 
-    & .top-scrollbar__wrap:not(.top-scrollbar__wrap--hidden-default) {
+    & .el-scrollbar__wrap:not(.el-scrollbar__wrap--hidden-default) {
       padding-bottom: 15px;
     }
 
@@ -25,17 +24,15 @@
       text-align: center;
       overflow: hidden;
 
-      .top-time-spinner__list {
+      .el-time-spinner__list {
         transform: translateY(-32px);
       }
 
-      .top-time-spinner__item:hover:not(.disabled):not(.active) {
+      .el-time-spinner__item:hover:not(.disabled):not(.active) {
         background: $--color-white;
         cursor: default;
       }
-
     }
-
   }
 
   @include e(arrow) {
@@ -54,27 +51,24 @@
       color: $--color-primary;
     }
 
-    &.top-icon-arrow-up {
+    &.el-icon-arrow-up {
       top: 10px;
     }
 
-    &.top-icon-arrow-down {
+    &.el-icon-arrow-down {
       bottom: 10px;
     }
-
   }
 
   @include e(input) {
-    &.top-input {
+    &.el-input {
       width: 70%;
 
-      .top-input__inner {
+      .el-input__inner {
         padding: 0;
         text-align: center;
       }
-
     }
-
   }
 
   @include e(list) {
@@ -83,13 +77,13 @@
     list-style: none;
     text-align: center;
 
-    &::after, &::before {
+    &::after,
+    &::before {
       content: '';
       display: block;
       width: 100%;
       height: 80px;
     }
-
   }
 
   @include e(item) {
@@ -112,7 +106,5 @@
       color: $--color-text-placeholder;
       cursor: not-allowed;
     }
-
   }
-
 }

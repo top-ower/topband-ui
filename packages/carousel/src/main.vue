@@ -1,13 +1,13 @@
 <template>
   <div
-    class="top-carousel"
-    :class="{ 'top-caroustop--card': type === 'card' }"
+    class="el-carousel"
+    :class="{ 'el-carousel--card': type === 'card' }"
     @mouseenter.stop="handleMouseEnter"
     @mouseleave.stop="handleMouseLeave">
     <div
-      class="top-carousel__container"
+      class="el-carousel__container"
       :style="{ height: height }">
-      <transition name="caroustop-arrow-left">
+      <transition name="carousel-arrow-left">
         <button
           type="button"
           v-if="arrow !== 'never'"
@@ -15,11 +15,11 @@
           @mouseenter="handleButtonEnter('left')"
           @mouseleave="handleButtonLeave"
           @click.stop="throttledArrowClick(activeIndex - 1)"
-          class="top-carousel__arrow top-carousel__arrow--left">
-          <i class="top-icon-arrow-left"></i>
+          class="el-carousel__arrow el-carousel__arrow--left">
+          <i class="el-icon-arrow-left"></i>
         </button>
       </transition>
-      <transition name="caroustop-arrow-right">
+      <transition name="carousel-arrow-right">
         <button
           type="button"
           v-if="arrow !== 'never'"
@@ -27,23 +27,23 @@
           @mouseenter="handleButtonEnter('right')"
           @mouseleave="handleButtonLeave"
           @click.stop="throttledArrowClick(activeIndex + 1)"
-          class="top-carousel__arrow top-carousel__arrow--right">
-          <i class="top-icon-arrow-right"></i>
+          class="el-carousel__arrow el-carousel__arrow--right">
+          <i class="el-icon-arrow-right"></i>
         </button>
       </transition>
       <slot></slot>
     </div>
     <ul
-      class="top-carousel__indicators"
+      class="el-carousel__indicators"
       v-if="indicatorPosition !== 'none'"
-      :class="{ 'top-carousel__indicators--labels': hasLabel, 'top-carousel__indicators--outside': indicatorPosition === 'outside' || type === 'card' }">
+      :class="{ 'el-carousel__indicators--labels': hasLabel, 'el-carousel__indicators--outside': indicatorPosition === 'outside' || type === 'card' }">
       <li
         v-for="(item, index) in items"
-        class="top-carousel__indicator"
+        class="el-carousel__indicator"
         :class="{ 'is-active': index === activeIndex }"
         @mouseenter="throttledIndicatorHover(index)"
         @click.stop="handleIndicatorClick(index)">
-        <button class="top-carousel__button"><span v-if="hasLabel">{{ item.label }}</span></button>
+        <button class="el-carousel__button"><span v-if="hasLabel">{{ item.label }}</span></button>
       </li>
     </ul>
   </div>
@@ -51,10 +51,10 @@
 
 <script>
 import throttle from 'throttle-debounce/throttle';
-import { addResizeListener, removeResizeListener } from 'topband-ui/src/utils/resize-event';
+import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event';
 
 export default {
-  name: 'TOPCarousel',
+  name: 'ElCarousel',
 
   props: {
     initialIndex: {
@@ -163,7 +163,7 @@ export default {
     },
 
     updateItems() {
-      this.items = this.$children.filter(child => child.$options.name === 'TOPCarouselItem');
+      this.items = this.$children.filter(child => child.$options.name === 'ElCarouselItem');
     },
 
     resetItemPosition(oldIndex) {

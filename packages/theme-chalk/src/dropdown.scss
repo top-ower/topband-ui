@@ -9,16 +9,14 @@
   color: $--color-text-regular;
   font-size: $--font-size-base;
 
-  .top-button-group {
+  .el-button-group {
     display: block;
-
-    .top-button {
+    .el-button {
       float: none;
     }
-
   }
 
-  & .top-dropdown__caret-button {
+  & .el-dropdown__caret-button {
     padding-left: 5px;
     padding-right: 5px;
     position: relative;
@@ -26,6 +24,7 @@
 
     &::before {
       $gap: 5px;
+
       content: '';
       position: absolute;
       display: block;
@@ -41,28 +40,22 @@
         top: 0;
         bottom: 0;
       }
-
     }
 
-    & .top-dropdown__icon {
+    & .el-dropdown__icon {
       padding-left: 0;
     }
-
   }
-
   @include e(icon) {
     font-size: 12px;
     margin: 0 3px;
   }
 
-  .top-dropdown-selfdefine {
-    // 自定义
+  .el-dropdown-selfdefine { // 自定义
     &:focus:active, &:focus:not(.focusing) {
       outline-width: 0;
     }
-
   }
-
 }
 
 @include b(dropdown-menu) {
@@ -88,7 +81,6 @@
     color: $--color-text-regular;
     cursor: pointer;
     outline: none;
-
     &:not(.is-disabled):hover, &:focus {
       background-color: $--dropdown-menuItem-hover-fill;
       color: $--dropdown-menuItem-hover-color;
@@ -100,6 +92,7 @@
 
     @include m(divided) {
       $divided-offset: 6px;
+
       position: relative;
       margin-top: $divided-offset;
       border-top: 1px solid $--border-color-lighter;
@@ -111,7 +104,6 @@
         margin: 0 -20px;
         background-color: $--color-white;
       }
-
     }
 
     @include when(disabled) {
@@ -119,7 +111,6 @@
       color: $--font-color-disabled-base;
       pointer-events: none;
     }
-
   }
 
   @include m(medium) {
@@ -130,7 +121,7 @@
       padding: 0 17px;
       font-size: 14px;
 
-      &.top-dropdown-menu__item--divided {
+      &.el-dropdown-menu__item--divided {
         $divided-offset: 6px;
         margin-top: $divided-offset;
 
@@ -138,11 +129,8 @@
           height: $divided-offset;
           margin: 0 -17px;
         }
-
       }
-
     }
-
   }
 
   @include m(small) {
@@ -153,7 +141,7 @@
       padding: 0 15px;
       font-size: 13px;
 
-      &.top-dropdown-menu__item--divided {
+      &.el-dropdown-menu__item--divided {
         $divided-offset: 4px;
         margin-top: $divided-offset;
 
@@ -161,11 +149,8 @@
           height: $divided-offset;
           margin: 0 -15px;
         }
-
       }
-
     }
-
   }
 
   @include m(mini) {
@@ -176,7 +161,7 @@
       padding: 0 10px;
       font-size: 12px;
 
-      &.top-dropdown-menu__item--divided {
+      &.el-dropdown-menu__item--divided {
         $divided-offset: 3px;
         margin-top: $divided-offset;
 
@@ -184,11 +169,7 @@
           height: $divided-offset;
           margin: 0 -10px;
         }
-
       }
-
     }
-
   }
-
 }

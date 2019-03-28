@@ -1,6 +1,6 @@
 <template>
   <div
-    class="top-tab-pane"
+    class="el-tab-pane"
     v-if="(!lazy || loaded) || active"
     v-show="active"
     role="tabpanel"
@@ -51,7 +51,7 @@
 
     watch: {
       label() {
-        this.$parent.$forceUpdate();
+        this.$parent.$emit('tabLabelChanged');
       }
     }
   };

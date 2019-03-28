@@ -46,17 +46,15 @@
     cursor: pointer;
     font-size: $--message-close-size;
 
-    .top-dialog__close {
+    .el-dialog__close {
       color: $--color-info;
     }
 
     &:focus, &:hover {
-      .top-dialog__close {
+      .el-dialog__close {
         color: $--color-primary;
       }
-
     }
-
   }
 
   @include e(title) {
@@ -90,9 +88,7 @@
     @include e(footer) {
       text-align: inherit;
     }
-
   }
-
 }
 
 .dialog-fade-enter-active {
@@ -108,12 +104,10 @@
     transform: translate3d(0, -20px, 0);
     opacity: 0;
   }
-
   100% {
     transform: translate3d(0, 0, 0);
     opacity: 1;
   }
-
 }
 
 @keyframes dialog-fade-out {
@@ -121,10 +115,8 @@
     transform: translate3d(0, 0, 0);
     opacity: 1;
   }
-
   100% {
     transform: translate3d(0, -20px, 0);
     opacity: 0;
   }
-
 }

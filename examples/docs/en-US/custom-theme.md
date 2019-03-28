@@ -14,15 +14,15 @@ The above website enables you to preview theme of a new theme color in real-time
 $--color-primary: teal;
 
 /* icon font path, required */
-$--font-path: '~topband-ui/lib/theme-chalk/fonts';
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
 
-@import "~topband-ui/packages/theme-chalk/src/index";
+@import "~element-ui/packages/theme-chalk/src/index";
 ```
 
 Then in the entry file of your project, import this style file instead of Element's built CSS:
 ```JS
 import Vue from 'vue'
-import Element from 'topband-ui'
+import Element from 'element-ui'
 import './element-variables.scss'
 
 Vue.use(Element)
@@ -100,21 +100,21 @@ By default the build theme file is placed inside `./theme`. You can specify its 
 
 ```javascript
 import '../theme/index.css'
-import ElementUI from 'topband-ui'
+import ElementUI from 'element-ui'
 import Vue from 'vue'
 
 Vue.use(ElementUI)
 ```
 
 #### <strong>Import component theme on demand</strong>
-If you are using `babtop-plugin-component` for on-demand import, just modify `.babelrc` and specify `styleLibraryName` to the path where your custom theme is located relative to `.babelrc`. Note that `~` is required:
+If you are using `babel-plugin-component` for on-demand import, just modify `.babelrc` and specify `styleLibraryName` to the path where your custom theme is located relative to `.babelrc`. Note that `~` is required:
 ```json
 {
   "plugins": [
     [
       "component",
       {
-        "libraryName": "topband-ui",
+        "libraryName": "element-ui",
         "styleLibraryName": "~theme"
       }
     ]
@@ -122,4 +122,4 @@ If you are using `babtop-plugin-component` for on-demand import, just modify `.b
 }
 ```
 
-If you are unfamiliar with `babtop-plugin-component`, please refer to <a href="./#/en-US/component/quickstart">Quick Start</a>. For more details, check out the [project repository](https://github.com/ElementUI/element-theme) of `element-theme`.
+If you are unfamiliar with `babel-plugin-component`, please refer to <a href="./#/en-US/component/quickstart">Quick Start</a>. For more details, check out the [project repository](https://github.com/ElementUI/element-theme) of `element-theme`.

@@ -5,12 +5,12 @@
     </div>
     <div class="config-content">
       <div class="content-80">
-        <top-input
+        <el-input
           :value=displayValue
           readonly
           slot="reference"
           @click.native="onInputClick"
-        ></top-input>
+        ></el-input>
       </div>
       <div class="content-20">
         <color-picker 

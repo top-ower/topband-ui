@@ -12,30 +12,28 @@
   display: inline-block;
   position: relative;
 
-  .top-select__tags
-  >span {
-    display: contents;
-  }
-
-  &:hover {
-    .top-input__inner {
-      border-color: $--select-border-color-hover;
+  .el-select__tags
+    >span {
+      display: contents;
     }
 
+  &:hover {
+    .el-input__inner {
+      border-color: $--select-border-color-hover;
+    }
   }
 
-  .top-input__inner {
+  .el-input__inner {
     cursor: pointer;
     padding-right: 35px;
 
     &:focus {
       border-color: $--select-input-focus-border-color;
     }
-
   }
 
-  .top-input {
-    & .top-select__caret {
+  .el-input {
+    & .el-select__caret {
       color: $--select-input-color;
       font-size: $--select-input-font-size;
       transition: transform .3s;
@@ -57,30 +55,25 @@
         &:hover {
           color: $--select-close-hover-color;
         }
-
       }
-
     }
 
     &.is-disabled {
-      & .top-input__inner {
+      & .el-input__inner {
         cursor: not-allowed;
 
         &:hover {
           border-color: $--select-disabled-border;
         }
-
       }
-
     }
 
-    &.is-focus .top-input__inner {
+    &.is-focus .el-input__inner {
       border-color: $--select-input-focus-border-color;
     }
-
   }
 
-  > .top-input {
+  > .el-input {
     display: block;
   }
 
@@ -94,11 +87,9 @@
     appearance: none;
     height: 28px;
     background-color: transparent;
-
     @include when(mini) {
       height: 14px;
     }
-
   }
 
   @include e(close) {
@@ -114,7 +105,6 @@
     &:hover {
       color: $--select-close-hover-color;
     }
-
   }
 
   @include e(tags) {
@@ -129,17 +119,17 @@
     flex-wrap: wrap;
   }
 
-  .top-tag__close {
+  .el-tag__close {
     margin-top: -2px;
   }
 
-  .top-tag {
+  .el-tag {
     box-sizing: border-box;
     border-color: transparent;
     margin: 2px 0 2px 6px;
     background-color: #f0f2f5;
 
-    &__close.top-icon-close {
+    &__close.el-icon-close {
       background-color: $--color-text-placeholder;
       right: -7px;
       top: 0;
@@ -153,9 +143,6 @@
         display: block;
         transform: translate(0, .5px);
       }
-
     }
-
   }
-
 }

@@ -7,15 +7,15 @@ Card includes title, content and operations.
 
 :::demo Card is made up of `header` and `body`. `header` is optional, and its content distribution depends on a named slot.
 ```html
-<top-card class="box-card">
+<el-card class="box-card">
   <div slot="header" class="clearfix">
     <span>Card name</span>
-    <top-button style="float: right; padding: 3px 0" type="text">Operation button</top-button>
+    <el-button style="float: right; padding: 3px 0" type="text">Operation button</el-button>
   </div>
   <div v-for="o in 4" :key="o" class="text item">
     {{'List item ' + o }}
   </div>
-</top-card>
+</el-card>
 
 <style>
   .text {
@@ -48,11 +48,11 @@ The header part can be omitted.
 
 :::demo
 ```html
-<top-card class="box-card">
+<el-card class="box-card">
   <div v-for="o in 4" :key="o" class="text item">
     {{'List item ' + o }}
   </div>
-</top-card>
+</el-card>
 
 <style>
   .text {
@@ -74,22 +74,22 @@ The header part can be omitted.
 
 Display richer content by adding some configs.
 
-:::demo The `body-style` attribute defines CSS style of custom `body`. This example also uses `top-col` for layout.
+:::demo The `body-style` attribute defines CSS style of custom `body`. This example also uses `el-col` for layout.
 ```html
-<top-row>
-  <top-col :span="8" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
-    <top-card :body-style="{ padding: '0px' }">
+<el-row>
+  <el-col :span="8" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
+    <el-card :body-style="{ padding: '0px' }">
       <img src="../../examples/assets/images/hamburger.png" class="image">
       <div style="padding: 14px;">
         <span>Yummy hamburger</span>
         <div class="bottom clearfix">
           <time class="time">{{ currentDate }}</time>
-          <top-button type="text" class="button">Operating</top-button>
+          <el-button type="text" class="button">Operating</el-button>
         </div>
       </div>
-    </top-card>
-  </top-col>
-</top-row>
+    </el-card>
+  </el-col>
+</el-row>
 
 <style>
   .time {
@@ -141,23 +141,23 @@ You can define when to show the card shadows
 
 :::demo The `shadow` attribute determines when the card shadows are displayed. It can be `always`, `hover` or `never`.
 ```html
-<top-row :gutter="12">
-  <top-col :span="8">
-    <top-card shadow="always">
+<el-row :gutter="12">
+  <el-col :span="8">
+    <el-card shadow="always">
       Always
-    </top-card>
-  </top-col>
-  <top-col :span="8">
-    <top-card shadow="hover">
+    </el-card>
+  </el-col>
+  <el-col :span="8">
+    <el-card shadow="hover">
       Hover
-    </top-card>
-  </top-col>
-  <top-col :span="8">
-    <top-card shadow="never">
+    </el-card>
+  </el-col>
+  <el-col :span="8">
+    <el-card shadow="never">
       Never
-    </top-card>
-  </top-col>
-</top-row>
+    </el-card>
+  </el-col>
+</el-row>
 ```
 :::
 

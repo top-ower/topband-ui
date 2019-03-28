@@ -1,4 +1,4 @@
-import objectAssign from 'topband-ui/src/utils/merge';
+import objectAssign from 'element-ui/src/utils/merge';
 import { markNodeData, NODE_KEY } from './util';
 
 export const getChildState = node => {
@@ -465,7 +465,6 @@ export default class Node {
         this.doCreateChildren(children, defaultProps);
 
         this.updateLeafState();
-        reInitChecked(this);
         if (callback) {
           callback.call(this, children);
         }

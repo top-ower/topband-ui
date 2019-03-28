@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import merge from 'topband-ui/src/utils/merge';
-import PopupManager from 'topband-ui/src/utils/popup/popup-manager';
+import merge from 'element-ui/src/utils/merge';
+import PopupManager from 'element-ui/src/utils/popup/popup-manager';
 import getScrollBarWidth from '../scrollbar-width';
 import { getStyle, addClass, removeClass, hasClass } from '../dom';
 
@@ -132,7 +132,7 @@ export default {
         }
         PopupManager.openModal(this._popupId, PopupManager.nextZIndex(), this.modalAppendToBody ? undefined : dom, props.modalClass, props.modalFade);
         if (props.lockScroll) {
-          this.withoutHiddenClass = !hasClass(document.body, 'top-popup-parent--hidden');
+          this.withoutHiddenClass = !hasClass(document.body, 'el-popup-parent--hidden');
           if (this.withoutHiddenClass) {
             this.bodyPaddingRight = document.body.style.paddingRight;
             this.computedBodyPaddingRight = parseInt(getStyle(document.body, 'paddingRight'), 10);
@@ -143,7 +143,7 @@ export default {
           if (scrollBarWidth > 0 && (bodyHasOverflow || bodyOverflowY === 'scroll') && this.withoutHiddenClass) {
             document.body.style.paddingRight = this.computedBodyPaddingRight + scrollBarWidth + 'px';
           }
-          addClass(document.body, 'top-popup-parent--hidden');
+          addClass(document.body, 'el-popup-parent--hidden');
         }
       }
 
@@ -206,7 +206,7 @@ export default {
     restoreBodyStyle() {
       if (this.modal && this.withoutHiddenClass) {
         document.body.style.paddingRight = this.bodyPaddingRight;
-        removeClass(document.body, 'top-popup-parent--hidden');
+        removeClass(document.body, 'el-popup-parent--hidden');
       }
       this.withoutHiddenClass = true;
     }

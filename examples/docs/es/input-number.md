@@ -4,11 +4,11 @@ Input de  valores numéricos con un rango personalizable.
 
 ### Uso básico
 
-:::demo Vincule una variable con `v-model` en el elemento `<top-input-number>` y estará listo.
+:::demo Vincule una variable con `v-model` en el elemento `<el-input-number>` y estará listo.
 
 ```html
 <template>
-  <top-input-number v-model="num1" @change="handleChange" :min="1" :max="10"></top-input-number>
+  <el-input-number v-model="num1" @change="handleChange" :min="1" :max="10"></el-input-number>
 </template>
 <script>
   export default {
@@ -33,7 +33,7 @@ Input de  valores numéricos con un rango personalizable.
 
 ```html
 <template>
-  <top-input-number v-model="num2" :disabled="true"></top-input-number>
+  <el-input-number v-model="num2" :disabled="true"></el-input-number>
 </template>
 <script>
   export default {
@@ -55,7 +55,7 @@ Le permite definir el nivel de incremento de los saltos.
 
 ```html
 <template>
-  <top-input-number v-model="num3" :step="2"></top-input-number>
+  <el-input-number v-model="num3" :step="2"></el-input-number>
 </template>
 <script>
   export default {
@@ -75,7 +75,7 @@ Le permite definir el nivel de incremento de los saltos.
 
 ```html
 <template>
-  <top-input-number v-model="num9" :precision="2" :step="0.1" :max="10"></top-input-number>
+  <el-input-number v-model="num9" :precision="2" :step="0.1" :max="10"></el-input-number>
 </template>
 <script>
   export default {
@@ -102,10 +102,10 @@ Utilice el atributo `size` para establecer tamaños adicionales con `medium`, `s
 
 ```html
 <template>
-  <top-input-number v-model="num4"></top-input-number>
-    <top-input-number size="medium" v-model="num5"></top-input-number>
-    <top-input-number size="small" v-model="num6"></top-input-number>
-    <top-input-number size="mini" v-model="num7"></top-input-number>
+  <el-input-number v-model="num4"></el-input-number>
+    <el-input-number size="medium" v-model="num5"></el-input-number>
+    <el-input-number size="small" v-model="num6"></el-input-number>
+    <el-input-number size="mini" v-model="num7"></el-input-number>
 </template>
 <script>
   export default {
@@ -128,7 +128,7 @@ Utilice el atributo `size` para establecer tamaños adicionales con `medium`, `s
 
 ```html
 <template>
-  <top-input-number v-model="num8" controls-position="right" @change="handleChange" :min="1" :max="10"></top-input-number>
+  <el-input-number v-model="num8" controls-position="right" @change="handleChange" :min="1" :max="10"></el-input-number>
 </template>
 <script>
   export default {

@@ -96,8 +96,8 @@ Element utilise un ensemble de palettes spécifiques afin de fournir un style co
 
 La couleur principale d'Element est un bleu clair et agréable.
 
-<top-row :gutter="12">
-  <top-col :span="10" :xs="{span: 12}">
+<el-row :gutter="12">
+  <el-col :span="10" :xs="{span: 12}">
     <div class="demo-color-box" :style="{ background: primary }">Couleur principale
       <div class="value">#409EFF</div>
       <div class="bg-color-sub" :style="{ background: tintColor(primary, 0.9) }">
@@ -109,15 +109,15 @@ La couleur principale d'Element est un bleu clair et agréable.
         ></div>
       </div>
     </div>
-  </top-col>
-</top-row>
+  </el-col>
+</el-row>
 
 ### Couleurs secondaires
 
 En plus de la couleur principale, vous devrez sans doute utiliser d'autres couleurs pour différents cas de figures, par exemple une couleur de danger pour indiquer une opération dangereuse.
 
-<top-row :gutter="12">
-  <top-col :span="6" :xs="{span: 12}">
+<el-row :gutter="12">
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box" :style="{ background: success }">Succès
       <div class="value">#67C23A</div>
       <div class="bg-color-sub">
@@ -129,8 +129,8 @@ En plus de la couleur principale, vous devrez sans doute utiliser d'autres coule
         ></div>
       </div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box" :style="{ background: warning }">Avertissement
       <div class="value">#E6A23C</div>
       <div class="bg-color-sub">
@@ -142,8 +142,8 @@ En plus de la couleur principale, vous devrez sans doute utiliser d'autres coule
         ></div>
       </div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box" :style="{ background: danger }">Danger
       <div class="value">#F56C6C</div>
       <div class="bg-color-sub">
@@ -155,8 +155,8 @@ En plus de la couleur principale, vous devrez sans doute utiliser d'autres coule
         ></div>
       </div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box" :style="{ background: info }">Info
       <div class="value">#909399</div>
       <div class="bg-color-sub">
@@ -168,15 +168,15 @@ En plus de la couleur principale, vous devrez sans doute utiliser d'autres coule
         ></div>
       </div>
     </div>
-  </top-col>
-</top-row>
+  </el-col>
+</el-row>
 
 ### Couleurs neutres
 
 Les couleurs neutres sont les couleurs du fond, du texte et des bordures. Vous pouvez utiliser différentes couleurs neutres pour représenter une structure hiérarchique.
 
-<top-row :gutter="12">
-  <top-col :span="6" :xs="{span: 12}">
+<el-row :gutter="12">
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box-group">
       <div class="demo-color-box demo-color-box-other"
       :style="{ background: textPrimary }"
@@ -192,8 +192,8 @@ Les couleurs neutres sont les couleurs du fond, du texte et des bordures. Vous p
       :style="{ background: textPlaceholder }"
       >Texte de placeholder<div class="value">{{textPlaceholder}}</div></div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box-group">
       <div class="demo-color-box demo-color-box-other demo-color-box-lite"
       :style="{ background: borderBase }"
@@ -208,8 +208,8 @@ Les couleurs neutres sont les couleurs du fond, du texte et des bordures. Vous p
       :style="{ background: borderExtraLight }"
       >Bordure extra claire<div class="value">{{borderExtraLight}}</div></div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box-group">
       <div
       class="demo-color-box demo-color-box-other"
@@ -222,5 +222,5 @@ Les couleurs neutres sont les couleurs du fond, du texte et des bordures. Vous p
       <div class="demo-color-box demo-color-box-other bg-transparent">Transparent<div class="value">Transparent</div>
       </div>
     </div>
-  </top-col>
-</top-row>
+  </el-col>
+</el-row>

@@ -12,14 +12,14 @@ describe('Button', () => {
       type: 'primary'
     }, true);
     let buttonElm = vm.$el;
-    expect(buttonElm.classList.contains('top-button--primary')).to.be.true;
+    expect(buttonElm.classList.contains('el-button--primary')).to.be.true;
   });
   it('icon', () => {
     vm = createTest(Button, {
-      icon: 'top-icon-search'
+      icon: 'el-icon-search'
     }, true);
     let buttonElm = vm.$el;
-    expect(buttonElm.querySelector('.top-icon-search')).to.be.ok;
+    expect(buttonElm.querySelector('.el-icon-search')).to.be.ok;
   });
   it('nativeType', () => {
     vm = createTest(Button, {
@@ -34,7 +34,7 @@ describe('Button', () => {
     }, true);
     let buttonElm = vm.$el;
     expect(buttonElm.classList.contains('is-loading')).to.be.true;
-    expect(buttonElm.querySelector('.top-icon-loading')).to.be.ok;
+    expect(buttonElm.querySelector('.el-icon-loading')).to.be.ok;
   });
   it('disabled', () => {
     vm = createTest(Button, {
@@ -48,7 +48,7 @@ describe('Button', () => {
       size: 'medium'
     }, true);
     let buttonElm = vm.$el;
-    expect(buttonElm.classList.contains('top-button--medium')).to.be.true;
+    expect(buttonElm.classList.contains('el-button--medium')).to.be.true;
   });
   it('plain', () => {
     vm = createTest(Button, {
@@ -75,7 +75,7 @@ describe('Button', () => {
     let result;
     vm = createVue({
       template: `
-        <top-button @click="handleClick"></top-button>
+        <el-button @click="handleClick"></el-button>
       `,
       methods: {
         handleClick(evt) {
@@ -95,7 +95,7 @@ describe('Button', () => {
     let result;
     vm = createVue({
       template: `
-        <top-button @click="handleClick"><span class="inner-slot"></span></top-button>
+        <el-button @click="handleClick"><span class="inner-slot"></span></el-button>
       `,
       methods: {
         handleClick(evt) {
@@ -115,7 +115,7 @@ describe('Button', () => {
     let result;
     vm = createVue({
       template: `
-        <top-button loading @click="handleClick"><span class="inner-slot"></span></top-button>
+        <el-button loading @click="handleClick"><span class="inner-slot"></span></el-button>
       `,
       methods: {
         handleClick(evt) {

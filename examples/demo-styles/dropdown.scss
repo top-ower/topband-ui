@@ -1,28 +1,24 @@
 .demo-block {
-  .top-dropdown {
+  .el-dropdown {
     vertical-align: top;
 
-    & + .top-dropdown {
+    & + .el-dropdown {
       margin-left: 15px;
     }
-
   }
-
-  .top-dropdown-link {
+  .el-dropdown-link {
     cursor: pointer;
     color: #409eff;
   }
-
-  .top-icon-arrow-down {
+  .el-icon-arrow-down {
     font-size: 12px;
   }
-
 }
 
 .block-col-2 {
   margin: -24px;
 
-  .top-col {
+  .el-col {
     padding: 30px 0;
     text-align: center;
     border-right: 1px solid #eff2f6;
@@ -30,9 +26,7 @@
     &:last-child {
       border-right: 0;
     }
-
   }
-
 }
 
 .demo-dropdown .demonstration {

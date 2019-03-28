@@ -1,8 +1,8 @@
 <template>
-  <top-color-picker
+  <el-color-picker
     class="theme-picker"
     popper-class="theme-picker-dropdown"
-    v-model="theme"></top-color-picker>
+    v-model="theme"></el-color-picker>
 </template>
 
 <style lang="scss">
@@ -12,11 +12,11 @@
     // @utils-vertical-center;
   }
 
-  .theme-picker .top-color-picker__trigger {
+  .theme-picker .el-color-picker__trigger {
     vertical-align: middle;
   }
   
-  .theme-picker-dropdown .top-color-dropdown__link-btn {
+  .theme-picker-dropdown .el-color-dropdown__link-btn {
     display: none;
   }
 </style>
@@ -59,7 +59,7 @@
         const docsHandler = getHandler('docs', 'docs-style');
 
         if (!this.chalk) {
-          const url = `https://unpkg.com/topband-ui@${ version }/lib/theme-chalk/index.css`;
+          const url = `https://unpkg.com/element-ui@${ version }/lib/theme-chalk/index.css`;
           this.getCSSString(url, chalkHandler, 'chalk');
         } else {
           chalkHandler();

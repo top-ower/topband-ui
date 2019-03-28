@@ -9,9 +9,7 @@
       padding-left: 14px;
       padding-right: 14px;
     }
-
   }
-
 }
 
 @include b(table-filter) {
@@ -45,7 +43,6 @@
       background-color: $--color-primary;
       color: $--color-white;
     }
-
   }
 
   @include e(content) {
@@ -76,9 +73,7 @@
         color: $--disabled-color-base;
         cursor: not-allowed;
       }
-
     }
-
   }
 
   @include e(wrap) {
@@ -88,17 +83,15 @@
   @include e(checkbox-group) {
     padding: 10px;
 
-    label.top-checkbox {
+    label.el-checkbox {
       display: block;
       margin-right: 5px;
       margin-bottom: 8px;
       margin-left: 5px;
     }
 
-    .top-checkbox:last-child {
+    .el-checkbox:last-child {
       margin-bottom: 0;
     }
-
   }
-
 }

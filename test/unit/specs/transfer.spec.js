@@ -17,8 +17,8 @@ describe('Transfer', () => {
   const createTransfer = (props, opts) => {
     return createVue(Object.assign({
       template: `
-        <top-transfer :data="testData" ref="transfer" ${props}>
-        </top-transfer>
+        <el-transfer :data="testData" ref="transfer" ${props}>
+        </el-transfer>
       `,
 
       created() {
@@ -59,7 +59,7 @@ describe('Transfer', () => {
       }
     });
     const transfer = vm.$refs.transfer;
-    const leftList = transfer.$el.querySelector('.top-transfer-panel').__vue__;
+    const leftList = transfer.$el.querySelector('.el-transfer-panel').__vue__;
     leftList.query = '1';
     setTimeout(_ => {
       expect(leftList.filteredData.length).to.equal(1);
@@ -104,9 +104,9 @@ describe('Transfer', () => {
       }
     });
     const transfer = vm.$refs.transfer.$el;
-    const label = transfer.querySelector('.top-transfer-panel__header .top-checkbox__label');
+    const label = transfer.querySelector('.el-transfer-panel__header .el-checkbox__label');
     expect(label.innerText.indexOf('表1') > -1).to.true;
-    expect(transfer.querySelector('.top-transfer-panel__list .top-checkbox__label span').innerText).to.equal('1 - 备选项 1');
+    expect(transfer.querySelector('.el-transfer-panel__list .el-checkbox__label span').innerText).to.equal('1 - 备选项 1');
     expect(label.querySelector('span').innerText).to.equal('no');
   });
 
@@ -118,7 +118,7 @@ describe('Transfer', () => {
         };
       }
     });
-    const leftList = vm.$refs.transfer.$el.querySelector('.top-transfer-panel').__vue__;
+    const leftList = vm.$refs.transfer.$el.querySelector('.el-transfer-panel').__vue__;
     leftList.handleAllCheckedChange({ target: { checked: true } });
     expect(leftList.checked.length).to.equal(12);
   });
@@ -136,7 +136,7 @@ describe('Transfer', () => {
       setTimeout(() => {
         transfer.addToRight();
         setTimeout(() => {
-          const targetItems = [].slice.call(vm.$el.querySelectorAll('.top-transfer__buttons + .top-transfer-panel .top-transfer-panel__body .top-checkbox__label span'));
+          const targetItems = [].slice.call(vm.$el.querySelectorAll('.el-transfer__buttons + .el-transfer-panel .el-transfer-panel__body .el-checkbox__label span'));
           expect(targetItems.map(item => item.innerText)).to.deep.equal(['备选项 1', '备选项 2', '备选项 3', '备选项 4']);
           done();
         }, 50);
@@ -155,7 +155,7 @@ describe('Transfer', () => {
       setTimeout(() => {
         transfer.addToRight();
         setTimeout(() => {
-          const targetItems = [].slice.call(vm.$el.querySelectorAll('.top-transfer__buttons + .top-transfer-panel .top-transfer-panel__body .top-checkbox__label span'));
+          const targetItems = [].slice.call(vm.$el.querySelectorAll('.el-transfer__buttons + .el-transfer-panel .el-transfer-panel__body .el-checkbox__label span'));
           expect(targetItems.map(item => item.innerText)).to.deep.equal(['备选项 1', '备选项 4', '备选项 2', '备选项 3']);
           done();
         }, 50);
@@ -174,7 +174,7 @@ describe('Transfer', () => {
       setTimeout(() => {
         transfer.addToRight();
         setTimeout(() => {
-          const targetItems = [].slice.call(vm.$el.querySelectorAll('.top-transfer__buttons + .top-transfer-panel .top-transfer-panel__body .top-checkbox__label span'));
+          const targetItems = [].slice.call(vm.$el.querySelectorAll('.el-transfer__buttons + .el-transfer-panel .el-transfer-panel__body .el-checkbox__label span'));
           expect(targetItems.map(item => item.innerText)).to.deep.equal(['备选项 2', '备选项 3', '备选项 1', '备选项 4']);
           done();
         }, 50);

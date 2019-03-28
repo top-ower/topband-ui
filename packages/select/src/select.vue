@@ -1,35 +1,35 @@
 <template>
   <div
-    class="top-select"
-    :class="[selectSize ? 'top-select--' + selectSize : '']"
+    class="el-select"
+    :class="[selectSize ? 'el-select--' + selectSize : '']"
     @click.stop="toggleMenu"
     v-clickoutside="handleClose">
     <div
-      class="top-select__tags"
+      class="el-select__tags"
       v-if="multiple"
       ref="tags"
       :style="{ 'max-width': inputWidth - 32 + 'px', width: '100%' }">
       <span v-if="collapseTags && selected.length">
-        <top-tag
+        <el-tag
           :closable="!selectDisabled"
           :size="collapseTagSize"
           :hit="selected[0].hitState"
           type="info"
           @close="deleteTag($event, selected[0])"
           disable-transitions>
-          <span class="top-select__tags-text">{{ selected[0].currentLabel }}</span>
-        </top-tag>
-        <top-tag
+          <span class="el-select__tags-text">{{ selected[0].currentLabel }}</span>
+        </el-tag>
+        <el-tag
           v-if="selected.length > 1"
           :closable="false"
           :size="collapseTagSize"
           type="info"
           disable-transitions>
-          <span class="top-select__tags-text">+ {{ selected.length - 1 }}</span>
-        </top-tag>
+          <span class="el-select__tags-text">+ {{ selected.length - 1 }}</span>
+        </el-tag>
       </span>
       <transition-group @after-leave="resetInputHeight" v-if="!collapseTags">
-        <top-tag
+        <el-tag
           v-for="item in selected"
           :key="getValueKey(item)"
           :closable="!selectDisabled"
@@ -38,13 +38,13 @@
           type="info"
           @close="deleteTag($event, item)"
           disable-transitions>
-          <span class="top-select__tags-text">{{ item.currentLabel }}</span>
-        </top-tag>
+          <span class="el-select__tags-text">{{ item.currentLabel }}</span>
+        </el-tag>
       </transition-group>
 
       <input
         type="text"
-        class="top-select__input"
+        class="el-select__input"
         :class="[selectSize ? `is-${ selectSize }` : '']"
         :disabled="selectDisabled"
         :autocomplete="autoComplete || autocomplete"
@@ -67,7 +67,7 @@
         :style="{ 'flex-grow': '1', width: inputLength / (inputWidth - 32) + '%', 'max-width': inputWidth - 42 + 'px' }"
         ref="input">
     </div>
-    <top-input
+    <el-input
       ref="reference"
       v-model="selectedLabel"
       type="text"
@@ -95,61 +95,61 @@
         <slot name="prefix"></slot>
       </template>
       <template slot="suffix">
-        <i v-show="!showClose" :class="['top-select__caret', 'top-input__icon', 'top-icon-' + iconClass]"></i>
-        <i v-if="showClose" class="top-select__caret top-input__icon top-icon-circle-close" @click="handleClearClick"></i>
+        <i v-show="!showClose" :class="['el-select__caret', 'el-input__icon', 'el-icon-' + iconClass]"></i>
+        <i v-if="showClose" class="el-select__caret el-input__icon el-icon-circle-close" @click="handleClearClick"></i>
       </template>
-    </top-input>
+    </el-input>
     <transition
-      name="top-zoom-in-top"
+      name="el-zoom-in-top"
       @before-enter="handleMenuEnter"
       @after-leave="doDestroy">
-      <top-select-menu
+      <el-select-menu
         ref="popper"
         :append-to-body="popperAppendToBody"
         v-show="visible && emptyText !== false">
-        <top-scrollbar
+        <el-scrollbar
           tag="ul"
-          wrap-class="top-select-dropdown__wrap"
-          view-class="top-select-dropdown__list"
+          wrap-class="el-select-dropdown__wrap"
+          view-class="el-select-dropdown__list"
           ref="scrollbar"
           :class="{ 'is-empty': !allowCreate && query && filteredOptionsCount === 0 }"
           v-show="options.length > 0 && !loading">
-          <top-option
+          <el-option
             :value="query"
             created
             v-if="showNewOption">
-          </top-option>
+          </el-option>
           <slot></slot>
-        </top-scrollbar>
+        </el-scrollbar>
         <template v-if="emptyText && (!allowCreate || loading || (allowCreate && options.length === 0 ))">
           <slot name="empty" v-if="$slots.empty"></slot>
-          <p class="top-select-dropdown__empty" v-else>
+          <p class="el-select-dropdown__empty" v-else>
             {{ emptyText }}
           </p>
         </template>
-      </top-select-menu>
+      </el-select-menu>
     </transition>
   </div>
 </template>
 
 <script type="text/babel">
-  import Emitter from 'topband-ui/src/mixins/emitter';
-  import Focus from 'topband-ui/src/mixins/focus';
-  import Locale from 'topband-ui/src/mixins/locale';
-  import ElInput from 'topband-ui/packages/input';
+  import Emitter from 'element-ui/src/mixins/emitter';
+  import Focus from 'element-ui/src/mixins/focus';
+  import Locale from 'element-ui/src/mixins/locale';
+  import ElInput from 'element-ui/packages/input';
   import ElSelectMenu from './select-dropdown.vue';
   import ElOption from './option.vue';
-  import ElTag from 'topband-ui/packages/tag';
-  import ElScrollbar from 'topband-ui/packages/scrollbar';
+  import ElTag from 'element-ui/packages/tag';
+  import ElScrollbar from 'element-ui/packages/scrollbar';
   import debounce from 'throttle-debounce/debounce';
-  import Clickoutside from 'topband-ui/src/utils/clickoutside';
-  import { addResizeListener, removeResizeListener } from 'topband-ui/src/utils/resize-event';
-  import { t } from 'topband-ui/src/locale';
-  import scrollIntoView from 'topband-ui/src/utils/scroll-into-view';
-  import { getValueByPath } from 'topband-ui/src/utils/util';
-  import { valueEquals, isIE, isEdge } from 'topband-ui/src/utils/util';
+  import Clickoutside from 'element-ui/src/utils/clickoutside';
+  import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event';
+  import { t } from 'element-ui/src/locale';
+  import scrollIntoView from 'element-ui/src/utils/scroll-into-view';
+  import { getValueByPath } from 'element-ui/src/utils/util';
+  import { valueEquals, isIE, isEdge } from 'element-ui/src/utils/util';
   import NavigationMixin from './navigation-mixin';
-  import { isKorean } from 'topband-ui/src/utils/shared';
+  import { isKorean } from 'element-ui/src/utils/shared';
 
   export default {
     mixins: [Emitter, Locale, Focus('reference'), NavigationMixin],
@@ -482,7 +482,7 @@
       scrollToOption(option) {
         const target = Array.isArray(option) && option[0] ? option[0].$el : option.$el;
         if (this.$refs.popper && target) {
-          const menu = this.$refs.popper.$el.querySelector('.top-select-dropdown__wrap');
+          const menu = this.$refs.popper.$el.querySelector('.el-select-dropdown__wrap');
           scrollIntoView(menu, target);
         }
         this.$refs.scrollbar && this.$refs.scrollbar.handleScroll();

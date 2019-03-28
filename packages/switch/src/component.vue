@@ -1,6 +1,6 @@
 <template>
   <div
-    class="top-switch"
+    class="el-switch"
     :class="{ 'is-disabled': switchDisabled, 'is-checked': checked }"
     role="switch"
     :aria-checked="checked"
@@ -8,7 +8,7 @@
     @click="switchValue"
   >
     <input
-      class="top-switch__input"
+      class="el-switch__input"
       type="checkbox"
       @change="handleChange"
       ref="input"
@@ -20,15 +20,15 @@
       @keydown.enter="switchValue"
     >
     <span
-      :class="['top-switch__label', 'top-switch__labtop--left', !checked ? 'is-active' : '']"
+      :class="['el-switch__label', 'el-switch__label--left', !checked ? 'is-active' : '']"
       v-if="inactiveIconClass || inactiveText">
       <i :class="[inactiveIconClass]" v-if="inactiveIconClass"></i>
       <span v-if="!inactiveIconClass && inactiveText" :aria-hidden="checked">{{ inactiveText }}</span>
     </span>
-    <span class="top-switch__core" ref="core" :style="{ 'width': coreWidth + 'px' }">
+    <span class="el-switch__core" ref="core" :style="{ 'width': coreWidth + 'px' }">
     </span>
     <span
-      :class="['top-switch__label', 'top-switch__labtop--right', checked ? 'is-active' : '']"
+      :class="['el-switch__label', 'el-switch__label--right', checked ? 'is-active' : '']"
       v-if="activeIconClass || activeText">
       <i :class="[activeIconClass]" v-if="activeIconClass"></i>
       <span v-if="!activeIconClass && activeText" :aria-hidden="!checked">{{ activeText }}</span>
@@ -36,9 +36,9 @@
   </div>
 </template>
 <script>
-  import emitter from 'topband-ui/src/mixins/emitter';
-  import Focus from 'topband-ui/src/mixins/focus';
-  import Migrating from 'topband-ui/src/mixins/migrating';
+  import emitter from 'element-ui/src/mixins/emitter';
+  import Focus from 'element-ui/src/mixins/focus';
+  import Migrating from 'element-ui/src/mixins/migrating';
 
   export default {
     name: 'ElSwitch',

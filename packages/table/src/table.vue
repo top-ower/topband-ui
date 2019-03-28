@@ -1,23 +1,23 @@
 <template>
-  <div class="top-table"
+  <div class="el-table"
     :class="[{
-      'top-table--fit': fit,
-      'top-table--striped': stripe,
-      'top-table--border': border || isGroup,
-      'top-table--hidden': isHidden,
-      'top-table--group': isGroup,
-      'top-table--fluid-height': maxHeight,
-      'top-table--scrollable-x': layout.scrollX,
-      'top-table--scrollable-y': layout.scrollY,
-      'top-table--enable-row-hover': !store.states.isComplex,
-      'top-table--enable-row-transition': (store.states.data || []).length !== 0 && (store.states.data || []).length < 100
-    }, tableSize ? `top-table--${ tableSize }` : '']"
+      'el-table--fit': fit,
+      'el-table--striped': stripe,
+      'el-table--border': border || isGroup,
+      'el-table--hidden': isHidden,
+      'el-table--group': isGroup,
+      'el-table--fluid-height': maxHeight,
+      'el-table--scrollable-x': layout.scrollX,
+      'el-table--scrollable-y': layout.scrollY,
+      'el-table--enable-row-hover': !store.states.isComplex,
+      'el-table--enable-row-transition': (store.states.data || []).length !== 0 && (store.states.data || []).length < 100
+    }, tableSize ? `el-table--${ tableSize }` : '']"
     @mouseleave="handleMouseLeave($event)">
     <div class="hidden-columns" ref="hiddenColumns"><slot></slot></div>
     <div
       v-if="showHeader"
       v-mousewheel="handleHeaderFooterMousewheel"
-      class="top-table__header-wrapper"
+      class="el-table__header-wrapper"
       ref="headerWrapper">
       <table-header
         ref="tableHeader"
@@ -30,7 +30,7 @@
       </table-header>
     </div>
     <div
-      class="top-table__body-wrapper"
+      class="el-table__body-wrapper"
       ref="bodyWrapper"
       :class="[layout.scrollX ? `is-scrolling-${scrollPosition}` : 'is-scrolling-none']"
       :style="[bodyHeight]">
@@ -47,18 +47,18 @@
       </table-body>
       <div
         v-if="!data || data.length === 0"
-        class="top-table__empty-block"
+        class="el-table__empty-block"
         ref="emptyBlock"
         :style="{
           width: bodyWidth
         }">
-        <span class="top-table__empty-text">
+        <span class="el-table__empty-text">
           <slot name="empty">{{ emptyText || t('el.table.emptyText') }}</slot>
         </span>
       </div>
       <div
         v-if="$slots.append"
-        class="top-table__append-wrapper"
+        class="el-table__append-wrapper"
         ref="appendWrapper">
         <slot name="append"></slot>
       </div>
@@ -67,7 +67,7 @@
       v-if="showSummary"
       v-show="data && data.length > 0"
       v-mousewheel="handleHeaderFooterMousewheel"
-      class="top-table__footer-wrapper"
+      class="el-table__footer-wrapper"
       ref="footerWrapper">
       <table-footer
         :store="store"
@@ -83,7 +83,7 @@
     <div
       v-if="fixedColumns.length > 0"
       v-mousewheel="handleFixedMousewheel"
-      class="top-table__fixed"
+      class="el-table__fixed"
       ref="fixedWrapper"
       :style="[{
         width: layout.fixedWidth ? layout.fixedWidth + 'px' : ''
@@ -91,7 +91,7 @@
       fixedHeight]">
       <div
         v-if="showHeader"
-        class="top-table__fixed-header-wrapper"
+        class="el-table__fixed-header-wrapper"
         ref="fixedHeaderWrapper" >
         <table-header
           ref="fixedTableHeader"
@@ -103,7 +103,7 @@
           }"></table-header>
       </div>
       <div
-        class="top-table__fixed-body-wrapper"
+        class="el-table__fixed-body-wrapper"
         ref="fixedBodyWrapper"
         :style="[{
           top: layout.headerHeight + 'px'
@@ -122,7 +122,7 @@
         </table-body>
         <div
           v-if="$slots.append"
-          class="top-table__append-gutter"
+          class="el-table__append-gutter"
           :style="{
             height: layout.appendHeight + 'px'
           }"></div>
@@ -130,7 +130,7 @@
       <div
         v-if="showSummary"
         v-show="data && data.length > 0"
-        class="top-table__fixed-footer-wrapper"
+        class="el-table__fixed-footer-wrapper"
         ref="fixedFooterWrapper">
         <table-footer
           fixed="left"
@@ -146,7 +146,7 @@
     <div
       v-if="rightFixedColumns.length > 0"
       v-mousewheel="handleFixedMousewheel"
-      class="top-table__fixed-right"
+      class="el-table__fixed-right"
       ref="rightFixedWrapper"
       :style="[{
         width: layout.rightFixedWidth ? layout.rightFixedWidth + 'px' : '',
@@ -154,7 +154,7 @@
       },
       fixedHeight]">
       <div v-if="showHeader"
-        class="top-table__fixed-header-wrapper"
+        class="el-table__fixed-header-wrapper"
         ref="rightFixedHeaderWrapper">
         <table-header
           ref="rightFixedTableHeader"
@@ -166,7 +166,7 @@
           }"></table-header>
       </div>
       <div
-        class="top-table__fixed-body-wrapper"
+        class="el-table__fixed-body-wrapper"
         ref="rightFixedBodyWrapper"
         :style="[{
           top: layout.headerHeight + 'px'
@@ -187,7 +187,7 @@
       <div
         v-if="showSummary"
         v-show="data && data.length > 0"
-        class="top-table__fixed-footer-wrapper"
+        class="el-table__fixed-footer-wrapper"
         ref="rightFixedFooterWrapper">
         <table-footer
           fixed="right"
@@ -202,28 +202,48 @@
     </div>
     <div
       v-if="rightFixedColumns.length > 0"
-      class="top-table__fixed-right-patch"
+      class="el-table__fixed-right-patch"
       ref="rightFixedPatch"
       :style="{
         width: layout.scrollY ? layout.gutterWidth + 'px' : '0',
         height: layout.headerHeight + 'px'
       }"></div>
-    <div class="top-table__column-resize-proxy" ref="resizeProxy" v-show="resizeProxyVisible"></div>
+    <div class="el-table__column-resize-proxy" ref="resizeProxy" v-show="resizeProxyVisible"></div>
   </div>
 </template>
 
 <script type="text/babel">
-  import ElCheckbox from 'topband-ui/packages/checkbox';
+  import ElCheckbox from 'element-ui/packages/checkbox';
   import debounce from 'throttle-debounce/debounce';
-  import { addResizeListener, removeResizeListener } from 'topband-ui/src/utils/resize-event';
-  import Mousewheel from 'topband-ui/src/directives/mousewheel';
-  import Locale from 'topband-ui/src/mixins/locale';
-  import Migrating from 'topband-ui/src/mixins/migrating';
+  import { addResizeListener, removeResizeListener } from 'element-ui/src/utils/resize-event';
+  import Mousewheel from 'element-ui/src/directives/mousewheel';
+  import Locale from 'element-ui/src/mixins/locale';
+  import Migrating from 'element-ui/src/mixins/migrating';
   import TableStore from './table-store';
   import TableLayout from './table-layout';
   import TableBody from './table-body';
   import TableHeader from './table-header';
   import TableFooter from './table-footer';
+  import { getRowIdentity } from './util';
+
+  const flattenData = function(data) {
+    if (!data) return data;
+    let newData = [];
+    const flatten = arr => {
+      arr.forEach((item) => {
+        newData.push(item);
+        if (Array.isArray(item.children)) {
+          flatten(item.children);
+        }
+      });
+    };
+    flatten(data);
+    if (data.length === newData.length) {
+      return data;
+    } else {
+      return newData;
+    }
+  };
 
   let tableIdSeed = 1;
 
@@ -311,7 +331,16 @@
       selectOnIndeterminate: {
         type: Boolean,
         default: true
-      }
+      },
+
+      indent: {
+        type: Number,
+        default: 16
+      },
+
+      lazy: Boolean,
+
+      load: Function
     },
 
     components: {
@@ -451,11 +480,60 @@
 
       toggleAllSelection() {
         this.store.commit('toggleAllSelection');
+      },
+
+      getRowKey(row) {
+        const rowKey = getRowIdentity(row, this.store.states.rowKey);
+        if (!rowKey) {
+          throw new Error('if there\'s nested data, rowKey is required.');
+        }
+        return rowKey;
+      },
+
+      getTableTreeData(data) {
+        const treeData = {};
+        const traverse = (children, parentData, level) => {
+          children.forEach(item => {
+            const rowKey = this.getRowKey(item);
+            treeData[rowKey] = {
+              display: false,
+              level
+            };
+            parentData.children.push(rowKey);
+            if (Array.isArray(item.children) && item.children.length) {
+              treeData[rowKey].children = [];
+              treeData[rowKey].expanded = false;
+              traverse(item.children, treeData[rowKey], level + 1);
+            }
+          });
+        };
+        if (data) {
+          data.forEach(item => {
+            const containChildren = Array.isArray(item.children) && item.children.length;
+            if (!(containChildren || item.hasChildren)) return;
+            const rowKey = this.getRowKey(item);
+            const treeNode = {
+              level: 0,
+              expanded: false,
+              display: true,
+              children: []
+            };
+            if (containChildren) {
+              treeData[rowKey] = treeNode;
+              traverse(item.children, treeData[rowKey], 1);
+            } else if (item.hasChildren && this.lazy) {
+              treeNode.hasChildren = true;
+              treeNode.loaded = false;
+              treeData[rowKey] = treeNode;
+            }
+          });
+        }
+        return treeData;
       }
     },
 
     created() {
-      this.tableId = 'top-table_' + tableIdSeed++;
+      this.tableId = 'el-table_' + tableIdSeed++;
       this.debouncedUpdateLayout = debounce(50, () => this.doLayout());
     },
 
@@ -582,6 +660,8 @@
       data: {
         immediate: true,
         handler(value) {
+          this.store.states.treeData = this.getTableTreeData(value);
+          value = flattenData(value);
           this.store.commit('setData', value);
           if (this.$ready) {
             this.$nextTick(() => {
@@ -633,7 +713,9 @@
       const store = new TableStore(this, {
         rowKey: this.rowKey,
         defaultExpandAll: this.defaultExpandAll,
-        selectOnIndeterminate: this.selectOnIndeterminate
+        selectOnIndeterminate: this.selectOnIndeterminate,
+        indent: this.indent,
+        lazy: this.lazy
       });
       const layout = new TableLayout({
         store,

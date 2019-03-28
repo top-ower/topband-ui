@@ -1,8 +1,8 @@
 <template>
-  <ul class="top-select-group__wrap" v-show="visible">
-    <li class="top-select-group__title">{{ label }}</li>
+  <ul class="el-select-group__wrap" v-show="visible">
+    <li class="el-select-group__title">{{ label }}</li>
     <li>
-      <ul class="top-select-group">
+      <ul class="el-select-group">
         <slot></slot>
       </ul>
     </li>
@@ -10,7 +10,7 @@
 </template>
 
 <script type="text/babel">
-  import Emitter from 'topband-ui/src/mixins/emitter';
+  import Emitter from 'element-ui/src/mixins/emitter';
 
   export default {
     mixins: [Emitter],

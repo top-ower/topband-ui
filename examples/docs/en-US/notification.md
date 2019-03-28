@@ -8,16 +8,16 @@ Displays a global notification message at a corner of the page.
 
 ```html
 <template>
-  <top-button
+  <el-button
     plain
     @click="open">
     Closes automatically
-  </top-button>
-  <top-button
+  </el-button>
+  <el-button
     plain
     @click="open2">
     Won't close automatically
-    </top-button>
+    </el-button>
 </template>
 
 <script>
@@ -52,26 +52,26 @@ We provide four types: success, warning, info and error.
 :::demo Element provides four notification types: `success`, `warning`, `info` and `error`. They are set by the `type` field, and other values will be ignored. We also registered methods for these types that can be invoked directly like `open5` and `open6` without passing a `type` field.
 ```html
 <template>
-  <top-button
+  <el-button
     plain
     @click="open3">
     Success
-  </top-button>
-  <top-button
+  </el-button>
+  <el-button
     plain
     @click="open4">
     Warning
-  </top-button>
-  <top-button
+  </el-button>
+  <el-button
     plain
     @click="open5">
     Info
-  </top-button>
-  <top-button
+  </el-button>
+  <el-button
     plain
     @click="open6">
     Error
-  </top-button>
+  </el-button>
 </template>
 
 <script>
@@ -119,26 +119,26 @@ Notification can emerge from any corner you like.
 :::demo The `position` attribute defines which corner Notification slides in. It can be `top-right`, `top-left`, `bottom-right` or `bottom-left`. Defaults to `top-right`.
 ```html
 <template>
-  <top-button
+  <el-button
     plain
     @click="open7">
     Top Right
-  </top-button>
-  <top-button
+  </el-button>
+  <el-button
     plain
     @click="open8">
     Bottom Right
-  </top-button>
-  <top-button
+  </el-button>
+  <el-button
     plain
     @click="open9">
     Bottom Left
-  </top-button>
-  <top-button
+  </el-button>
+  <el-button
     plain
     @click="open10">
     Top Left
-  </top-button>
+  </el-button>
 </template>
 
 <script>
@@ -187,11 +187,11 @@ Customize Notification's offset from the edge of the screen.
 :::demo Set the `offset` attribute to customize Notification's offset from the edge of the screen. Note that every Notification instance of the same moment should have the same offset.
 ```html
 <template>
-  <top-button
+  <el-button
     plain
     @click="open11">
     Notification with offset
-  </top-button>
+  </el-button>
 </template>
 
 <script>
@@ -216,11 +216,11 @@ Customize Notification's offset from the edge of the screen.
 :::demo Set `dangerouslyUseHTMLString` to true and `message` will be treated as an HTML string.
 ```html
 <template>
-  <top-button
+  <el-button
     plain
     @click="open12">
     Use HTML String
-  </top-button>
+  </el-button>
 </template>
 
 <script>
@@ -250,11 +250,11 @@ It is possible to hide the close button
 :::demo Set the `showClose` attribute to `false` so the notification cannot be closed by the user.
 ```html
 <template>
-  <top-button
+  <el-button
     plain
     @click="open13">
     Hide close button
-    </top-button>
+    </el-button>
 </template>
 
 <script>
@@ -282,7 +282,7 @@ Element has added a global method `$notify` for Vue.prototype. So in a vue insta
 Import `Notification`:
 
 ```javascript
-import { Notification } from 'topband-ui';
+import { Notification } from 'element-ui';
 ```
 
 In this case you should call `Notification(options)`. We have also registered methods for different types, e.g. `Notification.success(options)`. You can call `Notification.closeAll()` to manually close all the instances.

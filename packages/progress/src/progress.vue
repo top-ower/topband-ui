@@ -1,12 +1,12 @@
 <template>
   <div
-    class="top-progress"
+    class="el-progress"
     :class="[
-      'top-progress--' + type,
+      'el-progress--' + type,
       status ? 'is-' + status : '',
       {
-        'top-progress--without-text': !showText,
-        'top-progress--text-inside': textInside,
+        'el-progress--without-text': !showText,
+        'el-progress--text-inside': textInside,
       }
     ]"
     role="progressbar"
@@ -14,20 +14,20 @@
     aria-valuemin="0"
     aria-valuemax="100"
   >
-    <div class="top-progress-bar" v-if="type === 'line'">
-      <div class="top-progress-bar__outer" :style="{height: strokeWidth + 'px'}">
-        <div class="top-progress-bar__inner" :style="barStyle">
-          <div class="top-progress-bar__innerText" v-if="showText && textInside">{{percentage}}%</div>
+    <div class="el-progress-bar" v-if="type === 'line'">
+      <div class="el-progress-bar__outer" :style="{height: strokeWidth + 'px'}">
+        <div class="el-progress-bar__inner" :style="barStyle">
+          <div class="el-progress-bar__innerText" v-if="showText && textInside">{{percentage}}%</div>
         </div>
       </div>
     </div>
-    <div class="top-progress-circle" :style="{height: width + 'px', width: width + 'px'}" v-else>
+    <div class="el-progress-circle" :style="{height: width + 'px', width: width + 'px'}" v-else>
       <svg viewBox="0 0 100 100">
-        <path class="top-progress-circle__track" :d="trackPath" stroke="#e5e9f2" :stroke-width="relativeStrokeWidth" fill="none"></path>
-        <path class="top-progress-circle__path" :d="trackPath" stroke-linecap="round" :stroke="stroke" :stroke-width="relativeStrokeWidth" fill="none" :style="circlePathStyle"></path>
+        <path class="el-progress-circle__track" :d="trackPath" stroke="#e5e9f2" :stroke-width="relativeStrokeWidth" fill="none"></path>
+        <path class="el-progress-circle__path" :d="trackPath" stroke-linecap="round" :stroke="stroke" :stroke-width="relativeStrokeWidth" fill="none" :style="circlePathStyle"></path>
       </svg>
     </div>
-    <div class="top-progress__text" v-if="showText && !textInside" :style="{fontSize: progressTextSize + 'px'}">
+    <div class="el-progress__text" v-if="showText && !textInside" :style="{fontSize: progressTextSize + 'px'}">
       <template v-if="!status">{{percentage}}%</template>
       <template v-else>
         <slot v-if="status === 'text'"></slot>
@@ -123,9 +123,9 @@
       },
       iconClass() {
         if (this.type === 'line') {
-          return this.status === 'success' ? 'top-icon-circle-check' : 'top-icon-circle-close';
+          return this.status === 'success' ? 'el-icon-circle-check' : 'el-icon-circle-close';
         } else {
-          return this.status === 'success' ? 'top-icon-check' : 'top-icon-close';
+          return this.status === 'success' ? 'el-icon-check' : 'el-icon-close';
         }
       },
       progressTextSize() {

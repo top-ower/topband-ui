@@ -1,32 +1,32 @@
 <template>
-  <transition name="top-zoom-in-top" @after-leave="doDestroy">
+  <transition name="el-zoom-in-top" @after-leave="doDestroy">
     <div
       v-show="showPopper"
-      class="top-autocomplete-suggestion top-popper"
+      class="el-autocomplete-suggestion el-popper"
       :class="{ 'is-loading': !parent.hideLoading && parent.loading }"
       :style="{ width: dropdownWidth }"
       role="region">
-      <top-scrollbar
+      <el-scrollbar
         tag="ul"
-        wrap-class="top-autocomplete-suggestion__wrap"
-        view-class="top-autocomplete-suggestion__list">
-        <li v-if="!parent.hideLoading && parent.loading"><i class="top-icon-loading"></i></li>
+        wrap-class="el-autocomplete-suggestion__wrap"
+        view-class="el-autocomplete-suggestion__list">
+        <li v-if="!parent.hideLoading && parent.loading"><i class="el-icon-loading"></i></li>
         <slot v-else>
         </slot>
-      </top-scrollbar>
+      </el-scrollbar>
     </div>
   </transition>
 </template>
 <script>
-  import Popper from 'topband-ui/src/utils/vue-popper';
-  import Emitter from 'topband-ui/src/mixins/emitter';
-  import TOPScrollbar from 'topband-ui/packages/scrollbar';
+  import Popper from 'element-ui/src/utils/vue-popper';
+  import Emitter from 'element-ui/src/mixins/emitter';
+  import ElScrollbar from 'element-ui/packages/scrollbar';
 
   export default {
-    components: { TOPScrollbar },
+    components: { ElScrollbar },
     mixins: [Popper, Emitter],
 
-    componentName: 'TOPAutocompleteSuggestions',
+    componentName: 'ElAutocompleteSuggestions',
 
     data() {
       return {
@@ -48,7 +48,7 @@
 
     methods: {
       select(item) {
-        this.dispatch('TOPAutocomplete', 'item-click', item);
+        this.dispatch('ElAutocomplete', 'item-click', item);
       }
     },
 
@@ -61,7 +61,7 @@
     mounted() {
       this.$parent.popperElm = this.popperElm = this.$el;
       this.referenceElm = this.$parent.$refs.input.$refs.input;
-      this.referenceList = this.$el.querySelector('.top-autocomplete-suggestion__list');
+      this.referenceList = this.$el.querySelector('.el-autocomplete-suggestion__list');
       this.referenceList.setAttribute('role', 'listbox');
       this.referenceList.setAttribute('id', this.id);
     },

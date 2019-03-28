@@ -1,5 +1,5 @@
 <template>
-  <ul class="top-timeline"
+  <ul class="el-timeline"
     :class="{
       'is-reverse': reverse
     }">

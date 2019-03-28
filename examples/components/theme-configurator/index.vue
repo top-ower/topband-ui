@@ -1,12 +1,12 @@
 <template>
   <div>
-    <top-button
+    <el-button
       round
       type="primary"
       size="mini"
       style="background: #66b1ff;border-color: #66b1ff"
       @click.stop="showConfigurator"
-    >{{getActionDisplayName("theme-editor")}}</top-button>
+    >{{getActionDisplayName("theme-editor")}}</el-button>
     <transition name="fade">
       <div v-show="visible" class="configurator" ref="configurator">
         <div 

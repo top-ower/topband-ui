@@ -9,12 +9,11 @@
   line-height: $--switch-height;
   height: $--switch-height;
   vertical-align: middle;
-
   @include when(disabled) {
-    & .top-switch__core, & .top-switch__label {
+    & .el-switch__core,
+    & .el-switch__label {
       cursor: not-allowed;
     }
-
   }
 
   @include e(label) {
@@ -34,17 +33,14 @@
     @include m(left) {
       margin-right: 10px;
     }
-
     @include m(right) {
       margin-left: 10px;
     }
-
     & * {
       line-height: 1;
       font-size: $--switch-font-size;
       display: inline-block;
     }
-
   }
 
   @include e(input) {
@@ -81,21 +77,17 @@
       height: $--switch-button-size;
       background-color: $--color-white;
     }
-
   }
 
   @include when(checked) {
-    .top-switch__core {
+    .el-switch__core {
       border-color: $--switch-on-color;
       background-color: $--switch-on-color;
-
       &::after {
         left: 100%;
         margin-left: -$--switch-button-size - 1px;
       }
-
     }
-
   }
 
   @include when(disabled) {
@@ -103,27 +95,22 @@
   }
 
   @include m(wide) {
-    .top-switch__label {
-      &.top-switch__labtop--left {
+    .el-switch__label {
+      &.el-switch__label--left {
         span {
           left: 10px;
         }
-
       }
-
-      &.top-switch__labtop--right {
+      &.el-switch__label--right {
         span {
           right: 10px;
         }
-
       }
-
     }
-
   }
 
-  & .labtop-fade-enter, & .labtop-fade-leave-active {
+  & .label-fade-enter,
+  & .label-fade-leave-active {
     opacity: 0;
   }
-
 }

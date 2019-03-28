@@ -10,14 +10,14 @@ Usado para la calificación
 ```html
 <div class="block">
   <span class="demonstration">Default</span>
-  <top-rate v-model="value1"></top-rate>
+  <el-rate v-model="value1"></el-rate>
 </div>
 <div class="block">
   <span class="demonstration">Color for different levels</span>
-  <top-rate
+  <el-rate
     v-model="value2"
     :colors="['#99A9BF', '#F7BA2A', '#FF9900']">
-  </top-rate>
+  </el-rate>
 </div>
 
 <script>
@@ -40,11 +40,11 @@ Usa texto para indicar la puntuación
 :::demo Agregar el atributo `show-text` para mostrar texto a la derecha del componente. Puede asignar textos para las distintas puntuaciones usando `texts`. `texts` es un arreglo cuya longitud debe ser igual a la máxima puntuación `max`.
 
 ```html
-<top-rate
+<el-rate
   v-model="value3"
   :texts="['oops', 'disappointed', 'normal', 'good', 'great']"
   show-text>
-</top-rate>
+</el-rate>
 
 <script>
   export default {
@@ -65,12 +65,12 @@ Puede utilizar iconos para diferenciar cada componente.
 :::demo Puede customizar iconos para tres niveles diferentes usando `icon-classes`. En este ejemplo también usamos `void-icon-class` para asignar un icono si no está seleccionado.
 
 ```html
-<top-rate
+<el-rate
   v-model="value4"
   :icon-classes="['icon-rate-face-1', 'icon-rate-face-2', 'icon-rate-face-3']"
   void-icon-class="icon-rate-face-off"
   :colors="['#99A9BF', '#F7BA2A', '#FF9900']">
-</top-rate>
+</el-rate>
 
 <script>
   export default {
@@ -91,13 +91,13 @@ La calificación de solo lectura es para mostrar la puntuación. Soporta media e
 :::demo Use el atributo `disabled` para hacer el componente de solo lectura. Agregar `show-score` para mostrar la puntuación en el lado derecho. Además, puede usar el atributo `score-template` para proveer una plantilla. Tiene que contener `{value}`, y `{value}` será sustituido por la puntuación.
 
 ```html
-<top-rate
+<el-rate
   v-model="value5"
   disabled
   show-score
   text-color="#ff9900"
   score-template="{value} points">
-</top-rate>
+</el-rate>
 
 <script>
   export default {
@@ -123,9 +123,9 @@ La calificación de solo lectura es para mostrar la puntuación. Soporta media e
 | colors                   | arreglo de colores para iconos. Debe tener 3 elementos, cada uno corresponde a un nivel de puntuación | array   | —                | ['#F7BA2A', '#F7BA2A', '#F7BA2A']        |
 | void-color               | color para iconos no seleccionados       | string  | —                | #C6D1DE                                  |
 | disabled-void-color      | color para las iconos no seleccionados de solo lectura | string  | —                | #EFF2F7                                  |
-| icon-classes             | arreglo de nombres para clases de iconos. Debe tener 3 elementos, cada uno corresponde a un nivel de puntuación | array   | —                | ['top-icon-star-on', 'top-icon-star-on','top-icon-star-on'] |
-| void-icon-class          | nombre de clase para iconos no seleccionados | string  | —                | top-icon-star-off                         |
-| disabled-void-icon-class | nombre de clase para elementos no seleccionados de solo lectura | string  | —                | top-icon-star-on                          |
+| icon-classes             | arreglo de nombres para clases de iconos. Debe tener 3 elementos, cada uno corresponde a un nivel de puntuación | array   | —                | ['el-icon-star-on', 'el-icon-star-on','el-icon-star-on'] |
+| void-icon-class          | nombre de clase para iconos no seleccionados | string  | —                | el-icon-star-off                         |
+| disabled-void-icon-class | nombre de clase para elementos no seleccionados de solo lectura | string  | —                | el-icon-star-on                          |
 | show-text                | muestra el texto                         | boolean | —                | false                                    |
 | show-score               | muestra puntuación actual. `show-score` y `show-text` no pueden ser verdaderos al mismo tiempo | boolean | —                | false                                    |
 | text-color               | color del texto                          | string  | —                | #1F2D3D                                  |

@@ -24,8 +24,8 @@ or
 import Vue from 'vue'
 import { ElSteps, ElStep } from 'element-steps'
 
-Vue.component('top-steps', ElSteps)
-Vue.component('top-step', ElStep)
+Vue.component('el-steps', ElSteps)
+Vue.component('el-step', ElStep)
 ```
 
 ### Steps Attributes

@@ -1,8 +1,8 @@
 <template>
   <label
-    class="top-radio-button"
+    class="el-radio-button"
     :class="[
-      size ? 'top-radio-button--' + size : '',
+      size ? 'el-radio-button--' + size : '',
       { 'is-active': value === label },
       { 'is-disabled': isDisabled },
       { 'is-focus': focus }
@@ -14,7 +14,7 @@
     @keydown.space.stop.prevent="value = isDisabled ? value : label"
   >
     <input
-      class="top-radio-button__orig-radio"
+      class="el-radio-button__orig-radio"
       :value="label"
       type="radio"
       v-model="value"
@@ -26,7 +26,7 @@
       @blur="focus = false"
     >
     <span
-      class="top-radio-button__inner"
+      class="el-radio-button__inner"
       :style="value === label ? activeStyle : null"
       @keydown.stop>
       <slot></slot>
@@ -35,7 +35,7 @@
   </label>
 </template>
 <script>
-  import Emitter from 'topband-ui/src/mixins/emitter';
+  import Emitter from 'element-ui/src/mixins/emitter';
 
   export default {
     name: 'ElRadioButton',

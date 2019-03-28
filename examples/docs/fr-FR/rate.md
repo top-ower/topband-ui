@@ -9,14 +9,14 @@ Utilisé pour donner une note sur cinq étoiles.
 ```html
 <div class="block">
   <span class="demonstration">Défaut</span>
-  <top-rate v-model="value1"></top-rate>
+  <el-rate v-model="value1"></el-rate>
 </div>
 <div class="block">
   <span class="demonstration">Couleurs pour chaque niveau</span>
-  <top-rate
+  <el-rate
     v-model="value2"
     :colors="['#99A9BF', '#F7BA2A', '#FF9900']">
-  </top-rate>
+  </el-rate>
 </div>
 
 <script>
@@ -39,11 +39,11 @@ Vous pouvez ajouter du texte à chaque score.
 :::demo Ajoutez l'attribut `show-text` pour afficher du texte à droite des étoiles. Vous pouvez choisir les textes avec l'attribut `texts`. C'est un tableau dont la taille doit être égale au score max `max`.
 
 ```html
-<top-rate
+<el-rate
   v-model="value3"
   :texts="['oops', 'disappointed', 'normal', 'good', 'great']"
   show-text>
-</top-rate>
+</el-rate>
 
 <script>
   export default {
@@ -64,12 +64,12 @@ Vous pouvez utiliser différentes icônes pour chaque
 :::demo Vous pouvez personnaliser les icônes de chaque niveau en utilisant `icon-classes`. Dans cet exemple, nous utilisons aussi `void-icon-class` qui permet de choisir l'icône des valeurs non-sélectionnées.
 
 ```html
-<top-rate
+<el-rate
   v-model="value4"
   :icon-classes="['icon-rate-face-1', 'icon-rate-face-2', 'icon-rate-face-3']"
   void-icon-class="icon-rate-face-off"
   :colors="['#99A9BF', '#F7BA2A', '#FF9900']">
-</top-rate>
+</el-rate>
 
 <script>
   export default {
@@ -90,13 +90,13 @@ Le score peut être en lecture seule. Les demi-étoiles sont supportées.
 :::demo Utilisez `disabled` pour mettre le composant en lecture seule. Ajoutez `show-score` pour afficher le score à droite des étoiles. De plus, vous pouvez utiliser `score-template` pour déterminer un template. Il doit contenir `{value}` qui sera remplacé par la valeur du score.
 
 ```html
-<top-rate
+<el-rate
   v-model="value5"
   disabled
   show-score
   text-color="#ff9900"
   score-template="{value} points">
-</top-rate>
+</el-rate>
 
 <script>
   export default {
@@ -123,9 +123,9 @@ Le score peut être en lecture seule. Les demi-étoiles sont supportées.
 | colors | Couleurs des icônes. Doit en contenir trois, correspondants à chaque niveau. | array | — | ['#F7BA2A', '#F7BA2A', '#F7BA2A'] |
 | void-color | Couleur des icônes non-sélectionnées. | string | — | #C6D1DE |
 | disabled-void-color | Couleur des icônes non-sélectionnées en lecture seule. | string | — | #EFF2F7 |
-| icon-classes | Liste des classes des icônes. Doit en contenir trois, correspondants à chaque niveau. | array | — | ['top-icon-star-on', 'top-icon-star-on','top-icon-star-on'] |
-| void-icon-class | Classe des icônes non-sélectionnées. | string | — | top-icon-star-off |
-| disabled-void-icon-class | Classe des icônes non-sélectionnées en lecture seule. | string | — | top-icon-star-on |
+| icon-classes | Liste des classes des icônes. Doit en contenir trois, correspondants à chaque niveau. | array | — | ['el-icon-star-on', 'el-icon-star-on','el-icon-star-on'] |
+| void-icon-class | Classe des icônes non-sélectionnées. | string | — | el-icon-star-off |
+| disabled-void-icon-class | Classe des icônes non-sélectionnées en lecture seule. | string | — | el-icon-star-on |
 | show-text | Si du texte doit apparaître à droite des étoiles. | boolean | — | false |
 | show-score | Si le score doit apparaître. Incompatible avec show-text. | boolean | — | false |
 | text-color | Couleur du texte. | string | — | #1F2D3D |

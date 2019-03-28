@@ -9,48 +9,48 @@ Top bar NavMenu puede ser usado en distinto escenarios.
 :::demo Por defecto el menú es vertical, pero puede hacerlo horizontal asignando a la propiedad `mode` el valor 'horizontal'. Además, puede utilizar el componente de submenú para crear un menú de segundo nivel. Menú provee `background-color`, `text-color` y `active-text-color` para customizar los colores.
 
 ```html
-<top-menu :default-active="activeIndex" class="top-menu-demo" mode="horizontal" @select="handleSelect">
-  <top-menu-item index="1">Processing Center</top-menu-item>
-  <top-submenu index="2">
+<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+  <el-menu-item index="1">Processing Center</el-menu-item>
+  <el-submenu index="2">
     <template slot="title">Workspace</template>
-    <top-menu-item index="2-1">item one</top-menu-item>
-    <top-menu-item index="2-2">item two</top-menu-item>
-    <top-menu-item index="2-3">item three</top-menu-item>
-    <top-submenu index="2-4">
+    <el-menu-item index="2-1">item one</el-menu-item>
+    <el-menu-item index="2-2">item two</el-menu-item>
+    <el-menu-item index="2-3">item three</el-menu-item>
+    <el-submenu index="2-4">
       <template slot="title">item four</template>
-      <top-menu-item index="2-4-1">item one</top-menu-item>
-      <top-menu-item index="2-4-2">item two</top-menu-item>
-      <top-menu-item index="2-4-3">item three</top-menu-item>
-    </top-submenu>
-  </top-submenu>
-  <top-menu-item index="3" disabled>Info</top-menu-item>
-  <top-menu-item index="4"><a href="https://www.ele.me" target="_blank">Orders</a></top-menu-item>
-</top-menu>
+      <el-menu-item index="2-4-1">item one</el-menu-item>
+      <el-menu-item index="2-4-2">item two</el-menu-item>
+      <el-menu-item index="2-4-3">item three</el-menu-item>
+    </el-submenu>
+  </el-submenu>
+  <el-menu-item index="3" disabled>Info</el-menu-item>
+  <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">Orders</a></el-menu-item>
+</el-menu>
 <div class="line"></div>
-<top-menu
+<el-menu
   :default-active="activeIndex2"
-  class="top-menu-demo"
+  class="el-menu-demo"
   mode="horizontal"
   @select="handleSelect"
   background-color="#545c64"
   text-color="#fff"
   active-text-color="#ffd04b">
-  <top-menu-item index="1">Processing Center</top-menu-item>
-  <top-submenu index="2">
+  <el-menu-item index="1">Processing Center</el-menu-item>
+  <el-submenu index="2">
     <template slot="title">Workspace</template>
-    <top-menu-item index="2-1">item one</top-menu-item>
-    <top-menu-item index="2-2">item two</top-menu-item>
-    <top-menu-item index="2-3">item three</top-menu-item>
-    <top-submenu index="2-4">
+    <el-menu-item index="2-1">item one</el-menu-item>
+    <el-menu-item index="2-2">item two</el-menu-item>
+    <el-menu-item index="2-3">item three</el-menu-item>
+    <el-submenu index="2-4">
       <template slot="title">item four</template>
-      <top-menu-item index="2-4-1">item one</top-menu-item>
-      <top-menu-item index="2-4-2">item two</top-menu-item>
-      <top-menu-item index="2-4-3">item three</top-menu-item>
-    </top-submenu>
-  </top-submenu>
-  <top-menu-item index="3" disabled>Info</top-menu-item>
-  <top-menu-item index="4"><a href="https://www.ele.me" target="_blank">Orders</a></top-menu-item>
-</top-menu>
+      <el-menu-item index="2-4-1">item one</el-menu-item>
+      <el-menu-item index="2-4-2">item two</el-menu-item>
+      <el-menu-item index="2-4-3">item three</el-menu-item>
+    </el-submenu>
+  </el-submenu>
+  <el-menu-item index="3" disabled>Info</el-menu-item>
+  <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">Orders</a></el-menu-item>
+</el-menu>
 
 <script>
   export default {
@@ -74,90 +74,90 @@ Top bar NavMenu puede ser usado en distinto escenarios.
 
 NavMenu vertical con sub-menús.
 
-:::demo Puede utilizar el componente `top-menu-item-group` para crear un grupo de menú, y el nombre del grupo estará determinado por la propiedad `title` o la propiedad `slot`.
+:::demo Puede utilizar el componente `el-menu-item-group` para crear un grupo de menú, y el nombre del grupo estará determinado por la propiedad `title` o la propiedad `slot`.
 
 ```html
-<top-row class="tac">
-  <top-col :span="12">
+<el-row class="tac">
+  <el-col :span="12">
     <h5>Default colors</h5>
-    <top-menu
+    <el-menu
       default-active="2"
-      class="top-menu-vertical-demo"
+      class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose">
-      <top-submenu index="1">
+      <el-submenu index="1">
         <template slot="title">
-          <i class="top-icon-location"></i>
+          <i class="el-icon-location"></i>
           <span>Navigator One</span>
         </template>
-        <top-menu-item-group title="Group One">
-          <top-menu-item index="1-1">item one</top-menu-item>
-          <top-menu-item index="1-2">item one</top-menu-item>
-        </top-menu-item-group>
-        <top-menu-item-group title="Group Two">
-          <top-menu-item index="1-3">item three</top-menu-item>
-        </top-menu-item-group>
-        <top-submenu index="1-4">
+        <el-menu-item-group title="Group One">
+          <el-menu-item index="1-1">item one</el-menu-item>
+          <el-menu-item index="1-2">item one</el-menu-item>
+        </el-menu-item-group>
+        <el-menu-item-group title="Group Two">
+          <el-menu-item index="1-3">item three</el-menu-item>
+        </el-menu-item-group>
+        <el-submenu index="1-4">
           <template slot="title">item four</template>
-          <top-menu-item index="1-4-1">item one</top-menu-item>
-        </top-submenu>
-      </top-submenu>
-      <top-menu-item index="2">
-        <i class="top-icon-menu"></i>
+          <el-menu-item index="1-4-1">item one</el-menu-item>
+        </el-submenu>
+      </el-submenu>
+      <el-menu-item index="2">
+        <i class="el-icon-menu"></i>
         <span>Navigator Two</span>
-      </top-menu-item>
-      <top-menu-item index="3" disabled>
-        <i class="top-icon-document"></i>
+      </el-menu-item>
+      <el-menu-item index="3" disabled>
+        <i class="el-icon-document"></i>
         <span>Navigator Three</span>
-      </top-menu-item>
-      <top-menu-item index="4">
-        <i class="top-icon-setting"></i>
+      </el-menu-item>
+      <el-menu-item index="4">
+        <i class="el-icon-setting"></i>
         <span>Navigator Four</span>
-      </top-menu-item>
-    </top-menu>
-  </top-col>
-  <top-col :span="12">
+      </el-menu-item>
+    </el-menu>
+  </el-col>
+  <el-col :span="12">
     <h5>Custom colors</h5>
-    <top-menu
+    <el-menu
       default-active="2"
-      class="top-menu-vertical-demo"
+      class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b">
-      <top-submenu index="1">
+      <el-submenu index="1">
         <template slot="title">
-          <i class="top-icon-location"></i>
+          <i class="el-icon-location"></i>
           <span>Navigator One</span>
         </template>
-        <top-menu-item-group title="Group One">
-          <top-menu-item index="1-1">item one</top-menu-item>
-          <top-menu-item index="1-2">item one</top-menu-item>
-        </top-menu-item-group>
-        <top-menu-item-group title="Group Two">
-          <top-menu-item index="1-3">item three</top-menu-item>
-        </top-menu-item-group>
-        <top-submenu index="1-4">
+        <el-menu-item-group title="Group One">
+          <el-menu-item index="1-1">item one</el-menu-item>
+          <el-menu-item index="1-2">item one</el-menu-item>
+        </el-menu-item-group>
+        <el-menu-item-group title="Group Two">
+          <el-menu-item index="1-3">item three</el-menu-item>
+        </el-menu-item-group>
+        <el-submenu index="1-4">
           <template slot="title">item four</template>
-          <top-menu-item index="1-4-1">item one</top-menu-item>
-        </top-submenu>
-      </top-submenu>
-      <top-menu-item index="2">
-        <i class="top-icon-menu"></i>
+          <el-menu-item index="1-4-1">item one</el-menu-item>
+        </el-submenu>
+      </el-submenu>
+      <el-menu-item index="2">
+        <i class="el-icon-menu"></i>
         <span>Navigator Two</span>
-      </top-menu-item>
-      <top-menu-item index="3" disabled>
-        <i class="top-icon-document"></i>
+      </el-menu-item>
+      <el-menu-item index="3" disabled>
+        <i class="el-icon-document"></i>
         <span>Navigator Three</span>
-      </top-menu-item>
-      <top-menu-item index="4">
-        <i class="top-icon-setting"></i>
+      </el-menu-item>
+      <el-menu-item index="4">
+        <i class="el-icon-setting"></i>
         <span>Navigator Four</span>
-      </top-menu-item>
-    </top-menu>
-  </top-col>
-</top-row>
+      </el-menu-item>
+    </el-menu>
+  </el-col>
+</el-row>
 
 <script>
   export default {
@@ -180,45 +180,45 @@ NavMenu vertical puede ser colapsado.
 
 :::demo
 ```html
-<top-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-  <top-radio-button :label="false">expand</top-radio-button>
-  <top-radio-button :label="true">collapse</top-radio-button>
-</top-radio-group>
-<top-menu default-active="2" class="top-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-  <top-submenu index="1">
+<el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
+  <el-radio-button :label="false">expand</el-radio-button>
+  <el-radio-button :label="true">collapse</el-radio-button>
+</el-radio-group>
+<el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+  <el-submenu index="1">
     <template slot="title">
-      <i class="top-icon-location"></i>
+      <i class="el-icon-location"></i>
       <span slot="title">Navigator One</span>
     </template>
-    <top-menu-item-group>
+    <el-menu-item-group>
       <span slot="title">Group One</span>
-      <top-menu-item index="1-1">item one</top-menu-item>
-      <top-menu-item index="1-2">item two</top-menu-item>
-    </top-menu-item-group>
-    <top-menu-item-group title="Group Two">
-      <top-menu-item index="1-3">item three</top-menu-item>
-    </top-menu-item-group>
-    <top-submenu index="1-4">
+      <el-menu-item index="1-1">item one</el-menu-item>
+      <el-menu-item index="1-2">item two</el-menu-item>
+    </el-menu-item-group>
+    <el-menu-item-group title="Group Two">
+      <el-menu-item index="1-3">item three</el-menu-item>
+    </el-menu-item-group>
+    <el-submenu index="1-4">
       <span slot="title">item four</span>
-      <top-menu-item index="1-4-1">item one</top-menu-item>
-    </top-submenu>
-  </top-submenu>
-  <top-menu-item index="2">
-    <i class="top-icon-menu"></i>
+      <el-menu-item index="1-4-1">item one</el-menu-item>
+    </el-submenu>
+  </el-submenu>
+  <el-menu-item index="2">
+    <i class="el-icon-menu"></i>
     <span slot="title">Navigator Two</span>
-  </top-menu-item>
-  <top-menu-item index="3" disabled>
-    <i class="top-icon-document"></i>
+  </el-menu-item>
+  <el-menu-item index="3" disabled>
+    <i class="el-icon-document"></i>
     <span slot="title">Navigator Three</span>
-  </top-menu-item>
-  <top-menu-item index="4">
-    <i class="top-icon-setting"></i>
+  </el-menu-item>
+  <el-menu-item index="4">
+    <i class="el-icon-setting"></i>
     <span slot="title">Navigator Four</span>
-  </top-menu-item>
-</top-menu>
+  </el-menu-item>
+</el-menu>
 
 <style>
-  .top-menu-vertical-demo:not(.top-menu--collapse) {
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
     min-height: 400px;
   }

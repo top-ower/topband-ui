@@ -6,27 +6,27 @@
 
 基础的表格展示用法。
 
-:::demo 当`top-table`元素中注入`data`对象数组后，在`top-table-column`中用`prop`属性来对应对象中的键名即可填入数据，用`label`属性来定义表格的列名。可以使用`width`属性来定义列宽。
+:::demo 当`el-table`元素中注入`data`对象数组后，在`el-table-column`中用`prop`属性来对应对象中的键名即可填入数据，用`label`属性来定义表格的列名。可以使用`width`属性来定义列宽。
 ```html
   <template>
-    <top-table
+    <el-table
       :data="tableData"
       style="width: 100%">
-      <top-table-column
+      <el-table-column
         prop="date"
         label="日期"
         width="180">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="name"
         label="姓名"
         width="180">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="address"
         label="地址">
-      </top-table-column>
-    </top-table>
+      </el-table-column>
+    </el-table>
   </template>
 
   <script>
@@ -64,25 +64,25 @@
 :::demo `stripe`属性可以创建带斑马纹的表格。它接受一个`Boolean`，默认为`false`，设置为`true`即为启用。
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     stripe
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="日期"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="姓名"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="地址">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -118,25 +118,25 @@
 :::demo 默认情况下，Table 组件是不具有竖直方向的边框的，如果需要，可以使用`border`属性，它接受一个`Boolean`，设置为`true`即可启用。
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     border
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="日期"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="姓名"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="地址">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -174,33 +174,33 @@
 :::demo 可以通过指定 Table 组件的 `row-class-name` 属性来为 Table 中的某一行添加 class，表明该行处于某种状态。
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%"
     :row-class-name="tableRowClassName">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="日期"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="姓名"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="地址">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <style>
-  .top-table .warning-row {
+  .el-table .warning-row {
     background: oldlace;
   }
 
-  .top-table .success-row {
+  .el-table .success-row {
     background: #f0f9eb;
   }
 </style>
@@ -247,29 +247,29 @@
 
 纵向内容过多时，可选择固定表头。
 
-:::demo 只要在`top-table`元素中定义了`height`属性，即可实现固定表头的表格，而不需要额外的代码。
+:::demo 只要在`el-table`元素中定义了`height`属性，即可实现固定表头的表格，而不需要额外的代码。
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     height="250"
     border
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="日期"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="姓名"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="地址">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -319,51 +319,51 @@
 :::demo 固定列需要使用`fixed`属性，它接受 Boolean 值或者`left` `right`，表示左边固定还是右边固定。
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     border
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       fixed
       prop="date"
       label="日期"
       width="150">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="姓名"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="province"
       label="省份"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="city"
       label="市区"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="地址"
       width="300">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="zip"
       label="邮编"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       fixed="right"
       label="操作"
       width="100">
       <template slot-scope="scope">
-        <top-button @click="handleClick(scope.row)" type="text" size="small">查看</top-button>
-        <top-button type="text" size="small">编辑</top-button>
+        <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+        <el-button type="text" size="small">编辑</el-button>
       </template>
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -419,42 +419,42 @@
 :::demo 固定列和表头可以同时使用，只需要将上述两个属性分别设置好即可。
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%"
     height="250">
-    <top-table-column
+    <el-table-column
       fixed
       prop="date"
       label="日期"
       width="150">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="姓名"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="province"
       label="省份"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="city"
       label="市区"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="地址"
       width="300">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="zip"
       label="邮编"
       width="120">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -525,55 +525,55 @@
 :::demo 通过设置`max-height`属性为 Table 指定最大高度。此时若表格所需的高度大于最大高度，则会显示一个滚动条。
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%"
     max-height="250">
-    <top-table-column
+    <el-table-column
       fixed
       prop="date"
       label="日期"
       width="150">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="姓名"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="province"
       label="省份"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="city"
       label="市区"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="地址"
       width="300">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="zip"
       label="邮编"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       fixed="right"
       label="操作"
       width="120">
       <template slot-scope="scope">
-        <top-button
+        <el-button
           @click.native.prevent="deleteRow(scope.$index, tableData)"
           type="text"
           size="small">
           移除
-        </top-button>
+        </el-button>
       </template>
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -646,47 +646,47 @@
 
 数据结构比较复杂的时候，可使用多级表头来展现数据的层次关系。
 
-:::demo 只需要在 top-table-column 里面嵌套 top-table-column，就可以实现多级表头。
+:::demo 只需要在 el-table-column 里面嵌套 el-table-column，就可以实现多级表头。
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="日期"
       width="150">
-    </top-table-column>
-    <top-table-column label="配送信息">
-      <top-table-column
+    </el-table-column>
+    <el-table-column label="配送信息">
+      <el-table-column
         prop="name"
         label="姓名"
         width="120">
-      </top-table-column>
-      <top-table-column label="地址">
-        <top-table-column
+      </el-table-column>
+      <el-table-column label="地址">
+        <el-table-column
           prop="province"
           label="省份"
           width="120">
-        </top-table-column>
-        <top-table-column
+        </el-table-column>
+        <el-table-column
           prop="city"
           label="市区"
           width="120">
-        </top-table-column>
-        <top-table-column
+        </el-table-column>
+        <el-table-column
           prop="address"
           label="地址"
           width="300">
-        </top-table-column>
-        <top-table-column
+        </el-table-column>
+        <el-table-column
           prop="zip"
           label="邮编"
           width="120">
-        </top-table-column>
-      </top-table-column>
-    </top-table-column>
-  </top-table>
+        </el-table-column>
+      </el-table-column>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -754,37 +754,37 @@
 
 选择单行数据时使用色块表示。
 
-:::demo Table 组件提供了单选的支持，只需要配置`highlight-current-row`属性即可实现单选。之后由`current-change`事件来管理选中时触发的事件，它会传入`currentRow`，`oldCurrentRow`。如果需要显示索引，可以增加一列`top-table-column`，设置`type`属性为`index`即可显示从 1 开始的索引号。
+:::demo Table 组件提供了单选的支持，只需要配置`highlight-current-row`属性即可实现单选。之后由`current-change`事件来管理选中时触发的事件，它会传入`currentRow`，`oldCurrentRow`。如果需要显示索引，可以增加一列`el-table-column`，设置`type`属性为`index`即可显示从 1 开始的索引号。
 ```html
 <template>
-  <top-table
+  <el-table
     ref="singleTable"
     :data="tableData"
     highlight-current-row
     @current-change="handleCurrentChange"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       type="index"
       width="50">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       property="date"
       label="日期"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       property="name"
       label="姓名"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       property="address"
       label="地址">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
   <div style="margin-top: 20px">
-    <top-button @click="setCurrent(tableData[1])">选中第二行</top-button>
-    <top-button @click="setCurrent()">取消选择</top-button>
+    <el-button @click="setCurrent(tableData[1])">选中第二行</el-button>
+    <el-button @click="setCurrent()">取消选择</el-button>
   </div>
 </template>
 
@@ -830,38 +830,38 @@
 
 选择多行数据时使用 Checkbox。
 
-:::demo 实现多选非常简单: 手动添加一个`top-table-column`，设`type`属性为`selection`即可；默认情况下若内容过多会折行显示，若需要单行显示可以使用`show-overflow-tooltip`属性，它接受一个`Boolean`，为`true`时多余的内容会在 hover 时以 tooltip 的形式显示出来。
+:::demo 实现多选非常简单: 手动添加一个`el-table-column`，设`type`属性为`selection`即可；默认情况下若内容过多会折行显示，若需要单行显示可以使用`show-overflow-tooltip`属性，它接受一个`Boolean`，为`true`时多余的内容会在 hover 时以 tooltip 的形式显示出来。
 ```html
 <template>
-  <top-table
+  <el-table
     ref="multipleTable"
     :data="tableData"
     tooltip-effect="dark"
     style="width: 100%"
     @selection-change="handleSelectionChange">
-    <top-table-column
+    <el-table-column
       type="selection"
       width="55">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       label="日期"
       width="120">
       <template slot-scope="scope">{{ scope.row.date }}</template>
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="姓名"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="地址"
       show-overflow-tooltip>
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
   <div style="margin-top: 20px">
-    <top-button @click="toggleSelection([tableData[1], tableData[2]])">切换第二、第三行的选中状态</top-button>
-    <top-button @click="toggleSelection()">取消选择</top-button>
+    <el-button @click="toggleSelection([tableData[1], tableData[2]])">切换第二、第三行的选中状态</el-button>
+    <el-button @click="toggleSelection()">取消选择</el-button>
   </div>
 </template>
 
@@ -928,29 +928,29 @@
 :::demo 在列中设置`sortable`属性即可实现以该列为基准的排序，接受一个`Boolean`，默认为`false`。可以通过 Table 的`default-sort`属性设置默认的排序列和排序顺序。可以使用`sort-method`或者`sort-by`使用自定义的排序规则。如果需要后端排序，需将`sortable`设置为`custom`，同时在 Table 上监听`sort-change`事件，在事件回调中可以获取当前排序的字段名和排序顺序，从而向接口请求排序后的表格数据。在本例中，我们还使用了`formatter`属性，它用于格式化指定列的值，接受一个`Function`，会传入两个参数：`row`和`column`，可以根据自己的需求进行处理。
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%"
     :default-sort = "{prop: 'date', order: 'descending'}"
     >
-    <top-table-column
+    <el-table-column
       prop="date"
       label="日期"
       sortable
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="姓名"
       sortable
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="地址"
       :formatter="formatter">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -993,13 +993,13 @@
 :::demo 在列中设置`filters` `filter-method`属性即可开启该列的筛选，filters 是一个数组，`filter-method`是一个方法，它用于决定某些数据是否显示，会传入三个参数：`value`, `row` 和 `column`。
 ```html
 <template>
-  <top-button @click="resetDateFilter">清除日期过滤器</top-button>
-  <top-button @click="clearFilter">清除所有过滤器</top-button>
-  <top-table
+  <el-button @click="resetDateFilter">清除日期过滤器</el-button>
+  <el-button @click="clearFilter">清除所有过滤器</el-button>
+  <el-table
     ref="filterTable"
     :data="tableData"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="日期"
       sortable
@@ -1008,18 +1008,18 @@
       :filters="[{text: '2016-05-01', value: '2016-05-01'}, {text: '2016-05-02', value: '2016-05-02'}, {text: '2016-05-03', value: '2016-05-03'}, {text: '2016-05-04', value: '2016-05-04'}]"
       :filter-method="filterHandler"
     >
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="姓名"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="地址"
       :formatter="formatter">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="tag"
       label="标签"
       width="100"
@@ -1027,12 +1027,12 @@
       :filter-method="filterTag"
       filter-placement="bottom-end">
       <template slot-scope="scope">
-        <top-tag
+        <el-tag
           :type="scope.row.tag === '家' ? 'primary' : 'success'"
-          disable-transitions>{{scope.row.tag}}</top-tag>
+          disable-transitions>{{scope.row.tag}}</el-tag>
       </template>
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -1091,42 +1091,42 @@
 :::demo 通过 `Scoped slot` 可以获取到 row, column, $index 和 store（table 内部的状态管理）的数据，用法参考 demo。
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       label="日期"
       width="180">
       <template slot-scope="scope">
-        <i class="top-icon-time"></i>
+        <i class="el-icon-time"></i>
         <span style="margin-left: 10px">{{ scope.row.date }}</span>
       </template>
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       label="姓名"
       width="180">
       <template slot-scope="scope">
-        <top-popover trigger="hover" placement="top">
+        <el-popover trigger="hover" placement="top">
           <p>姓名: {{ scope.row.name }}</p>
           <p>住址: {{ scope.row.address }}</p>
           <div slot="reference" class="name-wrapper">
-            <top-tag size="medium">{{ scope.row.name }}</top-tag>
+            <el-tag size="medium">{{ scope.row.name }}</el-tag>
           </div>
-        </top-popover>
+        </el-popover>
       </template>
-    </top-table-column>
-    <top-table-column label="操作">
+    </el-table-column>
+    <el-table-column label="操作">
       <template slot-scope="scope">
-        <top-button
+        <el-button
           size="mini"
-          @click="handleEdit(scope.$index, scope.row)">编辑</top-button>
-        <top-button
+          @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+        <el-button
           size="mini"
           type="danger"
-          @click="handleDelete(scope.$index, scope.row)">删除</top-button>
+          @click="handleDelete(scope.$index, scope.row)">删除</el-button>
       </template>
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -1168,52 +1168,52 @@
 ### 展开行
 
 当行内容过多并且不想显示横向滚动条时，可以使用 Table 展开行功能。
-:::demo 通过设置 type="expand" 和 `Scoped slot` 可以开启展开行功能，`top-table-column` 的模板会被渲染成为展开行的内容，展开行可访问的属性与使用自定义列模板时的 `Scoped slot` 相同。
+:::demo 通过设置 type="expand" 和 `Scoped slot` 可以开启展开行功能，`el-table-column` 的模板会被渲染成为展开行的内容，展开行可访问的属性与使用自定义列模板时的 `Scoped slot` 相同。
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%">
-    <top-table-column type="expand">
+    <el-table-column type="expand">
       <template slot-scope="props">
-        <top-form labtop-position="left" inline class="demo-table-expand">
-          <top-form-item label="商品名称">
+        <el-form label-position="left" inline class="demo-table-expand">
+          <el-form-item label="商品名称">
             <span>{{ props.row.name }}</span>
-          </top-form-item>
-          <top-form-item label="所属店铺">
+          </el-form-item>
+          <el-form-item label="所属店铺">
             <span>{{ props.row.shop }}</span>
-          </top-form-item>
-          <top-form-item label="商品 ID">
+          </el-form-item>
+          <el-form-item label="商品 ID">
             <span>{{ props.row.id }}</span>
-          </top-form-item>
-          <top-form-item label="店铺 ID">
+          </el-form-item>
+          <el-form-item label="店铺 ID">
             <span>{{ props.row.shopId }}</span>
-          </top-form-item>
-          <top-form-item label="商品分类">
+          </el-form-item>
+          <el-form-item label="商品分类">
             <span>{{ props.row.category }}</span>
-          </top-form-item>
-          <top-form-item label="店铺地址">
+          </el-form-item>
+          <el-form-item label="店铺地址">
             <span>{{ props.row.address }}</span>
-          </top-form-item>
-          <top-form-item label="商品描述">
+          </el-form-item>
+          <el-form-item label="商品描述">
             <span>{{ props.row.desc }}</span>
-          </top-form-item>
-        </top-form>
+          </el-form-item>
+        </el-form>
       </template>
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       label="商品 ID"
       prop="id">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       label="商品名称"
       prop="name">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       label="描述"
       prop="desc">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <style>
@@ -1224,7 +1224,7 @@
     width: 90px;
     color: #99a9bf;
   }
-  .demo-table-expand .top-form-item {
+  .demo-table-expand .el-form-item {
     margin-right: 0;
     margin-bottom: 0;
     width: 50%;
@@ -1275,6 +1275,143 @@
 ```
 :::
 
+### 树形数据与懒加载
+
+:::demo 支持树类型的数据。此时，必须要指定 `row-key`。支持子节点数据异步加载。设置 Table 的 `lazy` 属性为 true 与 加载函数 `load` ，指定 row 中的 `hasChildren` 来确定哪些行是包含子节点。
+
+```html
+<template>
+<div>
+  <el-table
+    :data="tableData"
+    style="width: 100%;margin-bottom: 20px;"
+    border
+    row-key="id">
+    <el-table-column
+      prop="date"
+      label="日期"
+      sortable
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="name"
+      label="姓名"
+      sortable
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="address"
+      label="地址">
+    </el-table-column>
+  </el-table>
+
+  <el-table
+    :data="tableData1"
+    style="width: 100%"
+    row-key="id"
+    border
+    lazy
+    :load="load"
+    >
+    <el-table-column
+      prop="date"
+      label="日期"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="name"
+      label="姓名"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="address"
+      label="地址">
+    </el-table-column>
+  </el-table>
+</div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        tableData: [{
+          id: 1,
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        }, {
+          id: 2,
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1517 弄'
+        }, {
+          id: 3,
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1519 弄',
+          children: [{
+              id: 31,
+              date: '2016-05-01',
+              name: '王小虎',
+              address: '上海市普陀区金沙江路 1519 弄'
+            }, {
+              id: 32,
+              date: '2016-05-01',
+              name: '王小虎',
+              address: '上海市普陀区金沙江路 1519 弄'
+          }]
+        }, {
+          id: 4,
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1516 弄'
+        }],
+        tableData1: [{
+          id: 1,
+          date: '2016-05-02',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1518 弄'
+        }, {
+          id: 2,
+          date: '2016-05-04',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1517 弄'
+        }, {
+          id: 3,
+          date: '2016-05-01',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1519 弄',
+          hasChildren: true
+        }, {
+          id: 4,
+          date: '2016-05-03',
+          name: '王小虎',
+          address: '上海市普陀区金沙江路 1516 弄'
+        }]
+      }
+    },
+    methods: {
+      load(tree, treeNode, resolve) {
+        resolve([
+          {
+            id: 31,
+            date: '2016-05-01',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1519 弄'
+          }, {
+            id: 32,
+            date: '2016-05-01',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1519 弄'
+          }
+        ])
+      }
+    },
+  }
+</script>
+```
+:::
+
 ### 自定义表头
 
 表头支持自定义。
@@ -1282,36 +1419,36 @@
 :::demo 通过设置 [Scoped slot](https://cn.vuejs.org/v2/guide/components-slots.html#%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD) 来自定义表头。
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       label="Date"
       prop="date">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       label="Name"
       prop="name">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       align="right">
       <template slot="header" slot-scope="scope">
-        <top-input
+        <el-input
           v-model="search"
           size="mini"
           placeholder="输入关键字搜索"/>
       </template>
       <template slot-scope="scope">
-        <top-button
+        <el-button
           size="mini"
-          @click="handleEdit(scope.$index, scope.row)">Edit</top-button>
-        <top-button
+          @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
+        <el-button
           size="mini"
           type="danger"
-          @click="handleDelete(scope.$index, scope.row)">Delete</top-button>
+          @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
       </template>
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -1357,66 +1494,66 @@
 :::demo 将`show-summary`设置为`true`就会在表格尾部展示合计行。默认情况下，对于合计行，第一列不进行数据求合操作，而是显示「合计」二字（可通过`sum-text`配置），其余列会将本列所有数值进行求合操作，并显示出来。当然，你也可以定义自己的合计逻辑。使用`summary-method`并传入一个方法，返回一个数组，这个数组中的各项就会显示在合计行的各列中，具体可以参考本例中的第二个表格。
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     border
     show-summary
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="id"
       label="ID"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="姓名">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="amount1"
       sortable
       label="数值 1">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="amount2"
       sortable
       label="数值 2">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="amount3"
       sortable
       label="数值 3">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 
-  <top-table
+  <el-table
     :data="tableData"
     border
     height="200"
     :summary-method="getSummaries"
     show-summary
     style="width: 100%; margin-top: 20px">
-    <top-table-column
+    <el-table-column
       prop="id"
       label="ID"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="姓名">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="amount1"
       label="数值 1（元）">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="amount2"
       label="数值 2（元）">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="amount3"
       label="数值 3（元）">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -1497,64 +1634,64 @@
 ```html
 <template>
   <div>
-    <top-table
+    <el-table
       :data="tableData"
       :span-method="arraySpanMethod"
       border
       style="width: 100%">
-      <top-table-column
+      <el-table-column
         prop="id"
         label="ID"
         width="180">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="name"
         label="姓名">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="amount1"
         sortable
         label="数值 1">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="amount2"
         sortable
         label="数值 2">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="amount3"
         sortable
         label="数值 3">
-      </top-table-column>
-    </top-table>
+      </el-table-column>
+    </el-table>
 
-    <top-table
+    <el-table
       :data="tableData"
       :span-method="objectSpanMethod"
       border
       style="width: 100%; margin-top: 20px">
-      <top-table-column
+      <el-table-column
         prop="id"
         label="ID"
         width="180">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="name"
         label="姓名">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="amount1"
         label="数值 1（元）">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="amount2"
         label="数值 2（元）">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="amount3"
         label="数值 3（元）">
-      </top-table-column>
-    </top-table>
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 
@@ -1634,28 +1771,28 @@
 
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       type="index"
       :index="indexMethod">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="date"
       label="日期"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="姓名"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="地址">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -1728,7 +1865,7 @@
 | header-row-style | 表头行的 style 的回调方法，也可以使用一个固定的 Object 为所有表头行设置一样的 Style。 | Function({row, rowIndex})/Object | — | — |
 | header-cell-class-name | 表头单元格的 className 的回调方法，也可以使用字符串为所有表头单元格设置一个固定的 className。 | Function({row, column, rowIndex, columnIndex})/String | — | — |
 | header-cell-style | 表头单元格的 style 的回调方法，也可以使用一个固定的 Object 为所有表头单元格设置一样的 Style。 | Function({row, column, rowIndex, columnIndex})/Object | — | — |
-| row-key | 行数据的 Key，用来优化 Table 的渲染；在使用 reserve-selection 功能的情况下，该属性是必填的。类型为 String 时，支持多层访问：`user.info.id`，但不支持 `user.info[0].id`，此种情况请使用 `Function`。 | Function(row)/String | — | — |
+| row-key | 行数据的 Key，用来优化 Table 的渲染；在使用 reserve-selection 功能与显示树形数据时，该属性是必填的。类型为 String 时，支持多层访问：`user.info.id`，但不支持 `user.info[0].id`，此种情况请使用 `Function`。 | Function(row)/String | — | — |
 | empty-text | 空数据时显示的文本内容，也可以通过 `slot="empty"` 设置 | String | — | 暂无数据 |
 | default-expand-all | 是否默认展开所有行，当 Table 中存在 type="expand" 的 Column 的时候有效 | Boolean | — | false |
 | expand-row-keys | 可以通过该属性设置 Table 目前的展开行，需要设置 row-key 属性才能使用，该属性为展开行的 keys 数组。| Array | — | |
@@ -1739,6 +1876,9 @@
 | summary-method | 自定义的合计计算方法 | Function({ columns, data }) | — | — |
 | span-method | 合并行或列的计算方法 | Function({ row, column, rowIndex, columnIndex }) | — | — |
 | select-on-indeterminate | 在多选表格中，当仅有部分行被选中时，点击表头的多选框时的行为。若为 true，则选中所有行；若为 false，则取消选择所有行 | Boolean | — | true |
+| indent      | 展示树形数据时，树节点的缩进 | Number | — | 16 |
+| lazy        | 是否懒加载子节点数据 | Boolean | — | — |
+| load        | 加载子节点数据的函数，lazy 为 true 时生效 | Function({ row, treeNode, resolve }) | — | — |
 
 ### Table Events
 | 事件名 | 说明 | 参数 |
@@ -1795,13 +1935,13 @@
 | sort-method | 对数据进行排序的时候使用的方法，仅当 sortable 设置为 true 的时候有效，需返回一个数字，和 Array.sort 表现一致 | Function(a, b) | — | — |
 | sort-by | 指定数据按照哪个属性进行排序，仅当 sortable 设置为 true 且没有设置 sort-method 的时候有效。如果 sort-by 为数组，则先按照第 1 个属性排序，如果第 1 个相等，再按照第 2 个排序，以此类推 | String/Array/Function(row, index) | — | — |
 | sort-orders | 数据在排序时所使用排序策略的轮转顺序，仅当 sortable 为 true 时有效。需传入一个数组，随着用户点击表头，该列依次按照数组中元素的顺序进行排序 | array | 数组中的元素需为以下三者之一：`ascending` 表示升序，`descending` 表示降序，`null` 表示还原为原始顺序 | ['ascending', 'descending', null] |
-| resizable | 对应列是否可以通过拖动改变宽度（需要在 top-table 上设置 border 属性为真） | boolean | — | true |
+| resizable | 对应列是否可以通过拖动改变宽度（需要在 el-table 上设置 border 属性为真） | boolean | — | true |
 | formatter | 用来格式化内容 | Function(row, column, cellValue, index) | — | — |
 | show-overflow-tooltip | 当内容过长被隐藏时显示 tooltip | Boolean | — | false |
 | align | 对齐方式 | String | left/center/right | left |
 | header-align | 表头对齐方式，若不设置该项，则使用表格的对齐方式 | String | left/center/right | — |
 | class-name | 列的 className | string | — | — |
-| labtop-class-name | 当前列标题的自定义类名 | string | — | — |
+| label-class-name | 当前列标题的自定义类名 | string | — | — |
 | selectable | 仅对 type=selection 的列有效，类型为 Function，Function 的返回值用来决定这一行的 CheckBox 是否可以勾选 | Function(row, index) | — | — |
 | reserve-selection | 仅对 type=selection 的列有效，类型为 Boolean，为 true 则会在数据更新之后保留之前选中的数据（需指定 `row-key`） | Boolean | — | false |
 | filters | 数据过滤的选项，数组格式，数组中的元素需要有 text 和 value 属性。 | Array[{ text, value }] | — | — |

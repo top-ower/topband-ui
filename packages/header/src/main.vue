@@ -1,5 +1,5 @@
 <template>
-  <header class="top-header" :style="{ height }">
+  <header class="el-header" :style="{ height }">
     <slot></slot>
   </header>
 </template>

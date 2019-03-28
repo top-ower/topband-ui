@@ -1,38 +1,38 @@
 <template>
-  <transition name="top-zoom-in-top" @after-leave="doDestroy">
+  <transition name="el-zoom-in-top" @after-leave="doDestroy">
     <div
-      class="top-color-dropdown"
+      class="el-color-dropdown"
       v-show="showPopper">
-      <div class="top-color-dropdown__main-wrapper">
+      <div class="el-color-dropdown__main-wrapper">
         <hue-slider ref="hue" :color="color" vertical style="float: right;"></hue-slider>
         <sv-panel ref="sl" :color="color"></sv-panel>
       </div>
       <alpha-slider v-if="showAlpha" ref="alpha" :color="color"></alpha-slider>
       <predefine v-if="predefine" :color="color" :colors="predefine"></predefine>
-      <div class="top-color-dropdown__btns">
-        <span class="top-color-dropdown__value">
-          <top-input
+      <div class="el-color-dropdown__btns">
+        <span class="el-color-dropdown__value">
+          <el-input
             v-model="customInput"
             @keyup.native.enter="handleConfirm"
             @blur="handleConfirm"
             :validate-event="false"
             size="mini">
-          </top-input>
+          </el-input>
         </span>
-        <!-- <top-button
+        <!-- <el-button
           size="mini"
           type="text"
-          class="top-color-dropdown__link-btn"
+          class="el-color-dropdown__link-btn"
           @click="$emit('clear')">
           {{ t('el.colorpicker.clear') }}
-        </top-button> -->
-        <top-button
+        </el-button> -->
+        <el-button
           plain
           size="mini"
-          class="top-color-dropdown__btn"
+          class="el-color-dropdown__btn"
           @click="confirmValue">
           {{ t('el.colorpicker.confirm') }}
-        </top-button>
+        </el-button>
       </div>
       <color-list 
         v-if="colorList && colorList.length > 0" 
@@ -50,13 +50,13 @@
   import AlphaSlider from './alpha-slider';
   import Predefine from './predefine';
   import ColorList from './color-list';
-  import Popper from 'topband-ui/src/utils/vue-popper';
-  import Locale from 'topband-ui/src/mixins/locale';
-  import ElInput from 'topband-ui/packages/input';
-  import ElButton from 'topband-ui/packages/button';
+  import Popper from 'element-ui/src/utils/vue-popper';
+  import Locale from 'element-ui/src/mixins/locale';
+  import ElInput from 'element-ui/packages/input';
+  import ElButton from 'element-ui/packages/button';
 
   export default {
-    name: 'top-color-picker-dropdown',
+    name: 'el-color-picker-dropdown',
 
     mixins: [Popper, Locale],
 

@@ -1,5 +1,5 @@
 <template>
-  <top-input 
+  <el-input 
     @keyup.enter.native="onUpdate"
     v-model="value"
     @blur="onUpdate"
@@ -8,7 +8,7 @@
     <template slot="suffix">
       <slot name="suffix"></slot>
     </template>
-  </top-input>
+  </el-input>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
-import ElCheckbox from 'topband-ui/packages/checkbox';
-import ElTag from 'topband-ui/packages/tag';
-import objectAssign from 'topband-ui/src/utils/merge';
-import { getPropByPath } from 'topband-ui/src/utils/util';
+import ElCheckbox from 'element-ui/packages/checkbox';
+import ElTag from 'element-ui/packages/tag';
+import objectAssign from 'element-ui/src/utils/merge';
+import { getPropByPath } from 'element-ui/src/utils/util';
 
 let columnIdSeed = 1;
 
@@ -14,7 +14,7 @@ const defaults = {
     minWidth: 48,
     realWidth: 48,
     order: '',
-    className: 'top-table-column--selection'
+    className: 'el-table-column--selection'
   },
   expand: {
     width: 48,
@@ -33,14 +33,14 @@ const defaults = {
 const forced = {
   selection: {
     renderHeader: function(h, { store }) {
-      return <top-checkbox
+      return <el-checkbox
         disabled={ store.states.data && store.states.data.length === 0 }
         indeterminate={ store.states.selection.length > 0 && !this.isAllSelected }
         nativeOn-click={ this.toggleAllSelection }
         value={ this.isAllSelected } />;
     },
     renderCell: function(h, { row, column, store, $index }) {
-      return <top-checkbox
+      return <el-checkbox
         nativeOn-click={ (event) => event.stopPropagation() }
         value={ store.isSelected(row) }
         disabled={ column.selectable ? !column.selectable.call(null, row, $index) : false }
@@ -73,14 +73,14 @@ const forced = {
     },
     renderCell: function(h, { row, store }, proxy) {
       const expanded = store.states.expandRows.indexOf(row) > -1;
-      return <div class={ 'top-table__expand-icon ' + (expanded ? 'top-table__expand-icon--expanded' : '') }
+      return <div class={ 'el-table__expand-icon ' + (expanded ? 'el-table__expand-icon--expanded' : '') }
         on-click={ e => proxy.handleExpandClick(row, e) }>
-        <i class='top-icon top-icon-arrow-right'></i>
+        <i class='el-icon el-icon-arrow-right'></i>
       </div>;
     },
     sortable: false,
     resizable: false,
-    className: 'top-table__expand-column'
+    className: 'el-table__expand-column'
   }
 };
 
@@ -326,10 +326,16 @@ export default {
       if (!renderCell) {
         renderCell = DEFAULT_RENDER_CELL;
       }
+      const children = [
+        _self.renderTreeCell(data),
+        renderCell(h, data)
+      ];
 
       return _self.showOverflowTooltip || _self.showTooltipWhenOverflow
-        ? <div class="cell top-tooltip" style={ {width: (data.column.realWidth || data.column.width) - 1 + 'px'} }>{ renderCell(h, data) }</div>
-        : <div class="cell">{ renderCell(h, data) }</div>;
+        ? <div class="cell el-tooltip" style={ {width: (data.column.realWidth || data.column.width) - 1 + 'px'} }>{ children }</div>
+        : (<div class="cell">
+          { children }
+        </div>);
     };
   },
 
@@ -434,6 +440,32 @@ export default {
     labelClassName(newVal) {
       if (this.columnConfig) {
         this.columnConfig.labelClassName = newVal;
+      }
+    }
+  },
+
+  methods: {
+    renderTreeCell(data) {
+      if (!data.treeNode) return null;
+      const ele = [];
+      ele.push(<span class="el-table__indent" style={{'padding-left': data.treeNode.indent + 'px'}}></span>);
+      if (data.treeNode.hasChildren) {
+        ele.push(<div class={ ['el-table__expand-icon', data.treeNode.expanded ? 'el-table__expand-icon--expanded' : '']}
+          on-click={this.handleTreeExpandIconClick.bind(this, data)}>
+          <i class='el-icon el-icon-arrow-right'></i>
+        </div>);
+      } else {
+        ele.push(<span class="el-table__placeholder"></span>);
+      }
+      return ele;
+    },
+
+    handleTreeExpandIconClick(data, e) {
+      e.stopPropagation();
+      if (data.store.states.lazy && !data.treeNode.loaded) {
+        data.store.loadData(data.row, data.treeNode);
+      } else {
+        data.store.toggleTreeExpansion(data.treeNode.rowKey);
       }
     }
   },

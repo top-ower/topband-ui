@@ -1,10 +1,10 @@
 <script>
-  import Clickoutside from 'topband-ui/src/utils/clickoutside';
-  import Emitter from 'topband-ui/src/mixins/emitter';
-  import Migrating from 'topband-ui/src/mixins/migrating';
-  import ElButton from 'topband-ui/packages/button';
-  import ElButtonGroup from 'topband-ui/packages/button-group';
-  import { generateId } from 'topband-ui/src/utils/util';
+  import Clickoutside from 'element-ui/src/utils/clickoutside';
+  import Emitter from 'element-ui/src/mixins/emitter';
+  import Migrating from 'element-ui/src/mixins/migrating';
+  import ElButton from 'element-ui/packages/button';
+  import ElButtonGroup from 'element-ui/packages/button-group';
+  import { generateId } from 'element-ui/src/utils/util';
 
   export default {
     name: 'ElDropdown',
@@ -79,8 +79,6 @@
 
     mounted() {
       this.$on('menu-item-click', this.handleMenuItemClick);
-      this.initEvent();
-      this.initAria();
     },
 
     watch: {
@@ -89,7 +87,7 @@
         this.$emit('visible-change', val);
       },
       focusing(val) {
-        const selfDefine = this.$el.querySelector('.top-dropdown-selfdefine');
+        const selfDefine = this.$el.querySelector('.el-dropdown-selfdefine');
         if (selfDefine) { // 自定义
           if (val) {
             selfDefine.className += ' focusing';
@@ -145,7 +143,6 @@
         } else if ([9, 27].indexOf(keyCode) > -1) { // tab || esc
           this.hide();
         }
-        return;
       },
       handleItemKeyDown(ev) {
         const keyCode = ev.keyCode;
@@ -174,7 +171,6 @@
           this.hide();
           this.triggerElm.focus();
         }
-        return;
       },
       resetTabindex(ele) { // 下次tab时组件聚焦元素
         this.removeTabindex();
@@ -190,13 +186,11 @@
         this.dropdownElm.setAttribute('id', this.listId);
         this.triggerElm.setAttribute('aria-haspopup', 'list');
         this.triggerElm.setAttribute('aria-controls', this.listId);
-        this.menuItems = this.dropdownElm.querySelectorAll("[tabindex='-1']");
-        this.menuItemsArray = Array.prototype.slice.call(this.menuItems);
 
         if (!this.splitButton) { // 自定义
           this.triggerElm.setAttribute('role', 'button');
           this.triggerElm.setAttribute('tabindex', '0');
-          this.triggerElm.setAttribute('class', (this.triggerElm.getAttribute('class') || '') + ' top-dropdown-selfdefine'); // 控制
+          this.triggerElm.setAttribute('class', (this.triggerElm.getAttribute('class') || '') + ' el-dropdown-selfdefine'); // 控制
         }
       },
       initEvent() {
@@ -205,7 +199,7 @@
           ? this.$refs.trigger.$el
           : this.$slots.default[0].elm;
 
-        let dropdownElm = this.dropdownElm = this.$slots.dropdown[0].elm;
+        let dropdownElm = this.dropdownElm;
 
         this.triggerElm.addEventListener('keydown', handleTriggerKeyDown); // triggerElm keydown
         dropdownElm.addEventListener('keydown', handleItemKeyDown, true); // item keydown
@@ -238,6 +232,14 @@
       },
       focus() {
         this.triggerElm.focus && this.triggerElm.focus();
+      },
+      initDomOperation() {
+        this.dropdownElm = this.popperElm;
+        this.menuItems = this.dropdownElm.querySelectorAll("[tabindex='-1']");
+        this.menuItemsArray = [].slice.call(this.menuItems);
+
+        this.initEvent();
+        this.initAria();
       }
     },
 
@@ -251,17 +253,17 @@
 
       let triggerElm = !splitButton
         ? this.$slots.default
-        : (<top-button-group>
-          <top-button type={type} size={dropdownSize} nativeOn-click={handleMainButtonClick}>
+        : (<el-button-group>
+          <el-button type={type} size={dropdownSize} nativeOn-click={handleMainButtonClick}>
             {this.$slots.default}
-          </top-button>
-          <top-button ref="trigger" type={type} size={dropdownSize} class="top-dropdown__caret-button">
-            <i class="top-dropdown__icon top-icon-arrow-down"></i>
-          </top-button>
-        </top-button-group>);
+          </el-button>
+          <el-button ref="trigger" type={type} size={dropdownSize} class="el-dropdown__caret-button">
+            <i class="el-dropdown__icon el-icon-arrow-down"></i>
+          </el-button>
+        </el-button-group>);
 
       return (
-        <div class="top-dropdown" v-clickoutside={hide}>
+        <div class="el-dropdown" v-clickoutside={hide}>
           {triggerElm}
           {this.$slots.dropdown}
         </div>

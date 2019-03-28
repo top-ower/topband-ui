@@ -58,7 +58,7 @@ import Steps from '../packages/steps/index.js';
 import Step from '../packages/step/index.js';
 import Carousel from '../packages/carousel/index.js';
 import Scrollbar from '../packages/scrollbar/index.js';
-import CarouselItem from '../packages/caroustop-item/index.js';
+import CarouselItem from '../packages/carousel-item/index.js';
 import Collapse from '../packages/collapse/index.js';
 import CollapseItem from '../packages/collapse-item/index.js';
 import Cascader from '../packages/cascader/index.js';
@@ -71,8 +71,8 @@ import Main from '../packages/main/index.js';
 import Footer from '../packages/footer/index.js';
 import Timeline from '../packages/timeline/index.js';
 import TimelineItem from '../packages/timeline-item/index.js';
-import locale from 'topband-ui/src/locale';
-import CollapseTransition from 'topband-ui/src/transitions/collapse-transition';
+import locale from 'element-ui/src/locale';
+import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
 
 const components = [
   Pagination,
@@ -176,7 +176,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '2.6.1',
+  version: '2.7.0',
   locale: locale.use,
   i18n: locale.i18n,
   install,

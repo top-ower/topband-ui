@@ -5,11 +5,9 @@
   display: inline-block;
   width: 50%;
   box-sizing: border-box;
-
   &:last-child {
     border-right: none;
   }
-
 }
 
 .demo-carousel .demonstration {
@@ -19,26 +17,23 @@
   margin-bottom: 20px;
 }
 
-.demo-carousel .top-carousel__container {
+.demo-carousel .el-carousel__container {
   text-align: center;
 }
 
-.demo-carousel .top-carousel__item {
+.demo-carousel .el-carousel__item {
   h3 {
     color: #fff;
     font-size: 18px;
     line-height: 300px;
     margin: 0;
   }
-
   &:nth-child(2n) {
     background-color: #99a9bf;
   }
-
   &:nth-child(2n + 1) {
     background-color: #d3dce6;
   }
-
 }
 
 .demo-carousel .small h3 {

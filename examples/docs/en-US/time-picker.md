@@ -6,9 +6,9 @@ Use Time Picker for time input.
 
 Provide a list of fixed time for users to choose.
 
-:::demo Use `top-time-select` label, then assign start time, end time and time step with `start`, `end` and `step`.
+:::demo Use `el-time-select` label, then assign start time, end time and time step with `start`, `end` and `step`.
 ```html
-<top-time-select
+<el-time-select
   v-model="value1"
   :picker-options="{
     start: '08:30',
@@ -16,7 +16,7 @@ Provide a list of fixed time for users to choose.
     end: '18:30'
   }"
   placeholder="Select time">
-</top-time-select>
+</el-time-select>
 
 <script>
   export default {
@@ -34,25 +34,25 @@ Provide a list of fixed time for users to choose.
 
 Can pick an arbitrary time.
 
-:::demo Use `top-time-picker` label, and you can limit the time range by specifying `selectableRange`. By default, you can scroll the mouse wheel to pick time, alternatively you can use the control arrows when the `arrow-control` attribute is set.
+:::demo Use `el-time-picker` label, and you can limit the time range by specifying `selectableRange`. By default, you can scroll the mouse wheel to pick time, alternatively you can use the control arrows when the `arrow-control` attribute is set.
 
 ```html
 <template>
-  <top-time-picker
+  <el-time-picker
     v-model="value2"
     :picker-options="{
       selectableRange: '18:30:00 - 20:30:00'
     }"
     placeholder="Arbitrary time">
-  </top-time-picker>
-  <top-time-picker
+  </el-time-picker>
+  <el-time-picker
     arrow-control
     v-model="value3"
     :picker-options="{
       selectableRange: '18:30:00 - 20:30:00'
     }"
     placeholder="Arbitrary time">
-  </top-time-picker>
+  </el-time-picker>
 </template>
 
 <script>
@@ -75,7 +75,7 @@ If start time is picked at first, then the end time will change accordingly.
 :::demo
 ```html
 <template>
-  <top-time-select
+  <el-time-select
     placeholder="Start time"
     v-model="startTime"
     :picker-options="{
@@ -83,8 +83,8 @@ If start time is picked at first, then the end time will change accordingly.
       step: '00:15',
       end: '18:30'
     }">
-  </top-time-select>
-  <top-time-select
+  </el-time-select>
+  <el-time-select
     placeholder="End time"
     v-model="endTime"
     :picker-options="{
@@ -93,7 +93,7 @@ If start time is picked at first, then the end time will change accordingly.
       end: '18:30',
       minTime: startTime
     }">
-  </top-time-select>
+  </el-time-select>
 </template>
 
 <script>
@@ -116,21 +116,21 @@ Can pick an arbitrary time range.
 :::demo We can pick a time range by adding an `is-range` attribute. Also, `arrow-control` is supported in range mode.
 ```html
 <template>
-  <top-time-picker
+  <el-time-picker
     is-range
     v-model="value4"
     range-separator="To"
     start-placeholder="Start time"
     end-placeholder="End time">
-  </top-time-picker>
-  <top-time-picker
+  </el-time-picker>
+  <el-time-picker
     is-range
     arrow-control
     v-model="value5"
     range-separator="To"
     start-placeholder="Start time"
     end-placeholder="End time">
-  </top-time-picker>
+  </el-time-picker>
 </template>
 
 <script>
@@ -158,8 +158,8 @@ Can pick an arbitrary time range.
 | placeholder | placeholder in non-range mode | string | — | — |
 | start-placeholder | placeholder for the start time in range mode | string | — | — |
 | end-placeholder | placeholder for the end time in range mode | string | — | — |
-| is-range | whether to pick a time range, only works with `<top-time-picker>` | boolean | — | false |
-| arrow-control | whether to pick time using arrow buttons, only works with `<top-time-picker>` | boolean | — | false |
+| is-range | whether to pick a time range, only works with `<el-time-picker>` | boolean | — | false |
+| arrow-control | whether to pick time using arrow buttons, only works with `<el-time-picker>` | boolean | — | false |
 | align | alignment | left / center / right | left |
 | popper-class | custom class name for TimePicker's dropdown | string | — | — |
 | picker-options | additional options, check the table below | object | — | {} |
@@ -167,8 +167,8 @@ Can pick an arbitrary time range.
 | default-value | optional, default date of the calendar | Date for TimePicker, string for TimeSelect | anything accepted by `new Date()` for TimePicker, selectable value for TimeSelect | — |
 | value-format | optional, only for TimePicker, format of binding value. If not specified, the binding value will be a Date object | string | see [date formats](#/en-US/component/date-picker#date-formats) | — |
 | name | same as `name` in native input | string | — | — |
-| prefix-icon | Custom prefix icon class | string | — | top-icon-time |
-| clear-icon | Custom clear icon class | string | — | top-icon-circle-close |
+| prefix-icon | Custom prefix icon class | string | — | el-icon-time |
+| clear-icon | Custom clear icon class | string | — | el-icon-circle-close |
 
 ### Time Select Options
 | Attribute      | Description          | Type      | Accepted Values       | Default  |

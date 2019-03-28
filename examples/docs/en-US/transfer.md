@@ -4,10 +4,10 @@
 :::demo Data is passed to Transfer via the `data` attribute. The data needs to be an object array, and each object should have these attributes: `key` being the identification of the data item, `label` being the displayed text, and `disabled` indicating if the data item is disabled. Items inside the target list are in sync with the variable binding to `v-model`, and the value of that variable is an array of target item keys. So, if you don't want the target list be initially empty, you can initialize the `v-model` with an array.
 ```html
 <template>
-  <top-transfer
+  <el-transfer
     v-model="value1"
     :data="data">
-  </top-transfer>
+  </el-transfer>
 </template>
 
 <script>
@@ -41,13 +41,13 @@ You can search and filter data items.
 :::demo Set the `filterable` attribute to `true` to enable filter mode. By default, if the data item `label` contains the search keyword, it will be included in the search result. Also, you can implement you own filter method with the `filter-method` attribute. It takes a method and passes search keyword and each data item to it whenever the keyword changes. For a certain data item, if the method returns true, it will be included in the result list.
 ```html
 <template>
-  <top-transfer
+  <el-transfer
     filterable
     :filter-method="filterMethod"
     filter-placeholder="State Abbreviations"
     v-model="value2"
     :data="data2">
-  </top-transfer>
+  </el-transfer>
 </template>
 
 <script>
@@ -88,7 +88,7 @@ You can customize list titles, button texts, render function for data items, che
 <template>
   <p style="text-align: center; margin: 0 0 20px">Customize data items using render-content</p>
   <div style="text-align: center">
-    <top-transfer
+    <el-transfer
       style="text-align: left; display: inline-block"
       v-model="value3"
       filterable
@@ -103,12 +103,12 @@ You can customize list titles, button texts, render function for data items, che
       }"
       @change="handleChange"
       :data="data">
-      <top-button class="transfer-footer" slot="left-footer" size="small">Operation</top-button>
-      <top-button class="transfer-footer" slot="right-footer" size="small">Operation</top-button>
-    </top-transfer>
+      <el-button class="transfer-footer" slot="left-footer" size="small">Operation</el-button>
+      <el-button class="transfer-footer" slot="right-footer" size="small">Operation</el-button>
+    </el-transfer>
     <p style="text-align: center; margin: 50px 0 20px">Customize data items using scoped slot</p>
     <div style="text-align: center">
-      <top-transfer
+      <el-transfer
         style="text-align: left; display: inline-block"
         v-model="value4"
         filterable
@@ -123,9 +123,9 @@ You can customize list titles, button texts, render function for data items, che
         @change="handleChange"
         :data="data">
         <span slot-scope="{ option }">{{ option.key }} - {{ option.label }}</span>
-        <top-button class="transfer-footer" slot="left-footer" size="small">Operation</top-button>
-        <top-button class="transfer-footer" slot="right-footer" size="small">Operation</top-button>
-      </top-transfer>
+        <el-button class="transfer-footer" slot="left-footer" size="small">Operation</el-button>
+        <el-button class="transfer-footer" slot="right-footer" size="small">Operation</el-button>
+      </el-transfer>
     </div>
   </div>
 </template>
@@ -177,14 +177,14 @@ By default, Transfer looks for `key`, `label` and `disabled` in a data item. If 
 :::demo The data items in this example do not have `key`s or `label`s, instead they have `value`s and `desc`s. So you need to set aliases for `key` and `label`.
 ```html
 <template>
-  <top-transfer
+  <el-transfer
     v-model="value5"
     :props="{
       key: 'value',
       label: 'desc'
     }"
     :data="data3">
-  </top-transfer>
+  </el-transfer>
 </template>
 
 <script>

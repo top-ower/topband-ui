@@ -15,29 +15,29 @@ DateTimePicker se deriva de DatePicker y TimePicker. Por una explicación más d
 <template>
   <div class="block">
     <span class="demonstration">Default</span>
-    <top-date-picker
+    <el-date-picker
       v-model="value1"
       type="datetime"
       placeholder="Select date and time">
-    </top-date-picker>
+    </el-date-picker>
   </div>
   <div class="block">
     <span class="demonstration">With shortcuts</span>
-    <top-date-picker
+    <el-date-picker
       v-model="value2"
       type="datetime"
       placeholder="Select date and time"
       :picker-options="pickerOptions1">
-    </top-date-picker>
+    </el-date-picker>
   </div>
   <div class="block">
     <span class="demonstration">With default time</span>
-    <top-date-picker
+    <el-date-picker
       v-model="value3"
       type="datetime"
       placeholder="Select date and time"
       default-time="12:00:00">
-    </top-date-picker>
+    </el-date-picker>
   </div>
 </template>
 
@@ -85,17 +85,17 @@ DateTimePicker se deriva de DatePicker y TimePicker. Por una explicación más d
 <template>
   <div class="block">
     <span class="demonstration">Default</span>
-    <top-date-picker
+    <el-date-picker
       v-model="value4"
       type="datetimerange"
       range-separator="To"
       start-placeholder="Start date"
       end-placeholder="End date">
-    </top-date-picker>
+    </el-date-picker>
   </div>
   <div class="block">
     <span class="demonstration">With shortcuts</span>
-    <top-date-picker
+    <el-date-picker
       v-model="value5"
       type="datetimerange"
       :picker-options="pickerOptions2"
@@ -103,7 +103,7 @@ DateTimePicker se deriva de DatePicker y TimePicker. Por una explicación más d
       start-placeholder="Start date"
       end-placeholder="End date"
       align="right">
-    </top-date-picker>
+    </el-date-picker>
   </div>
 </template>
 
@@ -154,24 +154,24 @@ DateTimePicker se deriva de DatePicker y TimePicker. Por una explicación más d
 <template>
   <div class="block">
     <span class="demonstration">Start date time 12:00:00</span>
-    <top-date-picker
+    <el-date-picker
       v-model="value6"
       type="datetimerange"
       start-placeholder="Start Date"
       end-placeholder="End Date"
       :default-time="['12:00:00']">
-    </top-date-picker>
+    </el-date-picker>
   </div>
   <div class="block">
     <span class="demonstration">Start date time 12:00:00, end date time 08:00:00</span>
-    <top-date-picker
+    <el-date-picker
       v-model="value7"
       type="datetimerange"
       align="right"
       start-placeholder="Start Date"
       end-placeholder="End Date"
       :default-time="['12:00:00', '08:00:00']">
-    </top-date-picker>
+    </el-date-picker>
   </div>
 </template>
 
@@ -212,8 +212,8 @@ DateTimePicker se deriva de DatePicker y TimePicker. Por una explicación más d
 | value-format       | opcional, formato de valor de enlazado. Si no se especifica, el valor de enlazado será un objeto Date | cadena            | ver [date formats](#/es/component/date-picker#date-formats) | —                    |
 | name               | igual que `name` en la entrada nativa    | string            | —                                        | —                    |
 | unlink-panels      | desconectar dos date-panels en range-picker | boolean           | —                                        | false                |
-| prefix-icon        | Clase personalizada para el icono prefijado | string            | —                                        | top-icon-date         |
-| clear-icon         | Clase personalizada para el icono `clear` | string              | —                                        | top-icon-circle-close |
+| prefix-icon        | Clase personalizada para el icono prefijado | string            | —                                        | el-icon-date         |
+| clear-icon         | Clase personalizada para el icono `clear` | string              | —                                        | el-icon-circle-close |
 | validate-event     | whether to trigger form validation        | boolean             | -                                        | true                 |
 
 ### Picker Options

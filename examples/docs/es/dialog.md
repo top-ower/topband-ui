@@ -10,19 +10,19 @@ Dialog abre una caja de diálogo, y es bastante personalizable.
 
 
 ```html
-<top-button type="text" @click="dialogVisible = true">click to open the Dialog</top-button>
+<el-button type="text" @click="dialogVisible = true">click to open the Dialog</el-button>
 
-<top-dialog
+<el-dialog
   title="Tips"
   :visible.sync="dialogVisible"
   width="30%"
   :before-close="handleClose">
   <span>This is a message</span>
   <span slot="footer" class="dialog-footer">
-    <top-button @click="dialogVisible = false">Cancel</top-button>
-    <top-button type="primary" @click="dialogVisible = false">Confirm</top-button>
+    <el-button @click="dialogVisible = false">Cancel</el-button>
+    <el-button type="primary" @click="dialogVisible = false">Confirm</el-button>
   </span>
-</top-dialog>
+</el-dialog>
 
 <script>
   export default {
@@ -60,36 +60,36 @@ El contenido del Diálogo puede ser cualquier cosa, incluso una tabla o un formu
 
 ```html
 <!-- Table -->
-<top-button type="text" @click="dialogTableVisible = true">open a Table nested Dialog</top-button>
+<el-button type="text" @click="dialogTableVisible = true">open a Table nested Dialog</el-button>
 
-<top-dialog title="Shipping address" :visible.sync="dialogTableVisible">
-  <top-table :data="gridData">
-    <top-table-column property="date" label="Date" width="150"></top-table-column>
-    <top-table-column property="name" label="Name" width="200"></top-table-column>
-    <top-table-column property="address" label="Address"></top-table-column>
-  </top-table>
-</top-dialog>
+<el-dialog title="Shipping address" :visible.sync="dialogTableVisible">
+  <el-table :data="gridData">
+    <el-table-column property="date" label="Date" width="150"></el-table-column>
+    <el-table-column property="name" label="Name" width="200"></el-table-column>
+    <el-table-column property="address" label="Address"></el-table-column>
+  </el-table>
+</el-dialog>
 
 <!-- Form -->
-<top-button type="text" @click="dialogFormVisible = true">open a Form nested Dialog</top-button>
+<el-button type="text" @click="dialogFormVisible = true">open a Form nested Dialog</el-button>
 
-<top-dialog title="Shipping address" :visible.sync="dialogFormVisible">
-  <top-form :model="form">
-    <top-form-item label="Promotion name" :labtop-width="formLabelWidth">
-      <top-input v-model="form.name" autocomplete="off"></top-input>
-    </top-form-item>
-    <top-form-item label="Zones" :labtop-width="formLabelWidth">
-      <top-select v-model="form.region" placeholder="Please select a zone">
-        <top-option label="Zone No.1" value="shanghai"></top-option>
-        <top-option label="Zone No.2" value="beijing"></top-option>
-      </top-select>
-    </top-form-item>
-  </top-form>
+<el-dialog title="Shipping address" :visible.sync="dialogFormVisible">
+  <el-form :model="form">
+    <el-form-item label="Promotion name" :label-width="formLabelWidth">
+      <el-input v-model="form.name" autocomplete="off"></el-input>
+    </el-form-item>
+    <el-form-item label="Zones" :label-width="formLabelWidth">
+      <el-select v-model="form.region" placeholder="Please select a zone">
+        <el-option label="Zone No.1" value="shanghai"></el-option>
+        <el-option label="Zone No.2" value="beijing"></el-option>
+      </el-select>
+    </el-form-item>
+  </el-form>
   <span slot="footer" class="dialog-footer">
-    <top-button @click="dialogFormVisible = false">Cancel</top-button>
-    <top-button type="primary" @click="dialogFormVisible = false">Confirm</top-button>
+    <el-button @click="dialogFormVisible = false">Cancel</el-button>
+    <el-button type="primary" @click="dialogFormVisible = false">Confirm</el-button>
   </span>
-</top-dialog>
+</el-dialog>
 
 <script>
   export default {
@@ -139,20 +139,20 @@ Si un diálogo está anidado en otro diálogo, se requiere append-to-body.
 
 ```html
 <template>
-  <top-button type="text" @click="outerVisible = true">open the outer Dialog</top-button>
+  <el-button type="text" @click="outerVisible = true">open the outer Dialog</el-button>
   
-  <top-dialog title="Outer Dialog" :visible.sync="outerVisible">
-    <top-dialog
+  <el-dialog title="Outer Dialog" :visible.sync="outerVisible">
+    <el-dialog
         width="30%"
         title="Inner Dialog"
         :visible.sync="innerVisible"
         append-to-body>
-    </top-dialog>
+    </el-dialog>
     <div slot="footer" class="dialog-footer">
-      <top-button @click="outerVisible = false">Cancel</top-button>
-      <top-button type="primary" @click="innerVisible = true">open the inner Dialog</top-button>
+      <el-button @click="outerVisible = false">Cancel</el-button>
+      <el-button type="primary" @click="innerVisible = true">open the inner Dialog</el-button>
     </div>
-  </top-dialog>
+  </el-dialog>
 </template>
 
 <script>
@@ -174,19 +174,19 @@ El contenido de Diálogo se puede centrar.
 :::demo Ajuste `center` en `true` para centrar el encabezado y el pie de página del cuadro de diálogo horizontalmente. `center` sólo afecta al encabezado y pie de página de Dialog. El cuerpo de Dialog puede ser cualquier cosa, así que a veces no se ve bien cuando está centrado. Necesitas escribir algún CSS si deseas centrar el cuerpo también.
 
 ```html
-<top-button type="text" @click="centerDialogVisible = true">Click to open the Dialog</top-button>
+<el-button type="text" @click="centerDialogVisible = true">Click to open the Dialog</el-button>
 
-<top-dialog
+<el-dialog
   title="Warning"
   :visible.sync="centerDialogVisible"
   width="30%"
   center>
   <span>It should be noted that the content will not be aligned in center by default</span>
   <span slot="footer" class="dialog-footer">
-    <top-button @click="centerDialogVisible = false">Cancel</top-button>
-    <top-button type="primary" @click="centerDialogVisible = false">Confirm</top-button>
+    <el-button @click="centerDialogVisible = false">Cancel</el-button>
+    <el-button type="primary" @click="centerDialogVisible = false">Confirm</el-button>
   </span>
-</top-dialog>
+</el-dialog>
 
 <script>
   export default {

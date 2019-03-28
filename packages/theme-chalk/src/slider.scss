@@ -25,42 +25,42 @@
     &.disabled {
       cursor: default;
 
-      .top-slider__bar {
+      .el-slider__bar {
         background-color: $--slider-disable-color;
       }
 
-      .top-slider__button {
+      .el-slider__button {
         border-color: $--slider-disable-color;
       }
 
-      .top-slider__button-wrapper {
-        &:hover, &.hover {
+      .el-slider__button-wrapper {
+        &:hover,
+        &.hover {
           cursor: not-allowed;
         }
 
         &.dragging {
           cursor: not-allowed;
         }
-
       }
 
-      .top-slider__button {
-        &:hover, &.hover, &.dragging {
+      .el-slider__button {
+        &:hover,
+        &.hover,
+        &.dragging {
           transform: scale(1);
         }
 
-        &:hover, &.hover {
+        &:hover,
+        &.hover {
           cursor: not-allowed;
         }
 
         &.dragging {
           cursor: not-allowed;
         }
-
       }
-
     }
-
   }
 
   @include e(input) {
@@ -68,18 +68,17 @@
     margin-top: 3px;
     width: 130px;
 
-    &.top-input-number--mini {
+    &.el-input-number--mini {
       margin-top: 5px;
     }
 
-    &.top-input-number--medium {
+    &.el-input-number--medium {
       margin-top: 0;
     }
 
-    &.top-input-number--large {
+    &.el-input-number--large {
       margin-top: -2px;
     }
-
   }
 
   @include e(bar) {
@@ -103,19 +102,19 @@
     line-height: normal;
     @include utils-vertical-center;
 
-    .top-tooltip {
+    .el-tooltip {
       vertical-align: middle;
       display: inline-block;
     }
 
-    &:hover, &.hover {
+    &:hover,
+    &.hover {
       cursor: grab;
     }
 
     &.dragging {
       cursor: grabbing;
     }
-
   }
 
   @include e(button) {
@@ -127,18 +126,20 @@
     transition: .2s;
     user-select: none;
 
-    &:hover, &.hover, &.dragging {
+    &:hover,
+    &.hover,
+    &.dragging {
       transform: scale(1.2);
     }
 
-    &:hover, &.hover {
+    &:hover,
+    &.hover {
       cursor: grab;
     }
 
     &.dragging {
       cursor: grabbing;
     }
-
   }
 
   @include e(stop) {
@@ -152,51 +153,41 @@
 
   @include when(vertical) {
     position: relative;
-
-    .top-slider__runway {
+    .el-slider__runway {
       width: $--slider-height;
       height: 100%;
       margin: 0 16px;
     }
-
-    .top-slider__bar {
+    .el-slider__bar {
       width: $--slider-height;
       height: auto;
       border-radius: 0 0 3px 3px;
     }
-
-    .top-slider__button-wrapper {
+    .el-slider__button-wrapper {
       top: auto;
       left: $--slider-button-wrapper-offset;
       transform: translateY(50%);
     }
-
-    .top-slider__stop {
+    .el-slider__stop {
       transform: translateY(50%);
     }
-
-    &.top-slider--with-input {
-      padding-bottom:# {
-        $--input-medium-height + 22px
-      }
-
-      ;
-
-      .top-slider__input {
+    &.el-slider--with-input {
+      padding-bottom: #{$--input-medium-height + 22px};
+      .el-slider__input {
         overflow: visible;
         float: none;
         position: absolute;
         bottom: 22px;
         width: 36px;
         margin-top: 15px;
-
-        .top-input__inner {
+        .el-input__inner {
           text-align: center;
           padding-left: 5px;
           padding-right: 5px;
         }
-
-        .top-input-number__decrease, .top-input-number__increase {
+        .el-input-number__decrease,
+        .el-input-number__increase
+        {
           top: $--input-small-height;
           margin-top: -1px;
           border: $--input-border;
@@ -204,42 +195,34 @@
           box-sizing: border-box;
           transition: $--border-transition-base;
         }
-
-        .top-input-number__decrease {
+        .el-input-number__decrease {
           width: 18px;
           right: 18px;
           border-bottom-left-radius: $--input-border-radius;
         }
-
-        .top-input-number__increase {
+        .el-input-number__increase {
           width: 19px;
           border-bottom-right-radius: $--input-border-radius;
-
-          & ~ .top-input .top-input__inner {
+          & ~ .el-input .el-input__inner {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
           }
-
         }
-
         &:hover {
-          .top-input-number__decrease, .top-input-number__increase {
+          .el-input-number__decrease,
+          .el-input-number__increase
+          {
             border-color: $--input-hover-border;
           }
-
         }
-
         &:active {
-          .top-input-number__decrease, .top-input-number__increase {
+          .el-input-number__decrease,
+          .el-input-number__increase
+          {
             border-color: $--input-focus-border;
           }
-
         }
-
       }
-
     }
-
   }
-
 }

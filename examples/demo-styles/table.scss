@@ -1,8 +1,8 @@
-.top-table .warning-row {
+.el-table .warning-row {
   background: oldlace;
 }
 
-.top-table .success-row {
+.el-table .success-row {
   background: #f0f9eb;
 }
 
@@ -15,11 +15,9 @@
     width: 90px;
     color: #99a9bf;
   }
-
-  .top-form-item {
+  .el-form-item {
     margin-right: 0;
     margin-bottom: 0;
     width: 50%;
   }
-
 }

@@ -2,14 +2,14 @@
   <section class="config" :key="displayName">
     <div class="config-label">
       {{displayName}} 
-      <top-button 
+      <el-button 
         class="plus-button" 
         size="mini" 
         round 
-        icon="top-icon-plus"
+        icon="el-icon-plus"
         @click.stop="onAddShadow"
       >
-      </top-button>
+      </el-button>
     </div>
     <div class="config-content" v-for="(each, key) in valueArr" :key="key">
       <div class="content-10">
@@ -59,12 +59,12 @@
         <span class="content-tip">Blur</span>
       </div>
       <div class="content-10">
-        <top-button 
+        <el-button 
           size="mini" 
           round 
-          icon="top-icon-minus"
+          icon="el-icon-minus"
           @click.stop="val => onMinusShadow(key)"
-        ></top-button>
+        ></el-button>
       </div>
     </div>
   </section>
@@ -79,7 +79,7 @@
 .colorPicker {
   margin-left: 0;
 }
-.content-20 .top-input__suffix-inner span{
+.content-20 .el-input__suffix-inner span{
   line-height: 28px;
 }
 .content-20 {
@@ -96,7 +96,7 @@
   padding: 5px 0;
 }
 /* Element buton style override */
-.top-button--mini.is-round {
+.el-button--mini.is-round {
   padding: 3px 3px;  
 }
 </style>

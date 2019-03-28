@@ -1,15 +1,15 @@
 <template>
   <div
-    class="top-tree"
+    class="el-tree"
     :class="{
-      'top-tree--highlight-current': highlightCurrent,
+      'el-tree--highlight-current': highlightCurrent,
       'is-dragging': !!dragState.draggingNode,
       'is-drop-not-allow': !dragState.allowDrop,
       'is-drop-inner': dragState.dropType === 'inner'
     }"
     role="tree"
   >
-    <top-tree-node
+    <el-tree-node
       v-for="child in root.childNodes"
       :node="child"
       :props="props"
@@ -18,13 +18,13 @@
       :key="getNodeKey(child)"
       :render-content="renderContent"
       @node-expand="handleNodeExpand">
-    </top-tree-node>
-    <div class="top-tree__empty-block" v-if="isEmpty">
-      <span class="top-tree__empty-text">{{ emptyText }}</span>
+    </el-tree-node>
+    <div class="el-tree__empty-block" v-if="isEmpty">
+      <span class="el-tree__empty-text">{{ emptyText }}</span>
     </div>
     <div
       v-show="dragState.showDropIndicator"
-      class="top-tree__drop-indicator"
+      class="el-tree__drop-indicator"
       ref="dropIndicator">
     </div>
   </div>
@@ -34,9 +34,9 @@
   import TreeStore from './model/tree-store';
   import { getNodeKey, findNearestComponent } from './model/util';
   import ElTreeNode from './tree-node.vue';
-  import {t} from 'topband-ui/src/locale';
-  import emitter from 'topband-ui/src/mixins/emitter';
-  import { addClass, removeClass } from 'topband-ui/src/utils/dom';
+  import {t} from 'element-ui/src/locale';
+  import emitter from 'element-ui/src/mixins/emitter';
+  import { addClass, removeClass } from 'element-ui/src/utils/dom';
 
   export default {
     name: 'ElTree',
@@ -293,7 +293,7 @@
 
       handleKeydown(ev) {
         const currentItem = ev.target;
-        if (currentItem.className.indexOf('top-tree-node') === -1) return;
+        if (currentItem.className.indexOf('el-tree-node') === -1) return;
         const keyCode = ev.keyCode;
         this.treeItems = this.$el.querySelectorAll('.is-focusable[role=treeitem]');
         const currentIndex = this.treeItemArray.indexOf(currentItem);
@@ -422,7 +422,7 @@
           dropType = 'none';
         }
 
-        const iconPosition = dropNode.$el.querySelector('.top-tree-node__expand-icon').getBoundingClientRect();
+        const iconPosition = dropNode.$el.querySelector('.el-tree-node__expand-icon').getBoundingClientRect();
         const dropIndicator = this.$refs.dropIndicator;
         if (dropType === 'before') {
           indicatorTop = iconPosition.top - treePosition.top;

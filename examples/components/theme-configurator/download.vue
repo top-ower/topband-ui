@@ -2,16 +2,16 @@
   <div class="action-area">
     <div class="action-area-main">
     <div class="action-button">
-      <top-button type="warning" @click.stop="onReset">{{getActionDisplayName("reset-theme")}}</top-button>
+      <el-button type="warning" @click.stop="onReset">{{getActionDisplayName("reset-theme")}}</el-button>
     </div>
     <div class="action-button">
-      <top-button 
+      <el-button 
         type="primary" 
         :loading=downloading
         style="background: #66b1ff;border-color: #66b1ff"
         @click.stop="onDownload">
         {{getActionDisplayName("download-theme")}}
-      </top-button>
+      </el-button>
       </div>
     </div>
   </div>

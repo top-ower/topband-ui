@@ -57,7 +57,6 @@
     &.divider:last-child {
       margin-bottom: -6px;
     }
-
   }
 
   @include when(loading) {
@@ -72,13 +71,10 @@
       &:hover {
         background-color: $--color-white;
       }
-
     }
 
-    & .top-icon-loading {
+    & .el-icon-loading {
       vertical-align: middle;
     }
-
   }
-
 }

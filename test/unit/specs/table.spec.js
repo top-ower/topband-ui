@@ -26,13 +26,13 @@ describe('Table', () => {
   describe('rendering data is correct', () => {
     const vm = createVue({
       template: `
-        <top-table :data="testData">
-          <top-table-column prop="id" />
-          <top-table-column prop="name" label="片名" />
-          <top-table-column prop="release" label="发行日期" />
-          <top-table-column prop="director" label="导演" />
-          <top-table-column prop="runtime" label="时长（分）" />
-        </top-table>
+        <el-table :data="testData">
+          <el-table-column prop="id" />
+          <el-table-column prop="name" label="片名" />
+          <el-table-column prop="release" label="发行日期" />
+          <el-table-column prop="director" label="导演" />
+          <el-table-column prop="runtime" label="时长（分）" />
+        </el-table>
       `,
 
       created() {
@@ -51,7 +51,7 @@ describe('Table', () => {
     });
 
     it('row length', () => {
-      expect(vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr')).to.length(getTestData().length);
+      expect(vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr')).to.length(getTestData().length);
     });
 
     it('row data', () => {
@@ -67,12 +67,12 @@ describe('Table', () => {
     const createTable = function(props, opts) {
       return createVue(Object.assign({
         template: `
-          <top-table :data="testData" ${props}>
-            <top-table-column prop="name" label="片名" />
-            <top-table-column prop="release" label="发行日期" />
-            <top-table-column prop="director" label="导演" />
-            <top-table-column prop="runtime" label="时长（分）" />
-          </top-table>
+          <el-table :data="testData" ${props}>
+            <el-table-column prop="name" label="片名" />
+            <el-table-column prop="release" label="发行日期" />
+            <el-table-column prop="director" label="导演" />
+            <el-table-column prop="runtime" label="时长（分）" />
+          </el-table>
         `,
 
         created() {
@@ -111,7 +111,7 @@ describe('Table', () => {
     it('stripe', done => {
       const vm = createTable('stripe');
       setTimeout(_ => {
-        expect(vm.$el.classList.contains('top-table--striped')).to.true;
+        expect(vm.$el.classList.contains('el-table--striped')).to.true;
         destroyVM(vm);
         done();
       }, DELAY);
@@ -120,7 +120,7 @@ describe('Table', () => {
     it('border', done => {
       const vm = createTable('border');
       setTimeout(_ => {
-        expect(vm.$el.classList.contains('top-table--border')).to.true;
+        expect(vm.$el.classList.contains('el-table--border')).to.true;
         destroyVM(vm);
         done();
       }, DELAY);
@@ -129,7 +129,7 @@ describe('Table', () => {
     it('fit', done => {
       const vm = createTable(':fit="false"');
       setTimeout(_ => {
-        expect(vm.$el.classList.contains('top-table--fit')).to.false;
+        expect(vm.$el.classList.contains('el-table--fit')).to.false;
         destroyVM(vm);
         done();
       }, DELAY);
@@ -138,7 +138,7 @@ describe('Table', () => {
     it('show-header', done => {
       const vm = createTable(':show-header="false"');
       setTimeout(_ => {
-        expect(vm.$el.querySelectorAll('.top-table__header-wrapper').length).to.equal(0);
+        expect(vm.$el.querySelectorAll('.el-table__header-wrapper').length).to.equal(0);
         destroyVM(vm);
         done();
       }, DELAY);
@@ -171,7 +171,7 @@ describe('Table', () => {
       const vm = createTable(':row-style="{ height: \'60px\' }"', {});
 
       setTimeout(_ => {
-        expect(vm.$el.querySelector('.top-table__body tr').style.height).to.equal('60px');
+        expect(vm.$el.querySelector('.el-table__body tr').style.height).to.equal('60px');
         destroyVM(vm);
         done();
       }, DELAY);
@@ -191,8 +191,8 @@ describe('Table', () => {
       });
 
       setTimeout(_ => {
-        expect(vm.$el.querySelector('.top-table__body tr:nth-child(1)').style.height).to.equal('');
-        expect(vm.$el.querySelector('.top-table__body tr:nth-child(2)').style.height).to.equal('60px');
+        expect(vm.$el.querySelector('.el-table__body tr:nth-child(1)').style.height).to.equal('');
+        expect(vm.$el.querySelector('.el-table__body tr:nth-child(2)').style.height).to.equal('60px');
         destroyVM(vm);
         done();
       }, DELAY);
@@ -201,12 +201,12 @@ describe('Table', () => {
     it('current-row-key', done => {
       const vm = createVue({
         template: `
-        <top-table :data="testData" row-key="id" highlight-current-row :current-row-key="currentRowKey">
-          <top-table-column prop="name" label="片名" />
-          <top-table-column prop="release" label="发行日期" />
-          <top-table-column prop="director" label="导演" />
-          <top-table-column prop="runtime" label="时长（分）" />
-        </top-table>
+        <el-table :data="testData" row-key="id" highlight-current-row :current-row-key="currentRowKey">
+          <el-table-column prop="name" label="片名" />
+          <el-table-column prop="release" label="发行日期" />
+          <el-table-column prop="director" label="导演" />
+          <el-table-column prop="runtime" label="时长（分）" />
+        </el-table>
       `,
 
         created() {
@@ -219,12 +219,12 @@ describe('Table', () => {
       }, true);
       setTimeout(_ => {
         vm.currentRowKey = 1;
-        const tr = vm.$el.querySelector('.top-table__body-wrapper tbody tr');
+        const tr = vm.$el.querySelector('.el-table__body-wrapper tbody tr');
         setTimeout(_ => {
           expect(tr.classList.contains('current-row')).to.be.true;
           vm.currentRowKey = 2;
 
-          const rows = vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr');
+          const rows = vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr');
           setTimeout(_ => {
             expect(tr.classList.contains('current-row')).to.be.false;
             expect(rows[1].classList.contains('current-row')).to.be.true;
@@ -238,13 +238,13 @@ describe('Table', () => {
     it('select-on-indeterminate', done => {
       const vm = createVue({
         template: `
-          <top-table :data="testData" @selection-change="change" :select-on-indeterminate="false" ref="table">
-            <top-table-column type="selection" />
-            <top-table-column prop="name" label="name" />
-            <top-table-column prop="release" label="release" />
-            <top-table-column prop="director" label="director" />
-            <top-table-column prop="runtime" label="runtime" />
-          </top-table>
+          <el-table :data="testData" @selection-change="change" :select-on-indeterminate="false" ref="table">
+            <el-table-column type="selection" />
+            <el-table-column prop="name" label="name" />
+            <el-table-column prop="release" label="release" />
+            <el-table-column prop="director" label="director" />
+            <el-table-column prop="runtime" label="runtime" />
+          </el-table>
         `,
 
         created() {
@@ -267,7 +267,7 @@ describe('Table', () => {
       }, true);
 
       setTimeout(_ => {
-        vm.$el.querySelector('.top-checkbox').click();
+        vm.$el.querySelector('.el-checkbox').click();
         setTimeout(_ => {
           expect(vm.selected).to.length(0);
           destroyVM(vm);
@@ -283,10 +283,10 @@ describe('Table', () => {
     beforeEach(done => {
       vm = createVue({
         template: `
-          <top-table ref="table" :data="testData" @filter-change="handleFilterChange">
-            <top-table-column prop="name" label="片名" />
-            <top-table-column prop="release" label="发行日期" />
-            <top-table-column
+          <el-table ref="table" :data="testData" @filter-change="handleFilterChange">
+            <el-table-column prop="name" label="片名" />
+            <el-table-column prop="release" label="发行日期" />
+            <el-table-column
               prop="director"
               column-key="director"
               :filters="[
@@ -296,8 +296,8 @@ describe('Table', () => {
               ]"
               :filter-method="filterMethod"
               label="导演" />
-            <top-table-column prop="runtime" label="时长（分）" />
-          </top-table>
+            <el-table-column prop="runtime" label="时长（分）" />
+          </el-table>
         `,
 
         created() {
@@ -320,14 +320,14 @@ describe('Table', () => {
     afterEach(() => destroyVM(vm));
 
     it('render', () => {
-      expect(vm.$el.querySelector('.top-table__column-filter-trigger')).to.exist;
+      expect(vm.$el.querySelector('.el-table__column-filter-trigger')).to.exist;
     });
 
     it('click dropdown', done => {
-      const btn = vm.$el.querySelector('.top-table__column-filter-trigger');
+      const btn = vm.$el.querySelector('.el-table__column-filter-trigger');
       triggerEvent(btn, 'click', true, false);
       setTimeout(_ => {
-        const filter = document.body.querySelector('.top-table-filter');
+        const filter = document.body.querySelector('.el-table-filter');
         expect(filter).to.exist;
         document.body.removeChild(filter);
         done();
@@ -335,20 +335,20 @@ describe('Table', () => {
     });
 
     it('click filter', done => {
-      const btn = vm.$el.querySelector('.top-table__column-filter-trigger');
+      const btn = vm.$el.querySelector('.el-table__column-filter-trigger');
 
       triggerEvent(btn, 'click', true, false);
       setTimeout(_ => {
-        const filter = document.body.querySelector('.top-table-filter');
+        const filter = document.body.querySelector('.el-table-filter');
 
         // John Lasseter
-        triggerEvent(filter.querySelector('.top-checkbox'), 'click', true, false);
+        triggerEvent(filter.querySelector('.el-checkbox'), 'click', true, false);
         // confrim button
         setTimeout(_ => {
-          triggerEvent(filter.querySelector('.top-table-filter__bottom button'), 'click', true, false);
+          triggerEvent(filter.querySelector('.el-table-filter__bottom button'), 'click', true, false);
           setTimeout(_ => {
             expect(vm.filters['director']).to.be.eql(['John Lasseter']);
-            expect(vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr')).to.length(3);
+            expect(vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr')).to.length(3);
             document.body.removeChild(filter);
             done();
           }, DELAY);
@@ -357,20 +357,20 @@ describe('Table', () => {
     });
 
     it('click reset', done => {
-      const btn = vm.$el.querySelector('.top-table__column-filter-trigger');
+      const btn = vm.$el.querySelector('.el-table__column-filter-trigger');
 
       triggerEvent(btn, 'click', true, false);
       setTimeout(_ => {
-        const filter = document.body.querySelector('.top-table-filter');
+        const filter = document.body.querySelector('.el-table-filter');
 
         // John Lasseter
-        triggerEvent(filter.querySelector('.top-checkbox'), 'click', true, false);
+        triggerEvent(filter.querySelector('.el-checkbox'), 'click', true, false);
         setTimeout(_ => {
           // reset button
-          triggerEvent(filter.querySelectorAll('.top-table-filter__bottom button')[1], 'click', true, false);
+          triggerEvent(filter.querySelectorAll('.el-table-filter__bottom button')[1], 'click', true, false);
           setTimeout(_ => {
             expect(vm.filters['director']).to.be.eql([]);
-            expect(filter.querySelector('.top-table-filter__bottom button').classList.contains('is-disabled')).to.true;
+            expect(filter.querySelector('.el-table-filter__bottom button').classList.contains('is-disabled')).to.true;
             document.body.removeChild(filter);
             destroyVM(vm);
             done();
@@ -384,13 +384,13 @@ describe('Table', () => {
     const createTable = function(prop = '', opts) {
       return createVue({
         template: `
-          <top-table :data="testData" @${prop}="handleEvent">
-            <top-table-column type="selection" />
-            <top-table-column prop="name" />
-            <top-table-column prop="release" />
-            <top-table-column prop="director" />
-            <top-table-column prop="runtime"/>
-          </top-table>
+          <el-table :data="testData" @${prop}="handleEvent">
+            <el-table-column type="selection" />
+            <el-table-column prop="name" />
+            <el-table-column prop="release" />
+            <el-table-column prop="director" />
+            <el-table-column prop="runtime"/>
+          </el-table>
         `,
 
         methods: {
@@ -413,7 +413,7 @@ describe('Table', () => {
       const vm = createTable('select');
 
       setTimeout(_ => {
-        vm.$el.querySelectorAll('.top-checkbox')[1].click();
+        vm.$el.querySelectorAll('.el-checkbox')[1].click();
         expect(vm.result).to.length(2);
         expect(vm.result[1]).to.have.property('name').to.equal(getTestData()[0].name);
         destroyVM(vm);
@@ -425,7 +425,7 @@ describe('Table', () => {
       const vm = createTable('select-all');
 
       setTimeout(_ => {
-        vm.$el.querySelector('.top-checkbox').click();
+        vm.$el.querySelector('.el-checkbox').click();
         setTimeout(_ => {
           expect(vm.result).to.length(1);
           expect(vm.result[0]).to.length(getTestData().length);
@@ -438,7 +438,7 @@ describe('Table', () => {
     it('selection-change', done => {
       const vm = createTable('selection-change');
       setTimeout(_ => {
-        vm.$el.querySelectorAll('.top-checkbox')[1].click();
+        vm.$el.querySelectorAll('.el-checkbox')[1].click();
         expect(vm.result).to.length(1);
         destroyVM(vm);
         done();
@@ -449,7 +449,7 @@ describe('Table', () => {
       const vm = createTable('cell-mouse-enter');
 
       setTimeout(_ => {
-        const cell = vm.$el.querySelectorAll('.top-table__body .cell')[2]; // first row
+        const cell = vm.$el.querySelectorAll('.el-table__body .cell')[2]; // first row
         triggerEvent(cell.parentNode, 'mouseenter');
         expect(vm.result).to.length(4); // row, column, cell, event
         expect(vm.result[0]).to.have.property('name').to.equal(getTestData()[0].name);
@@ -462,8 +462,8 @@ describe('Table', () => {
       const vm = createTable('cell-mouse-leave');
 
       setTimeout(_ => {
-        const cell = vm.$el.querySelectorAll('.top-table__body .cell')[7]; // second row
-        const cell2 = vm.$el.querySelectorAll('.top-table__body .cell')[2]; // first row
+        const cell = vm.$el.querySelectorAll('.el-table__body .cell')[7]; // second row
+        const cell2 = vm.$el.querySelectorAll('.el-table__body .cell')[2]; // first row
 
         triggerEvent(cell2.parentNode, 'mouseenter');
         triggerEvent(cell.parentNode, 'mouseleave');
@@ -478,7 +478,7 @@ describe('Table', () => {
       const vm = createTable('cell-click');
 
       setTimeout(_ => {
-        const cell = vm.$el.querySelectorAll('.top-table__body .cell')[2]; // first row
+        const cell = vm.$el.querySelectorAll('.el-table__body .cell')[2]; // first row
 
         cell.parentNode.click();
         expect(vm.result).to.length(4); // row, column, cell, event
@@ -492,7 +492,7 @@ describe('Table', () => {
       const vm = createTable('row-click');
 
       setTimeout(_ => {
-        const cell = vm.$el.querySelectorAll('.top-table__body .cell')[2]; // first row
+        const cell = vm.$el.querySelectorAll('.el-table__body .cell')[2]; // first row
 
         triggerEvent(cell.parentNode.parentNode, 'click');
         expect(vm.result).to.length(3); // row, event, column
@@ -506,7 +506,7 @@ describe('Table', () => {
       const vm = createTable('row-dblclick');
 
       setTimeout(_ => {
-        const cell = vm.$el.querySelectorAll('.top-table__body .cell')[2]; // first row
+        const cell = vm.$el.querySelectorAll('.el-table__body .cell')[2]; // first row
 
         triggerEvent(cell.parentNode.parentNode, 'dblclick');
         expect(vm.result).to.length(3); // row, event, column
@@ -520,7 +520,7 @@ describe('Table', () => {
       const vm = createTable('current-change');
 
       setTimeout(_ => {
-        const cell = vm.$el.querySelectorAll('.top-table__body .cell')[2]; // first row
+        const cell = vm.$el.querySelectorAll('.el-table__body .cell')[2]; // first row
 
         triggerEvent(cell.parentNode.parentNode, 'click');
         expect(vm.result).to.length(2); // currentRow, oldCurrentRow
@@ -546,7 +546,7 @@ describe('Table', () => {
       const vm = createTable('header-click');
 
       setTimeout(_ => {
-        const cell = vm.$el.querySelectorAll('.top-table__header th')[1]; // header[prop='name']
+        const cell = vm.$el.querySelectorAll('.el-table__header th')[1]; // header[prop='name']
 
         triggerEvent(cell, 'click');
         expect(vm.result).to.length(2); // column, event
@@ -561,12 +561,12 @@ describe('Table', () => {
     const createTable = function(props1, props2, props3, props4, opts, tableProps) {
       return createVue(Object.assign({
         template: `
-          <top-table :data="testData" ${tableProps || ''}>
-            <top-table-column prop="name" ${props1 || ''} />
-            <top-table-column prop="release" ${props2 || ''} />
-            <top-table-column prop="director" ${props3 || ''} />
-            <top-table-column prop="runtime" ${props4 || ''} />
-          </top-table>
+          <el-table :data="testData" ${tableProps || ''}>
+            <el-table-column prop="name" ${props1 || ''} />
+            <el-table-column prop="release" ${props2 || ''} />
+            <el-table-column prop="director" ${props3 || ''} />
+            <el-table-column prop="runtime" ${props4 || ''} />
+          </el-table>
         `,
 
         created() {
@@ -590,7 +590,7 @@ describe('Table', () => {
     it('width', done => {
       const vm = createTable('width="123px"', ':width="102"', 'width="39"');
       setTimeout(_ => {
-        const ths = toArray(vm.$el.querySelectorAll('.top-table__header-wrapper col'))
+        const ths = toArray(vm.$el.querySelectorAll('.el-table__header-wrapper col'))
           .map(node => node.width).filter(o => o);
 
         expect(ths).to.include('123').include('102').include('39');
@@ -605,14 +605,14 @@ describe('Table', () => {
         'fixed="right" label="test2"',
         'fixed="left" label="test3"');
       setTimeout(_ => {
-        expect(toArray(vm.$el.querySelectorAll('.top-table__fixed th:not(.is-hidden)'))
+        expect(toArray(vm.$el.querySelectorAll('.el-table__fixed th:not(.is-hidden)'))
           .map(node => node.textContent))
           .to.eql(['test1', 'test3']);
 
-        expect(toArray(vm.$el.querySelectorAll('.top-table__fixed-right th:not(.is-hidden)'))
+        expect(toArray(vm.$el.querySelectorAll('.el-table__fixed-right th:not(.is-hidden)'))
           .map(node => node.textContent))
           .to.eql(['test2']);
-        expect(vm.$el.querySelector('.top-table__body-wrapper').style.height).to.equal('');
+        expect(vm.$el.querySelector('.el-table__body-wrapper').style.height).to.equal('');
         destroyVM(vm);
         done();
       }, DELAY);
@@ -647,7 +647,7 @@ describe('Table', () => {
         });
 
       setTimeout(_ => {
-        const cells = toArray(vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr td:first-child'));
+        const cells = toArray(vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr td:first-child'));
         expect(cells.map(n => n.textContent)).to.eql(getTestData().map(o => `[${o.name}]`));
         destroyVM(vm);
         done();
@@ -657,7 +657,7 @@ describe('Table', () => {
     it('show-overflow-tooltip', done => {
       const vm = createTable('show-overflow-tooltip');
       setTimeout(_ => {
-        expect(vm.$el.querySelectorAll('.top-tooltip')).to.length(5);
+        expect(vm.$el.querySelectorAll('.el-tooltip')).to.length(5);
         destroyVM(vm);
         done();
       }, DELAY);
@@ -666,7 +666,7 @@ describe('Table', () => {
     it('show-tooltip-when-overflow', done => { // old version prop name
       const vm = createTable('show-tooltip-when-overflow');
       setTimeout(_ => {
-        expect(vm.$el.querySelectorAll('.top-tooltip')).to.length(5);
+        expect(vm.$el.querySelectorAll('.el-tooltip')).to.length(5);
         destroyVM(vm);
         done();
       }, DELAY);
@@ -675,20 +675,17 @@ describe('Table', () => {
     it('render-header', done => {
       const vm = createVue({
         template: `
-          <top-table :data="testData">
-            <top-table-column prop="name" :render-header="renderHeader" label="name">
-            </top-table-column>
-            <top-table-column prop="release"/>
-            <top-table-column prop="director"/>
-            <top-table-column prop="runtime"/>
-          </top-table>
+          <el-table :data="testData">
+            <el-table-column prop="name" label="name">
+              <template slot="header" slot-scope="{ column, $index }">
+              {{ $index }}:{{column.label}}
+              </template>
+            </el-table-column>
+            <el-table-column prop="release"/>
+            <el-table-column prop="director"/>
+            <el-table-column prop="runtime"/>
+          </el-table>
         `,
-
-        methods: {
-          renderHeader(h, { column, $index }) {
-            return '' + $index + ':' + column.label;
-          }
-        },
 
         created() {
           this.testData = getTestData();
@@ -696,8 +693,8 @@ describe('Table', () => {
       });
 
       setTimeout(_ => {
-        const headerCell = vm.$el.querySelector('.top-table__header-wrapper thead tr th:first-child .cell');
-        expect(headerCell.textContent).to.equal('0:name');
+        const headerCell = vm.$el.querySelector('.el-table__header-wrapper thead tr th:first-child .cell');
+        expect(headerCell.textContent.trim()).to.equal('0:name');
         destroyVM(vm);
         done();
       }, DELAY);
@@ -730,13 +727,13 @@ describe('Table', () => {
     it('selectable', done => {
       const vm = createVue({
         template: `
-          <top-table :data="testData" @selection-change="change">
-            <top-table-column type="selection" :selectable="filterSelect" />
-            <top-table-column prop="name" label="name" />
-            <top-table-column prop="release" label="release" />
-            <top-table-column prop="director" label="director" />
-            <top-table-column prop="runtime" label="runtime" />
-          </top-table>
+          <el-table :data="testData" @selection-change="change">
+            <el-table-column type="selection" :selectable="filterSelect" />
+            <el-table-column prop="name" label="name" />
+            <el-table-column prop="release" label="release" />
+            <el-table-column prop="director" label="director" />
+            <el-table-column prop="runtime" label="runtime" />
+          </el-table>
         `,
 
         created() {
@@ -759,7 +756,7 @@ describe('Table', () => {
       }, true);
 
       setTimeout(_ => {
-        vm.$el.querySelector('.top-checkbox').click();
+        vm.$el.querySelector('.el-checkbox').click();
         setTimeout(_ => {
           expect(vm.selected).to.length(2);
           destroyVM(vm);
@@ -771,13 +768,13 @@ describe('Table', () => {
     it('selectable === false & check selectAll status', done => {
       const vm = createVue({
         template: `
-          <top-table :data="testData" @selection-change="change">
-            <top-table-column type="selection" :selectable="filterSelect" />
-            <top-table-column prop="name" label="name" />
-            <top-table-column prop="release" label="release" />
-            <top-table-column prop="director" label="director" />
-            <top-table-column prop="runtime" label="runtime" />
-          </top-table>
+          <el-table :data="testData" @selection-change="change">
+            <el-table-column type="selection" :selectable="filterSelect" />
+            <el-table-column prop="name" label="name" />
+            <el-table-column prop="release" label="release" />
+            <el-table-column prop="director" label="director" />
+            <el-table-column prop="runtime" label="runtime" />
+          </el-table>
         `,
 
         created() {
@@ -801,7 +798,7 @@ describe('Table', () => {
       vm.testData = getTestData();
 
       setTimeout(_ => {
-        expect(vm.$el.querySelector('.top-checkbox').__vue__.checked).to.be.false;
+        expect(vm.$el.querySelector('.el-checkbox').__vue__.checked).to.be.false;
         setTimeout(_ => {
           expect(vm.selected).to.length(0);
           destroyVM(vm);
@@ -813,13 +810,13 @@ describe('Table', () => {
     it('emit selection-change after row has been removed', done => {
       const vm = createVue({
         template: `
-          <top-table :data="testData" @selection-change="change">
-            <top-table-column type="selection" />
-            <top-table-column prop="name" label="name" />
-            <top-table-column prop="release" label="release" />
-            <top-table-column prop="director" label="director" />
-            <top-table-column prop="runtime" label="runtime" />
-          </top-table>
+          <el-table :data="testData" @selection-change="change">
+            <el-table-column type="selection" />
+            <el-table-column prop="name" label="name" />
+            <el-table-column prop="release" label="release" />
+            <el-table-column prop="director" label="director" />
+            <el-table-column prop="runtime" label="runtime" />
+          </el-table>
         `,
 
         created() {
@@ -842,7 +839,7 @@ describe('Table', () => {
       }, true);
 
       setTimeout(_ => {
-        vm.$el.querySelector('.top-checkbox').click();
+        vm.$el.querySelector('.el-checkbox').click();
         setTimeout(_ => {
           expect(vm.selected).to.length(5);
           vm.testData.splice(0, 1);
@@ -859,13 +856,13 @@ describe('Table', () => {
       const createTable = function(type) {
         return createVue({
           template: `
-            <top-table :data="testData" @selection-change="change">
-              <top-table-column type="${type}" />
-              <top-table-column prop="name" label="name" />
-              <top-table-column prop="release" label="release" />
-              <top-table-column prop="director" label="director" />
-              <top-table-column prop="runtime" label="runtime" />
-            </top-table>
+            <el-table :data="testData" @selection-change="change">
+              <el-table-column type="${type}" />
+              <el-table-column prop="name" label="name" />
+              <el-table-column prop="release" label="release" />
+              <el-table-column prop="director" label="director" />
+              <el-table-column prop="runtime" label="runtime" />
+            </el-table>
           `,
 
           created() {
@@ -889,13 +886,13 @@ describe('Table', () => {
 
         it('render', done => {
           setTimeout(_ => {
-            expect(vm.$el.querySelectorAll('.top-checkbox')).to.length(getTestData().length + 1);
+            expect(vm.$el.querySelectorAll('.el-checkbox')).to.length(getTestData().length + 1);
             done();
           }, DELAY);
         });
 
         it('select all', done => {
-          vm.$el.querySelector('.top-checkbox').click();
+          vm.$el.querySelector('.el-checkbox').click();
 
           setTimeout(_ => {
             expect(vm.selected).to.length(getTestData().length);
@@ -904,7 +901,7 @@ describe('Table', () => {
         });
 
         it('cancel all', done => {
-          vm.$el.querySelector('.top-checkbox').click();
+          vm.$el.querySelector('.el-checkbox').click();
 
           setTimeout(_ => {
             expect(vm.selected).to.length(0);
@@ -917,7 +914,7 @@ describe('Table', () => {
           const vm2 = createTable('selection');
 
           setTimeout(_ => {
-            vm2.$el.querySelectorAll('.top-checkbox')[1].click();
+            vm2.$el.querySelectorAll('.el-checkbox')[1].click();
 
             setTimeout(_ => {
               expect(vm2.selected).to.length(1);
@@ -934,7 +931,7 @@ describe('Table', () => {
 
         it('render', done => {
           setTimeout(_ => {
-            expect(toArray(vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr td:first-child'))
+            expect(toArray(vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr td:first-child'))
               .map(node => node.textContent)).to.eql(['1', '2', '3', '4', '5']);
             destroyVM(vm);
             done();
@@ -947,16 +944,16 @@ describe('Table', () => {
           extra = extra || '';
           return createVue({
             template: `
-            <top-table row-key="id" :data="testData" @expand-change="handleExpand" ${extra}>
-              <top-table-column type="expand">
+            <el-table row-key="id" :data="testData" @expand-change="handleExpand" ${extra}>
+              <el-table-column type="expand">
                 <template slot-scope="props">
                   <div>{{props.row.name}}</div>
                 </template>
-            </top-table-column>
-              <top-table-column prop="release" label="release" />
-              <top-table-column prop="director" label="director" />
-              <top-table-column prop="runtime" label="runtime" />
-            </top-table>
+            </el-table-column>
+              <el-table-column prop="release" label="release" />
+              <el-table-column prop="director" label="director" />
+              <el-table-column prop="runtime" label="runtime" />
+            </el-table>
           `,
 
             data() {
@@ -977,7 +974,7 @@ describe('Table', () => {
         it('works', done => {
           const vm = createInstance();
           setTimeout(_ => {
-            expect(vm.$el.querySelectorAll('td.top-table__expand-column').length).to.equal(5);
+            expect(vm.$el.querySelectorAll('td.el-table__expand-column').length).to.equal(5);
             destroyVM(vm);
             done();
           }, DELAY);
@@ -986,13 +983,13 @@ describe('Table', () => {
         it('should expand when click icon', done => {
           const vm = createInstance();
           setTimeout(_ => {
-            vm.$el.querySelector('td.top-table__expand-column .top-table__expand-icon').click();
+            vm.$el.querySelector('td.el-table__expand-column .el-table__expand-icon').click();
             setTimeout(_ => {
-              expect(vm.$el.querySelectorAll('.top-table__expanded-cell').length).to.equal(1);
+              expect(vm.$el.querySelectorAll('.el-table__expanded-cell').length).to.equal(1);
               expect(vm.expandCount).to.equal(1);
-              vm.$el.querySelector('td.top-table__expand-column .top-table__expand-icon').click();
+              vm.$el.querySelector('td.el-table__expand-column .el-table__expand-icon').click();
               setTimeout(_ => {
-                expect(vm.$el.querySelectorAll('.top-table__expanded-cell').length).to.equal(0);
+                expect(vm.$el.querySelectorAll('.el-table__expanded-cell').length).to.equal(0);
                 expect(vm.expandCount).to.equal(2);
                 destroyVM(vm);
                 done();
@@ -1006,10 +1003,10 @@ describe('Table', () => {
           setTimeout(_ => {
             vm.expandRowKeys = [1, 3];
             setTimeout(_ => {
-              expect(vm.$el.querySelectorAll('.top-table__expanded-cell').length).to.equal(2);
+              expect(vm.$el.querySelectorAll('.el-table__expanded-cell').length).to.equal(2);
               vm.expandRowKeys = [2];
               setTimeout(_ => {
-                expect(vm.$el.querySelectorAll('.top-table__expanded-cell').length).to.equal(1);
+                expect(vm.$el.querySelectorAll('.el-table__expanded-cell').length).to.equal(1);
                 destroyVM(vm);
                 done();
               }, DELAY);
@@ -1020,7 +1017,7 @@ describe('Table', () => {
         it('should default-expand-all when default-expand-all is true', done => {
           const vm = createInstance('default-expand-all');
           setTimeout(_ => {
-            expect(vm.$el.querySelectorAll('.top-table__expanded-cell').length).to.equal(5);
+            expect(vm.$el.querySelectorAll('.el-table__expanded-cell').length).to.equal(5);
             destroyVM(vm);
             done();
           }, DELAY);
@@ -1029,17 +1026,17 @@ describe('Table', () => {
         it('should unexpand after refresh data and click', function(done) {
           const vm = createInstance();
           setTimeout(_ => {
-            vm.$el.querySelector('td.top-table__expand-column .top-table__expand-icon').click();
+            vm.$el.querySelector('td.el-table__expand-column .el-table__expand-icon').click();
             setTimeout(_ => {
-              expect(vm.$el.querySelectorAll('.top-table__expanded-cell').length).to.equal(1);
+              expect(vm.$el.querySelectorAll('.el-table__expanded-cell').length).to.equal(1);
               expect(vm.expandCount).to.equal(1);
               vm.refreshData();
               setTimeout(_ => { // wait until refreshed
-                expect(vm.$el.querySelectorAll('.top-table__expanded-cell').length).to.equal(1);
-                vm.$el.querySelector('td.top-table__expand-column .top-table__expand-icon').click();
+                expect(vm.$el.querySelectorAll('.el-table__expanded-cell').length).to.equal(1);
+                vm.$el.querySelector('td.el-table__expand-column .el-table__expand-icon').click();
                 setTimeout(_ => {
                   // should unexpand
-                  expect(vm.$el.querySelectorAll('.top-table__expanded-cell').length).to.equal(0);
+                  expect(vm.$el.querySelectorAll('.el-table__expanded-cell').length).to.equal(0);
                   expect(vm.expandCount).to.equal(2);
                   destroyVM(vm);
                   done();
@@ -1070,7 +1067,7 @@ describe('Table', () => {
           elm.click();
 
           setTimeout(_ => {
-            const lastCells = vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr td:last-child');
+            const lastCells = vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr td:last-child');
             expect(toArray(lastCells).map(node => node.textContent)).to.eql(['100', '95', '92', '92', '80']);
             destroyVM(vm);
             done();
@@ -1100,7 +1097,7 @@ describe('Table', () => {
           elm.click();
 
           setTimeout(_ => {
-            const lastCells = vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr td:last-child');
+            const lastCells = vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr td:last-child');
             expect(toArray(lastCells).map(node => node.textContent)).to.eql(['100', '95', '92', '92', '80']);
             destroyVM(vm);
             done();
@@ -1123,7 +1120,7 @@ describe('Table', () => {
           elm.click();
 
           setTimeout(_ => {
-            const lastCells = vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr td:last-child');
+            const lastCells = vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr td:last-child');
             expect(toArray(lastCells).map(node => node.textContent)).to.eql(['100', '95', '92', '92', '80']);
             destroyVM(vm);
             done();
@@ -1140,7 +1137,7 @@ describe('Table', () => {
           elm.click();
 
           setTimeout(_ => {
-            const lastCells = vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr td:last-child');
+            const lastCells = vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr td:last-child');
             expect(toArray(lastCells).map(node => node.textContent)).to.eql(['80', '92', '92', '95', '100']);
             destroyVM(vm);
             done();
@@ -1178,7 +1175,7 @@ describe('Table', () => {
 
         elm.click();
         setTimeout(_ => {
-          const lastCells = vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr td:last-child');
+          const lastCells = vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr td:last-child');
           expect(toArray(lastCells).map(node => node.textContent))
             .to.eql(['80', '92', '92', '95', '100']);
           done();
@@ -1190,7 +1187,7 @@ describe('Table', () => {
 
         elm.click();
         setTimeout(_ => {
-          const lastCells = vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr td:last-child');
+          const lastCells = vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr td:last-child');
           expect(toArray(lastCells).map(node => node.textContent))
             .to.eql(['100', '95', '92', '92', '80']);
           destroyVM(vm);
@@ -1204,12 +1201,12 @@ describe('Table', () => {
     it('should render', done => {
       const vm = createVue({
         template: `
-          <top-table :data="testData" show-summary>
-            <top-table-column prop="name" />
-            <top-table-column prop="release"/>
-            <top-table-column prop="director"/>
-            <top-table-column prop="runtime"/>
-          </top-table>
+          <el-table :data="testData" show-summary>
+            <el-table-column prop="name" />
+            <el-table-column prop="release"/>
+            <el-table-column prop="director"/>
+            <el-table-column prop="runtime"/>
+          </el-table>
         `,
 
         created() {
@@ -1218,7 +1215,7 @@ describe('Table', () => {
       }, true);
 
       setTimeout(_ => {
-        const footer = vm.$el.querySelector('.top-table__footer');
+        const footer = vm.$el.querySelector('.el-table__footer');
         expect(footer).to.exist;
         const cells = toArray(footer.querySelectorAll('.cell'));
         expect(cells[cells.length - 1].innerText).to.equal('459');
@@ -1230,12 +1227,12 @@ describe('Table', () => {
     it('custom sum text', done => {
       const vm = createVue({
         template: `
-          <top-table :data="testData" show-summary sum-text="Time">
-            <top-table-column prop="name" />
-            <top-table-column prop="release"/>
-            <top-table-column prop="director"/>
-            <top-table-column prop="runtime"/>
-          </top-table>
+          <el-table :data="testData" show-summary sum-text="Time">
+            <el-table-column prop="name" />
+            <el-table-column prop="release"/>
+            <el-table-column prop="director"/>
+            <el-table-column prop="runtime"/>
+          </el-table>
         `,
 
         created() {
@@ -1244,7 +1241,7 @@ describe('Table', () => {
       }, true);
 
       setTimeout(_ => {
-        const cells = toArray(vm.$el.querySelectorAll('.top-table__footer .cell'));
+        const cells = toArray(vm.$el.querySelectorAll('.el-table__footer .cell'));
         expect(cells[0].innerText).to.equal('Time');
         destroyVM(vm);
         done();
@@ -1254,12 +1251,12 @@ describe('Table', () => {
     it('custom summary method', done => {
       const vm = createVue({
         template: `
-          <top-table :data="testData" show-summary :summary-method="getSummary">
-            <top-table-column prop="name" />
-            <top-table-column prop="release"/>
-            <top-table-column prop="director"/>
-            <top-table-column prop="runtime"/>
-          </top-table>
+          <el-table :data="testData" show-summary :summary-method="getSummary">
+            <el-table-column prop="name" />
+            <el-table-column prop="release"/>
+            <el-table-column prop="director"/>
+            <el-table-column prop="runtime"/>
+          </el-table>
         `,
 
         created() {
@@ -1288,7 +1285,7 @@ describe('Table', () => {
       }, true);
 
       setTimeout(_ => {
-        const cells = toArray(vm.$el.querySelectorAll('.top-table__footer .cell'));
+        const cells = toArray(vm.$el.querySelectorAll('.el-table__footer .cell'));
         expect(cells[1].innerText).to.equal('9996');
         destroyVM(vm);
         done();
@@ -1300,14 +1297,14 @@ describe('Table', () => {
     it('should works', done => {
       const vm = createVue({
         template: `
-          <top-table :data="testData">
-            <top-table-column prop="name" />
-            <top-table-column label="group">
-              <top-table-column prop="release"/>
-              <top-table-column prop="director"/>
-            </top-table-column>
-            <top-table-column prop="runtime"/>
-          </top-table>
+          <el-table :data="testData">
+            <el-table-column prop="name" />
+            <el-table-column label="group">
+              <el-table-column prop="release"/>
+              <el-table-column prop="director"/>
+            </el-table-column>
+            <el-table-column prop="runtime"/>
+          </el-table>
         `,
 
         created() {
@@ -1316,7 +1313,7 @@ describe('Table', () => {
       }, true);
 
       setTimeout(_ => {
-        const trs = vm.$el.querySelectorAll('.top-table__header tr');
+        const trs = vm.$el.querySelectorAll('.el-table__header tr');
         expect(trs.length).equal(2);
         const firstRowHeader = trs[0].querySelectorAll('th .cell').length;
         const secondRowHeader = trs[1].querySelectorAll('th .cell').length;
@@ -1333,17 +1330,17 @@ describe('Table', () => {
     it('should works', done => {
       const vm = createVue({
         template: `
-          <top-table :data="testData">
-            <top-table-column prop="name" />
-            <top-table-column label="group">
-              <top-table-column label="group's group">
-                <top-table-column prop="release" />
-                <top-table-column prop="runtime"/>
-              </top-table-column>
-              <top-table-column prop="director" />
-            </top-table-column>
-            <top-table-column prop="runtime"/>
-          </top-table>
+          <el-table :data="testData">
+            <el-table-column prop="name" />
+            <el-table-column label="group">
+              <el-table-column label="group's group">
+                <el-table-column prop="release" />
+                <el-table-column prop="runtime"/>
+              </el-table-column>
+              <el-table-column prop="director" />
+            </el-table-column>
+            <el-table-column prop="runtime"/>
+          </el-table>
         `,
 
         created() {
@@ -1352,7 +1349,7 @@ describe('Table', () => {
       }, true);
 
       setTimeout(_ => {
-        const trs = vm.$el.querySelectorAll('.top-table__header tr');
+        const trs = vm.$el.querySelectorAll('.el-table__header tr');
         expect(trs.length).equal(3);
         const firstRowHeader = trs[0].querySelectorAll('th .cell').length;
         const secondRowHeader = trs[1].querySelectorAll('th .cell').length;
@@ -1374,11 +1371,11 @@ describe('Table', () => {
     it('should work in one column', done => {
       const vm = createVue({
         template: `
-          <top-table :data="testData">
-            <top-table-column label="group">
-              <top-table-column prop="release"/>
-            </top-table-column>
-          </top-table>
+          <el-table :data="testData">
+            <el-table-column label="group">
+              <el-table-column prop="release"/>
+            </el-table-column>
+          </el-table>
         `,
 
         created() {
@@ -1387,7 +1384,7 @@ describe('Table', () => {
       }, true);
 
       setTimeout(_ => {
-        const trs = vm.$el.querySelectorAll('.top-table__header tr');
+        const trs = vm.$el.querySelectorAll('.el-table__header tr');
         expect(trs.length).equal(2);
         const firstRowLength = trs[0].querySelectorAll('th .cell').length;
         const secondRowLength = trs[1].querySelectorAll('th .cell').length;
@@ -1408,12 +1405,12 @@ describe('Table', () => {
     it('label', (done) => {
       const vm = createVue({
         template: `
-          <top-table :data="testData">
-            <top-table-column prop="name" :label="label"/>
-            <top-table-column prop="release" />
-            <top-table-column prop="director" />
-            <top-table-column prop="runtime" />
-          </top-table>
+          <el-table :data="testData">
+            <el-table-column prop="name" :label="label"/>
+            <el-table-column prop="release" />
+            <el-table-column prop="director" />
+            <el-table-column prop="runtime" />
+          </el-table>
         `,
 
         data() {
@@ -1428,10 +1425,10 @@ describe('Table', () => {
       }, true);
 
       setTimeout(() => {
-        expect(vm.$el.querySelector('.top-table__header th .cell').textContent).to.equal('name');
+        expect(vm.$el.querySelector('.el-table__header th .cell').textContent).to.equal('name');
         vm.label = 'NAME';
         vm.$nextTick(() => {
-          expect(vm.$el.querySelector('.top-table__header th .cell').textContent).to.equal('NAME');
+          expect(vm.$el.querySelector('.el-table__header th .cell').textContent).to.equal('NAME');
           destroyVM(vm);
           done();
         });
@@ -1441,9 +1438,9 @@ describe('Table', () => {
     it('align', (done) => {
       const vm = createVue({
         template: `
-          <top-table :data="testData">
-            <top-table-column prop="name" :align="align"/>
-          </top-table>
+          <el-table :data="testData">
+            <el-table-column prop="name" :align="align"/>
+          </el-table>
         `,
 
         data() {
@@ -1458,10 +1455,10 @@ describe('Table', () => {
       }, true);
 
       setTimeout(() => {
-        expect(vm.$el.querySelectorAll('.top-table__body td.is-right').length === 0).to.be.true;
+        expect(vm.$el.querySelectorAll('.el-table__body td.is-right').length === 0).to.be.true;
         vm.align = 'right';
         vm.$nextTick(() => {
-          expect(vm.$el.querySelectorAll('.top-table__body td.is-right').length > 0).to.be.true;
+          expect(vm.$el.querySelectorAll('.el-table__body td.is-right').length > 0).to.be.true;
           destroyVM(vm);
           done();
         });
@@ -1471,9 +1468,9 @@ describe('Table', () => {
     it('header-align', (done) => {
       const vm = createVue({
         template: `
-           <top-table :data="testData">
-            <top-table-column prop="name" :align="align" :header-align="headerAlign"/>
-          </top-table>
+           <el-table :data="testData">
+            <el-table-column prop="name" :align="align" :header-align="headerAlign"/>
+          </el-table>
         `,
 
         data() {
@@ -1489,24 +1486,24 @@ describe('Table', () => {
       }, true);
 
       vm.$nextTick(() => {
-        expect(vm.$el.querySelectorAll('.top-table__header th.is-left').length).to.above(0);
-        expect(vm.$el.querySelectorAll('.top-table__header th.is-center').length).to.equal(0);
-        expect(vm.$el.querySelectorAll('.top-table__header th.is-right').length).to.equal(0);
+        expect(vm.$el.querySelectorAll('.el-table__header th.is-left').length).to.above(0);
+        expect(vm.$el.querySelectorAll('.el-table__header th.is-center').length).to.equal(0);
+        expect(vm.$el.querySelectorAll('.el-table__header th.is-right').length).to.equal(0);
         vm.align = 'right';
         vm.$nextTick(() => {
-          expect(vm.$el.querySelectorAll('.top-table__header th.is-left').length).to.equal(0);
-          expect(vm.$el.querySelectorAll('.top-table__header th.is-center').length).to.equal(0);
-          expect(vm.$el.querySelectorAll('.top-table__header th.is-right').length).to.above(0);
+          expect(vm.$el.querySelectorAll('.el-table__header th.is-left').length).to.equal(0);
+          expect(vm.$el.querySelectorAll('.el-table__header th.is-center').length).to.equal(0);
+          expect(vm.$el.querySelectorAll('.el-table__header th.is-right').length).to.above(0);
           vm.headerAlign = 'center';
           vm.$nextTick(() => {
-            expect(vm.$el.querySelectorAll('.top-table__header th.is-left').length).to.equal(0);
-            expect(vm.$el.querySelectorAll('.top-table__header th.is-center').length).to.above(0);
-            expect(vm.$el.querySelectorAll('.top-table__header th.is-right').length).to.equal(0);
+            expect(vm.$el.querySelectorAll('.el-table__header th.is-left').length).to.equal(0);
+            expect(vm.$el.querySelectorAll('.el-table__header th.is-center').length).to.above(0);
+            expect(vm.$el.querySelectorAll('.el-table__header th.is-right').length).to.equal(0);
             vm.headerAlign = null;
             vm.$nextTick(() => {
-              expect(vm.$el.querySelectorAll('.top-table__header th.is-left').length).to.equal(0);
-              expect(vm.$el.querySelectorAll('.top-table__header th.is-center').length).to.equal(0);
-              expect(vm.$el.querySelectorAll('.top-table__header th.is-right').length).to.above(0);
+              expect(vm.$el.querySelectorAll('.el-table__header th.is-left').length).to.equal(0);
+              expect(vm.$el.querySelectorAll('.el-table__header th.is-center').length).to.equal(0);
+              expect(vm.$el.querySelectorAll('.el-table__header th.is-right').length).to.above(0);
               destroyVM(vm);
               done();
             });
@@ -1518,9 +1515,9 @@ describe('Table', () => {
     it('width', (done) => {
       const vm = createVue({
         template: `
-          <top-table :data="testData" :fit="false">
-            <top-table-column prop="name" :width="width"/>
-          </top-table>
+          <el-table :data="testData" :fit="false">
+            <el-table-column prop="name" :width="width"/>
+          </el-table>
         `,
 
         data() {
@@ -1535,10 +1532,10 @@ describe('Table', () => {
       }, true);
 
       setTimeout(() => {
-        expect(vm.$el.querySelector('.top-table__body col').getAttribute('width')).to.equal('100');
+        expect(vm.$el.querySelector('.el-table__body col').getAttribute('width')).to.equal('100');
         vm.width = 200;
         setTimeout(() => {
-          expect(vm.$el.querySelector('.top-table__body col').getAttribute('width')).to.equal('200');
+          expect(vm.$el.querySelector('.el-table__body col').getAttribute('width')).to.equal('200');
           destroyVM(vm);
           done();
         }, 100);
@@ -1548,9 +1545,9 @@ describe('Table', () => {
     it('min-width', (done) => {
       const vm = createVue({
         template: `
-          <top-table :data="testData" :fit="false">
-            <top-table-column prop="name" :min-width="width"/>
-          </top-table>
+          <el-table :data="testData" :fit="false">
+            <el-table-column prop="name" :min-width="width"/>
+          </el-table>
         `,
 
         data() {
@@ -1565,10 +1562,10 @@ describe('Table', () => {
       }, true);
 
       setTimeout(() => {
-        expect(vm.$el.querySelector('.top-table__body col').getAttribute('width')).to.equal('100');
+        expect(vm.$el.querySelector('.el-table__body col').getAttribute('width')).to.equal('100');
         vm.width = 200;
         setTimeout(() => {
-          expect(vm.$el.querySelector('.top-table__body col').getAttribute('width')).to.equal('200');
+          expect(vm.$el.querySelector('.el-table__body col').getAttribute('width')).to.equal('200');
           destroyVM(vm);
           done();
         }, 100);
@@ -1578,12 +1575,12 @@ describe('Table', () => {
     it('fixed', (done) => {
       const vm = createVue({
         template: `
-          <top-table :data="testData">
-            <top-table-column :fixed="fixed" />
-            <top-table-column prop="release" />
-            <top-table-column prop="director" />
-            <top-table-column prop="runtime" />
-          </top-table>
+          <el-table :data="testData">
+            <el-table-column :fixed="fixed" />
+            <el-table-column prop="release" />
+            <el-table-column prop="director" />
+            <el-table-column prop="runtime" />
+          </el-table>
         `,
 
         data() {
@@ -1598,10 +1595,10 @@ describe('Table', () => {
       }, true);
 
       setTimeout(() => {
-        expect(!vm.$el.querySelector('.top-table__fixed')).to.be.true;
+        expect(!vm.$el.querySelector('.el-table__fixed')).to.be.true;
         vm.fixed = true;
         setTimeout(() => {
-          expect(!!vm.$el.querySelector('.top-table__fixed')).to.be.true;
+          expect(!!vm.$el.querySelector('.el-table__fixed')).to.be.true;
           destroyVM(vm);
           done();
         }, 100);
@@ -1611,12 +1608,12 @@ describe('Table', () => {
     it('prop', (done) => {
       const vm = createVue({
         template: `
-          <top-table :data="testData">
-            <top-table-column :prop="prop" />
-            <top-table-column prop="release" />
-            <top-table-column prop="director" />
-            <top-table-column prop="runtime" />
-          </top-table>
+          <el-table :data="testData">
+            <el-table-column :prop="prop" />
+            <el-table-column prop="release" />
+            <el-table-column prop="director" />
+            <el-table-column prop="runtime" />
+          </el-table>
         `,
 
         data() {
@@ -1631,13 +1628,13 @@ describe('Table', () => {
       }, true);
 
       setTimeout(() => {
-        let firstColumnContent = vm.$el.querySelector('.top-table__body td .cell').textContent;
-        let secondColumnContent = vm.$el.querySelector('.top-table__body td:nth-child(2) .cell').textContent;
+        let firstColumnContent = vm.$el.querySelector('.el-table__body td .cell').textContent;
+        let secondColumnContent = vm.$el.querySelector('.el-table__body td:nth-child(2) .cell').textContent;
         expect(firstColumnContent !== secondColumnContent).to.be.true;
         vm.prop = 'release';
         setTimeout(() => {
-          firstColumnContent = vm.$el.querySelector('.top-table__body td .cell').textContent;
-          secondColumnContent = vm.$el.querySelector('.top-table__body td:nth-child(2) .cell').textContent;
+          firstColumnContent = vm.$el.querySelector('.el-table__body td .cell').textContent;
+          secondColumnContent = vm.$el.querySelector('.el-table__body td:nth-child(2) .cell').textContent;
           expect(firstColumnContent === secondColumnContent).to.be.true;
           destroyVM(vm);
           done();
@@ -1650,13 +1647,13 @@ describe('Table', () => {
     const createTable = function(prop = '', opts) {
       return createVue({
         template: `
-          <top-table ref="table" :data="testData" @${prop}="handleEvent">
-            <top-table-column type="selection" />
-            <top-table-column prop="name" />
-            <top-table-column prop="release" />
-            <top-table-column prop="director" />
-            <top-table-column prop="runtime"/>
-          </top-table>
+          <el-table ref="table" :data="testData" @${prop}="handleEvent">
+            <el-table-column type="selection" />
+            <el-table-column prop="name" />
+            <el-table-column prop="release" />
+            <el-table-column prop="director" />
+            <el-table-column prop="runtime"/>
+          </el-table>
         `,
 
         methods: {
@@ -1728,12 +1725,12 @@ describe('Table', () => {
     it('sort', done => {
       const vm = createVue({
         template: `
-          <top-table ref="table" :data="testData" :default-sort = "{prop: 'runtime', order: 'ascending'}">
-            <top-table-column prop="name" />
-            <top-table-column prop="release" />
-            <top-table-column prop="director" />
-            <top-table-column prop="runtime"/>
-          </top-table>
+          <el-table ref="table" :data="testData" :default-sort = "{prop: 'runtime', order: 'ascending'}">
+            <el-table-column prop="name" />
+            <el-table-column prop="release" />
+            <el-table-column prop="director" />
+            <el-table-column prop="runtime"/>
+          </el-table>
         `,
 
         created() {
@@ -1746,7 +1743,7 @@ describe('Table', () => {
       });
 
       setTimeout(() => {
-        const lastCells = vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr td:last-child');
+        const lastCells = vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr td:last-child');
         expect(toArray(lastCells).map(node => node.textContent))
           .to.eql(['80', '92', '92', '95', '100']);
 
@@ -1766,12 +1763,12 @@ describe('Table', () => {
   it('hover', done => {
     const vm = createVue({
       template: `
-        <top-table :data="testData">
-          <top-table-column prop="name" label="片名" fixed />
-          <top-table-column prop="release" label="发行日期" />
-          <top-table-column prop="director" label="导演" />
-          <top-table-column prop="runtime" label="时长（分）" />
-        </top-table>
+        <el-table :data="testData">
+          <el-table-column prop="name" label="片名" fixed />
+          <el-table-column prop="release" label="发行日期" />
+          <el-table-column prop="director" label="导演" />
+          <el-table-column prop="runtime" label="时长（分）" />
+        </el-table>
       `,
       data() {
         return {
@@ -1780,7 +1777,7 @@ describe('Table', () => {
       }
     }, true);
     setTimeout(_ => {
-      const tr = vm.$el.querySelector('.top-table__body-wrapper tbody tr');
+      const tr = vm.$el.querySelector('.el-table__body-wrapper tbody tr');
       triggerEvent(tr, 'mouseenter', true, false);
       setTimeout(_ => {
         expect(tr.classList.contains('hover-row')).to.true;
@@ -1797,12 +1794,12 @@ describe('Table', () => {
   it('highlight-current-row', done => {
     const vm = createVue({
       template: `
-        <top-table :data="testData" highlight-current-row>
-          <top-table-column prop="name" label="片名" />
-          <top-table-column prop="release" label="发行日期" />
-          <top-table-column prop="director" label="导演" />
-          <top-table-column prop="runtime" label="时长（分）" sortable />
-        </top-table>
+        <el-table :data="testData" highlight-current-row>
+          <el-table-column prop="name" label="片名" />
+          <el-table-column prop="release" label="发行日期" />
+          <el-table-column prop="director" label="导演" />
+          <el-table-column prop="runtime" label="时长（分）" sortable />
+        </el-table>
       `,
 
       created() {
@@ -1810,22 +1807,22 @@ describe('Table', () => {
       }
     }, true);
     setTimeout(_ => {
-      const tr = vm.$el.querySelector('.top-table__body-wrapper tbody tr');
+      const tr = vm.$el.querySelector('.el-table__body-wrapper tbody tr');
       triggerEvent(tr, 'click', true, false);
       setTimeout(_ => {
         expect(tr.classList.contains('current-row')).to.be.true;
-        const rows = vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr');
+        const rows = vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr');
 
         triggerEvent(rows[1], 'click', true, false);
         setTimeout(_ => {
           expect(tr.classList.contains('current-row')).to.be.false;
           expect(rows[1].classList.contains('current-row')).to.be.true;
 
-          const ths = vm.$el.querySelectorAll('.top-table__header-wrapper thead th');
+          const ths = vm.$el.querySelectorAll('.el-table__header-wrapper thead th');
           triggerEvent(ths[3], 'click', true, false);
 
           setTimeout(_ => {
-            const rows = vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr');
+            const rows = vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr');
 
             expect(rows[1].classList.contains('current-row')).to.be.false;
             expect(rows[3].classList.contains('current-row')).to.be.true;
@@ -1840,12 +1837,12 @@ describe('Table', () => {
   it('keep highlight row when data change', done => {
     const vm = createVue({
       template: `
-        <top-table :data="testData" highlight-current-row row-key="release">
-          <top-table-column prop="name" label="片名" />
-          <top-table-column prop="release" label="发行日期" />
-          <top-table-column prop="director" label="导演" />
-          <top-table-column prop="runtime" label="时长（分）" sortable />
-        </top-table>
+        <el-table :data="testData" highlight-current-row row-key="release">
+          <el-table-column prop="name" label="片名" />
+          <el-table-column prop="release" label="发行日期" />
+          <el-table-column prop="director" label="导演" />
+          <el-table-column prop="runtime" label="时长（分）" sortable />
+        </el-table>
       `,
       data() {
         return {
@@ -1854,7 +1851,7 @@ describe('Table', () => {
       }
     }, true);
     setTimeout(() => {
-      let rows = vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr');
+      let rows = vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr');
       triggerEvent(rows[2], 'click', true, false);
       setTimeout(() => {
         expect(rows[2].classList.contains('current-row')).to.be.true;
@@ -1870,7 +1867,7 @@ describe('Table', () => {
         vm.testData = data;
 
         setTimeout(() => {
-          rows = vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr');
+          rows = vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr');
           expect(rows[3].classList.contains('current-row')).to.be.true;
           destroyVM(vm);
           done();
@@ -1882,12 +1879,12 @@ describe('Table', () => {
   it('keep highlight row after sort', done => {
     const vm = createVue({
       template: `
-        <top-table :data="testData" highlight-current-row row-key="release">
-          <top-table-column prop="name" label="片名" />
-          <top-table-column prop="release" label="发行日期" />
-          <top-table-column prop="director" label="导演" />
-          <top-table-column prop="runtime" label="时长（分）" sortable />
-        </top-table>
+        <el-table :data="testData" row-key="release" highlight-current-row >
+          <el-table-column prop="name" label="片名" />
+          <el-table-column prop="release" label="发行日期" />
+          <el-table-column prop="director" label="导演" />
+          <el-table-column prop="runtime" label="时长（分）" sortable />
+        </el-table>
       `,
       data() {
         return {
@@ -1896,19 +1893,106 @@ describe('Table', () => {
       }
     }, true);
     setTimeout(() => {
-      let rows = vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr');
+      let rows = vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr');
       triggerEvent(rows[1], 'click', true, false);
       setTimeout(() => {
         expect(rows[1].classList.contains('current-row')).to.be.true;
-        const cells = vm.$el.querySelectorAll('.top-table__header-wrapper thead th > .cell');
+        const cells = vm.$el.querySelectorAll('.el-table__header-wrapper thead th > .cell');
         triggerEvent(cells[3], 'click', true, false);
 
         setTimeout(() => {
-          rows = vm.$el.querySelectorAll('.top-table__body-wrapper tbody tr');
+          rows = vm.$el.querySelectorAll('.el-table__body-wrapper tbody tr');
           expect(rows[3].classList.contains('current-row')).to.be.true;
           destroyVM(vm);
           done();
         }, DELAY);
+      }, DELAY);
+    }, DELAY);
+  });
+
+  it('render tree structual data', (done) => {
+    const vm = createVue({
+      template: `
+        <el-table :data="testData" row-key="release">
+          <el-table-column prop="name" label="片名" />
+          <el-table-column prop="release" label="发行日期" />
+          <el-table-column prop="director" label="导演" />
+          <el-table-column prop="runtime" label="时长（分）" />
+        </el-table>
+      `,
+      data() {
+        const testData = getTestData();
+        testData[1].children = [
+          {
+            name: 'A Bug\'s Life copy 1', release: '1998-11-25-1', director: 'John Lasseter', runtime: 95
+          },
+          {
+            name: 'A Bug\'s Life copy 2', release: '1998-11-25-2', director: 'John Lasseter', runtime: 95
+          }
+        ];
+        return {
+          testData: testData
+        };
+      }
+    }, true);
+    setTimeout(() => {
+      const rows = vm.$el.querySelectorAll('.el-table__row');
+      expect(rows.length).to.equal(7);
+
+      const childRows = vm.$el.querySelectorAll('.el-table__row--level-1');
+      expect(childRows.length).to.equal(2);
+      childRows.forEach(item => {
+        expect(item.style.display).to.equal('none');
+      });
+
+      vm.$el.querySelector('.el-table__expand-icon').click();
+
+      setTimeout(() => {
+        childRows.forEach(item => {
+          expect(item.style.display).to.equal('');
+        });
+        done();
+      }, DELAY);
+    }, DELAY);
+  });
+
+  it('load substree row data', (done) => {
+    const vm = createVue({
+      template: `
+        <el-table :data="testData" row-key="release" lazy :load="load">
+          <el-table-column prop="name" label="片名" />
+          <el-table-column prop="release" label="发行日期" />
+          <el-table-column prop="director" label="导演" />
+          <el-table-column prop="runtime" label="时长（分）" />
+        </el-table>
+      `,
+      data() {
+        const testData = getTestData();
+        testData[1].hasChildren = true;
+        return {
+          testData: testData
+        };
+      },
+      methods: {
+        load(row, treeNode, resolve) {
+          resolve([
+            {
+              name: 'A Bug\'s Life copy 1', release: '1998-11-25-1', director: 'John Lasseter', runtime: 95
+            },
+            {
+              name: 'A Bug\'s Life copy 2', release: '1998-11-25-2', director: 'John Lasseter', runtime: 95
+            }
+          ]);
+        }
+      }
+    }, true);
+    setTimeout(() => {
+      const expandIcon = vm.$el.querySelector('.el-table__expand-icon');
+      expandIcon.click();
+      setTimeout(() => {
+        expect(expandIcon.classList.contains('el-table__expand-icon--expanded')).to.be.true;
+        expect(vm.$el.querySelectorAll('.el-table__row').length).to.equal(7);
+        done();
       }, DELAY);
     }, DELAY);
   });

@@ -9,7 +9,7 @@ const MenuItem = function(domNode) {
 
 MenuItem.prototype.init = function() {
   this.domNode.setAttribute('tabindex', '0');
-  let menuChild = this.domNode.querySelector('.top-menu');
+  let menuChild = this.domNode.querySelector('.el-menu');
   if (menuChild) {
     this.submenu = new SubMenu(this, menuChild);
   }

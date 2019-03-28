@@ -88,34 +88,34 @@ There are few border styles to choose.
 
 There are few radius styles to choose.
 
-<top-row :gutter="12" class="demo-radius">
-  <top-col :span="6" :xs="{span: 12}">
+<el-row :gutter="12" class="demo-radius">
+  <el-col :span="6" :xs="{span: 12}">
     <div class="title">No Radius</div>
     <div class="value">border-radius: 0px</div>
     <div class="radius"></div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="title">Small Radius</div>
     <div class="value">border-radius: {{borderRadiusSmall}}</div>
     <div 
       class="radius" 
       :style="{ borderRadius: borderRadiusSmall }"
     ></div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="title">Large Radius</div>
     <div class="value">border-radius: {{borderRadiusBase}}</div>
     <div 
       class="radius"
       :style="{ borderRadius: borderRadiusBase }"
     ></div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="title">Round Radius</div>
     <div class="value">border-radius: 30px</div>
     <div class="radius radius-30"></div>
-  </top-col>
-</top-row>
+  </el-col>
+</el-row>
 
 ### Shadow
 

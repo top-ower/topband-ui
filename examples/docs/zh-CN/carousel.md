@@ -6,29 +6,29 @@
 
 适用广泛的基础用法
 
-:::demo 结合使用`top-carousel`和`top-caroustop-item`标签就得到了一个走马灯。幻灯片的内容是任意的，需要放在`top-caroustop-item`标签中。默认情况下，在鼠标 hover 底部的指示器时就会触发切换。通过设置`trigger`属性为`click`，可以达到点击触发的效果。
+:::demo 结合使用`el-carousel`和`el-carousel-item`标签就得到了一个走马灯。幻灯片的内容是任意的，需要放在`el-carousel-item`标签中。默认情况下，在鼠标 hover 底部的指示器时就会触发切换。通过设置`trigger`属性为`click`，可以达到点击触发的效果。
 ```html
 <template>
   <div class="block">
     <span class="demonstration">默认 Hover 指示器触发</span>
-    <top-carousel height="150px">
-      <top-caroustop-item v-for="item in 4" :key="item">
+    <el-carousel height="150px">
+      <el-carousel-item v-for="item in 4" :key="item">
         <h3>{{ item }}</h3>
-      </top-caroustop-item>
-    </top-carousel>
+      </el-carousel-item>
+    </el-carousel>
   </div>
   <div class="block">
     <span class="demonstration">Click 指示器触发</span>
-    <top-carousel trigger="click" height="150px">
-      <top-caroustop-item v-for="item in 4" :key="item">
+    <el-carousel trigger="click" height="150px">
+      <el-carousel-item v-for="item in 4" :key="item">
         <h3>{{ item }}</h3>
-      </top-caroustop-item>
-    </top-carousel>
+      </el-carousel-item>
+    </el-carousel>
   </div>
 </template>
 
 <style>
-  .top-carousel__item h3 {
+  .el-carousel__item h3 {
     color: #475669;
     font-size: 14px;
     opacity: 0.75;
@@ -36,11 +36,11 @@
     margin: 0;
   }
 
-  .top-carousel__item:nth-child(2n) {
+  .el-carousel__item:nth-child(2n) {
      background-color: #99a9bf;
   }
   
-  .top-carousel__item:nth-child(2n+1) {
+  .el-carousel__item:nth-child(2n+1) {
      background-color: #d3dce6;
   }
 </style>
@@ -54,15 +54,15 @@
 :::demo `indicator-position`属性定义了指示器的位置。默认情况下，它会显示在走马灯内部，设置为`outside`则会显示在外部；设置为`none`则不会显示指示器。
 ```html
 <template>
-  <top-carousel indicator-position="outside">
-    <top-caroustop-item v-for="item in 4" :key="item">
+  <el-carousel indicator-position="outside">
+    <el-carousel-item v-for="item in 4" :key="item">
       <h3>{{ item }}</h3>
-    </top-caroustop-item>
-  </top-carousel>
+    </el-carousel-item>
+  </el-carousel>
 </template>
 
 <style>
-  .top-carousel__item h3 {
+  .el-carousel__item h3 {
     color: #475669;
     font-size: 18px;
     opacity: 0.75;
@@ -70,11 +70,11 @@
     margin: 0;
   }
   
-  .top-carousel__item:nth-child(2n) {
+  .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
   }
   
-  .top-carousel__item:nth-child(2n+1) {
+  .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   }
 </style>
@@ -87,15 +87,15 @@
 :::demo `arrow`属性定义了切换箭头的显示时机。默认情况下，切换箭头只有在鼠标 hover 到走马灯上时才会显示；若将`arrow`设置为`always`，则会一直显示；设置为`never`，则会一直隐藏。
 ```html
 <template>
-  <top-carousel :interval="5000" arrow="always">
-    <top-caroustop-item v-for="item in 4" :key="item">
+  <el-carousel :interval="5000" arrow="always">
+    <el-carousel-item v-for="item in 4" :key="item">
       <h3>{{ item }}</h3>
-    </top-caroustop-item>
-  </top-carousel>
+    </el-carousel-item>
+  </el-carousel>
 </template>
 
 <style>
-  .top-carousel__item h3 {
+  .el-carousel__item h3 {
     color: #475669;
     font-size: 18px;
     opacity: 0.75;
@@ -103,11 +103,11 @@
     margin: 0;
   }
   
-  .top-carousel__item:nth-child(2n) {
+  .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
   }
   
-  .top-carousel__item:nth-child(2n+1) {
+  .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   }
 </style>
@@ -120,15 +120,15 @@
 :::demo 将`type`属性设置为`card`即可启用卡片模式。从交互上来说，卡片模式和一般模式的最大区别在于，可以通过直接点击两侧的幻灯片进行切换。
 ```html
 <template>
-  <top-carousel :interval="4000" type="card" height="200px">
-    <top-caroustop-item v-for="item in 6" :key="item">
+  <el-carousel :interval="4000" type="card" height="200px">
+    <el-carousel-item v-for="item in 6" :key="item">
       <h3>{{ item }}</h3>
-    </top-caroustop-item>
-  </top-carousel>
+    </el-carousel-item>
+  </el-carousel>
 </template>
 
 <style>
-  .top-carousel__item h3 {
+  .el-carousel__item h3 {
     color: #475669;
     font-size: 14px;
     opacity: 0.75;
@@ -136,11 +136,11 @@
     margin: 0;
   }
   
-  .top-carousel__item:nth-child(2n) {
+  .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
   }
   
-  .top-carousel__item:nth-child(2n+1) {
+  .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   }
 </style>
@@ -168,11 +168,11 @@
 ### Carousel Methods
 | 方法名      | 说明          | 参数 |
 |---------- |-------------- | -- |
-| setActiveItem | 手动切换幻灯片 | 需要切换的幻灯片的索引，从 0 开始；或相应 `top-caroustop-item` 的 `name` 属性值 |
+| setActiveItem | 手动切换幻灯片 | 需要切换的幻灯片的索引，从 0 开始；或相应 `el-carousel-item` 的 `name` 属性值 |
 | prev | 切换至上一张幻灯片 | — |
 | next | 切换至下一张幻灯片 | — |
 
-### Caroustop-Item Attributes
+### Carousel-Item Attributes
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | name | 幻灯片的名字，可用作 `setActiveItem` 的参数 | string | — | — |

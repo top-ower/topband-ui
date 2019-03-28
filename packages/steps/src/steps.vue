@@ -1,16 +1,16 @@
 <template>
   <div
-    class="top-steps"
+    class="el-steps"
     :class="[
-       !simple && 'top-steps--' + direction,
-       simple && 'top-steps--simple'
+       !simple && 'el-steps--' + direction,
+       simple && 'el-steps--simple'
      ]">
       <slot></slot>
   </div>
 </template>
 
 <script>
-import Migrating from 'topband-ui/src/mixins/migrating';
+import Migrating from 'element-ui/src/mixins/migrating';
 
 export default {
   name: 'ElSteps',

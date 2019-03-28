@@ -10,12 +10,12 @@
 
 ```html
 <template>
-  <top-tabs v-model="activeName" @tab-click="handleClick">
-    <top-tab-pane label="用户管理" name="first">用户管理</top-tab-pane>
-    <top-tab-pane label="配置管理" name="second">配置管理</top-tab-pane>
-    <top-tab-pane label="角色管理" name="third">角色管理</top-tab-pane>
-    <top-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</top-tab-pane>
-  </top-tabs>
+  <el-tabs v-model="activeName" @tab-click="handleClick">
+    <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
+    <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
+    <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+    <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+  </el-tabs>
 </template>
 <script>
   export default {
@@ -42,12 +42,12 @@
 
 ```html
 <template>
-  <top-tabs v-model="activeName2" type="card" @tab-click="handleClick">
-    <top-tab-pane label="用户管理" name="first">用户管理</top-tab-pane>
-    <top-tab-pane label="配置管理" name="second">配置管理</top-tab-pane>
-    <top-tab-pane label="角色管理" name="third">角色管理</top-tab-pane>
-    <top-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</top-tab-pane>
-  </top-tabs>
+  <el-tabs v-model="activeName2" type="card" @tab-click="handleClick">
+    <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
+    <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
+    <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+    <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+  </el-tabs>
 </template>
 <script>
   export default {
@@ -72,12 +72,12 @@
 
 :::demo 将`type`设置为`border-card`。
 ```html
-<top-tabs type="border-card">
-  <top-tab-pane label="用户管理">用户管理</top-tab-pane>
-  <top-tab-pane label="配置管理">配置管理</top-tab-pane>
-  <top-tab-pane label="角色管理">角色管理</top-tab-pane>
-  <top-tab-pane label="定时任务补偿">定时任务补偿</top-tab-pane>
-</top-tabs>
+<el-tabs type="border-card">
+  <el-tab-pane label="用户管理">用户管理</el-tab-pane>
+  <el-tab-pane label="配置管理">配置管理</el-tab-pane>
+  <el-tab-pane label="角色管理">角色管理</el-tab-pane>
+  <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+</el-tabs>
 ```
 :::
 
@@ -89,19 +89,19 @@
 
 ```html
 <template>
-  <top-radio-group v-model="tabPosition" style="margin-bottom: 30px;">
-    <top-radio-button label="top">top</top-radio-button>
-    <top-radio-button label="right">right</top-radio-button>
-    <top-radio-button label="bottom">bottom</top-radio-button>
-    <top-radio-button label="left">left</top-radio-button>
-  </top-radio-group>
+  <el-radio-group v-model="tabPosition" style="margin-bottom: 30px;">
+    <el-radio-button label="top">top</el-radio-button>
+    <el-radio-button label="right">right</el-radio-button>
+    <el-radio-button label="bottom">bottom</el-radio-button>
+    <el-radio-button label="left">left</el-radio-button>
+  </el-radio-group>
 
-  <top-tabs :tab-position="tabPosition" style="height: 200px;">
-    <top-tab-pane label="用户管理">用户管理</top-tab-pane>
-    <top-tab-pane label="配置管理">配置管理</top-tab-pane>
-    <top-tab-pane label="角色管理">角色管理</top-tab-pane>
-    <top-tab-pane label="定时任务补偿">定时任务补偿</top-tab-pane>
-  </top-tabs>
+  <el-tabs :tab-position="tabPosition" style="height: 200px;">
+    <el-tab-pane label="用户管理">用户管理</el-tab-pane>
+    <el-tab-pane label="配置管理">配置管理</el-tab-pane>
+    <el-tab-pane label="角色管理">角色管理</el-tab-pane>
+    <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+  </el-tabs>
 </template>
 <script>
   export default {
@@ -121,15 +121,15 @@
 
 :::demo
 ```html
-<top-tabs type="border-card">
-  <top-tab-pane>
-    <span slot="label"><i class="top-icon-date"></i> 我的行程</span>
+<el-tabs type="border-card">
+  <el-tab-pane>
+    <span slot="label"><i class="el-icon-date"></i> 我的行程</span>
     我的行程
-  </top-tab-pane>
-  <top-tab-pane label="消息中心">消息中心</top-tab-pane>
-  <top-tab-pane label="角色管理">角色管理</top-tab-pane>
-  <top-tab-pane label="定时任务补偿">定时任务补偿</top-tab-pane>
-</top-tabs>
+  </el-tab-pane>
+  <el-tab-pane label="消息中心">消息中心</el-tab-pane>
+  <el-tab-pane label="角色管理">角色管理</el-tab-pane>
+  <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+</el-tabs>
 ```
 :::
 
@@ -139,16 +139,16 @@
 
 :::demo
 ```html
-<top-tabs v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
-  <top-tab-pane
+<el-tabs v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
+  <el-tab-pane
     :key="item.name"
     v-for="(item, index) in editableTabs"
     :label="item.title"
     :name="item.name"
   >
     {{item.content}}
-  </top-tab-pane>
-</top-tabs>
+  </el-tab-pane>
+</el-tabs>
 <script>
   export default {
     data() {
@@ -206,23 +206,23 @@
 :::demo
 ```html
 <div style="margin-bottom: 20px;">
-  <top-button
+  <el-button
     size="small"
     @click="addTab(editableTabsValue2)"
   >
     add tab
-  </top-button>
+  </el-button>
 </div>
-<top-tabs v-model="editableTabsValue2" type="card" closable @tab-remove="removeTab">
-  <top-tab-pane
+<el-tabs v-model="editableTabsValue2" type="card" closable @tab-remove="removeTab">
+  <el-tab-pane
     v-for="(item, index) in editableTabs2"
     :key="item.name"
     :label="item.title"
     :name="item.name"
   >
     {{item.content}}
-  </top-tab-pane>
-</top-tabs>
+  </el-tab-pane>
+</el-tabs>
 <script>
   export default {
     data() {

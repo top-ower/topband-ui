@@ -34,11 +34,10 @@
       outline: none;
       border-color: $--input-focus-border;
     }
-
   }
 
   @include when(disabled) {
-    .top-textarea__inner {
+    .el-textarea__inner {
       background-color: $--input-disabled-fill;
       border-color: $--input-disabled-border;
       color: $--input-disabled-color;
@@ -47,11 +46,8 @@
       &::placeholder {
         color: $--input-disabled-placeholder-color;
       }
-
     }
-
   }
-
 }
 
 @include b(input) {
@@ -61,7 +57,7 @@
   width: 100%;
   @include scroll-bar;
 
-  & .top-input__clear {
+  & .el-input__clear {
     color: $--input-icon-color;
     font-size: $--input-font-size;
     line-height: 16px;
@@ -71,7 +67,6 @@
     &:hover {
       color: $--input-clear-hover-color;
     }
-
   }
 
   @include e(inner) {
@@ -103,7 +98,6 @@
       outline: none;
       border-color: $--input-focus-border;
     }
-
   }
 
   @include e(suffix) {
@@ -145,7 +139,6 @@
       display: inline-block;
       vertical-align: middle;
     }
-
   }
 
   @include e(validateIcon) {
@@ -153,15 +146,14 @@
   }
 
   @include when(active) {
-    .top-input__inner {
+    .el-input__inner {
       outline: none;
       border-color: $--input-focus-border;
     }
-
   }
 
   @include when(disabled) {
-    .top-input__inner {
+    .el-input__inner {
       background-color: $--input-disabled-fill;
       border-color: $--input-disabled-border;
       color: $--input-disabled-color;
@@ -170,27 +162,23 @@
       &::placeholder {
         color: $--input-disabled-placeholder-color;
       }
-
     }
 
-    .top-input__icon {
+    .el-input__icon {
       cursor: not-allowed;
     }
-
   }
 
   @include m(suffix) {
-    .top-input__inner {
+    .el-input__inner {
       padding-right: 30px;
     }
-
   }
 
   @include m(prefix) {
-    .top-input__inner {
+    .el-input__inner {
       padding-left: 30px;
     }
-
   }
 
   @include m(medium) {
@@ -201,12 +189,10 @@
       line-height: $--input-medium-height;
     }
 
-    .top-input__icon {
+    .el-input__icon {
       line-height: $--input-medium-height;
     }
-
   }
-
   @include m(small) {
     font-size: $--input-small-font-size;
 
@@ -215,12 +201,10 @@
       line-height: $--input-small-height;
     }
 
-    .top-input__icon {
+    .el-input__icon {
       line-height: $--input-small-height;
     }
-
   }
-
   @include m(mini) {
     font-size: $--input-mini-font-size;
 
@@ -229,12 +213,10 @@
       line-height: $--input-mini-height;
     }
 
-    .top-input__icon {
+    .el-input__icon {
       line-height: $--input-mini-height;
     }
-
   }
-
 }
 
 @include b(input-group) {
@@ -242,9 +224,9 @@
   display: inline-table;
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0;
+  border-spacing:0;
 
-  > .top-input__inner {
+  > .el-input__inner {
     vertical-align: middle;
     display: table-cell;
   }
@@ -265,12 +247,15 @@
       outline: none;
     }
 
-    .top-select, .top-button {
+    .el-select,
+    .el-button {
       display: inline-block;
       margin: -10px -20px;
     }
 
-    button.top-button, div.top-select .top-input__inner, div.top-select:hover .top-input__inner {
+    button.el-button,
+    div.el-select .el-input__inner,
+    div.el-select:hover .el-input__inner {
       border-color: transparent;
       background-color: transparent;
       color: inherit;
@@ -278,10 +263,10 @@
       border-bottom: 0;
     }
 
-    .top-button, .top-input {
+    .el-button,
+    .el-input {
       font-size: inherit;
     }
-
   }
 
   @include e(prepend) {
@@ -297,33 +282,28 @@
   }
 
   @include m(prepend) {
-    .top-input__inner {
+    .el-input__inner {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
-
-    .top-select .top-input.is-focus .top-input__inner {
+    .el-select .el-input.is-focus .el-input__inner {
       border-color: transparent;
     }
-
   }
 
   @include m(append) {
-    .top-input__inner {
+    .el-input__inner {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
-
-    .top-select .top-input.is-focus .top-input__inner {
+    .el-select .el-input.is-focus .el-input__inner {
       border-color: transparent;
     }
-
   }
-
 }
 
 /** disalbe default clear on IE */
-.top-input__inner::-ms-clear {
+.el-input__inner::-ms-clear {
   display: none;
   width: 0;
   height: 0;

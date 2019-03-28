@@ -1,15 +1,15 @@
 <script>
-  import Emitter from 'topband-ui/src/mixins/emitter';
+  import Emitter from 'element-ui/src/mixins/emitter';
 
   export default {
-    name: 'TOPCheckboxGroup',
+    name: 'ElCheckboxGroup',
 
-    componentName: 'TOPCheckboxGroup',
+    componentName: 'ElCheckboxGroup',
 
     mixins: [Emitter],
 
     inject: {
-      topFormItem: {
+      elFormItem: {
         default: ''
       }
     },
@@ -35,14 +35,14 @@
 
     watch: {
       value(value) {
-        this.dispatch('TOPFormItem', 'top.form.change', [value]);
+        this.dispatch('ElFormItem', 'el.form.change', [value]);
       }
     }
   };
 </script>
 
 <template>
-  <div class="top-checkbox-group" role="group" aria-label="checkbox-group">
+  <div class="el-checkbox-group" role="group" aria-label="checkbox-group">
     <slot></slot>
   </div>
 </template>

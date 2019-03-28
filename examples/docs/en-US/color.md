@@ -97,8 +97,8 @@ Element uses a specific set of palettes to specify colors to provide a consisten
 
 The main color of Element is bright and friendly blue.
 
-<top-row :gutter="12">
-  <top-col :span="10" :xs="{span: 12}">
+<el-row :gutter="12">
+  <el-col :span="10" :xs="{span: 12}">
     <div 
       class="demo-color-box"
       :style="{ background: primary }"
@@ -117,15 +117,15 @@ The main color of Element is bright and friendly blue.
     </div>
     </div>
     </div>
-  </top-col>
-</top-row>
+  </el-col>
+</el-row>
 
 ### Secondary Color
 
 Besides the main color, you need to use different scene colors in different scenarios (for example, dangerous color indicates dangerous operation)
 
-<top-row :gutter="12">
-  <top-col :span="6" :xs="{span: 12}">
+<el-row :gutter="12">
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box"
     :style="{ background: success }"
     >Success<div class="value">#67C23A</div>
@@ -141,8 +141,8 @@ Besides the main color, you need to use different scene colors in different scen
         </div>
       </div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box"
     :style="{ background: warning }"
     >Warning<div class="value">#E6A23C</div>
@@ -158,8 +158,8 @@ Besides the main color, you need to use different scene colors in different scen
         </div>
       </div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box"
     :style="{ background: danger }"
     >Danger<div class="value">#F56C6C</div>
@@ -175,8 +175,8 @@ Besides the main color, you need to use different scene colors in different scen
         </div>
       </div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box"
     :style="{ background: info }"
     >Info<div class="value">#909399</div>
@@ -192,15 +192,15 @@ Besides the main color, you need to use different scene colors in different scen
         </div>
       </div>
     </div>
-  </top-col>
-</top-row>
+  </el-col>
+</el-row>
 
 ### Neutral Color
 
 Neutral colors are for text, background and border colors. You can use different neutral colors to represent the hierarchical structure.
 
-<top-row :gutter="12">
-  <top-col :span="6" :xs="{span: 12}">
+<el-row :gutter="12">
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box-group">
       <div class="demo-color-box demo-color-box-other"
       :style="{ background: textPrimary }"
@@ -216,8 +216,8 @@ Neutral colors are for text, background and border colors. You can use different
       :style="{ background: textPlaceholder }"
       >Placeholder Text<div class="value">{{textPlaceholder}}</div></div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box-group">
       <div class="demo-color-box demo-color-box-other demo-color-box-lite"
       :style="{ background: borderBase }"
@@ -232,8 +232,8 @@ Neutral colors are for text, background and border colors. You can use different
       :style="{ background: borderExtraLight }"
       >Extra Light Border<div class="value">{{borderExtraLight}}</div></div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box-group">
       <div 
       class="demo-color-box demo-color-box-other"
@@ -246,5 +246,5 @@ Neutral colors are for text, background and border colors. You can use different
       <div class="demo-color-box demo-color-box-other bg-transparent">Transparent<div class="value">Transparent</div>
       </div>
     </div>
-  </top-col>
-</top-row>
+  </el-col>
+</el-row>

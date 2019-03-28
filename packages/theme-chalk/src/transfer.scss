@@ -38,7 +38,6 @@
         background-color: $--background-color-base;
         color: $--color-text-placeholder;
       }
-
     }
 
     &:first-child {
@@ -53,12 +52,10 @@
       font-size: 14px;
     }
 
-    & [class*="top-icon-"] + span {
+    & [class*="el-icon-"] + span {
       margin-left: 0;
     }
-
   }
-
 }
 
 @include b(transfer-panel) {
@@ -68,37 +65,31 @@
   background: $--color-white;
   display: inline-block;
   vertical-align: middle;
-  width: $--transfer-pantop-width;
+  width: $--transfer-panel-width;
   max-height: 100%;
   box-sizing: border-box;
   position: relative;
 
   @include e(body) {
-    height: $--transfer-pantop-body-height;
+    height: $--transfer-panel-body-height;
 
     @include when(with-footer) {
-      padding-bottom: $--transfer-pantop-footer-height;
+      padding-bottom: $--transfer-panel-footer-height;
     }
-
   }
 
   @include e(list) {
     margin: 0;
     padding: 6px 0;
     list-style: none;
-    height: $--transfer-pantop-body-height;
+    height: $--transfer-panel-body-height;
     overflow: auto;
     box-sizing: border-box;
 
     @include when(filterable) {
-      height:# {
-        $--transfer-pantop-body-height - $--transfer-filter-height - 20px
-      }
-
-      ;
+      height: #{$--transfer-panel-body-height - $--transfer-filter-height - 20px};
       padding-top: 0;
     }
-
   }
 
   @include e(item) {
@@ -107,11 +98,11 @@
     padding-left: 15px;
     display: block;
 
-    & + .top-transfer-panel__item {
+    & + .el-transfer-panel__item {
       margin-left: 0;
     }
 
-    &.top-checkbox {
+    &.el-checkbox {
       color: $--color-text-regular;
     }
 
@@ -119,7 +110,7 @@
       color: $--color-primary;
     }
 
-    &.top-checkbox .top-checkbox__label {
+    &.el-checkbox .el-checkbox__label {
       width: 100%;
       @include utils-ellipsis;
       display: block;
@@ -128,11 +119,10 @@
       line-height: $--transfer-item-height;
     }
 
-    .top-checkbox__input {
+    .el-checkbox__input {
       position: absolute;
       top: 8px;
     }
-
   }
 
   @include e(filter) {
@@ -142,47 +132,41 @@
     display: block;
     width: auto;
 
-    .top-input__inner {
+    .el-input__inner {
       height: $--transfer-filter-height;
       width: 100%;
       font-size: 12px;
       display: inline-block;
       box-sizing: border-box;
-
-      border-radius:# {
-        $--transfer-filter-height / 2
-      }
-
-      ;
+      border-radius: #{$--transfer-filter-height / 2};
       padding-right: 10px;
       padding-left: 30px;
     }
 
-    .top-input__icon {
+    .el-input__icon {
       margin-left: 5px;
     }
 
-    .top-icon-circle-close {
+    .el-icon-circle-close {
       cursor: pointer;
     }
-
   }
 
-  .top-transfer-panel__header {
-    height: $--transfer-pantop-header-height;
-    line-height: $--transfer-pantop-header-height;
-    background: $--transfer-pantop-header-background-color;
+  .el-transfer-panel__header {
+    height: $--transfer-panel-header-height;
+    line-height: $--transfer-panel-header-height;
+    background: $--transfer-panel-header-background-color;
     margin: 0;
     padding-left: 15px;
     border-bottom: 1px solid $--transfer-border-color;
     box-sizing: border-box;
     color: $--color-black;
 
-    .top-checkbox {
+    .el-checkbox {
       display: block;
       line-height: 40px;
 
-      .top-checkbox__label {
+      .el-checkbox__label {
         font-size: 16px;
         color: $--color-text-primary;
         font-weight: normal;
@@ -194,15 +178,12 @@
           font-size: 12px;
           font-weight: normal;
         }
-
       }
-
     }
-
   }
 
-  .top-transfer-panel__footer {
-    height: $--transfer-pantop-footer-height;
+  .el-transfer-panel__footer {
+    height: $--transfer-panel-footer-height;
     background: $--color-white;
     margin: 0;
     padding: 0;
@@ -214,14 +195,13 @@
     z-index: $--index-normal;
     @include utils-vertical-center;
 
-    .top-checkbox {
+    .el-checkbox {
       padding-left: 20px;
       color: $--color-text-regular;
     }
-
   }
 
-  .top-transfer-panel__empty {
+  .el-transfer-panel__empty {
     margin: 0;
     height: $--transfer-item-height;
     line-height: $--transfer-item-height;
@@ -230,21 +210,18 @@
     text-align: center;
   }
 
-  .top-checkbox__label {
+  .el-checkbox__label {
     padding-left: 8px;
   }
 
-  .top-checkbox__inner {
+  .el-checkbox__inner {
     height: 14px;
     width: 14px;
     border-radius: 3px;
-
     &::after {
       height: 6px;
       width: 3px;
       left: 4px;
     }
-
   }
-
 }

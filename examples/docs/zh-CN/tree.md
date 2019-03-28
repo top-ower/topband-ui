@@ -8,7 +8,7 @@
 
 :::demo
 ```html
-<top-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></top-tree>
+<el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
 
 <script>
   export default {
@@ -71,13 +71,13 @@
 
 :::demo 本例还展示了动态加载节点数据的方法。
 ```html
-<top-tree
+<el-tree
   :props="props"
   :load="loadNode"
   lazy
   show-checkbox
   @check-change="handleCheckChange">
-</top-tree>
+</el-tree>
 
 <script>
   export default {
@@ -137,12 +137,12 @@
 
 :::demo 由于在点击节点时才进行该层数据的获取，默认情况下 Tree 无法预知某个节点是否为叶子节点，所以会为每个节点添加一个下拉按钮，如果节点没有下层数据，则点击后下拉按钮会消失。同时，你也可以提前告知 Tree 某个节点是否为叶子节点，从而避免在叶子节点前渲染下拉按钮。
 ```html
-<top-tree
+<el-tree
   :props="props1"
   :load="loadNode1"
   lazy
   show-checkbox>
-</top-tree>
+</el-tree>
 
 <script>
   export default {
@@ -184,14 +184,14 @@
 
 :::demo 分别通过`default-expanded-keys`和`default-checked-keys`设置默认展开和默认选中的节点。需要注意的是，此时必须设置`node-key`，其值为节点数据中的一个字段名，该字段在整棵树中是唯一的。
 ```html
-<top-tree
+<el-tree
   :data="data2"
   show-checkbox
   node-key="id"
   :default-expanded-keys="[2, 3]"
   :default-checked-keys="[5]"
   :props="defaultProps">
-</top-tree>
+</el-tree>
 
 <script>
   export default {
@@ -248,13 +248,13 @@
 
 :::demo 通过`disabled`设置禁用状态。
 ```html
-<top-tree
+<el-tree
   :data="data3"
   show-checkbox
   node-key="id"
   :default-expanded-keys="[2, 3]"
   :default-checked-keys="[5]">
-</top-tree>
+</el-tree>
 
 <script>
   export default {
@@ -303,7 +303,7 @@
 
 :::demo 本例展示如何获取和设置选中节点。获取和设置各有两种方式：通过 node 或通过 key。如果需要通过 key 来获取或设置，则必须设置`node-key`。
 ```html
-<top-tree
+<el-tree
   :data="data2"
   show-checkbox
   default-expand-all
@@ -311,14 +311,14 @@
   ref="tree"
   highlight-current
   :props="defaultProps">
-</top-tree>
+</el-tree>
 
 <div class="buttons">
-  <top-button @click="getCheckedNodes">通过 node 获取</top-button>
-  <top-button @click="getCheckedKeys">通过 key 获取</top-button>
-  <top-button @click="setCheckedNodes">通过 node 设置</top-button>
-  <top-button @click="setCheckedKeys">通过 key 设置</top-button>
-  <top-button @click="resetChecked">清空</top-button>
+  <el-button @click="getCheckedNodes">通过 node 获取</el-button>
+  <el-button @click="getCheckedKeys">通过 key 获取</el-button>
+  <el-button @click="setCheckedNodes">通过 node 设置</el-button>
+  <el-button @click="setCheckedKeys">通过 key 设置</el-button>
+  <el-button @click="resetChecked">清空</el-button>
 </div>
 
 <script>
@@ -403,18 +403,18 @@
 <div class="custom-tree-container">
   <div class="block">
     <p>使用 render-content</p>
-    <top-tree
+    <el-tree
       :data="data4"
       show-checkbox
       node-key="id"
       default-expand-all
       :expand-on-click-node="false"
       :render-content="renderContent">
-    </top-tree>
+    </el-tree>
   </div>
   <div class="block">
     <p>使用 scoped slot</p>
-    <top-tree
+    <el-tree
       :data="data5"
       show-checkbox
       node-key="id"
@@ -423,21 +423,21 @@
       <span class="custom-tree-node" slot-scope="{ node, data }">
         <span>{{ node.label }}</span>
         <span>
-          <top-button
+          <el-button
             type="text"
             size="mini"
             @click="() => append(data)">
             Append
-          </top-button>
-          <top-button
+          </el-button>
+          <el-button
             type="text"
             size="mini"
             @click="() => remove(node, data)">
             Delete
-          </top-button>
+          </el-button>
         </span>
       </span>
-    </top-tree>
+    </el-tree>
   </div>
 </div>
 
@@ -508,8 +508,8 @@
           <span class="custom-tree-node">
             <span>{node.label}</span>
             <span>
-              <top-button size="mini" type="text" on-click={ () => this.append(data) }>Append</top-button>
-              <top-button size="mini" type="text" on-click={ () => this.remove(node, data) }>Delete</top-button>
+              <el-button size="mini" type="text" on-click={ () => this.append(data) }>Append</el-button>
+              <el-button size="mini" type="text" on-click={ () => this.remove(node, data) }>Delete</el-button>
             </span>
           </span>);
       }
@@ -535,19 +535,19 @@
 
 :::demo 在需要对节点进行过滤时，调用 Tree 实例的`filter`方法，参数为关键字。需要注意的是，此时需要设置`filter-node-method`，值为过滤函数。
 ```html
-<top-input
+<el-input
   placeholder="输入关键字进行过滤"
   v-model="filterText">
-</top-input>
+</el-input>
 
-<top-tree
+<el-tree
   class="filter-tree"
   :data="data2"
   :props="defaultProps"
   default-expand-all
   :filter-node-method="filterNode"
   ref="tree2">
-</top-tree>
+</el-tree>
 
 <script>
   export default {
@@ -619,12 +619,12 @@
 
 :::demo
 ```html
-<top-tree
+<el-tree
   :data="data"
   :props="defaultProps"
   accordion
   @node-click="handleNodeClick">
-</top-tree>
+</el-tree>
 
 <script>
   export default {
@@ -687,7 +687,7 @@
 
 :::demo
 ```html
-<top-tree
+<el-tree
   :data="data6"
   node-key="id"
   default-expand-all
@@ -700,7 +700,7 @@
   draggable
   :allow-drop="allowDrop"
   :allow-drag="allowDrag">
-</top-tree>
+</el-tree>
 
 <script>
   export default {

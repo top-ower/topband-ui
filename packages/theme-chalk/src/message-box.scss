@@ -33,7 +33,6 @@
       width: 0;
       vertical-align: middle;
     }
-
   }
 
   @include e(header) {
@@ -61,15 +60,14 @@
     font-size: $--message-close-size;
     cursor: pointer;
 
-    .top-message-box__close {
+    .el-message-box__close {
       color: $--color-info;
     }
 
     &:focus, &:hover {
-      .top-message-box__close {
+      .el-message-box__close {
         color: $--color-primary;
       }
-
     }
 
   }
@@ -86,13 +84,10 @@
 
     & input.invalid {
       border-color: $--color-danger;
-
       &:focus {
         border-color: $--color-danger;
       }
-
     }
-
   }
 
   @include e(status) {
@@ -106,27 +101,26 @@
       padding-left: 1px;
     }
 
-    + .top-message-box__message {
+    + .el-message-box__message {
       padding-left: 36px;
       padding-right: 12px;
     }
 
-    &.top-icon-success {
+    &.el-icon-success {
       color: $--msgbox-success-color;
     }
 
-    &.top-icon-info {
+    &.el-icon-info {
       color: $--msgbox-info-color;
     }
 
-    &.top-icon-warning {
+    &.el-icon-warning {
       color: $--msgbox-warning-color;
     }
 
-    &.top-icon-error {
+    &.el-icon-error {
       color: $--msgbox-danger-color;
     }
-
   }
 
   @include e(message) {
@@ -136,7 +130,6 @@
       margin: 0;
       line-height: 24px;
     }
-
   }
 
   @include e(errormsg) {
@@ -153,7 +146,6 @@
     & button:nth-child(2) {
       margin-left: 10px;
     }
-
   }
 
   @include e(btns-reverse) {
@@ -193,12 +185,11 @@
 
     @include e(content) {
       $padding-horizontal: $--msgbox-padding-primary + 12px;
+
       padding-left: $padding-horizontal;
       padding-right: $padding-horizontal;
     }
-
   }
-
 }
 
 .msgbox-fade-enter-active {
@@ -214,12 +205,10 @@
     transform: translate3d(0, -20px, 0);
     opacity: 0;
   }
-
   100% {
     transform: translate3d(0, 0, 0);
     opacity: 1;
   }
-
 }
 
 @keyframes msgbox-fade-out {
@@ -227,10 +216,8 @@
     transform: translate3d(0, 0, 0);
     opacity: 1;
   }
-
   100% {
     transform: translate3d(0, -20px, 0);
     opacity: 0;
   }
-
 }

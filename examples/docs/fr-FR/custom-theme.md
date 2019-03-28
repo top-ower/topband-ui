@@ -14,15 +14,15 @@ Le site précédent vous permet de visualiser et de télécharger un nouveau th�
 $--color-primary: teal;
 
 /* chemin vers le fichier de police, requis */
-$--font-path: '~topband-ui/lib/theme-chalk/fonts';
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
 
-@import "~topband-ui/packages/theme-chalk/src/index";
+@import "~element-ui/packages/theme-chalk/src/index";
 ```
 
 Puis dans le fichier d'entrée, importez ce style au lieu de celui d'Element:
 ```JS
 import Vue from 'vue'
-import Element from 'topband-ui'
+import Element from 'element-ui'
 import './element-variables.scss'
 
 Vue.use(Element)
@@ -101,21 +101,21 @@ Par défaut le thème généré est placé dans `./theme`. Vous pouvez spécifie
 
 ```javascript
 import '../theme/index.css'
-import ElementUI from 'topband-ui'
+import ElementUI from 'element-ui'
 import Vue from 'vue'
 
 Vue.use(ElementUI)
 ```
 
 #### <strong>Importer le thème d'un composant sur demande</strong>
-Si vous utilisez `babtop-plugin-component` pour les imports sur demande, modifiez `.babelrc` et spécifiez `styleLibraryName` avec le chemin où votre thème est localisé relativement à `.babelrc`. N'oubliez pas que `~` est requis:
+Si vous utilisez `babel-plugin-component` pour les imports sur demande, modifiez `.babelrc` et spécifiez `styleLibraryName` avec le chemin où votre thème est localisé relativement à `.babelrc`. N'oubliez pas que `~` est requis:
 ```json
 {
   "plugins": [
     [
       "component",
       {
-        "libraryName": "topband-ui",
+        "libraryName": "element-ui",
         "styleLibraryName": "~theme"
       }
     ]
@@ -123,4 +123,4 @@ Si vous utilisez `babtop-plugin-component` pour les imports sur demande, modifie
 }
 ```
 
-Si vous n'êtes pas familier avec `babtop-plugin-component`, référez-vous à la page <a href="./#/fr-FR/component/quickstart">Guide</a>. Pour plus d'informations, jetez un oeil au [dépôt du projet](https://github.com/ElementUI/element-theme) de `element-theme`.
+Si vous n'êtes pas familier avec `babel-plugin-component`, référez-vous à la page <a href="./#/fr-FR/component/quickstart">Guide</a>. Pour plus d'informations, jetez un oeil au [dépôt du projet](https://github.com/ElementUI/element-theme) de `element-theme`.

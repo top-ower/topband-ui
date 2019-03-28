@@ -9,13 +9,13 @@ describe('Input', () => {
   it('create', async() => {
     vm = createVue({
       template: `
-        <top-input
+        <el-input
           :minlength="3"
           :maxlength="5"
           placeholder="请输入内容"
           @focus="handleFocus"
           :value="input">
-        </top-input>
+        </el-input>
       `,
       data() {
         return {
@@ -44,7 +44,7 @@ describe('Input', () => {
 
   it('default to empty', () => {
     vm = createVue({
-      template: '<top-input/>'
+      template: '<el-input/>'
     }, true);
     let inputElm = vm.$el.querySelector('input');
     expect(inputElm.value).to.equal('');
@@ -53,8 +53,8 @@ describe('Input', () => {
   it('disabled', () => {
     vm = createVue({
       template: `
-        <top-input disabled>
-        </top-input>
+        <el-input disabled>
+        </el-input>
       `
     }, true);
     expect(vm.$el.querySelector('input').getAttribute('disabled')).to.ok;
@@ -63,53 +63,53 @@ describe('Input', () => {
   it('suffixIcon', () => {
     vm = createVue({
       template: `
-        <top-input suffix-icon="time"></top-input>
+        <el-input suffix-icon="time"></el-input>
       `
     }, true);
-    var icon = vm.$el.querySelector('.top-input__icon');
+    var icon = vm.$el.querySelector('.el-input__icon');
     expect(icon).to.be.exist;
   });
 
   it('prefixIcon', () => {
     vm = createVue({
       template: `
-        <top-input prefix-icon="time"></top-input>
+        <el-input prefix-icon="time"></el-input>
       `
     }, true);
-    var icon = vm.$el.querySelector('.top-input__icon');
+    var icon = vm.$el.querySelector('.el-input__icon');
     expect(icon).to.be.exist;
   });
 
   it('size', () => {
     vm = createVue({
       template: `
-        <top-input size="large">
-        </top-input>
+        <el-input size="large">
+        </el-input>
       `
     }, true);
 
-    expect(vm.$el.classList.contains('top-input--large')).to.true;
+    expect(vm.$el.classList.contains('el-input--large')).to.true;
   });
 
   it('type', () => {
     vm = createVue({
       template: `
-        <top-input type="textarea">
-        </top-input>
+        <el-input type="textarea">
+        </el-input>
       `
     }, true);
 
-    expect(vm.$el.classList.contains('top-textarea')).to.true;
+    expect(vm.$el.classList.contains('el-textarea')).to.true;
   });
 
   it('rows', () => {
     vm = createVue({
       template: `
-        <top-input type="textarea" :rows="3">
-        </top-input>
+        <el-input type="textarea" :rows="3">
+        </el-input>
       `
     }, true);
-    expect(vm.$el.querySelector('.top-textarea__inner').getAttribute('rows')).to.be.equal('3');
+    expect(vm.$el.querySelector('.el-textarea__inner').getAttribute('rows')).to.be.equal('3');
   });
 
   // Github issue #2836
@@ -117,7 +117,7 @@ describe('Input', () => {
     vm = createVue({
       template: `
         <div>
-          <top-input type="textarea" :resize="resize"></top-input>
+          <el-input type="textarea" :resize="resize"></el-input>
         </div>
       `,
       data: {
@@ -125,30 +125,30 @@ describe('Input', () => {
       }
     }, true);
     await waitImmediate();
-    expect(vm.$el.querySelector('.top-textarea__inner').style.resize).to.be.equal(vm.resize);
+    expect(vm.$el.querySelector('.el-textarea__inner').style.resize).to.be.equal(vm.resize);
     vm.resize = 'horizontal';
     await waitImmediate();
-    expect(vm.$el.querySelector('.top-textarea__inner').style.resize).to.be.equal(vm.resize);
+    expect(vm.$el.querySelector('.el-textarea__inner').style.resize).to.be.equal(vm.resize);
   });
 
   it('autosize', async() => {
     vm = createVue({
       template: `
         <div>
-          <top-input
+          <el-input
             ref="limitSize"
             type="textarea"
             :autosize="{minRows: 3, maxRows: 5}"
             v-model="textareaValue"
           >
-          </top-input>
-          <top-input
+          </el-input>
+          <el-input
             ref="limitlessSize"
             type="textarea"
             autosize
             v-model="textareaValue"
           >
-          </top-input>
+          </el-input>
         </div>
       `,
       data() {
@@ -173,8 +173,8 @@ describe('Input', () => {
   it('focus', async() => {
     vm = createVue({
       template: `
-        <top-input ref="input">
-        </top-input>
+        <el-input ref="input">
+        </el-input>
       `
     }, true);
 
@@ -190,14 +190,14 @@ describe('Input', () => {
   it('Input contains Select and append slot', async() => {
     vm = createVue({
       template: `
-      <top-input v-model="value" clearable class="input-with-select" ref="input">
-        <top-select v-model="select" slot="prepend" placeholder="请选择">
-          <top-option label="餐厅名" value="1"></top-option>
-          <top-option label="订单号" value="2"></top-option>
-          <top-option label="用户电话" value="3"></top-option>
-        </top-select>
-        <top-button slot="append" icon="top-icon-search"></top-button>
-      </top-input>
+      <el-input v-model="value" clearable class="input-with-select" ref="input">
+        <el-select v-model="select" slot="prepend" placeholder="请选择">
+          <el-option label="餐厅名" value="1"></el-option>
+          <el-option label="订单号" value="2"></el-option>
+          <el-option label="用户电话" value="3"></el-option>
+        </el-select>
+        <el-button slot="append" icon="el-icon-search"></el-button>
+      </el-input>
       `,
       data() {
         return {
@@ -209,7 +209,7 @@ describe('Input', () => {
     vm.$refs.input.hovering = true;
 
     await wait();
-    const suffixEl = document.querySelector('.input-with-select > .top-input__suffix');
+    const suffixEl = document.querySelector('.input-with-select > .el-input__suffix');
     expect(suffixEl).to.not.be.null;
     expect(suffixEl.style.transform).to.not.be.empty;
   });
@@ -218,12 +218,12 @@ describe('Input', () => {
     const spy = sinon.spy();
     vm = createVue({
       template: `
-        <top-form :model="model" :rules="rules">
-          <top-form-item prop="input">
-            <top-input v-model="model.input" :validate-event="false">
-            </top-input>
-          </top-form-item>
-        </top-form>
+        <el-form :model="model" :rules="rules">
+          <el-form-item prop="input">
+            <el-input v-model="model.input" :validate-event="false">
+            </el-input>
+          </el-form-item>
+        </el-form>
       `,
       data() {
         const validator = (rule, value, callback) => {
@@ -252,11 +252,11 @@ describe('Input', () => {
     it('event:focus & blur', async() => {
       vm = createVue({
         template: `
-          <top-input
+          <el-input
             ref="input"
             placeholder="请输入内容"
             value="input">
-          </top-input>
+          </el-input>
         `
       }, true);
 
@@ -276,11 +276,11 @@ describe('Input', () => {
       // NOTE: should be same as native's change behavior
       vm = createVue({
         template: `
-          <top-input
+          <el-input
             ref="input"
             placeholder="请输入内容"
             :value="input">
-          </top-input>
+          </el-input>
         `,
         data() {
           return {
@@ -308,12 +308,12 @@ describe('Input', () => {
     it('event:clear', async() => {
       vm = createVue({
         template: `
-          <top-input
+          <el-input
             ref="input"
             placeholder="请输入内容"
             clearable
             :value="input">
-          </top-input>
+          </el-input>
         `,
         data() {
           return {
@@ -329,19 +329,19 @@ describe('Input', () => {
       inputElm.focus();
       vm.$refs.input.$on('clear', spyClear);
       await waitImmediate();
-      vm.$el.querySelector('.top-input__clear').click();
+      vm.$el.querySelector('.el-input__clear').click();
       await waitImmediate();
       expect(spyClear.calledOnce).to.be.true;
     });
     it('event:input', async() => {
       vm = createVue({
         template: `
-          <top-input
+          <el-input
             ref="input"
             placeholder="请输入内容"
             clearable
             :value="input">
-          </top-input>
+          </el-input>
         `,
         data() {
           return {
@@ -377,7 +377,7 @@ describe('Input', () => {
 
       vm = createVue({
         template: `
-          <top-input
+          <el-input
             ref="inputComp"
             value="${testContent}"
           />

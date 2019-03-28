@@ -1,8 +1,8 @@
 <template>
   <label
-    class="top-checkbox-button"
+    class="el-checkbox-button"
       :class="[
-        size ? 'top-checkbox-button--' + size : '',
+        size ? 'el-checkbox-button--' + size : '',
         { 'is-disabled': isDisabled },
         { 'is-checked': isChecked },
         { 'is-focus': focus },
@@ -13,7 +13,7 @@
     >
     <input
       v-if="trueLabel || falseLabel"
-      class="top-checkbox-button__original"
+      class="el-checkbox-button__original"
       type="checkbox"
       :name="name"
       :disabled="isDisabled"
@@ -25,7 +25,7 @@
       @blur="focus = false">
     <input
       v-else
-      class="top-checkbox-button__original"
+      class="el-checkbox-button__original"
       type="checkbox"
       :name="name"
       :disabled="isDisabled"
@@ -35,7 +35,7 @@
       @focus="focus = true"
       @blur="focus = false">
 
-    <span class="top-checkbox-button__inner" 
+    <span class="el-checkbox-button__inner" 
       v-if="$slots.default || label"
       :style="isChecked ? activeStyle : null">
       <slot>{{label}}</slot>
@@ -44,10 +44,10 @@
   </label>
 </template>
 <script>
-  import Emitter from 'topband-ui/src/mixins/emitter';
+  import Emitter from 'element-ui/src/mixins/emitter';
 
   export default {
-    name: 'TOPCheckboxButton',
+    name: 'ElCheckboxButton',
 
     mixins: [Emitter],
 
@@ -97,7 +97,7 @@
               (this.isLimitExceeded = true));
 
             this.isLimitExceeded === false &&
-            this.dispatch('TOPCheckboxGroup', 'input', [val]);
+            this.dispatch('ElCheckboxGroup', 'input', [val]);
           } else if (this.value !== undefined) {
             this.$emit('input', val);
           } else {
@@ -119,7 +119,7 @@
       _checkboxGroup() {
         let parent = this.$parent;
         while (parent) {
-          if (parent.$options.componentName !== 'TOPCheckboxGroup') {
+          if (parent.$options.componentName !== 'ElCheckboxGroup') {
             parent = parent.$parent;
           } else {
             return parent;
@@ -178,7 +178,7 @@
         this.$emit('change', value, ev);
         this.$nextTick(() => {
           if (this._checkboxGroup) {
-            this.dispatch('TOPCheckboxGroup', 'change', [this._checkboxGroup.value]);
+            this.dispatch('ElCheckboxGroup', 'change', [this._checkboxGroup.value]);
           }
         });
       }

@@ -16,8 +16,8 @@ describe('Slider', () => {
     vm = createVue({
       template: `
         <div>
-          <top-slider v-model="value" :min="50">
-          </top-slider>
+          <el-slider v-model="value" :min="50">
+          </el-slider>
         </div>
       `,
 
@@ -44,8 +44,8 @@ describe('Slider', () => {
     vm = createVue({
       template: `
         <div>
-          <top-slider v-model="value">
-          </top-slider>
+          <el-slider v-model="value">
+          </el-slider>
         </div>
       `,
 
@@ -66,8 +66,8 @@ describe('Slider', () => {
     vm = createVue({
       template: `
         <div>
-          <top-slider v-model="value" :show-tooltip="false">
-          </top-slider>
+          <el-slider v-model="value" :show-tooltip="false">
+          </el-slider>
         </div>
       `,
 
@@ -85,8 +85,8 @@ describe('Slider', () => {
     vm = createVue({
       template: `
         <div>
-          <top-slider ref="slider" v-model="value" :format-tooltip="formatTooltip">
-          </top-slider>
+          <el-slider ref="slider" v-model="value" :format-tooltip="formatTooltip">
+          </el-slider>
         </div>
       `,
 
@@ -110,7 +110,7 @@ describe('Slider', () => {
     vm = createVue({
       template: `
         <div>
-          <top-slider v-model="value" :vertical="vertical"></top-slider>
+          <el-slider v-model="value" :vertical="vertical"></el-slider>
         </div>
       `,
 
@@ -146,7 +146,7 @@ describe('Slider', () => {
     vm = createVue({
       template: `
         <div>
-          <top-slider v-model="value"></top-slider>
+          <el-slider v-model="value"></el-slider>
         </div>
       `,
 
@@ -172,7 +172,7 @@ describe('Slider', () => {
     vm = createVue({
       template: `
         <div style="width: 200px;">
-          <top-slider v-model="value" :min="0" :max="1" :step="0.1"></top-slider>
+          <el-slider v-model="value" :min="0" :max="1" :step="0.1"></el-slider>
         </div>
       `,
 
@@ -196,7 +196,7 @@ describe('Slider', () => {
     vm = createVue({
       template: `
         <div>
-          <top-slider v-model="value"></top-slider>
+          <el-slider v-model="value"></el-slider>
         </div>
       `,
 
@@ -220,8 +220,8 @@ describe('Slider', () => {
     vm = createVue({
       template: `
         <div>
-          <top-slider v-model="value" @change="onChange">
-          </top-slider>
+          <el-slider v-model="value" @change="onChange">
+          </el-slider>
         </div>
       `,
 
@@ -253,7 +253,7 @@ describe('Slider', () => {
     vm = createVue({
       template: `
         <div>
-          <top-slider v-model="value" disabled></top-slider>
+          <el-slider v-model="value" disabled></el-slider>
         </div>
       `,
 
@@ -277,7 +277,7 @@ describe('Slider', () => {
     vm = createVue({
       template: `
         <div>
-          <top-slider v-model="value" show-input></top-slider>
+          <el-slider v-model="value" show-input></el-slider>
         </div>
       `,
 
@@ -288,8 +288,8 @@ describe('Slider', () => {
       }
     }, true);
     setTimeout(() => {
-      triggerEvent(vm.$el.querySelector('.top-input-number'), 'keyup');
-      const inputNumber = vm.$el.querySelector('.top-input-number').__vue__;
+      triggerEvent(vm.$el.querySelector('.el-input-number'), 'keyup');
+      const inputNumber = vm.$el.querySelector('.el-input-number').__vue__;
       inputNumber.setCurrentValue(40);
       setTimeout(() => {
         expect(vm.value).to.equal(40);
@@ -303,7 +303,7 @@ describe('Slider', () => {
       showStops: true,
       step: 10
     }, true);
-    const stops = vm.$el.querySelectorAll('.top-slider__stop');
+    const stops = vm.$el.querySelectorAll('.el-slider__stop');
     expect(stops.length).to.equal(9);
   });
 
@@ -311,7 +311,7 @@ describe('Slider', () => {
     vm = createVue({
       template: `
         <div>
-          <top-slider vertical v-model="value" height="200px"></top-slider>
+          <el-slider vertical v-model="value" height="200px"></el-slider>
         </div>
       `,
 
@@ -336,7 +336,7 @@ describe('Slider', () => {
       vm = createVue({
         template: `
         <div>
-          <top-slider v-model="value" range></top-slider>
+          <el-slider v-model="value" range></el-slider>
         </div>
       `,
 
@@ -354,8 +354,8 @@ describe('Slider', () => {
       vm = createVue({
         template: `
         <div>
-          <top-slider v-model="value" range :min="50">
-          </top-slider>
+          <el-slider v-model="value" range :min="50">
+          </el-slider>
         </div>
       `,
 
@@ -382,7 +382,7 @@ describe('Slider', () => {
       vm = createVue({
         template: `
         <div style="width: 200px;">
-          <top-slider range v-model="value"></top-slider>
+          <el-slider range v-model="value"></el-slider>
         </div>
       `,
 
@@ -407,8 +407,8 @@ describe('Slider', () => {
       vm = createVue({
         template: `
         <div>
-          <top-slider v-model="value" range :min="min" :max="max">
-          </top-slider>
+          <el-slider v-model="value" range :min="min" :max="max">
+          </el-slider>
         </div>
       `,
 
@@ -438,11 +438,11 @@ describe('Slider', () => {
       vm = createVue({
         template: `
         <div>
-          <top-slider
+          <el-slider
             v-model="value"
             range
             :step="10"
-            show-stops></top-slider>
+            show-stops></el-slider>
         </div>
       `,
 
@@ -453,7 +453,7 @@ describe('Slider', () => {
         }
       }, true);
       setTimeout(() => {
-        const stops = vm.$el.querySelectorAll('.top-slider__stop');
+        const stops = vm.$el.querySelectorAll('.el-slider__stop');
         expect(stops.length).to.equal(5);
         done();
       }, 10);

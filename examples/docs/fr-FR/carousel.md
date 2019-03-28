@@ -4,29 +4,29 @@ Affiche en boucle une série d'images ou de textes dans un espace limité.
 
 ### Usage
 
-:::demo Utilisez `top-carousel` avec `top-caroustop-item`, et vous obtiendrez un carousel. Le contenu de chaque slide est complètement personnalisable, il vous suffit juste de le placer à l'intérieur de la balise `top-caroustop-item`. Par défaut le carousel défile quand la souris passe sur un indicateur. Réglez `trigger` sur `click` et le carousel défilera uniquement quand vous cliquerez sur l'indicateur.
+:::demo Utilisez `el-carousel` avec `el-carousel-item`, et vous obtiendrez un carousel. Le contenu de chaque slide est complètement personnalisable, il vous suffit juste de le placer à l'intérieur de la balise `el-carousel-item`. Par défaut le carousel défile quand la souris passe sur un indicateur. Réglez `trigger` sur `click` et le carousel défilera uniquement quand vous cliquerez sur l'indicateur.
 ```html
 <template>
   <div class="block">
     <span class="demonstration">Défile quand la souris passe sur l'indicateur (défaut)</span>
-    <top-carousel height="150px">
-      <top-caroustop-item v-for="item in 4" :key="item">
+    <el-carousel height="150px">
+      <el-carousel-item v-for="item in 4" :key="item">
         <h3>{{ item }}</h3>
-      </top-caroustop-item>
-    </top-carousel>
+      </el-carousel-item>
+    </el-carousel>
   </div>
   <div class="block">
     <span class="demonstration">Défile quand on clique sur l'indicateur</span>
-    <top-carousel trigger="click" height="150px">
-      <top-caroustop-item v-for="item in 4" :key="item">
+    <el-carousel trigger="click" height="150px">
+      <el-carousel-item v-for="item in 4" :key="item">
         <h3>{{ item }}</h3>
-      </top-caroustop-item>
-    </top-carousel>
+      </el-carousel-item>
+    </el-carousel>
   </div>
 </template>
 
 <style>
-  .top-carousel__item h3 {
+  .el-carousel__item h3 {
     color: #475669;
     font-size: 14px;
     opacity: 0.75;
@@ -34,11 +34,11 @@ Affiche en boucle une série d'images ou de textes dans un espace limité.
     margin: 0;
   }
 
-  .top-carousel__item:nth-child(2n) {
+  .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
   }
 
-  .top-carousel__item:nth-child(2n+1) {
+  .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   }
 </style>
@@ -52,15 +52,15 @@ Les indicateurs peuvent être affichés en dehors du carousel.
 :::demo L'attribut `indicator-position` détermine où les indicateurs sont localisés. Par défaut ils se trouvent à l'intérieur du carousel, régler `indicator-position` sur `outside` les affichera à l'extèrieur; régler `indicator-position` sur `none` les cachera totalement.
 ```html
 <template>
-  <top-carousel indicator-position="outside">
-    <top-caroustop-item v-for="item in 4" :key="item">
+  <el-carousel indicator-position="outside">
+    <el-carousel-item v-for="item in 4" :key="item">
       <h3>{{ item }}</h3>
-    </top-caroustop-item>
-  </top-carousel>
+    </el-carousel-item>
+  </el-carousel>
 </template>
 
 <style>
-  .top-carousel__item h3 {
+  .el-carousel__item h3 {
     color: #475669;
     font-size: 18px;
     opacity: 0.75;
@@ -68,11 +68,11 @@ Les indicateurs peuvent être affichés en dehors du carousel.
     margin: 0;
   }
 
-  .top-carousel__item:nth-child(2n) {
+  .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
   }
 
-  .top-carousel__item:nth-child(2n+1) {
+  .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   }
 </style>
@@ -86,15 +86,15 @@ Vous pouvez définir quand les flèches doivent apparaître.
 :::demo L'attribut `arrow` détermine quand les flèches sont affichées. Par défaut elles apparaissent quand la souris passe sur le carousel. Réglez `arrow` sur `always` ou `never` affiche ou cache les fléches de manière permanente.
 ```html
 <template>
-  <top-carousel :interval="5000" arrow="always">
-    <top-caroustop-item v-for="item in 4" :key="item">
+  <el-carousel :interval="5000" arrow="always">
+    <el-carousel-item v-for="item in 4" :key="item">
       <h3>{{ item }}</h3>
-    </top-caroustop-item>
-  </top-carousel>
+    </el-carousel-item>
+  </el-carousel>
 </template>
 
 <style>
-  .top-carousel__item h3 {
+  .el-carousel__item h3 {
     color: #475669;
     font-size: 18px;
     opacity: 0.75;
@@ -102,11 +102,11 @@ Vous pouvez définir quand les flèches doivent apparaître.
     margin: 0;
   }
 
-  .top-carousel__item:nth-child(2n) {
+  .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
   }
 
-  .top-carousel__item:nth-child(2n+1) {
+  .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   }
 </style>
@@ -120,15 +120,15 @@ Quand la page est suffisement large mais avec une hauteur limitée, vous pouvez 
 :::demo Réglez `type` sur `card` pour activer le mode carte. Hormis l'apparence, la principale différence par rapport au mode commun est que cliquer sur une des slides se trouvant de chaque coté fait directement défiler le carousel.
 ```html
 <template>
-  <top-carousel :interval="4000" type="card" height="200px">
-    <top-caroustop-item v-for="item in 6" :key="item">
+  <el-carousel :interval="4000" type="card" height="200px">
+    <el-carousel-item v-for="item in 6" :key="item">
       <h3>{{ item }}</h3>
-    </top-caroustop-item>
-  </top-carousel>
+    </el-carousel-item>
+  </el-carousel>
 </template>
 
 <style>
-  .top-carousel__item h3 {
+  .el-carousel__item h3 {
     color: #475669;
     font-size: 14px;
     opacity: 0.75;
@@ -136,11 +136,11 @@ Quand la page est suffisement large mais avec une hauteur limitée, vous pouvez 
     margin: 0;
   }
 
-  .top-carousel__item:nth-child(2n) {
+  .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
   }
 
-  .top-carousel__item:nth-child(2n+1) {
+  .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
   }
 </style>
@@ -168,11 +168,11 @@ Quand la page est suffisement large mais avec une hauteur limitée, vous pouvez 
 ### Méthodes du Carousel
 | Mathode | Description | Paramètres |
 |---------- |-------------- | -- |
-| setActiveItem | Défile manuellement vers une slide. | index de la slide d'arrivée, à partir de 0; ou bien le `name` du `top-caroustop-item` correspondant|
+| setActiveItem | Défile manuellement vers une slide. | index de la slide d'arrivée, à partir de 0; ou bien le `name` du `el-carousel-item` correspondant|
 | prev | Défile vers la slide précédente. | — |
 | next | Défile vers la slide suivante. | — |
 
-### Attributs du Caroustop-Item
+### Attributs du Carousel-Item
 | Attribut      | Description          | Type      | Valeurs acceptées       | Défaut  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | name | Nom de l'item, peut être utilisé dans `setActiveItem`. | string | — | — |

@@ -8,41 +8,41 @@ Create basic grid layout using columns.
 
 :::demo With `row` and `col`, we can easily manipulate the layout using the `span` attribute.
 ```html
-<top-row>
-  <top-col :span="24"><div class="grid-content bg-purple-dark"></div></top-col>
-</top-row>
-<top-row>
-  <top-col :span="12"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="12"><div class="grid-content bg-purple-light"></div></top-col>
-</top-row>
-<top-row>
-  <top-col :span="8"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="8"><div class="grid-content bg-purple-light"></div></top-col>
-  <top-col :span="8"><div class="grid-content bg-purple"></div></top-col>
-</top-row>
-<top-row>
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple-light"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple-light"></div></top-col>
-</top-row>
-<top-row>
-  <top-col :span="4"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="4"><div class="grid-content bg-purple-light"></div></top-col>
-  <top-col :span="4"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="4"><div class="grid-content bg-purple-light"></div></top-col>
-  <top-col :span="4"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="4"><div class="grid-content bg-purple-light"></div></top-col>
-</top-row>
+<el-row>
+  <el-col :span="24"><div class="grid-content bg-purple-dark"></div></el-col>
+</el-row>
+<el-row>
+  <el-col :span="12"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="12"><div class="grid-content bg-purple-light"></div></el-col>
+</el-row>
+<el-row>
+  <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="8"><div class="grid-content bg-purple-light"></div></el-col>
+  <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
+<el-row>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+</el-row>
+<el-row>
+  <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="4"><div class="grid-content bg-purple-light"></div></el-col>
+  <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="4"><div class="grid-content bg-purple-light"></div></el-col>
+  <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="4"><div class="grid-content bg-purple-light"></div></el-col>
+</el-row>
 
 <style>
-  .top-row {
+  .el-row {
     margin-bottom: 20px;
     &:last-child {
       margin-bottom: 0;
     }
   }
-  .top-col {
+  .el-col {
     border-radius: 4px;
   }
   .bg-purple-dark {
@@ -72,21 +72,21 @@ Column spacing is supported.
 
 :::demo Row provides `gutter` attribute to specify spacings between columns, and its default value is 0.
 ```html
-<top-row :gutter="20">
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-</top-row>
+<el-row :gutter="20">
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
 
 <style>
-  .top-row {
+  .el-row {
     margin-bottom: 20px;
     &:last-child {
       margin-bottom: 0;
     }
   }
-  .top-col {
+  .el-col {
     border-radius: 4px;
   }
   .bg-purple-dark {
@@ -116,30 +116,30 @@ Form a more complex hybrid layout by combining the basic 1/24 columns.
 
 :::demo
 ```html
-<top-row :gutter="20">
-  <top-col :span="16"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="8"><div class="grid-content bg-purple"></div></top-col>
-</top-row>
-<top-row :gutter="20">
-  <top-col :span="8"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="8"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="4"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="4"><div class="grid-content bg-purple"></div></top-col>
-</top-row>
-<top-row :gutter="20">
-  <top-col :span="4"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="16"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="4"><div class="grid-content bg-purple"></div></top-col>
-</top-row>
+<el-row :gutter="20">
+  <el-col :span="16"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
+<el-row :gutter="20">
+  <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
+<el-row :gutter="20">
+  <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="16"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
 
 <style>
-  .top-row {
+  .el-row {
     margin-bottom: 20px;
     &:last-child {
       margin-bottom: 0;
     }
   }
-  .top-col {
+  .el-col {
     border-radius: 4px;
   }
   .bg-purple-dark {
@@ -170,26 +170,26 @@ You can specify column offsets.
 :::demo You can specify the number of column offset by setting the value of `offset` attribute of Col.
 
 ```html
-<top-row :gutter="20">
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></top-col>
-</top-row>
-<top-row :gutter="20">
-  <top-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></top-col>
-</top-row>
-<top-row :gutter="20">
-  <top-col :span="12" :offset="6"><div class="grid-content bg-purple"></div></top-col>
-</top-row>
+<el-row :gutter="20">
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
+<el-row :gutter="20">
+  <el-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
+<el-row :gutter="20">
+  <el-col :span="12" :offset="6"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
 
 <style>
-  .top-row {
+  .el-row {
     margin-bottom: 20px;
     &:last-child {
       margin-bottom: 0;
     }
   }
-  .top-col {
+  .el-col {
     border-radius: 4px;
   }
   .bg-purple-dark {
@@ -219,40 +219,40 @@ Use the flex layout to make flexible alignment of columns.
 
 :::demo You can enable flex layout by setting `type` attribute to 'flex', and define the layout of child elements by setting `justify` attribute with start, center, end, space-between or space-around.
 ```html
-<top-row type="flex" class="row-bg">
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple-light"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-</top-row>
-<top-row type="flex" class="row-bg" justify="center">
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple-light"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-</top-row>
-<top-row type="flex" class="row-bg" justify="end">
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple-light"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-</top-row>
-<top-row type="flex" class="row-bg" justify="space-between">
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple-light"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-</top-row>
-<top-row type="flex" class="row-bg" justify="space-around">
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple-light"></div></top-col>
-  <top-col :span="6"><div class="grid-content bg-purple"></div></top-col>
-</top-row>
+<el-row type="flex" class="row-bg">
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
+<el-row type="flex" class="row-bg" justify="center">
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
+<el-row type="flex" class="row-bg" justify="end">
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
+<el-row type="flex" class="row-bg" justify="space-between">
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
+<el-row type="flex" class="row-bg" justify="space-around">
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
 
 <style>
-  .top-row {
+  .el-row {
     margin-bottom: 20px;
     &:last-child {
       margin-bottom: 0;
     }
   }
-  .top-col {
+  .el-col {
     border-radius: 4px;
   }
   .bg-purple-dark {
@@ -282,15 +282,15 @@ Taking example by Bootstrap's responsive design, five breakpoints are preset: xs
 
 :::demo
 ```html
-<top-row :gutter="10">
-  <top-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple-light"></div></top-col>
-  <top-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple"></div></top-col>
-  <top-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light"></div></top-col>
-</top-row>
+<el-row :gutter="10">
+  <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple-light"></div></el-col>
+  <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light"></div></el-col>
+</el-row>
 
 <style>
-  .top-col {
+  .el-col {
     border-radius: 4px;
   }
   .bg-purple-dark {
@@ -315,7 +315,7 @@ Taking example by Bootstrap's responsive design, five breakpoints are preset: xs
 Additionally, Element provides a series of classes for hiding elements under certain conditions. These classes can be added to any DOM elements or custom components. You need to import the following CSS file to use these classes:
 
 ```js
-import 'topband-ui/lib/theme-chalk/display.css';
+import 'element-ui/lib/theme-chalk/display.css';
 ```
 
 The classes are:

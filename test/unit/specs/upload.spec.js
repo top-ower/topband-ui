@@ -124,9 +124,9 @@ describe('Upload', () => {
       uploader = createVue({
         render(h) {
           return (
-            <top-upload {...props} ref="upload">
-              <top-button size="small" type="primary">点击上传</top-button>
-            </top-upload>
+            <el-upload {...props} ref="upload">
+              <el-button size="small" type="primary">点击上传</el-button>
+            </el-upload>
           );
         }
       }, true).$refs.upload;
@@ -191,7 +191,7 @@ describe('Upload', () => {
 
       handlers.onSuccess = (res, file, fileList) => {
         uploader.$nextTick(_ => {
-          uploader.$el.querySelector('.top-upload-list .is-success a').click();
+          uploader.$el.querySelector('.el-upload-list .is-success a').click();
         });
       };
 
@@ -209,7 +209,7 @@ describe('Upload', () => {
       const files = [file];
 
       handlers.onSuccess = (res, file, fileList) => {
-        uploader.$el.querySelector('.top-upload-list .top-icon-close').click();
+        uploader.$el.querySelector('.el-upload-list .el-icon-close').click();
         uploader.$nextTick(_ => {
           expect(uploader.fileList.length).to.equal(0);
           done();
@@ -279,7 +279,7 @@ describe('Upload', () => {
       const files = [file];
 
       handlers.onSuccess = (res, file, fileList) => {
-        uploader.$el.querySelector('.top-upload-list .top-icon-close').click();
+        uploader.$el.querySelector('.el-upload-list .el-icon-close').click();
         setTimeout(() => {
           expect(spy.calledOnce).to.equal(true);
           expect(uploader.uploadFiles.length).to.equal(1);

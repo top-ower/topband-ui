@@ -9,14 +9,14 @@ describe('Timeline', () => {
   it('create', () => {
     vm = createVue({
       template: `
-        <top-timeline>
-          <top-timeline-item
+        <el-timeline>
+          <el-timeline-item
             v-for="(activity, index) in activities"
             :key="index"
             :timestamp="activity.timestamp">
             {{activity.content}}
-          </top-timeline-item>
-        </top-timeline>
+          </el-timeline-item>
+        </el-timeline>
       `,
       data() {
         return {
@@ -33,11 +33,11 @@ describe('Timeline', () => {
         };
       }
     }, true);
-    let contentElms = vm.$el.querySelectorAll('.top-timeline-item__content');
+    let contentElms = vm.$el.querySelectorAll('.el-timeline-item__content');
     contentElms.forEach((elm, index) => {
       expect(elm.innerText).to.equal(vm.activities[index].content);
     });
-    let timestampElms = vm.$el.querySelectorAll('.top-timeline-item__timestamp');
+    let timestampElms = vm.$el.querySelectorAll('.el-timeline-item__timestamp');
     timestampElms.forEach((elm, index) => {
       expect(elm.innerText).to.equal(vm.activities[index].timestamp);
     });
@@ -46,14 +46,14 @@ describe('Timeline', () => {
   it('reverse', done => {
     vm = createVue({
       template: `
-        <top-timeline :reverse="reverse">
-          <top-timeline-item
+        <el-timeline :reverse="reverse">
+          <el-timeline-item
             v-for="(activity, index) in activities"
             :key="index"
             :timestamp="activity.timestamp">
             {{activity.content}}
-          </top-timeline-item>
-        </top-timeline>
+          </el-timeline-item>
+        </el-timeline>
       `,
 
       data() {
@@ -73,14 +73,14 @@ describe('Timeline', () => {
       }
     }, true);
 
-    const contentElms = vm.$el.querySelectorAll('.top-timeline-item__content');
+    const contentElms = vm.$el.querySelectorAll('.el-timeline-item__content');
     contentElms.forEach((elm, index) => {
       expect(elm.innerText).to.equal(vm.activities[vm.activities.length - index - 1].content);
     });
 
     vm.reverse = false;
     vm.$nextTick(() => {
-      const contentElms = vm.$el.querySelectorAll('.top-timeline-item__content');
+      const contentElms = vm.$el.querySelectorAll('.el-timeline-item__content');
       contentElms.forEach((elm, index) => {
         expect(elm.innerText).to.equal(vm.activities[index].content);
       });
@@ -91,15 +91,15 @@ describe('Timeline', () => {
   it('placement', () => {
     vm = createVue({
       template: `
-        <top-timeline>
-          <top-timeline-item
+        <el-timeline>
+          <el-timeline-item
             v-for="(activity, index) in activities"
             :key="index"
             :timestamp="activity.timestamp"
             :placement="activity.placement">
             {{activity.content}}
-          </top-timeline-item>
-        </top-timeline>
+          </el-timeline-item>
+        </el-timeline>
       `,
 
       data() {
@@ -119,22 +119,22 @@ describe('Timeline', () => {
       }
     }, true);
 
-    const timestampElm = vm.$el.querySelectorAll('.top-timeline-item__timestamp')[0];
+    const timestampElm = vm.$el.querySelectorAll('.el-timeline-item__timestamp')[0];
     expect(timestampElm.classList.contains('is-top')).to.true;
   });
 
   it('hide-timestamp', () => {
     vm = createVue({
       template: `
-        <top-timeline>
-          <top-timeline-item
+        <el-timeline>
+          <el-timeline-item
             v-for="(activity, index) in activities"
             :key="index"
             :timestamp="activity.timestamp"
             :hide-timestamp="activity.hideTimestamp">
             {{activity.content}}
-          </top-timeline-item>
-        </top-timeline>
+          </el-timeline-item>
+        </el-timeline>
       `,
 
       data() {
@@ -154,75 +154,75 @@ describe('Timeline', () => {
       }
     }, true);
 
-    const timestampElms = vm.$el.querySelectorAll('.top-timeline-item__timestamp');
+    const timestampElms = vm.$el.querySelectorAll('.el-timeline-item__timestamp');
     expect(timestampElms.length).to.equal(2);
   });
 
   it('color', () => {
     vm = createVue({
       template: `
-        <top-timeline>
-          <top-timeline-item
+        <el-timeline>
+          <el-timeline-item
             timestamp="2018-04-11"
             color="#f00">
             创建成功
-          </top-timeline-item>
-        </top-timeline>
+          </el-timeline-item>
+        </el-timeline>
       `
     }, true);
 
-    const nodeElm = vm.$el.querySelector('.top-timeline-item__node');
+    const nodeElm = vm.$el.querySelector('.el-timeline-item__node');
     expect(nodeElm.style.backgroundColor).to.equal('rgb(255, 0, 0)');
   });
 
   it('type', () => {
     vm = createVue({
       template: `
-        <top-timeline>
-          <top-timeline-item
+        <el-timeline>
+          <el-timeline-item
             timestamp="2018-04-11"
             type="primary">
             创建成功
-          </top-timeline-item>
-        </top-timeline>
+          </el-timeline-item>
+        </el-timeline>
       `
     }, true);
 
-    const nodeElm = vm.$el.querySelector('.top-timeline-item__node');
-    expect(nodeElm.classList.contains('top-timeline-item__node--primary')).to.true;
+    const nodeElm = vm.$el.querySelector('.el-timeline-item__node');
+    expect(nodeElm.classList.contains('el-timeline-item__node--primary')).to.true;
   });
 
   it('size', () => {
     vm = createVue({
       template: `
-        <top-timeline>
-          <top-timeline-item
+        <el-timeline>
+          <el-timeline-item
             timestamp="2018-04-11"
             type="large">
             创建成功
-          </top-timeline-item>
-        </top-timeline>
+          </el-timeline-item>
+        </el-timeline>
       `
     }, true);
 
-    const nodeElm = vm.$el.querySelector('.top-timeline-item__node');
-    expect(nodeElm.classList.contains('top-timeline-item__node--large')).to.true;
+    const nodeElm = vm.$el.querySelector('.el-timeline-item__node');
+    expect(nodeElm.classList.contains('el-timeline-item__node--large')).to.true;
   });
 
   it('icon', () => {
     vm = createVue({
       template: `
-        <top-timeline>
-          <top-timeline-item
+        <el-timeline>
+          <el-timeline-item
             timestamp="2018-04-11"
-            icon="top-icon-more">
+            icon="el-icon-more">
             创建成功
-          </top-timeline-item>
-        </top-timeline>
+          </el-timeline-item>
+        </el-timeline>
       `
     }, true);
 
-    const nodeElm = vm.$el.querySelector('.top-timeline-item__icon');
-    expect(nodeElm.classList.contains('top-icon-more')).to.true;
+    const nodeElm = vm.$el.querySelector('.el-timeline-item__icon');
+    expect(nodeElm.classList.contains('el-icon-more')).to.true;
   });
 });

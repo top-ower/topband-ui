@@ -1,28 +1,28 @@
 <template>
-  <div class="top-form-item" :class="[{
-      'top-form-item--feedback': elForm && elForm.statusIcon,
+  <div class="el-form-item" :class="[{
+      'el-form-item--feedback': elForm && elForm.statusIcon,
       'is-error': validateState === 'error',
       'is-validating': validateState === 'validating',
       'is-success': validateState === 'success',
       'is-required': isRequired || required,
       'is-no-asterisk': elForm && elForm.hideRequiredAsterisk
     },
-    sizeClass ? 'top-form-item--' + sizeClass : ''
+    sizeClass ? 'el-form-item--' + sizeClass : ''
   ]">
-    <label :for="labelFor" class="top-form-item__label" :style="labelStyle" v-if="label || $slots.label">
+    <label :for="labelFor" class="el-form-item__label" :style="labelStyle" v-if="label || $slots.label">
       <slot name="label">{{label + form.labelSuffix}}</slot>
     </label>
-    <div class="top-form-item__content" :style="contentStyle">
+    <div class="el-form-item__content" :style="contentStyle">
       <slot></slot>
-      <transition name="top-zoom-in-top">
+      <transition name="el-zoom-in-top">
         <slot 
           v-if="validateState === 'error' && showMessage && form.showMessage" 
           name="error" 
           :error="validateMessage">
           <div
-            class="top-form-item__error"
+            class="el-form-item__error"
             :class="{
-              'top-form-item__error--inline': typeof inlineMessage === 'boolean'
+              'el-form-item__error--inline': typeof inlineMessage === 'boolean'
                 ? inlineMessage
                 : (elForm && elForm.inlineMessage || false)
             }"
@@ -36,9 +36,9 @@
 </template>
 <script>
   import AsyncValidator from 'async-validator';
-  import emitter from 'topband-ui/src/mixins/emitter';
-  import objectAssign from 'topband-ui/src/utils/merge';
-  import { noop, getPropByPath } from 'topband-ui/src/utils/util';
+  import emitter from 'element-ui/src/mixins/emitter';
+  import objectAssign from 'element-ui/src/utils/merge';
+  import { noop, getPropByPath } from 'element-ui/src/utils/util';
 
   export default {
     name: 'ElFormItem',

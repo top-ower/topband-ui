@@ -8,52 +8,52 @@ describe('Steps', () => {
 
   it('create', () => {
     vm = createVue(`
-      <top-steps>
-        <top-step title="step1"></top-step>
-        <top-step title="step2"></top-step>
-        <top-step title="step3"></top-step>
-      </top-steps>
+      <el-steps>
+        <el-step title="step1"></el-step>
+        <el-step title="step2"></el-step>
+        <el-step title="step3"></el-step>
+      </el-steps>
     `);
 
-    expect(vm.$el.querySelectorAll('.top-step')).to.length(3);
+    expect(vm.$el.querySelectorAll('.el-step')).to.length(3);
   });
 
   it('space', async() => {
     vm = createVue(`
-      <top-steps>
-        <top-step title="step1"></top-step>
-        <top-step title="step2"></top-step>
-        <top-step title="step3"></top-step>
-      </top-steps>
+      <el-steps>
+        <el-step title="step1"></el-step>
+        <el-step title="step2"></el-step>
+        <el-step title="step3"></el-step>
+      </el-steps>
     `, true);
 
     const vm2 = createVue(`
-      <top-steps :space="100">
-        <top-step title="step1"></top-step>
-        <top-step title="step2"></top-step>
-        <top-step title="step3"></top-step>
-        <top-step title="step4"></top-step>
-      </top-steps>
+      <el-steps :space="100">
+        <el-step title="step1"></el-step>
+        <el-step title="step2"></el-step>
+        <el-step title="step3"></el-step>
+        <el-step title="step4"></el-step>
+      </el-steps>
     `, true);
 
     await waitImmediate();
-    const stepElm = vm.$el.querySelector('.top-step');
-    const stepElm2 = vm2.$el.querySelector('.top-step');
+    const stepElm = vm.$el.querySelector('.el-step');
+    const stepElm2 = vm2.$el.querySelector('.el-step');
     expect(getComputedStyle(stepElm).flexBasis).to.equal('50%');
     expect(getComputedStyle(stepElm2).flexBasis).to.equal('100px');
   });
 
   it('processStatus', done => {
     vm = createVue(`
-      <top-steps :active="1" process-status="error">
-        <top-step title="step1"></top-step>
-        <top-step title="step2"></top-step>
-        <top-step title="step3"></top-step>
-      </top-steps>
+      <el-steps :active="1" process-status="error">
+        <el-step title="step1"></el-step>
+        <el-step title="step2"></el-step>
+        <el-step title="step3"></el-step>
+      </el-steps>
     `);
 
     vm.$nextTick(_ => {
-      expect(vm.$el.querySelectorAll('.top-step__head.is-error')).to.length(1);
+      expect(vm.$el.querySelectorAll('.el-step__head.is-error')).to.length(1);
       done();
     });
   });
@@ -61,10 +61,10 @@ describe('Steps', () => {
   it('update processStatus', done => {
     vm = createVue({
       template: `
-        <top-steps :active="1" :process-status="processStatus">
-          <top-step title="abc"></top-step>
-          <top-step title="abc2"></top-step>
-        </top-steps>
+        <el-steps :active="1" :process-status="processStatus">
+          <el-step title="abc"></el-step>
+          <el-step title="abc2"></el-step>
+        </el-steps>
       `,
       data() {
         return { processStatus: 'error' };
@@ -72,10 +72,10 @@ describe('Steps', () => {
     });
 
     vm.$nextTick(_ => {
-      expect(vm.$el.querySelectorAll('.top-step__head.is-error')).to.length(1);
+      expect(vm.$el.querySelectorAll('.el-step__head.is-error')).to.length(1);
       vm.processStatus = 'process';
       vm.$nextTick(_ => {
-        expect(vm.$el.querySelectorAll('.top-step__head.is-process')).to.length(1);
+        expect(vm.$el.querySelectorAll('.el-step__head.is-process')).to.length(1);
         done();
       });
     });
@@ -83,14 +83,14 @@ describe('Steps', () => {
 
   it('finishStatus', done => {
     vm = createVue(`
-      <top-steps :active="1" finish-status="error">
-        <top-step title="abc"></top-step>
-        <top-step title="abc2"></top-step>
-      </top-steps>
+      <el-steps :active="1" finish-status="error">
+        <el-step title="abc"></el-step>
+        <el-step title="abc2"></el-step>
+      </el-steps>
     `);
 
     vm.$nextTick(_ => {
-      expect(vm.$el.querySelectorAll('.top-step__head.is-error')).to.length(1);
+      expect(vm.$el.querySelectorAll('.el-step__head.is-error')).to.length(1);
       done();
     });
   });
@@ -98,10 +98,10 @@ describe('Steps', () => {
   it('active', done => {
     vm = createVue({
       template: `
-        <top-steps :active="active" finish-status="error">
-          <top-step title="abc"></top-step>
-          <top-step title="abc2"></top-step>
-        </top-steps>
+        <el-steps :active="active" finish-status="error">
+          <el-step title="abc"></el-step>
+          <el-step title="abc2"></el-step>
+        </el-steps>
       `,
 
       data() {
@@ -110,10 +110,10 @@ describe('Steps', () => {
     });
 
     vm.$nextTick(_ => {
-      expect(vm.$el.querySelectorAll('.top-step__head.is-error')).to.length(0);
+      expect(vm.$el.querySelectorAll('.el-step__head.is-error')).to.length(0);
       vm.active = 2;
       vm.$nextTick(_ => {
-        expect(vm.$el.querySelectorAll('.top-step__head.is-error')).to.length(2);
+        expect(vm.$el.querySelectorAll('.el-step__head.is-error')).to.length(2);
         done();
       });
     });
@@ -121,10 +121,10 @@ describe('Steps', () => {
 
   it('create vertical', () => {
     vm = createVue(`
-      <top-steps direction="vertical">
-        <top-step title="aaa"></top-step>
-        <top-step title="bbb"></top-step>
-      </top-steps>
+      <el-steps direction="vertical">
+        <el-step title="aaa"></el-step>
+        <el-step title="bbb"></el-step>
+      </el-steps>
     `);
 
     expect(vm.$el.querySelector('.is-vertical')).to.exist;
@@ -132,30 +132,30 @@ describe('Steps', () => {
 
   it('vertical:height', async() => {
     vm = createVue(`
-      <top-steps direction="vertical" :space="200">
-        <top-step title="aaa"></top-step>
-        <top-step title="bbb"></top-step>
-      </top-steps>
+      <el-steps direction="vertical" :space="200">
+        <el-step title="aaa"></el-step>
+        <el-step title="bbb"></el-step>
+      </el-steps>
     `, true);
 
     await waitImmediate();
-    const stepElm = vm.$el.querySelector('.top-step');
+    const stepElm = vm.$el.querySelector('.el-step');
     expect(getComputedStyle(stepElm).flexBasis).to.equal('200px');
   });
 
   it('step:status=error', done => {
     vm = createVue(`
-      <top-steps :active="2" process-status="process" finish-status="success" direction="horizontal">
-        <top-step title="step1"></top-step>
-        <top-step title="step2" status="error"></top-step>
-        <top-step title="step3"></top-step>
-      </top-steps>
+      <el-steps :active="2" process-status="process" finish-status="success" direction="horizontal">
+        <el-step title="step1"></el-step>
+        <el-step title="step2" status="error"></el-step>
+        <el-step title="step3"></el-step>
+      </el-steps>
     `);
 
     vm.$nextTick(_ => {
-      const errorLine = vm.$el.querySelector('.top-step:nth-child(2) .top-step__line-inner');
+      const errorLine = vm.$el.querySelector('.el-step:nth-child(2) .el-step__line-inner');
       expect(errorLine.getBoundingClientRect().width).to.equal(0);
-      const nextStep = vm.$el.querySelector('.top-step:nth-child(3) .top-step__head');
+      const nextStep = vm.$el.querySelector('.el-step:nth-child(3) .el-step__head');
       expect(nextStep.classList.contains('is-wait')).to.equal(true);
       done();
     });

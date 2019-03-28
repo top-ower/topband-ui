@@ -1,7 +1,7 @@
 import { getCell, getColumnByCell, getRowIdentity } from './util';
-import { getStyle, hasClass } from 'topband-ui/src/utils/dom';
-import ElCheckbox from 'topband-ui/packages/checkbox';
-import ElTooltip from 'topband-ui/packages/tooltip';
+import { getStyle, hasClass } from 'element-ui/src/utils/dom';
+import ElCheckbox from 'element-ui/packages/checkbox';
+import ElTooltip from 'element-ui/packages/tooltip';
 import debounce from 'throttle-debounce/debounce';
 import LayoutObserver from './layout-observer';
 
@@ -29,9 +29,32 @@ export default {
 
   render(h) {
     const columnsHidden = this.columns.map((column, index) => this.isColumnHidden(index));
+    let rows = this.data;
+    if (this.store.states.lazy && Object.keys(this.store.states.lazyTreeNodeMap).length) {
+      rows = rows.reduce((prev, item) => {
+        prev.push(item);
+        const rowKey = this.store.table.getRowKey(item);
+        const parent = this.store.states.treeData[rowKey];
+        if (parent && parent.children) {
+          const tmp = [];
+          const traverse = (children) => {
+            if (!children) return;
+            children.forEach(key => {
+              tmp.push(this.store.states.lazyTreeNodeMap[key]);
+              if (this.store.states.treeData[key]) {
+                traverse(this.store.states.treeData[key].children);
+              }
+            });
+          };
+          traverse(parent.children);
+          prev = prev.concat(tmp);
+        }
+        return prev;
+      }, []);
+    }
     return (
       <table
-        class="top-table__body"
+        class="el-table__body"
         cellspacing="0"
         cellpadding="0"
         border="0">
@@ -42,22 +65,46 @@ export default {
         </colgroup>
         <tbody>
           {
-            this._l(this.data, (row, $index) =>
-              [<tr
+            this._l(rows, (row, $index) => {
+              const rowKey = this.table.rowKey ? this.getKeyOfRow(row, $index) : $index;
+              const treeNode = this.treeData[rowKey];
+              const rowClasses = this.getRowClass(row, $index);
+              if (treeNode) {
+                rowClasses.push('el-table__row--level-' + treeNode.level);
+              }
+              const tr = (<tr
+                v-show={ treeNode ? treeNode.display : true }
                 style={ this.rowStyle ? this.getRowStyle(row, $index) : null }
-                key={ this.table.rowKey ? this.getKeyOfRow(row, $index) : $index }
+                key={ rowKey }
                 on-dblclick={ ($event) => this.handleDoubleClick($event, row) }
                 on-click={ ($event) => this.handleClick($event, row) }
                 on-contextmenu={ ($event) => this.handleContextMenu($event, row) }
                 on-mouseenter={ _ => this.handleMouseEnter($index) }
                 on-mouseleave={ _ => this.handleMouseLeave() }
-                class={ [this.getRowClass(row, $index)] }>
+                class={ rowClasses }>
                 {
                   this._l(this.columns, (column, cellIndex) => {
                     const { rowspan, colspan } = this.getSpan(row, column, $index, cellIndex);
                     if (!rowspan || !colspan) {
                       return '';
                     } else {
+                      const data = {
+                        store: this.store,
+                        _self: this.context || this.table.$vnode.context,
+                        row,
+                        column,
+                        $index
+                      };
+                      if (cellIndex === this.firstDefaultColumnIndex && treeNode) {
+                        data.treeNode = {
+                          hasChildren: treeNode.hasChildren || (treeNode.children && treeNode.children.length),
+                          expanded: treeNode.expanded,
+                          indent: treeNode.level * this.treeIndent,
+                          level: treeNode.level,
+                          loaded: treeNode.loaded,
+                          rowKey
+                        };
+                      }
                       return (
                         <td
                           style={ this.getCellStyle($index, cellIndex, row, column) }
@@ -70,13 +117,7 @@ export default {
                             column.renderCell.call(
                               this._renderProxy,
                               h,
-                              {
-                                row,
-                                column,
-                                $index,
-                                store: this.store,
-                                _self: this.context || this.table.$vnode.context
-                              },
+                              data,
                               columnsHidden[cellIndex]
                             )
                           }
@@ -85,17 +126,21 @@ export default {
                     }
                   })
                 }
-              </tr>,
-              this.store.isRowExpanded(row)
-                ? (<tr>
-                  <td colspan={ this.columns.length } class="top-table__expanded-cell">
-                    { this.table.renderExpanded ? this.table.renderExpanded(h, { row, $index, store: this.store }) : ''}
-                  </td>
-                </tr>)
-                : ''
-              ]
-            ).concat(
-              <top-tooltip effect={ this.table.tooltipEffect } placement="top" ref="tooltip" content={ this.tooltipContent }></top-tooltip>
+              </tr>);
+              if (this.store.isRowExpanded(row)) {
+                return [
+                  tr,
+                  <tr>
+                    <td colspan={ this.columns.length } class="el-table__expanded-cell">
+                      { this.table.renderExpanded ? this.table.renderExpanded(h, { row, $index, store: this.store }) : ''}
+                    </td>
+                  </tr>
+                ];
+              } else {
+                return tr;
+              }
+            }).concat(
+              <el-tooltip effect={ this.table.tooltipEffect } placement="top" ref="tooltip" content={ this.tooltipContent }></el-tooltip>
             )
           }
         </tbody>
@@ -110,6 +155,10 @@ export default {
 
     data() {
       return this.store.states.data;
+    },
+
+    treeData() {
+      return this.store.states.treeData;
     },
 
     columnsCount() {
@@ -134,6 +183,19 @@ export default {
 
     columns() {
       return this.store.states.columns;
+    },
+
+    firstDefaultColumnIndex() {
+      for (let index = 0; index < this.columns.length; index++) {
+        if (this.columns[index].type === 'default') {
+          return index;
+        }
+      }
+      return 0;
+    },
+
+    treeIndent() {
+      return this.store.states.indent;
     }
   },
 
@@ -206,7 +268,7 @@ export default {
     },
 
     getRowClass(row, rowIndex) {
-      const classes = ['top-table__row'];
+      const classes = ['el-table__row'];
       if (this.table.highlightCurrentRow && row === this.store.states.currentRow) {
         classes.push('current-row');
       }
@@ -216,7 +278,7 @@ export default {
       }
 
       if (this.stripe && rowIndex % 2 === 1) {
-        classes.push('top-table__row--striped');
+        classes.push('el-table__row--striped');
       }
       const rowClassName = this.table.rowClassName;
       if (typeof rowClassName === 'string') {
@@ -232,7 +294,7 @@ export default {
         classes.push('expanded');
       }
 
-      return classes.join(' ');
+      return classes;
     },
 
     getCellStyle(rowIndex, columnIndex, row, column) {
@@ -282,7 +344,7 @@ export default {
 
       // 判断是否text-overflow, 如果是就显示tooltip
       const cellChild = event.target.querySelector('.cell');
-      if (!(hasClass(cellChild, 'top-tooltip') && cellChild.childNodes.length)) {
+      if (!(hasClass(cellChild, 'el-tooltip') && cellChild.childNodes.length)) {
         return;
       }
       // use range width instead of scrollWidth to determine whether the text is overflowing

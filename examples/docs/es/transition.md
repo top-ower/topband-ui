@@ -4,18 +4,18 @@ Puede usar directamente las transiciones incorporadas en Element. Antes de hacer
 
 ### Fade
 
-:::demo Tenemos dos efectos de fading: `top-fade-in-linear` y `top-fade-in`.
+:::demo Tenemos dos efectos de fading: `el-fade-in-linear` y `el-fade-in`.
 ```html
 <template>
   <div>
-    <top-button @click="show = !show">Click Me</top-button>
+    <el-button @click="show = !show">Click Me</el-button>
 
     <div style="display: flex; margin-top: 20px; height: 100px;">
-      <transition name="top-fade-in-linear">
-        <div v-show="show" class="transition-box">.top-fade-in-linear</div>
+      <transition name="el-fade-in-linear">
+        <div v-show="show" class="transition-box">.el-fade-in-linear</div>
       </transition>
-      <transition name="top-fade-in">
-        <div v-show="show" class="transition-box">.top-fade-in</div>
+      <transition name="el-fade-in">
+        <div v-show="show" class="transition-box">.el-fade-in</div>
       </transition>
     </div>
   </div>
@@ -48,23 +48,23 @@ Puede usar directamente las transiciones incorporadas en Element. Antes de hacer
 
 ### Zoom
 
-:::demo También tenemos zoom: `top-zoom-in-center`, `top-zoom-in-top` y `top-zoom-in-bottom`.
+:::demo También tenemos zoom: `el-zoom-in-center`, `el-zoom-in-top` y `el-zoom-in-bottom`.
 ```html
 <template>
   <div>
-    <top-button @click="show2 = !show2">Click Me</top-button>
+    <el-button @click="show2 = !show2">Click Me</el-button>
 
     <div style="display: flex; margin-top: 20px; height: 100px;">
-      <transition name="top-zoom-in-center">
-        <div v-show="show2" class="transition-box">.top-zoom-in-center</div>
+      <transition name="el-zoom-in-center">
+        <div v-show="show2" class="transition-box">.el-zoom-in-center</div>
       </transition>
 
-      <transition name="top-zoom-in-top">
-        <div v-show="show2" class="transition-box">.top-zoom-in-top</div>
+      <transition name="el-zoom-in-top">
+        <div v-show="show2" class="transition-box">.el-zoom-in-top</div>
       </transition>
 
-      <transition name="top-zoom-in-bottom">
-        <div v-show="show2" class="transition-box">.top-zoom-in-bottom</div>
+      <transition name="el-zoom-in-bottom">
+        <div v-show="show2" class="transition-box">.el-zoom-in-bottom</div>
       </transition>
     </div>
   </div>
@@ -97,20 +97,20 @@ Puede usar directamente las transiciones incorporadas en Element. Antes de hacer
 
 
 ### Colapsado
-Para efectos de colapsado usar el componente `top-collapse-transition`.
+Para efectos de colapsado usar el componente `el-collapse-transition`.
 :::demo
 ```html
 <template>
   <div>
-    <top-button @click="show3 = !show3">Click Me</top-button>
+    <el-button @click="show3 = !show3">Click Me</el-button>
 
     <div style="margin-top: 20px; height: 200px;">
-      <top-collapse-transition>
+      <el-collapse-transition>
         <div v-show="show3">
-          <div class="transition-box">top-collapse-transition</div>
-          <div class="transition-box">top-collapse-transition</div>
+          <div class="transition-box">el-collapse-transition</div>
+          <div class="transition-box">el-collapse-transition</div>
         </div>
-      </top-collapse-transition>
+      </el-collapse-transition>
     </div>
   </div>
 </template>
@@ -144,9 +144,9 @@ Para efectos de colapsado usar el componente `top-collapse-transition`.
 
 ```js
 // fade/zoom
-import 'topband-ui/lib/theme-chalk/base.css';
+import 'element-ui/lib/theme-chalk/base.css';
 // colapsar
-import CollapseTransition from 'topband-ui/lib/transitions/collapse-transition';
+import CollapseTransition from 'element-ui/lib/transitions/collapse-transition';
 import Vue from 'vue'
 
 Vue.component(CollapseTransition.name, CollapseTransition)

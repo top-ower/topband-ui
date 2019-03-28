@@ -10,25 +10,25 @@ Affiche une animation dans un conteneur (Comme un tableau par exemple) pendant l
 
 ```html
 <template>
-  <top-table
+  <el-table
     v-loading="loading"
     :data="tableData"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="Date"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="Nom"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="Adresse">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <style>
@@ -69,28 +69,28 @@ Vous pouvez personnaliser le texte, le spinner et la couleur de fond.
 :::demo Ajoutez l'attribut `element-loading-text` à l'élement sur lequel `v-loading` est attaché et sa valeur sera affichée sous le spinner. De la même façon, `element-loading-spinner` et `element-loading-background` permettent de personnaliser le spinner et la couleur de fond.
 ```html
 <template>
-  <top-table
+  <el-table
     v-loading="loading2"
     element-loading-text="Loading..."
-    element-loading-spinner="top-icon-loading"
+    element-loading-spinner="el-icon-loading"
     element-loading-background="rgba(0, 0, 0, 0.8)"
     :data="tableData"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="Date"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="Nom"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="Adresse">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -126,17 +126,17 @@ Affichez une animation en plein écran quand vous charger des données.
 
 ```html
 <template>
-  <top-button
+  <el-button
     type="primary"
     @click="openFullScreen"
     v-loading.fullscreen.lock="fullscreenLoading">
     Comme directive
-  </top-button>
-  <top-button
+  </el-button>
+  <el-button
     type="primary"
     @click="openFullScreen2">
     Comme service
-  </top-button>
+  </el-button>
 </template>
 
 <script>
@@ -157,7 +157,7 @@ Affichez une animation en plein écran quand vous charger des données.
         const loading = this.$loading({
           lock: true,
           text: 'Loading',
-          spinner: 'top-icon-loading',
+          spinner: 'el-icon-loading',
           background: 'rgba(0, 0, 0, 0.7)'
         });
         setTimeout(() => {
@@ -175,7 +175,7 @@ Affichez une animation en plein écran quand vous charger des données.
 Vous pouvez invoquer Loading comme un service. Importez le service Loading:
 
 ```javascript
-import { Loading } from 'topband-ui';
+import { Loading } from 'element-ui';
 ```
 Et invoquer-le:
 

@@ -6,9 +6,9 @@
 
 提供几个固定的时间点供用户选择
 
-:::demo 使用 top-time-select 标签，分别通过`star`、`end`和`step`指定可选的起始时间、结束时间和步长
+:::demo 使用 el-time-select 标签，分别通过`star`、`end`和`step`指定可选的起始时间、结束时间和步长
 ```html
-<top-time-select
+<el-time-select
   v-model="value1"
   :picker-options="{
     start: '08:30',
@@ -16,7 +16,7 @@
     end: '18:30'
   }"
   placeholder="选择时间">
-</top-time-select>
+</el-time-select>
 
 <script>
   export default {
@@ -34,24 +34,24 @@
 
 可以选择任意时间
 
-:::demo 使用 top-time-picker 标签，通过`selectableRange`限制可选时间范围。提供了两种交互方式：默认情况下通过鼠标滚轮进行选择，打开`arrow-control`属性则通过界面上的箭头进行选择。
+:::demo 使用 el-time-picker 标签，通过`selectableRange`限制可选时间范围。提供了两种交互方式：默认情况下通过鼠标滚轮进行选择，打开`arrow-control`属性则通过界面上的箭头进行选择。
 ```html
 <template>
-  <top-time-picker
+  <el-time-picker
     v-model="value2"
     :picker-options="{
       selectableRange: '18:30:00 - 20:30:00'
     }"
     placeholder="任意时间点">
-  </top-time-picker>
-  <top-time-picker
+  </el-time-picker>
+  <el-time-picker
     arrow-control
     v-model="value3"
     :picker-options="{
       selectableRange: '18:30:00 - 20:30:00'
     }"
     placeholder="任意时间点">
-  </top-time-picker>
+  </el-time-picker>
 </template>
 
 <script>
@@ -74,7 +74,7 @@
 :::demo
 ```html
 <template>
-  <top-time-select
+  <el-time-select
     placeholder="起始时间"
     v-model="startTime"
     :picker-options="{
@@ -82,8 +82,8 @@
       step: '00:15',
       end: '18:30'
     }">
-  </top-time-select>
-  <top-time-select
+  </el-time-select>
+  <el-time-select
     placeholder="结束时间"
     v-model="endTime"
     :picker-options="{
@@ -92,7 +92,7 @@
       end: '18:30',
       minTime: startTime
     }">
-  </top-time-select>
+  </el-time-select>
 </template>
 
 <script>
@@ -115,15 +115,15 @@
 :::demo 添加`is-range`属性即可选择时间范围，同样支持`arrow-control`属性。
 ```html
 <template>
-  <top-time-picker
+  <el-time-picker
     is-range
     v-model="value4"
     range-separator="至"
     start-placeholder="开始时间"
     end-placeholder="结束时间"
     placeholder="选择时间范围">
-  </top-time-picker>
-  <top-time-picker
+  </el-time-picker>
+  <el-time-picker
     is-range
     arrow-control
     v-model="value5"
@@ -131,7 +131,7 @@
     start-placeholder="开始时间"
     end-placeholder="结束时间"
     placeholder="选择时间范围">
-  </top-time-picker>
+  </el-time-picker>
 </template>
 
 <script>
@@ -159,8 +159,8 @@
 | placeholder | 非范围选择时的占位内容 | string | — | — |
 | start-placeholder | 范围选择时开始日期的占位内容 | string | — | — |
 | end-placeholder | 范围选择时开始日期的占位内容 | string | — | — |
-| is-range | 是否为时间范围选择，仅对`<top-time-picker>`有效 | boolean | — | false |
-| arrow-control | 是否使用箭头进行时间选择，仅对`<top-time-picker>`有效 | boolean | — | false |
+| is-range | 是否为时间范围选择，仅对`<el-time-picker>`有效 | boolean | — | false |
+| arrow-control | 是否使用箭头进行时间选择，仅对`<el-time-picker>`有效 | boolean | — | false |
 | align | 对齐方式 | string | left / center / right | left |
 | popper-class | TimePicker 下拉框的类名 | string | — | — |
 | picker-options | 当前时间日期选择器特有的选项参考下表 | object | — | {} |
@@ -168,8 +168,8 @@
 | value-format | 可选，仅TimePicker时可用，绑定值的格式。不指定则绑定值为 Date 对象 | string | 见[日期格式](#/zh-CN/component/date-picker#ri-qi-ge-shi) | — |
 | default-value | 可选，选择器打开时默认显示的时间 | Date(TimePicker) / string(TimeSelect) | 可被`new Date()`解析(TimePicker) / 可选值(TimeSelect) | — |
 | name | 原生属性 | string | — | — |
-| prefix-icon | 自定义头部图标的类名 | string | — | top-icon-time |
-| clear-icon | 自定义清空图标的类名 | string | — | top-icon-circle-close |
+| prefix-icon | 自定义头部图标的类名 | string | — | el-icon-time |
+| clear-icon | 自定义清空图标的类名 | string | — | el-icon-circle-close |
 
 ### Time Select Options
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |

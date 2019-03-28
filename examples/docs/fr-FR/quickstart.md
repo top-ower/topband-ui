@@ -8,7 +8,7 @@ Nous fournissons un [plugin Element](https://github.com/ElementUI/vue-cli-plugin
 
 ### Utiliser le Starter Kit
 
-Nous fournissons un [template de projet](https://github.com/ElementUI/element-starter) pour débuter rapidement. Pour les utilisateurs Laravel, il est aussi possible d'utiliser ce [template](https://github.com/ElementUI/element-in-laravtop-starter). VOus pouvez les télécharger directement.
+Nous fournissons un [template de projet](https://github.com/ElementUI/element-starter) pour débuter rapidement. Pour les utilisateurs Laravel, il est aussi possible d'utiliser ce [template](https://github.com/ElementUI/element-in-laravel-starter). VOus pouvez les télécharger directement.
 
 Si vous préférer vous passer de template, voyez la section suivante.
 
@@ -22,8 +22,8 @@ Dans main.js:
 
 ```javascript
 import Vue from 'vue';
-import ElementUI from 'topband-ui';
-import 'topband-ui/lib/theme-chalk/index.css';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue';
 
 Vue.use(ElementUI);
@@ -38,12 +38,12 @@ L'exemple ci-dessus importe Element entièrement. Notez que les fichiers CSS doi
 
 #### À la demande
 
-Grâce au [babtop-plugin-component](https://github.com/QingWei-Li/babtop-plugin-component), nous pouvons importer uniquement les composants désirés, rendant ainsi le projet plus léger.
+Grâce au [babel-plugin-component](https://github.com/QingWei-Li/babel-plugin-component), nous pouvons importer uniquement les composants désirés, rendant ainsi le projet plus léger.
 
-Tout d'abord, installez babtop-plugin-component:
+Tout d'abord, installez babel-plugin-component:
 
 ```bash
-npm install babtop-plugin-component -D
+npm install babel-plugin-component -D
 ```
 
 Puis éditez .babelrc:
@@ -55,7 +55,7 @@ Puis éditez .babelrc:
     [
       "component",
       {
-        "libraryName": "topband-ui",
+        "libraryName": "element-ui",
         "styleLibraryName": "theme-chalk"
       }
     ]
@@ -67,7 +67,7 @@ Ensuite, si vous n'avez besoin que de Button et Select, éditez main.js comme su
 
 ```javascript
 import Vue from 'vue';
-import { Button, Select } from 'topband-ui';
+import { Button, Select } from 'element-ui';
 import App from './App.vue';
 
 Vue.component(Button.name, Button);
@@ -155,7 +155,7 @@ import {
   MessageBox,
   Message,
   Notification
-} from 'topband-ui';
+} from 'element-ui';
 
 Vue.use(Pagination);
 Vue.use(Dialog);
@@ -240,7 +240,7 @@ Import total d'Element：
 
 ```js
 import Vue from 'vue';
-import Element from 'topband-ui';
+import Element from 'element-ui';
 Vue.use(Element, { size: 'small', zIndex: 3000 });
 ```
 
@@ -248,7 +248,7 @@ Import partiel d'Element：
 
 ```js
 import Vue from 'vue';
-import { Button } from 'topband-ui';
+import { Button } from 'element-ui';
 
 Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
 Vue.use(Button);

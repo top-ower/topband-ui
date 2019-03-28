@@ -17,12 +17,12 @@
         <a :href="gitterLink" class="footer-main-link" target="_blank">{{ langConfig.gitter }}</a>
         <a href="https://github.com/ElemeFE/element/issues" class="footer-main-link" target="_blank">{{ langConfig.feedback }}</a>
         <a :href="`https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.${ lang }.md`" class="footer-main-link" target="_blank">{{ langConfig.contribution }}</a>
-        <a href="https://segmentfault.com/t/topband-ui" class="footer-main-link" target="_blank">SegmentFault</a>
+        <a href="https://segmentfault.com/t/element-ui" class="footer-main-link" target="_blank">SegmentFault</a>
         <a href="https://github.com/ElementUI/awesome-element" class="footer-main-link" target="_blank">Awesome Element</a>
       </div>
       <div class="footer-social">
         <p class="footer-social-title">Element {{ version && version.slice(0, 3) }} Fullerene</p>
-        <top-popover
+        <el-popover
           ref="weixin"
           placement="top"
           width="120"
@@ -30,7 +30,7 @@
           trigger="hover">
           <div class="footer-popover-title">{{ langConfig.eleme }} UED</div>
           <img src="../assets/images/qrcode.png" alt="">
-        </top-popover>
+        </el-popover>
         <i class="doc-icon-weixin elementdoc" v-popover:weixin></i>
         <a href="https://github.com/elemefe" target="_blank">
           <i class="doc-icon-github elementdoc"></i>
@@ -119,7 +119,7 @@
     }
   }
 
-  .top-popover.footer-popover {
+  .el-popover.footer-popover {
     padding: 0;
     min-width: 120px;
     line-height: normal;

@@ -8,11 +8,11 @@ ColorPicker es un selector de color que soporta varios formatos de color.
 ```html
 <div class="block">
   <span class="demonstration">Especifica valor por defecto</span>
-  <top-color-picker v-model="color1"></top-color-picker>
+  <el-color-picker v-model="color1"></el-color-picker>
 </div>
 <div class="block">
   <span class="demonstration">No especifica valor por defecto</span>
-  <top-color-picker v-model="color2"></top-color-picker>
+  <el-color-picker v-model="color2"></el-color-picker>
 </div>
 
 <script>
@@ -32,7 +32,7 @@ ColorPicker es un selector de color que soporta varios formatos de color.
 
 :::demo ColorPicker soporta selección de canales alpha. Para activarlo sólo agrege el atributo `show-alpha`.
 ```html
-<top-color-picker v-model="color3" show-alpha></top-color-picker>
+<el-color-picker v-model="color3" show-alpha></el-color-picker>
 
 <script>
   export default {
@@ -50,11 +50,11 @@ ColorPicker es un selector de color que soporta varios formatos de color.
 
 :::demo ColorPicker supports predefined color options
 ```html
-<top-color-picker
+<el-color-picker
   v-model="color5"
   show-alpha
   :predefine="predefineColors">
-</top-color-picker>
+</el-color-picker>
 
 <script>
   export default {
@@ -88,10 +88,10 @@ ColorPicker es un selector de color que soporta varios formatos de color.
 
 :::demo
 ```html
-<top-color-picker v-model="color4"></top-color-picker>
-<top-color-picker v-model="color4" size="medium"></top-color-picker>
-<top-color-picker v-model="color4" size="small"></top-color-picker>
-<top-color-picker v-model="color4" size="mini"></top-color-picker>
+<el-color-picker v-model="color4"></el-color-picker>
+<el-color-picker v-model="color4" size="medium"></el-color-picker>
+<el-color-picker v-model="color4" size="small"></el-color-picker>
+<el-color-picker v-model="color4" size="mini"></el-color-picker>
 
 <script>
   export default {

@@ -1,9 +1,9 @@
 import Pager from './pager.vue';
-import ElSelect from 'topband-ui/packages/select';
-import ElOption from 'topband-ui/packages/option';
-import ElInput from 'topband-ui/packages/input';
-import Locale from 'topband-ui/src/mixins/locale';
-import { valueEquals } from 'topband-ui/src/utils/util';
+import ElSelect from 'element-ui/packages/select';
+import ElOption from 'element-ui/packages/option';
+import ElInput from 'element-ui/packages/input';
+import Locale from 'element-ui/src/mixins/locale';
+import { valueEquals } from 'element-ui/src/utils/util';
 
 export default {
   name: 'ElPagination',
@@ -65,9 +65,9 @@ export default {
   },
 
   render(h) {
-    let template = <div class={['top-pagination', {
+    let template = <div class={['el-pagination', {
       'is-background': this.background,
-      'top-pagination--small': this.small
+      'el-pagination--small': this.small
     }] }></div>;
     const layout = this.layout || '';
     if (!layout) return;
@@ -81,7 +81,7 @@ export default {
       total: <total></total>
     };
     const components = layout.split(',').map((item) => item.trim());
-    const rightWrapper = <div class="top-pagination__rightwrapper"></div>;
+    const rightWrapper = <div class="el-pagination__rightwrapper"></div>;
     let haveRightWrapper = false;
 
     template.children = template.children || [];
@@ -127,7 +127,7 @@ export default {
             {
               this.$parent.prevText
                 ? <span>{ this.$parent.prevText }</span>
-                : <i class="top-icon top-icon-arrow-left"></i>
+                : <i class="el-icon el-icon-arrow-left"></i>
             }
           </button>
         );
@@ -145,7 +145,7 @@ export default {
             {
               this.$parent.nextText
                 ? <span>{ this.$parent.nextText }</span>
-                : <i class="top-icon top-icon-arrow-right"></i>
+                : <i class="el-icon el-icon-arrow-right"></i>
             }
           </button>
         );
@@ -175,8 +175,8 @@ export default {
 
       render(h) {
         return (
-          <span class="top-pagination__sizes">
-            <top-select
+          <span class="el-pagination__sizes">
+            <el-select
               value={ this.$parent.internalPageSize }
               popperClass={ this.$parent.popperClass || '' }
               size="mini"
@@ -184,13 +184,13 @@ export default {
               disabled={ this.$parent.disabled }>
               {
                 this.pageSizes.map(item =>
-                  <top-option
+                  <el-option
                     value={ item }
                     label={ item + this.t('el.pagination.pagesize') }>
-                  </top-option>
+                  </el-option>
                 )
               }
-            </top-select>
+            </el-select>
           </span>
         );
       },
@@ -250,10 +250,10 @@ export default {
 
       render(h) {
         return (
-          <span class="top-pagination__jump">
+          <span class="el-pagination__jump">
             { this.t('el.pagination.goto') }
-            <top-input
-              class="top-pagination__editor is-in-pagination"
+            <el-input
+              class="el-pagination__editor is-in-pagination"
               min={ 1 }
               max={ this.$parent.internalPageCount }
               value={ this.userInput !== null ? this.userInput : this.$parent.internalCurrentPage }
@@ -274,7 +274,7 @@ export default {
       render(h) {
         return (
           typeof this.$parent.total === 'number'
-            ? <span class="top-pagination__total">{ this.t('el.pagination.total', { total: this.$parent.total }) }</span>
+            ? <span class="el-pagination__total">{ this.t('el.pagination.total', { total: this.$parent.total }) }</span>
             : ''
         );
       }

@@ -4,11 +4,11 @@ Un champs d'input de valeurs numériques, avec un domaine personnalisable.
 
 ### Usage
 
-:::demo Liez une variable à `v-model` dans l'element `<top-input-number>` et c'est tout !
+:::demo Liez une variable à `v-model` dans l'element `<el-input-number>` et c'est tout !
 
 ```html
 <template>
-  <top-input-number v-model="num1" @change="handleChange" :min="1" :max="10"></top-input-number>
+  <el-input-number v-model="num1" @change="handleChange" :min="1" :max="10"></el-input-number>
 </template>
 <script>
   export default {
@@ -33,7 +33,7 @@ Un champs d'input de valeurs numériques, avec un domaine personnalisable.
 
 ```html
 <template>
-  <top-input-number v-model="num2" :disabled="true"></top-input-number>
+  <el-input-number v-model="num2" :disabled="true"></el-input-number>
 </template>
 <script>
   export default {
@@ -55,7 +55,7 @@ Vous pouvez déterminer un pas pour le champs.
 
 ```html
 <template>
-  <top-input-number v-model="num3" :step="2"></top-input-number>
+  <el-input-number v-model="num3" :step="2"></el-input-number>
 </template>
 <script>
   export default {
@@ -75,7 +75,7 @@ Vous pouvez déterminer un pas pour le champs.
 
 ```html
 <template>
-  <top-input-number v-model="num9" :precision="2" :step="0.1" :max="10"></top-input-number>
+  <el-input-number v-model="num9" :precision="2" :step="0.1" :max="10"></el-input-number>
 </template>
 <script>
   export default {
@@ -102,10 +102,10 @@ Utilisez l'attribut `size` pour régler la taille avec `medium`, `small` ou `min
 
 ```html
 <template>
-  <top-input-number v-model="num4"></top-input-number>
-    <top-input-number size="medium" v-model="num5"></top-input-number>
-    <top-input-number size="small" v-model="num6"></top-input-number>
-    <top-input-number size="mini" v-model="num7"></top-input-number>
+  <el-input-number v-model="num4"></el-input-number>
+    <el-input-number size="medium" v-model="num5"></el-input-number>
+    <el-input-number size="small" v-model="num6"></el-input-number>
+    <el-input-number size="mini" v-model="num7"></el-input-number>
 </template>
 <script>
   export default {
@@ -127,7 +127,7 @@ Utilisez l'attribut `size` pour régler la taille avec `medium`, `small` ou `min
 :::demo Réglez `controls-position` pour déterminer la position des boutons.
 ```html
 <template>
-  <top-input-number v-model="num8" controls-position="right" @change="handleChange" :min="1" :max="10"></top-input-number>
+  <el-input-number v-model="num8" controls-position="right" @change="handleChange" :min="1" :max="10"></el-input-number>
 </template>
 <script>
   export default {

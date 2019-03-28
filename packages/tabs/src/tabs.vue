@@ -55,13 +55,14 @@
     },
 
     methods: {
-      calcPaneInstances() {
+      calcPaneInstances(isLabelUpdated = false) {
         if (this.$slots.default) {
           const paneSlots = this.$slots.default.filter(vnode => vnode.tag &&
             vnode.componentOptions && vnode.componentOptions.Ctor.options.name === 'ElTabPane');
           // update indeed
           const panes = paneSlots.map(({ componentInstance }) => componentInstance);
-          if (!(panes.length === this.panes.length && panes.every((pane, index) => pane === this.panes[index]))) {
+          const panesChanged = !(panes.length === this.panes.length && panes.every((pane, index) => pane === this.panes[index]));
+          if (isLabelUpdated || panesChanged) {
             this.panes = panes;
           }
         } else if (this.panes.length !== 0) {
@@ -122,12 +123,12 @@
       const newButton = editable || addable
         ? (
           <span
-            class="top-tabs__new-tab"
+            class="el-tabs__new-tab"
             on-click={ handleTabAdd }
             tabindex="0"
             on-keydown={ (ev) => { if (ev.keyCode === 13) { handleTabAdd(); }} }
           >
-            <i class="top-icon-plus"></i>
+            <i class="el-icon-plus"></i>
           </span>
         )
         : null;
@@ -145,23 +146,23 @@
         ref: 'nav'
       };
       const header = (
-        <div class={['top-tabs__header', `is-${tabPosition}`]}>
+        <div class={['el-tabs__header', `is-${tabPosition}`]}>
           {newButton}
           <tab-nav { ...navData }></tab-nav>
         </div>
       );
       const panels = (
-        <div class="top-tabs__content">
+        <div class="el-tabs__content">
           {this.$slots.default}
         </div>
       );
 
       return (
         <div class={{
-          'top-tabs': true,
-          'top-tabs--card': type === 'card',
-          [`top-tabs--${tabPosition}`]: true,
-          'top-tabs--border-card': type === 'border-card'
+          'el-tabs': true,
+          'el-tabs--card': type === 'card',
+          [`el-tabs--${tabPosition}`]: true,
+          'el-tabs--border-card': type === 'border-card'
         }}>
           { tabPosition !== 'bottom' ? [header, panels] : [panels, header] }
         </div>
@@ -172,6 +173,8 @@
       if (!this.currentName) {
         this.setCurrentName('0');
       }
+
+      this.$on('tabLabelChanged', this.calcPaneInstances.bind(null, true));
     },
 
     mounted() {

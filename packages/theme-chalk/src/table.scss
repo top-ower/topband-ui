@@ -27,9 +27,9 @@
   }
 
   @include e(empty-text) {
-    // min-height doesn't work in IE10 and IE11 https: //github.com/philipwalton/flexbugs#3-min-height-on-a-flex-container-wont-apply-to-its-flex-items
+    // min-height doesn't work in IE10 and IE11 https://github.com/philipwalton/flexbugs#3-min-height-on-a-flex-container-wont-apply-to-its-flex-items
     // set empty text line height up to contrainer min-height as workaround.
-    line-height:60px;
+    line-height: 60px;
     width: 50%;
     color: $--color-text-secondary;
   }
@@ -40,7 +40,6 @@
       padding: 0;
       text-align: center;
     }
-
   }
 
   @include e(expand-icon) {
@@ -55,14 +54,13 @@
       transform: rotate(90deg);
     }
 
-    > .top-icon {
+    > .el-icon {
       position: absolute;
       left: 50%;
       top: 50%;
       margin-left: -5px;
       margin-top: -5px;
     }
-
   }
 
   @include e(expanded-cell) {
@@ -76,7 +74,11 @@
     &:hover {
       background-color: transparent !important;
     }
+  }
 
+  @include e(placeholder) {
+    display: inline-block;
+    width: 20px;
   }
 
   @include m(fit) {
@@ -86,21 +88,18 @@
     th.gutter, td.gutter {
       border-right-width: 1px;
     }
-
   }
 
   @include m(scrollable-x) {
-    .top-table__body-wrapper {
+    .el-table__body-wrapper {
       overflow-x: auto;
     }
-
   }
 
   @include m(scrollable-y) {
-    .top-table__body-wrapper {
+    .el-table__body-wrapper {
       overflow-y: auto;
     }
-
   }
 
   thead {
@@ -111,9 +110,7 @@
       th {
         background: $--background-color-base;
       }
-
     }
-
   }
 
   th, td {
@@ -144,34 +141,27 @@
       > * {
         visibility: hidden;
       }
-
     }
-
   }
 
   @include m(medium) {
     th, td {
       padding: 10px 0;
     }
-
   }
 
   @include m(small) {
     font-size: 12px;
-
     th, td {
       padding: 8px 0;
     }
-
   }
 
   @include m(mini) {
     font-size: 12px;
-
     th, td {
       padding: 6px 0;
     }
-
   }
 
   tr {
@@ -180,7 +170,6 @@
     input[type="checkbox"] {
       margin: 0;
     }
-
   }
 
   th.is-leaf, td {
@@ -220,7 +209,6 @@
       &.highlight {
         color: $--color-primary;
       }
-
     }
 
     &.required > div::before {
@@ -233,7 +221,6 @@
       margin-right: 5px;
       vertical-align: middle;
     }
-
   }
 
   td {
@@ -244,7 +231,6 @@
     &.gutter {
       width: 0;
     }
-
   }
 
   .cell {
@@ -257,11 +243,10 @@
     padding-left: 10px;
     padding-right: 10px;
 
-    &.top-tooltip {
+    &.el-tooltip {
       white-space: nowrap;
       min-width: 50px;
     }
-
   }
 
   // 拥有多级表头
@@ -283,7 +268,6 @@
       width: 1px;
       height: 100%;
     }
-
   }
 
   // 表格底部伪 border，总是有的
@@ -300,7 +284,7 @@
     border-right: none;
     border-bottom: none;
 
-    &.top-loading-parent--relative {
+    &.el-loading-parent--relative {
       border-color: transparent;
     }
 
@@ -310,7 +294,6 @@
       &:first-child .cell {
         padding-left: 10px;
       }
-
     }
 
     th.gutter:last-of-type {
@@ -321,7 +304,6 @@
     & th {
       border-bottom: $--table-border;
     }
-
   }
 
   @include m(hidden) {
@@ -346,7 +328,6 @@
       background-color: $--border-color-lighter;
       z-index: 4;
     }
-
   }
 
   @include e(fixed-right-patch) {
@@ -362,11 +343,12 @@
     left: auto;
     right: 0;
 
-    .top-table__fixed-header-wrapper, .top-table__fixed-body-wrapper, .top-table__fixed-footer-wrapper {
+    .el-table__fixed-header-wrapper,
+    .el-table__fixed-body-wrapper,
+    .el-table__fixed-footer-wrapper {
       left: auto;
       right: 0;
     }
-
   }
 
   @include e(fixed-header-wrapper) {
@@ -387,7 +369,6 @@
       background-color: $--table-row-hover-background-color;
       color: $--table-font-color;
     }
-
   }
 
   @include e(fixed-body-wrapper) {
@@ -404,11 +385,9 @@
 
   @include e(footer-wrapper) {
     margin-top: -1px;
-
     td {
       border-top: $--table-border;
     }
-
   }
 
   @include e((header, body, footer)) {
@@ -423,7 +402,6 @@
       background-color: $--table-row-hover-background-color;
       color: $--table-font-color;
     }
-
   }
 
   @include e(body-wrapper) {
@@ -431,43 +409,37 @@
     position: relative;
 
     @include when(scrolling-none) {
-      ~ .top-table__fixed, ~ .top-table__fixed-right {
+      ~ .el-table__fixed,
+      ~ .el-table__fixed-right {
         box-shadow: none;
       }
-
     }
 
     @include when(scrolling-left) {
-      ~ .top-table__fixed {
+      ~ .el-table__fixed {
         box-shadow: none;
       }
-
     }
 
     @include when(scrolling-right) {
-      ~ .top-table__fixed-right {
+      ~ .el-table__fixed-right {
         box-shadow: none;
       }
-
     }
 
-    .top-table--border {
+    .el-table--border {
       @include when(scrolling-right) {
-        ~ .top-table__fixed-right {
+        ~ .el-table__fixed-right {
           border-left: $--table-border;
         }
-
       }
 
       @include when(scrolling-left) {
-        ~ .top-table__fixed {
+        ~ .el-table__fixed {
           border-right: $--table-border;
         }
-
       }
-
     }
-
   }
 
   .caret-wrapper {
@@ -498,7 +470,6 @@
       border-top-color: $--color-text-placeholder;
       bottom: 7px;
     }
-
   }
 
   .ascending .sort-caret.ascending {
@@ -516,8 +487,8 @@
   }
 
   @include m(striped) {
-    & .top-table__body {
-      & tr.top-table__row--striped {
+    & .el-table__body {
+      & tr.el-table__row--striped {
         td {
           background: #FAFAFA;
         }
@@ -525,31 +496,24 @@
         &.current-row td {
           background-color: $--table-current-row-background-color;
         }
-
       }
-
     }
-
   }
 
   @include e(body) {
     tr.hover-row {
-      &, &.top-table__row--striped {
+      &, &.el-table__row--striped {
         &, &.current-row {
           > td {
             background-color: $--table-current-row-background-color;
           }
-
         }
-
       }
-
     }
 
     tr.current-row > td {
       background-color: $--table-current-row-background-color;
     }
-
   }
 
   @include e(column-resize-proxy) {
@@ -572,29 +536,34 @@
       font-size: 12px;
       transform: scale(.75);
     }
-
   }
 
   @include m(enable-row-transition) {
-    .top-table__body td {
+    .el-table__body td {
       transition: background-color .25s ease;
     }
-
   }
 
   @include m(enable-row-hover) {
-    .top-table__body tr:hover > td {
+    .el-table__body tr:hover > td {
       background-color: $--table-row-hover-background-color;
     }
-
   }
 
   @include m(fluid-height) {
-    .top-table__fixed, .top-table__fixed-right {
+    .el-table__fixed,
+    .el-table__fixed-right {
       bottom: 0;
       overflow: hidden;
     }
-
   }
 
+  [class*=el-table__row--level] {
+    .el-table__expand-icon {
+      display: inline-block;
+      width: 14px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+  }
 }

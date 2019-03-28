@@ -6,28 +6,28 @@ Permet d'afficher de nombreuses données possédant un format similaire. Vous po
 
 Un tableau de base pour afficher seulement.
 
-:::demo Après avoir configuré l'attribut `data` de `top-table` avec un tableau d'objets, vous pouvez utiliser `prop` (correspondant à une clé dans chaque objet du tableau `data`) dans `top-table-column` pour insérer des données dans les colonnes, ainsi que l'attribut `label` pour définir le nom de la colonne. L'attribut `width` définit si besoin la largeur de la colonne.
+:::demo Après avoir configuré l'attribut `data` de `el-table` avec un tableau d'objets, vous pouvez utiliser `prop` (correspondant à une clé dans chaque objet du tableau `data`) dans `el-table-column` pour insérer des données dans les colonnes, ainsi que l'attribut `label` pour définir le nom de la colonne. L'attribut `width` définit si besoin la largeur de la colonne.
 
 ```html
   <template>
-    <top-table
+    <el-table
       :data="tableData"
       style="width: 100%">
-      <top-table-column
+      <el-table-column
         prop="date"
         label="Date"
         width="180">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="name"
         label="Nom"
         width="180">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="address"
         label="Adresse">
-      </top-table-column>
-    </top-table>
+      </el-table-column>
+    </el-table>
   </template>
 
   <script>
@@ -65,25 +65,25 @@ Ajouter des couleurs différentes pour les lignes paires et impaires permet de l
 :::demo L'attribut `stripe` accepte un `Boolean`. Si `true`, le tabelau sera rayé.
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     stripe
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="Date"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="Nom"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="Adresse">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -120,25 +120,25 @@ Ajouter des couleurs différentes pour les lignes paires et impaires permet de l
 
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     border
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="Date"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="Nom"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="Adresse">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -173,36 +173,36 @@ Ajouter des couleurs différentes pour les lignes paires et impaires permet de l
 
 Vous pouvez mettre en valeur certaines lignes du tableau suivant leur état, comme "success", "information", "warning", "danger" et d'autres.
 
-:::demo Utilisez `row-class-name` dans `top-table` pour utiliser une fonction qui permettra ajouter des classes à certaines lignes. Vous pouvez ensuite définir les classes en question dans votre CSS.
+:::demo Utilisez `row-class-name` dans `el-table` pour utiliser une fonction qui permettra ajouter des classes à certaines lignes. Vous pouvez ensuite définir les classes en question dans votre CSS.
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%"
     :row-class-name="tableRowClassName">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="Date"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="Nom"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="Adresse">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <style>
-  .top-table .warning-row {
+  .el-table .warning-row {
     background: oldlace;
   }
 
-  .top-table .success-row {
+  .el-table .success-row {
     background: #f0f9eb;
   }
 </style>
@@ -249,28 +249,28 @@ Vous pouvez mettre en valeur certaines lignes du tableau suivant leur état, com
 
 Lorsqu'il y a beaucoup de lignes, il peut être utile d'avoir un header fixe afin de ne pas perdre le nom de colonnes à mesure que l'utilisateur défile vers le bas.
 
-:::demo En réglant l'attribut `height` de `top-table`, vous pouvez fixer le header sans avoir besoin de plus de code.
+:::demo En réglant l'attribut `height` de `el-table`, vous pouvez fixer le header sans avoir besoin de plus de code.
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     height="250"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="Date"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="Nom"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="Adresse">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -317,53 +317,53 @@ Lorsqu'il y a beaucoup de lignes, il peut être utile d'avoir un header fixe afi
 
 Lorsque qu'il y a beaucoup de colonnes, il peut être utile d'en fixer certaines afin de ne pas perdre de vue leurs informations à mesure que l'utilisateur défile sur les cotés.
 
-:::demo Utilisez l'attribut `fixed` de `top-table-column` qui accepte un `Boolean`. Si `true`, la colonne sera fixée à gauche. Il accepte aussi les valeurs 'left' et 'right', indiquant de quel coté la colonne doit être fixée.
+:::demo Utilisez l'attribut `fixed` de `el-table-column` qui accepte un `Boolean`. Si `true`, la colonne sera fixée à gauche. Il accepte aussi les valeurs 'left' et 'right', indiquant de quel coté la colonne doit être fixée.
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       fixed
       prop="date"
       label="Date"
       width="150">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="Nom"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="state"
       label="État"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="city"
       label="Ville"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="Adresse"
       width="300">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="zip"
       label="Zip"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       fixed="right"
       label="Opérations"
       width="120">
       <template slot-scope="scope">
-        <top-button @click="handleClick" type="text" size="small">Detail</top-button>
-        <top-button type="text" size="small">Editer</top-button>
+        <el-button @click="handleClick" type="text" size="small">Detail</el-button>
+        <el-button type="text" size="small">Editer</el-button>
       </template>
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -422,42 +422,42 @@ Si vous avez un gros volume de données à afficher, vous pouvez fixer le header
 :::demo Header et colonnes fixes combinant les deux exemples précédents.
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%"
     height="250">
-    <top-table-column
+    <el-table-column
       fixed
       prop="date"
       label="Date"
       width="150">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="Nom"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="state"
       label="État"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="city"
       label="Ville"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="Adresse"
       width="300">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="zip"
       label="Zip"
       width="120">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -525,58 +525,58 @@ Si vous avez un gros volume de données à afficher, vous pouvez fixer le header
 
 Quand les données changent dynamiquement, vous pouvez avoir besoin d'une hauteur maximale et d'afficher une barre de défilement si besoin.
 
-:::demo En utilisant l'attribut `max-height` de `top-table`, vous fixez le header. Le tableau ne défilera que si la hauteur des lignes dépasse cette hauteur maximale.
+:::demo En utilisant l'attribut `max-height` de `el-table`, vous fixez le header. Le tableau ne défilera que si la hauteur des lignes dépasse cette hauteur maximale.
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%"
     max-height="250">
-    <top-table-column
+    <el-table-column
       fixed
       prop="date"
       label="Date"
       width="150">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="Nom"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="state"
       label="État"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="city"
       label="Ville"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="Adresse"
       width="300">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="zip"
       label="Zip"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       fixed="right"
       label="Opérations"
       width="120">
       <template slot-scope="scope">
-        <top-button
+        <el-button
           @click.native.prevent="deleteRow(scope.$index, tableData)"
           type="text"
           size="small">
           Supprimer
-        </top-button>
+        </el-button>
       </template>
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -649,47 +649,47 @@ Quand les données changent dynamiquement, vous pouvez avoir besoin d'une hauteu
 
 Quand la structure du tableau est complexe, vous pouvez grouper les headers afin de montrer une hiérarchie.
 
-:::demo Placez simplement `top-table-column` dans une autre `top-table-column`, et vous grouperez ainsi les headers.
+:::demo Placez simplement `el-table-column` dans une autre `el-table-column`, et vous grouperez ainsi les headers.
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="Date"
       width="150">
-    </top-table-column>
-    <top-table-column label="Informations de livraison">
-      <top-table-column
+    </el-table-column>
+    <el-table-column label="Informations de livraison">
+      <el-table-column
         prop="name"
         label="Nom"
         width="120">
-      </top-table-column>
-      <top-table-column label="Informations d'adresse">
-        <top-table-column
+      </el-table-column>
+      <el-table-column label="Informations d'adresse">
+        <el-table-column
           prop="state"
           label="État"
           width="120">
-        </top-table-column>
-        <top-table-column
+        </el-table-column>
+        <el-table-column
           prop="city"
           label="Ville"
           width="120">
-        </top-table-column>
-        <top-table-column
+        </el-table-column>
+        <el-table-column
           prop="address"
           label="Adresse"
           width="300">
-        </top-table-column>
-        <top-table-column
+        </el-table-column>
+        <el-table-column
           prop="zip"
           label="Zip"
           width="120">
-        </top-table-column>
-      </top-table-column>
-    </top-table-column>
-  </top-table>
+        </el-table-column>
+      </el-table-column>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -757,37 +757,37 @@ Quand la structure du tableau est complexe, vous pouvez grouper les headers afin
 
 Vous pouvez activer la sélection d'une ligne.
 
-:::demo Activez la sélection en ajoutant l'attribut `highlight-current-row`. L'évènement `current-change` se déclenchera à chaque changement de sélection, ses paramètres étant les deux lignes avant et après le changement: `currentRow` et `oldCurrentRow`. Si vous avez besoin d'afficher l'index des lignes, ajoutez une `top-table-column` avec pour `type` la valeur `index`, qui commencera à 1.
+:::demo Activez la sélection en ajoutant l'attribut `highlight-current-row`. L'évènement `current-change` se déclenchera à chaque changement de sélection, ses paramètres étant les deux lignes avant et après le changement: `currentRow` et `oldCurrentRow`. Si vous avez besoin d'afficher l'index des lignes, ajoutez une `el-table-column` avec pour `type` la valeur `index`, qui commencera à 1.
 ```html
 <template>
-  <top-table
+  <el-table
     ref="singleTable"
     :data="tableData"
     highlight-current-row
     @current-change="handleCurrentChange"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       type="index"
       width="50">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       property="date"
       label="Date"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       property="name"
       label="Nom"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       property="address"
       label="Adresse">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
   <div style="margin-top: 20px">
-    <top-button @click="setCurrent(tableData[1])">Sélectionner la deuxième ligne</top-button>
-    <top-button @click="setCurrent()">Effacer la sélection</top-button>
+    <el-button @click="setCurrent(tableData[1])">Sélectionner la deuxième ligne</el-button>
+    <el-button @click="setCurrent()">Effacer la sélection</el-button>
   </div>
 </template>
 
@@ -833,37 +833,37 @@ Vous pouvez activer la sélection d'une ligne.
 
 Vous pouvez aussi sélectionner plusieurs lignes.
 
-:::demo Ajoutez une `top-table-column` avec son `type` à `selection`. Cet exemple utilise aussi `show-overflow-tooltip`: par défaut, si le contenu est trop long, il se séparera en plusieurs lignes. Si vous souhaitez conserver une seule ligne, utilisez `show-overflow-tooltip`, qui accepte un `Boolean`. Si `true`, le contenu non-affiché s'affichera dans le tooltip lorsque la souris passera sur la case.
+:::demo Ajoutez une `el-table-column` avec son `type` à `selection`. Cet exemple utilise aussi `show-overflow-tooltip`: par défaut, si le contenu est trop long, il se séparera en plusieurs lignes. Si vous souhaitez conserver une seule ligne, utilisez `show-overflow-tooltip`, qui accepte un `Boolean`. Si `true`, le contenu non-affiché s'affichera dans le tooltip lorsque la souris passera sur la case.
 ```html
 <template>
-  <top-table
+  <el-table
     ref="multipleTable"
     :data="tableData"
     style="width: 100%"
     @selection-change="handleSelectionChange">
-    <top-table-column
+    <el-table-column
       type="selection"
       width="55">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       label="Date"
       width="120">
       <template slot-scope="scope">{{ scope.row.date }}</template>
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       property="name"
       label="Nom"
       width="120">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       property="address"
       label="Adresse"
       show-overflow-tooltip>
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
   <div style="margin-top: 20px">
-    <top-button @click="toggleSelection([tableData[1], tableData[2]])">Sélectionner les deuxième et troisième lignes</top-button>
-    <top-button @click="toggleSelection()">Effacer la sélection</top-button>
+    <el-button @click="toggleSelection([tableData[1], tableData[2]])">Sélectionner les deuxième et troisième lignes</el-button>
+    <el-button @click="toggleSelection()">Effacer la sélection</el-button>
   </div>
 </template>
 
@@ -930,27 +930,27 @@ Il est possible de trier les données afin de trouver plus facilement ce qu'on c
 :::demo Ajoutez l'attribut `sortable` a une colonne pour pouvoir trier cette colonne. Il accepte un `Boolean` et à `false` par défaut. Ajoutez `default-sort` pour déterminer les propriétés par défaut du tri. Pour appliquer vos propres règles, utilisez `sort-method` ou `sort-by`. Si vous avez besoin d'un tri dynamique depuis le serveur, mettez `sortable` à `custom`, et écoutez l'évènement `sort-change` de `Table`. Depuis cet évènement, vous aurez accès à la colonne et l'ordre de tri. cet exemple utilise aussi `formatter` pour formater les valeurs de colonnes. Il prend une fonction avec deux paramètres: `row` et `column`. Vous pouvez ainsi transformer les valeurs.
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     :default-sort = "{prop: 'date', order: 'descending'}"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="Date"
       sortable
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="Nom"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="Adresse"
       :formatter="formatter">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -990,16 +990,16 @@ Il est possible de trier les données afin de trouver plus facilement ce qu'on c
 
 Vous pouvez filtrer la table pour obtenir rapidement les lignes désirées.
 
-:::demo Réglez `filters` et `filter-method` dans `top-table-column` pour rendre la colonne filtrable. `filters` prends un tableau, et `filter-method` est une fonction déterminant comment les lignes s'affichent. Elle prend trois paramètres: `value`, `row` et `column`.
+:::demo Réglez `filters` et `filter-method` dans `el-table-column` pour rendre la colonne filtrable. `filters` prends un tableau, et `filter-method` est une fonction déterminant comment les lignes s'affichent. Elle prend trois paramètres: `value`, `row` et `column`.
 ```html
 <template>
-  <top-button @click="resetDateFilter">Effacer le filtre date</top-button>
-  <top-button @click="clearFilter">Effacer tout les filtres</top-button>
-  <top-table
+  <el-button @click="resetDateFilter">Effacer le filtre date</el-button>
+  <el-button @click="clearFilter">Effacer tout les filtres</el-button>
+  <el-table
     ref="filterTable"
     :data="tableData"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="date"
       label="Date"
       sortable
@@ -1008,18 +1008,18 @@ Vous pouvez filtrer la table pour obtenir rapidement les lignes désirées.
       :filters="[{text: '2016-05-01', value: '2016-05-01'}, {text: '2016-05-02', value: '2016-05-02'}, {text: '2016-05-03', value: '2016-05-03'}, {text: '2016-05-04', value: '2016-05-04'}]"
       :filter-method="filterHandler"
     >
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="Nom"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="Adresse"
       :formatter="formatter">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="tag"
       label="Tag"
       width="100"
@@ -1027,12 +1027,12 @@ Vous pouvez filtrer la table pour obtenir rapidement les lignes désirées.
       :filter-method="filterTag"
       filter-placement="bottom-end">
       <template slot-scope="scope">
-        <top-tag
+        <el-tag
           :type="scope.row.tag === 'Home' ? 'primary' : 'success'"
-          disable-transitions>{{scope.row.tag}}</top-tag>
+          disable-transitions>{{scope.row.tag}}</el-tag>
       </template>
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -1092,43 +1092,43 @@ Vous pouvez customiser le contenu des colonnes afin de pouvoir utiliser d'autres
 :::demo Vous avez acccès aux données suivantes: `row`, `column`, `$index` et `store` (gestionnaire d'état de Table) grâce aux [Scoped slot](https://vuejs.org/v2/guide/components.html#Scoped-Slots).
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       label="Date"
       width="180">
       <template slot-scope="scope">
-        <i class="top-icon-time"></i>
+        <i class="el-icon-time"></i>
         <span style="margin-left: 10px">{{ scope.row.date }}</span>
       </template>
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       label="Nom"
       width="180">
       <template slot-scope="scope">
-        <top-popover trigger="hover" placement="top">
+        <el-popover trigger="hover" placement="top">
           <p>Nom: {{ scope.row.name }}</p>
           <p>Addr: {{ scope.row.address }}</p>
           <div slot="reference" class="name-wrapper">
-            <top-tag size="medium">{{ scope.row.name }}</top-tag>
+            <el-tag size="medium">{{ scope.row.name }}</el-tag>
           </div>
-        </top-popover>
+        </el-popover>
       </template>
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       label="Opérations">
       <template slot-scope="scope">
-        <top-button
+        <el-button
           size="mini"
-          @click="handleEdit(scope.$index, scope.row)">Editer</top-button>
-        <top-button
+          @click="handleEdit(scope.$index, scope.row)">Editer</el-button>
+        <el-button
           size="mini"
           type="danger"
-          @click="handleDelete(scope.$index, scope.row)">Supprimer</top-button>
+          @click="handleDelete(scope.$index, scope.row)">Supprimer</el-button>
       </template>
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -1174,36 +1174,36 @@ Vous pouvez également personnaliser le header de la table.
 :::demo Vous pouvez personnaliser le header grâce aux [slots avec portée](https://vuejs.org/v2/guide/components-slots.html#Scoped-Slots).
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       label="Date"
       prop="date">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       label="Name"
       prop="name">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       align="right">
       <template slot="header" slot-scope="scope">
-        <top-input
+        <el-input
           v-model="search"
           size="mini"
           placeholder="Type to search"/>
       </template>
       <template slot-scope="scope">
-        <top-button
+        <el-button
           size="mini"
-          @click="handleEdit(scope.$index, scope.row)">Editer</top-button>
-        <top-button
+          @click="handleEdit(scope.$index, scope.row)">Editer</el-button>
+        <el-button
           size="mini"
           type="danger"
-          @click="handleDelete(scope.$index, scope.row)">Supprimer</top-button>
+          @click="handleDelete(scope.$index, scope.row)">Supprimer</el-button>
       </template>
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -1247,29 +1247,29 @@ Vous pouvez également personnaliser le header de la table.
 
 Lorsque le contenu d'une ligne est trop long et que vous ne souhaitez pas afficher de scrollbar, vous pouvez utiliser une ligne extensible.
 
-:::demo Activer la ligne extensible en mettant `type` à `expand` et en utilisant un slot. Le contenu de `top-table-column` sera généré quand l'extension aura lieu, et vous avez aux même attributs que pour le slot des templates de colonnes.
+:::demo Activer la ligne extensible en mettant `type` à `expand` et en utilisant un slot. Le contenu de `el-table-column` sera généré quand l'extension aura lieu, et vous avez aux même attributs que pour le slot des templates de colonnes.
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%">
-    <top-table-column type="expand">
+    <el-table-column type="expand">
       <template slot-scope="props">
         <p>État: {{ props.row.state }}</p>
         <p>Ville: {{ props.row.city }}</p>
         <p>Adresse: {{ props.row.address }}</p>
         <p>Zip: {{ props.row.zip }}</p>
       </template>
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       label="Date"
       prop="date">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       label="Nom"
       prop="name">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -1333,73 +1333,190 @@ Lorsque le contenu d'une ligne est trop long et que vous ne souhaitez pas affich
 ```
 :::
 
+### Tree data and lazy mode
+
+:::demo You can display tree structure data。When using it, the prop `row-key` is required。Also, child row data can be loaded asynchronously. Set `lazy` property of Table to true and the function `load`. Specify `hasChildren` attribute in row to determine which row contains children.
+
+```html
+<template>
+<div>
+  <el-table
+    :data="tableData"
+    style="width: 100%;margin-bottom: 20px;"
+    border
+    row-key="id">
+    <el-table-column
+      prop="date"
+      label="日期"
+      sortable
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="name"
+      label="name"
+      sortable
+      width="180">
+    </el-table-column>
+  </el-table>
+
+  <el-table
+    :data="tableData1"
+    style="width: 100%"
+    row-key="id"
+    border
+    lazy
+    :load="load"
+    >
+    <el-table-column
+      prop="date"
+      label="date"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="name"
+      label="name"
+      width="180">
+    </el-table-column>
+  </el-table>
+</div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        tableData: [{
+          id: 1,
+          date: '2016-05-02',
+          name: 'wangxiaohu'
+        }, {
+          id: 2,
+          date: '2016-05-04',
+          name: 'wangxiaohu'
+        }, {
+          id: 3,
+          date: '2016-05-01',
+          name: 'wangxiaohu',
+          children: [{
+              id: 31,
+              date: '2016-05-01',
+              name: 'wangxiaohu'
+            }, {
+              id: 32,
+              date: '2016-05-01',
+              name: 'wangxiaohu'
+          }]
+        }, {
+          id: 4,
+          date: '2016-05-03',
+          name: 'wangxiaohu'
+        }],
+        tableData1: [{
+          id: 1,
+          date: '2016-05-02',
+          name: 'wangxiaohu'
+        }, {
+          id: 2,
+          date: '2016-05-04',
+          name: 'wangxiaohu'
+        }, {
+          id: 3,
+          date: '2016-05-01',
+          name: 'wangxiaohu',
+          hasChildren: true
+        }, {
+          id: 4,
+          date: '2016-05-03',
+          name: 'wangxiaohu'
+        }]
+      }
+    },
+    methods: {
+      load(tree, treeNode, resolve) {
+        resolve([
+          {
+            id: 31,
+            date: '2016-05-01',
+            name: 'wangxiaohu'
+          }, {
+            id: 32,
+            date: '2016-05-01',
+            name: 'wangxiaohu'
+          }
+        ])
+      }
+    },
+  }
+</script>
+```
+:::
+
 ### Ligne de somme
 
 Pour les tableaux de nombres, vous pouvez ajouter une ligne en plus pour afficher la somme de chaque colonne.
 
-:::demo Mettez l'attribut `show-summary` à `true` dans `top-table`. Par défaut, la première colonne n'affiche que 'Sum' (vous pouvez configurer ce label avec `sum-text`), alors que les autres affichent la somme de chaque colonne. Vous pouvez choisir comment effectuer l'opération grâce à `summary-method`, qui doit retourner un tableau, cahque élément correspondant à la somme de chaque colonne. La deuxième table de cet exemple montre tout cela en pratique.
+:::demo Mettez l'attribut `show-summary` à `true` dans `el-table`. Par défaut, la première colonne n'affiche que 'Sum' (vous pouvez configurer ce label avec `sum-text`), alors que les autres affichent la somme de chaque colonne. Vous pouvez choisir comment effectuer l'opération grâce à `summary-method`, qui doit retourner un tableau, cahque élément correspondant à la somme de chaque colonne. La deuxième table de cet exemple montre tout cela en pratique.
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     border
     show-summary
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       prop="id"
       label="ID"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="Nom">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="amount1"
       sortable
       label="Quantité 1">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="amount2"
       sortable
       label="Quantité 2">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="amount3"
       sortable
       label="Quantité 3">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 
-  <top-table
+  <el-table
     :data="tableData"
     border
     height="200"
     :summary-method="getSummaries"
     show-summary
     style="width: 100%; margin-top: 20px">
-    <top-table-column
+    <el-table-column
       prop="id"
       label="ID"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="Nom">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="amount1"
       label="Coût 1 ($)">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="amount2"
       label="Coût 2 ($)">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="amount3"
       label="Coût 3 ($)">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -1480,64 +1597,64 @@ Vous pouvez configurer l'étendue des lignes et colonnes afin de fusionner des c
 ```html
 <template>
   <div>
-    <top-table
+    <el-table
       :data="tableData"
       :span-method="arraySpanMethod"
       border
       style="width: 100%">
-      <top-table-column
+      <el-table-column
         prop="id"
         label="ID"
         width="180">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="name"
         label="Nom">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="amount1"
         sortable
         label="Quantité 1">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="amount2"
         sortable
         label="Quantité 2">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="amount3"
         sortable
         label="Quantité 3">
-      </top-table-column>
-    </top-table>
+      </el-table-column>
+    </el-table>
 
-    <top-table
+    <el-table
       :data="tableData"
       :span-method="objectSpanMethod"
       border
       style="width: 100%; margin-top: 20px">
-      <top-table-column
+      <el-table-column
         prop="id"
         label="ID"
         width="180">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="name"
         label="Nom">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="amount1"
         label="Quantité 1">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="amount2"
         label="Quantité 2">
-      </top-table-column>
-      <top-table-column
+      </el-table-column>
+      <el-table-column
         prop="amount3"
         label="Quantité 3">
-      </top-table-column>
-    </top-table>
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 
@@ -1614,32 +1731,32 @@ Vous pouvez configurer l'étendue des lignes et colonnes afin de fusionner des c
 
 Vous pouvez personnaliser les indices des colonnes de type `index`.
 
-:::demo Utilisez l'attribut `index` sur une `top-table-column` avec `type=index`. Si un nombre est assigné, tout les indices auront un décalage égal à ce nombre. Il peut aussi prendre une fonction avec chaque indice (commençant à `0`) comme paramètre, et la valeur de retour sera affichée en tant qu'indice.
+:::demo Utilisez l'attribut `index` sur une `el-table-column` avec `type=index`. Si un nombre est assigné, tout les indices auront un décalage égal à ce nombre. Il peut aussi prendre une fonction avec chaque indice (commençant à `0`) comme paramètre, et la valeur de retour sera affichée en tant qu'indice.
 
 ```html
 <template>
-  <top-table
+  <el-table
     :data="tableData"
     style="width: 100%">
-    <top-table-column
+    <el-table-column
       type="index"
       :index="indexMethod">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="date"
       label="Date"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="name"
       label="Nom"
       width="180">
-    </top-table-column>
-    <top-table-column
+    </el-table-column>
+    <el-table-column
       prop="address"
       label="Adresse">
-    </top-table-column>
-  </top-table>
+    </el-table-column>
+  </el-table>
 </template>
 
 <script>
@@ -1713,7 +1830,7 @@ Vous pouvez personnaliser les indices des colonnes de type `index`.
 | header-row-style | Fonction qui retourne un style pour chaque ligne de header. Peut aussi être un objet assignant un style à chaque ligne de header. | Function({row, rowIndex})/Object | — | — |
 | header-cell-class-name | Fonction qui retourne un nom de classe pour chaque cellule de header. Peut aussi être une simple chaîne de caractères assignant une classe à chaque cellule de header. | Function({row, column, rowIndex, columnIndex})/String | — | — |
 | header-cell-style | Fonction qui retourne un style pour chaque cellule de header. Peut aussi être un objet assignant un style à chaque cellule de header. | Function({row, column, rowIndex, columnIndex})/Object | — | — |
-| row-key | Clé de chaque ligne, utilisée pour optimiser le rendu. Requise si `reserve-selection` est activé. Quand c'est un `String`, l'accès multi-niveaux est supporté, e.g. `user.info.id`, mais `user.info[0].id` n'est pas supporté. Dans ce dernier cas une `Function` devrait être utilisée. | Function(row)/String | — | — |
+| row-key | key of row data, used for optimizing rendering. Required if `reserve-selection` is on or display tree data. When its type is String, multi-level access is supported, e.g. `user.info.id`, but `user.info[0].id` is not supported, in which case `Function` should be used. | Function(row)/String | — | — |
 | empty-text | Texte à afficher quand il n'y a pas de données. Vous pouvez changer cette zone grâce à `slot="empty"`. | String | — | No Data |
 | default-expand-all | Si toutes les lignes sont étendues par défaut, ne marche que si des lignes ont type="expand". | Boolean | — | false |
 | expand-row-keys | Détermine les lignes qui sont étendues, contient les clés des lignes correspondantes. Vous devriez configurer `row-key` avant celle-ci. | Array | — | |
@@ -1724,6 +1841,9 @@ Vous pouvez personnaliser les indices des colonnes de type `index`.
 | summary-method | La méthode pour calculer la somme. | Function({ columns, data }) | — | — |
 | span-method | Méthode qui retourne les valeurs de colspan et rowspan. | Function({ row, column, rowIndex, columnIndex }) | — | — |
 | select-on-indeterminate | Contrôle le comportement de la checkbox globale dans les tables avec sélection multiple lorsque seulement certaines lignes sont sélectionnées. Si `true`, toutes les lignes sont sélectionnées. | Boolean | — | true |
+| indent                  | horizontal indentation of tree data      | Number    | — | 16   |
+| lazy                    | whether to lazy loading data             | Boolean   | — | —    |
+| load                    | method for loading child row data, only works when `lazy` is true | Function({ row, treeNode, resolve }) | — | — |
 
 ### Évènements de Table
 
@@ -1784,13 +1904,13 @@ Vous pouvez personnaliser les indices des colonnes de type `index`.
 | sort-method | Méthode de tri, marche quand `sortable` est `true`. Doit retourner un nombre, tout comme Array.sort. | Function(a, b) | — | — |
 | sort-by | Détermine par quelle propriété effectuer le tri, marche quand `sortable` est `true` et `sort-method` est `undefined`. Si c'est un Array, sera triée par la propriété suivante si la précédente est équivalente. | Function(row, index)/String/Array | — | — |
 | sort-orders | Liste des stratégies de tri, marche quand `sortable` est `true`. Accepte un tableau. Lorsque l'utilisateur clique plusieurs fois sur le header, la colonne est triée dans l'ordre des stratégies indiquée. | array | Les élements du tableau doivent être parmi: `ascending`, `descending` et `null` (restaure l'état originel du tableau). | ['ascending', 'descending', null] |
-| resizable | Si la largeur de la colonne peut être modifiée, marche quand `border` de `top-table` est `true`. | boolean | — | false |
+| resizable | Si la largeur de la colonne peut être modifiée, marche quand `border` de `el-table` est `true`. | boolean | — | false |
 | formatter | Fonction pour formater le contenu des cellules. | Function(row, column, cellValue, index) | — | — |
 | show-overflow-tooltip | Si du contenu trop long doit être caché et affiché dans une tooltip quand la souris passe sur la cellule. | boolean | — | false |
 | align | Alignement. | string | left/center/right | left |
 | header-align | Alignement du header. Si omis, la valeur du `align` ci-dessus est appliqué. | String | left/center/right | — |
 | class-name | Classe des cellules dans cette colonne. | string | — | — |
-| labtop-class-name | Classe du label de cette colonne. | string | — | — |
+| label-class-name | Classe du label de cette colonne. | string | — | — |
 | selectable | Détermine si certaines colonnes peuvent être sélectionnées, marche quand `type` est 'selection'. | Function(row, index) | — | — |
 | reserve-selection | Si la sélection doit être conservée après rafraîchissement, marche quand `type` est 'selection'. Notez que `row-key` est requis. | boolean | — | false |
 | filters | Un tableau d'options de filtrage. Pour chaque élément, `text` et `value` sont requis. | Array[{ text, value }] | — | — |

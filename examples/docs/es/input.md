@@ -15,7 +15,7 @@ Do not support `v-model` modifiers.
 :::demo
 
 ```html
-<top-input placeholder="Please input" v-model="input"></top-input>
+<el-input placeholder="Please input" v-model="input"></el-input>
 
 <script>
 export default {
@@ -35,11 +35,11 @@ export default {
 :::demo Deshabilite el Input con el atributo `disabled`.
 
 ```html
-<top-input
+<el-input
   placeholder="Please input"
   v-model="input1"
   :disabled="true">
-</top-input>
+</el-input>
 
 <script>
 export default {
@@ -59,11 +59,11 @@ export default {
 :::demo Make the Input clearable with the `clearable` attribute.
 
 ```html
-<top-input
+<el-input
   placeholder="Please input"
   v-model="input10"
   clearable>
-</top-input>
+</el-input>
 
 <script>
 export default {
@@ -82,7 +82,7 @@ export default {
 :::demo Make a toggleable password Input with the `show-password` attribute.
 
 ```html
-<top-input placeholder="Please input password" v-model="input11" show-password></top-input>
+<el-input placeholder="Please input password" v-model="input11" show-password></el-input>
 
 <script>
   export default {
@@ -105,29 +105,29 @@ Añada un icono para indicar el tipo de Input.
 ```html
 <div class="demo-input-suffix">
   <span class="demo-input-label">Using attributes</span>
-  <top-input
+  <el-input
     placeholder="Pick a date"
-    suffix-icon="top-icon-date"
+    suffix-icon="el-icon-date"
     v-model="input2">
-  </top-input>
-  <top-input
+  </el-input>
+  <el-input
     placeholder="Type something"
-    prefix-icon="top-icon-search"
+    prefix-icon="el-icon-search"
     v-model="input21">
-  </top-input>
+  </el-input>
 </div>
 <div class="demo-input-suffix">
   <span class="demo-input-label">Using slots</span>
-  <top-input
+  <el-input
     placeholder="Pick a date"
     v-model="input22">
-    <i slot="suffix" class="top-input__icon top-icon-date"></i>
-  </top-input>
-  <top-input
+    <i slot="suffix" class="el-input__icon el-icon-date"></i>
+  </el-input>
+  <el-input
     placeholder="Type something"
     v-model="input23">
-    <i slot="prefix" class="top-input__icon top-icon-search"></i>
-  </top-input>
+    <i slot="prefix" class="el-input__icon el-icon-search"></i>
+  </el-input>
 </div>
 
 <style>
@@ -160,12 +160,12 @@ Redimensiona para introducir varias líneas de información de texto. Agrege el 
 :::demo Controle la altura ajustando el prop `rows`.
 
 ```html
-<top-input
+<el-input
   type="textarea"
   :rows="2"
   placeholder="Please input"
   v-model="textarea">
-</top-input>
+</el-input>
 
 <script>
 export default {
@@ -187,19 +187,19 @@ El ajuste del prop `autosize` en el tipo de Input textarea hace que la altura se
 :::demo
 
 ```html
-<top-input
+<el-input
   type="textarea"
   autosize
   placeholder="Please input"
   v-model="textarea2">
-</top-input>
+</el-input>
 <div style="margin: 20px 0;"></div>
-<top-input
+<el-input
   type="textarea"
   :autosize="{ minRows: 2, maxRows: 4}"
   placeholder="Please input"
   v-model="textarea3">
-</top-input>
+</el-input>
 
 <script>
 export default {
@@ -223,31 +223,31 @@ Añade un elemento antes o después del input, generalmente una etiqueta o un bo
 
 ```html
 <div>
-  <top-input placeholder="Please input" v-model="input3">
+  <el-input placeholder="Please input" v-model="input3">
     <template slot="prepend">Http://</template>
-  </top-input>
+  </el-input>
 </div>
 <div style="margin-top: 15px;">
-  <top-input placeholder="Please input" v-model="input4">
+  <el-input placeholder="Please input" v-model="input4">
     <template slot="append">.com</template>
-  </top-input>
+  </el-input>
 </div>
 <div style="margin-top: 15px;">
-  <top-input placeholder="Please input" v-model="input5" class="input-with-select">
-    <top-select v-model="select" slot="prepend" placeholder="Select">
-      <top-option label="Restaurant" value="1"></top-option>
-      <top-option label="Order No." value="2"></top-option>
-      <top-option label="Tel" value="3"></top-option>
-    </top-select>
-    <top-button slot="append" icon="top-icon-search"></top-button>
-  </top-input>
+  <el-input placeholder="Please input" v-model="input5" class="input-with-select">
+    <el-select v-model="select" slot="prepend" placeholder="Select">
+      <el-option label="Restaurant" value="1"></el-option>
+      <el-option label="Order No." value="2"></el-option>
+      <el-option label="Tel" value="3"></el-option>
+    </el-select>
+    <el-button slot="append" icon="el-icon-search"></el-button>
+  </el-input>
 </div>
 
 <style>
-  .top-select .top-input {
+  .el-select .el-input {
     width: 110px;
   }
-  .input-with-select .top-input-group__prepend {
+  .input-with-select .el-input-group__prepend {
     background-color: #fff;
   }
 </style>
@@ -273,25 +273,25 @@ export default {
 
 ```html
 <div class="demo-input-size">
-  <top-input
+  <el-input
     placeholder="Please Input"
     v-model="input6">
-  </top-input>
-  <top-input
+  </el-input>
+  <el-input
     size="medium"
     placeholder="Please Input"
     v-model="input7">
-  </top-input>
-  <top-input
+  </el-input>
+  <el-input
     size="small"
     placeholder="Please Input"
     v-model="input8">
-  </top-input>
-  <top-input
+  </el-input>
+  <el-input
     size="mini"
     placeholder="Please Input"
     v-model="input9">
-  </top-input>
+  </el-input>
 </div>
 
 <script>
@@ -317,29 +317,29 @@ Puede obtener algunas sugerencias basadas en la entrada actual.
 :::demo El componente Autocomplete proporciona sugerencias de entrada. El atributo `fetch-suggestions` es un método que devuelve la entrada sugerida. En este ejemplo, `querySearch(queryString, cb)` devuelve las sugerencias al componente mediante `cb(data)` cuando están listas.
 
 ```html
-<top-row class="demo-autocomplete">
-  <top-col :span="12">
+<el-row class="demo-autocomplete">
+  <el-col :span="12">
     <div class="sub-title">list suggestions when activated</div>
-    <top-autocomplete
+    <el-autocomplete
       class="inline-input"
       v-model="state1"
       :fetch-suggestions="querySearch"
       placeholder="Please Input"
       @select="handleSelect"
-    ></top-autocomplete>
-  </top-col>
-  <top-col :span="12">
+    ></el-autocomplete>
+  </el-col>
+  <el-col :span="12">
     <div class="sub-title">list suggestions on input</div>
-    <top-autocomplete
+    <el-autocomplete
       class="inline-input"
       v-model="state2"
       :fetch-suggestions="querySearch"
       placeholder="Please Input"
       :trigger-on-focus="false"
       @select="handleSelect"
-    ></top-autocomplete>
-  </top-col>
-</top-row>
+    ></el-autocomplete>
+  </el-col>
+</el-row>
 <script>
   export default {
     data() {
@@ -392,14 +392,14 @@ Personalice cómo se muestran las sugerencias.
 :::demo Utilice `scoped slot` para personalizar los elementos de sugerencias. En el scope, puede acceder al objeto de sugerencia mediante la clave `item`.
 
 ```html
-<top-autocomplete
+<el-autocomplete
   popper-class="my-autocomplete"
   v-model="state3"
   :fetch-suggestions="querySearch"
   placeholder="Please input"
   @select="handleSelect">
   <i
-    class="top-icon-edit top-input__icon"
+    class="el-icon-edit el-input__icon"
     slot="suffix"
     @click="handleIconClick">
   </i>
@@ -407,7 +407,7 @@ Personalice cómo se muestran las sugerencias.
     <div class="value">{{ item.value }}</div>
     <span class="link">{{ item.link }}</span>
   </template>
-</top-autocomplete>
+</el-autocomplete>
 
 <style>
   .my-autocomplete {
@@ -481,12 +481,12 @@ Búsqueda de datos desde el servidor.
 :::demo
 
 ```html
-<top-autocomplete
+<el-autocomplete
   v-model="state4"
   :fetch-suggestions="querySearchAsync"
   placeholder="Please input"
   @select="handleSelect"
-></top-autocomplete>
+></el-autocomplete>
 <script>
   export default {
     data() {

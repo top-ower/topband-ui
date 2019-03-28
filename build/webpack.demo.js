@@ -17,10 +17,10 @@ const webpackConfig = {
   mode: process.env.NODE_ENV,
   entry: isProd ? {
     docs: './examples/entry.js',
-    'topband-ui': './src/index.js'
+    'element-ui': './src/index.js'
   } : (isPlay ? './examples/play.js' : './examples/entry.js'),
   output: {
-    path: path.resolve(process.cwd(), './examples/topband-ui/'),
+    path: path.resolve(process.cwd(), './examples/element-ui/'),
     publicPath: process.env.CI_ENV || '',
     filename: '[name].[hash:7].js',
     chunkFilename: isProd ? '[name].[hash:7].js' : '[name].js'
@@ -54,7 +54,7 @@ const webpackConfig = {
         test: /\.(jsx?|babel|es6)$/,
         include: process.cwd(),
         exclude: config.jsexclude,
-        loader: 'babtop-loader'
+        loader: 'babel-loader'
       },
       {
         test: /\.vue$/,

@@ -1,25 +1,25 @@
 <template>
   <div
     :class="[
-      'top-color-picker',
+      'el-color-picker',
       colorDisabled ? 'is-disabled' : '',
-      colorSize ? `top-color-picker--${ colorSize }` : ''
+      colorSize ? `el-color-picker--${ colorSize }` : ''
     ]"
     v-clickoutside="hide">
-    <div class="top-color-picker__mask" v-if="colorDisabled"></div>
-    <div class="top-color-picker__trigger" @click="handleTrigger">
-      <span class="top-color-picker__color" :class="{ 'is-alpha': showAlpha }">
-        <span class="top-color-picker__color-inner"
+    <div class="el-color-picker__mask" v-if="colorDisabled"></div>
+    <div class="el-color-picker__trigger" @click="handleTrigger">
+      <span class="el-color-picker__color" :class="{ 'is-alpha': showAlpha }">
+        <span class="el-color-picker__color-inner"
           :style="{
             backgroundColor: displayedColor
           }"></span>
-        <span class="top-color-picker__empty top-icon-close" v-if="!value && !showPanelColor"></span>
+        <span class="el-color-picker__empty el-icon-close" v-if="!value && !showPanelColor"></span>
       </span>
-      <span class="top-color-picker__icon top-icon-arrow-down" v-show="value || showPanelColor"></span>
+      <span class="el-color-picker__icon el-icon-arrow-down" v-show="value || showPanelColor"></span>
     </div>
     <picker-dropdown
        ref="dropdown"
-       :class="['top-color-picker__panel', popperClass || '']"
+       :class="['el-color-picker__panel', popperClass || '']"
        v-model="showPicker"
        @pick="confirmValue"
        @clear="clearValue"
@@ -33,11 +33,11 @@
 <script>
   import Color from './color';
   import PickerDropdown from './components/picker-dropdown.vue';
-  import Clickoutside from 'topband-ui/src/utils/clickoutside';
-  import Emitter from 'topband-ui/src/mixins/emitter';
+  import Clickoutside from 'element-ui/src/utils/clickoutside';
+  import Emitter from 'element-ui/src/mixins/emitter';
 
   export default {
-    name: 'TOPColorPicker',
+    name: 'ElColorPicker',
 
     mixins: [Emitter],
 
@@ -122,14 +122,14 @@
         const value = this.color.value;
         this.$emit('input', value);
         this.$emit('change', value);
-        this.dispatch('TOPFormItem', 'top.form.change', value);
+        this.dispatch('ElFormItem', 'el.form.change', value);
         this.showPicker = false;
       },
       clearValue() {
         this.$emit('input', null);
         this.$emit('change', null);
         if (this.value !== null) {
-          this.dispatch('TOPFormItem', 'top.form.change', null);
+          this.dispatch('ElFormItem', 'el.form.change', null);
         }
         this.showPanelColor = false;
         this.showPicker = false;

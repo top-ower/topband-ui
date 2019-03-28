@@ -10,49 +10,49 @@ Tooltip a 9 emplacements.
 ```html
 <div class="box">
   <div class="top">
-    <top-tooltip class="item" effect="dark" content="Top Left prompts info" placement="top-start">
-      <top-button>top-start</top-button>
-    </top-tooltip>
-    <top-tooltip class="item" effect="dark" content="Top Center prompts info" placement="top">
-      <top-button>top</top-button>
-    </top-tooltip>
-    <top-tooltip class="item" effect="dark" content="Top Right prompts info" placement="top-end">
-      <top-button>top-end</top-button>
-    </top-tooltip>
+    <el-tooltip class="item" effect="dark" content="Top Left prompts info" placement="top-start">
+      <el-button>top-start</el-button>
+    </el-tooltip>
+    <el-tooltip class="item" effect="dark" content="Top Center prompts info" placement="top">
+      <el-button>top</el-button>
+    </el-tooltip>
+    <el-tooltip class="item" effect="dark" content="Top Right prompts info" placement="top-end">
+      <el-button>top-end</el-button>
+    </el-tooltip>
   </div>
   <div class="left">
-    <top-tooltip class="item" effect="dark" content="Left Top prompts info" placement="left-start">
-      <top-button>left-start</top-button>
-    </top-tooltip>
-    <top-tooltip class="item" effect="dark" content="Left Center prompts info" placement="left">
-      <top-button>left</top-button>
-    </top-tooltip>
-    <top-tooltip class="item" effect="dark" content="Left Bottom prompts info" placement="left-end">
-      <top-button>left-end</top-button>
-    </top-tooltip>
+    <el-tooltip class="item" effect="dark" content="Left Top prompts info" placement="left-start">
+      <el-button>left-start</el-button>
+    </el-tooltip>
+    <el-tooltip class="item" effect="dark" content="Left Center prompts info" placement="left">
+      <el-button>left</el-button>
+    </el-tooltip>
+    <el-tooltip class="item" effect="dark" content="Left Bottom prompts info" placement="left-end">
+      <el-button>left-end</el-button>
+    </el-tooltip>
   </div>
 
   <div class="right">
-    <top-tooltip class="item" effect="dark" content="Right Top prompts info" placement="right-start">
-      <top-button>right-start</top-button>
-    </top-tooltip>
-    <top-tooltip class="item" effect="dark" content="Right Center prompts info" placement="right">
-      <top-button>right</top-button>
-    </top-tooltip>
-    <top-tooltip class="item" effect="dark" content="Right Bottom prompts info" placement="right-end">
-      <top-button>right-end</top-button>
-    </top-tooltip>
+    <el-tooltip class="item" effect="dark" content="Right Top prompts info" placement="right-start">
+      <el-button>right-start</el-button>
+    </el-tooltip>
+    <el-tooltip class="item" effect="dark" content="Right Center prompts info" placement="right">
+      <el-button>right</el-button>
+    </el-tooltip>
+    <el-tooltip class="item" effect="dark" content="Right Bottom prompts info" placement="right-end">
+      <el-button>right-end</el-button>
+    </el-tooltip>
   </div>
   <div class="bottom">
-    <top-tooltip class="item" effect="dark" content="Bottom Left prompts info" placement="bottom-start">
-      <top-button>bottom-start</top-button>
-    </top-tooltip>
-    <top-tooltip class="item" effect="dark" content="Bottom Center prompts info" placement="bottom">
-      <top-button>bottom</top-button>
-    </top-tooltip>
-    <top-tooltip class="item" effect="dark" content="Bottom Right prompts info" placement="bottom-end">
-      <top-button>bottom-end</top-button>
-    </top-tooltip>
+    <el-tooltip class="item" effect="dark" content="Bottom Left prompts info" placement="bottom-start">
+      <el-button>bottom-start</el-button>
+    </el-tooltip>
+    <el-tooltip class="item" effect="dark" content="Bottom Center prompts info" placement="bottom">
+      <el-button>bottom</el-button>
+    </el-tooltip>
+    <el-tooltip class="item" effect="dark" content="Bottom Right prompts info" placement="bottom-end">
+      <el-button>bottom-end</el-button>
+    </el-tooltip>
   </div>
 </div>
 
@@ -83,12 +83,12 @@ Tooltip a 9 emplacements.
       margin: 4px;
     }
 
-    .left .top-tooltip__popper,
-    .right .top-tooltip__popper {
+    .left .el-tooltip__popper,
+    .right .el-tooltip__popper {
       padding: 8px 10px;
     }
 
-    .top-button {
+    .el-button {
       width: 110px;
     }
   }
@@ -103,12 +103,12 @@ Tooltip a deux thèmes: `dark` et `light`。
 
 :::demo Utilisez `effect` pour modifier le thème, le défaut étant `dark`.
 ```html
-<top-tooltip content="Top center" placement="top">
-  <top-button>Dark</top-button>
-</top-tooltip>
-<top-tooltip content="Bottom center" placement="bottom" effect="light">
-  <top-button>Light</top-button>
-</top-tooltip>
+<el-tooltip content="Top center" placement="top">
+  <el-button>Dark</el-button>
+</el-tooltip>
+<el-tooltip content="Bottom center" placement="bottom" effect="light">
+  <el-button>Light</el-button>
+</el-tooltip>
 ```
 :::
 
@@ -118,10 +118,10 @@ Vous pouvez afficher plus de lignes et formater leur contenu.
 
 :::demo Utiliser un slot nommé `content` au lieu de l'attribut.
 ```html
-<top-tooltip placement="top">
+<el-tooltip placement="top">
   <div slot="content">Multiples lignes<br/>Seconde ligne</div>
-  <top-button>Top center</top-button>
-</top-tooltip>
+  <el-button>Top center</el-button>
+</el-tooltip>
 ```
 :::
 
@@ -129,7 +129,7 @@ Vous pouvez afficher plus de lignes et formater leur contenu.
 
 Vous pouvez utiliser d'autres attributs pour un usage plus poussé:
 
-`transition` permet de définir l'animation d'apparition et de disparition du tooltip, le défaut étant top-fade-in-linear.
+`transition` permet de définir l'animation d'apparition et de disparition du tooltip, le défaut étant el-fade-in-linear.
 
 `disabled` permet de désactiver le tooltip. Mettez-le simplement à `true`.
 
@@ -138,9 +138,9 @@ En réalité, Tooltip est une extension de [Vue-popper](https://github.com/eleme
 :::demo
 ```html
 <template>
-  <top-tooltip :disabled="disabled" content="Cliquez pour désactiver le tooltip" placement="bottom" effect="light">
-    <top-button @click="disabled = !disabled">Cliquez pour {{disabled ? 'activer' : 'désactiver'}} le tooltip</top-button>
-  </top-tooltip>
+  <el-tooltip :disabled="disabled" content="Cliquez pour désactiver le tooltip" placement="bottom" effect="light">
+    <el-button @click="disabled = !disabled">Cliquez pour {{disabled ? 'activer' : 'désactiver'}} le tooltip</el-button>
+  </el-tooltip>
 </template>
 
 <script>
@@ -186,7 +186,7 @@ Les éléments de formulaire désactivés ne sont pas supportés par Tooltip, pl
 | value / v-model | Visibilité du Tooltip. | boolean | — |  false |
 | disabled | Si le Tooltip est désactivé. | boolean | — |  false |
 | offset | Décalage du Tooltip. | number | — |  0 |
-| transition | Animation de transition. | string | — | top-fade-in-linear |
+| transition | Animation de transition. | string | — | el-fade-in-linear |
 | visible-arrow | Si une flèche doit être affichée. Pour plus d'information, voir [Vue-popper](https://github.com/element-component/vue-popper). | boolean | — | true |
 | popper-options | Paramètres [popper.js](https://popper.js.org/documentation.html). | Object | Se référer à  [popper.js](https://popper.js.org/documentation.html). | `{ boundariesElement: 'body', gpuAcceleration: false }` |
 | open-delay | Délai avant l'apparition en millisecondes. | number | — | 0 |

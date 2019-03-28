@@ -1,55 +1,55 @@
 <template>
   <transition name="msgbox-fade">
     <div
-      class="top-message-box__wrapper"
+      class="el-message-box__wrapper"
       tabindex="-1"
       v-show="visible"
       @click.self="handleWrapperClick"
       role="dialog"
       aria-modal="true"
       :aria-label="title || 'dialog'">
-      <div class="top-message-box" :class="[customClass, center && 'top-message-box--center']">
-        <div class="top-message-box__header" v-if="title !== null">
-          <div class="top-message-box__title">
+      <div class="el-message-box" :class="[customClass, center && 'el-message-box--center']">
+        <div class="el-message-box__header" v-if="title !== null">
+          <div class="el-message-box__title">
             <div
-              :class="['top-message-box__status', icon]"
+              :class="['el-message-box__status', icon]"
               v-if="icon && center">
             </div>
             <span>{{ title }}</span>
           </div>
           <button
             type="button"
-            class="top-message-box__headerbtn"
+            class="el-message-box__headerbtn"
             aria-label="Close"
             v-if="showClose"
             @click="handleAction(distinguishCancelAndClose ? 'close' : 'cancel')"
             @keydown.enter="handleAction(distinguishCancelAndClose ? 'close' : 'cancel')">
-            <i class="top-message-box__close top-icon-close"></i>
+            <i class="el-message-box__close el-icon-close"></i>
           </button>
         </div>
-        <div class="top-message-box__content">
+        <div class="el-message-box__content">
           <div
-            :class="['top-message-box__status', icon]"
+            :class="['el-message-box__status', icon]"
             v-if="icon && !center && message !== ''">
           </div>
-          <div class="top-message-box__message" v-if="message !== ''">
+          <div class="el-message-box__message" v-if="message !== ''">
             <slot>
               <p v-if="!dangerouslyUseHTMLString">{{ message }}</p>
               <p v-else v-html="message"></p>
             </slot>
           </div>
-          <div class="top-message-box__input" v-show="showInput">
-            <top-input
+          <div class="el-message-box__input" v-show="showInput">
+            <el-input
               v-model="inputValue"
               :type="inputType"
               @keydown.enter.native="handleInputEnter"
               :placeholder="inputPlaceholder"
-              ref="input"></top-input>
-            <div class="top-message-box__errormsg" :style="{ visibility: !!editorErrorMessage ? 'visible' : 'hidden' }">{{ editorErrorMessage }}</div>
+              ref="input"></el-input>
+            <div class="el-message-box__errormsg" :style="{ visibility: !!editorErrorMessage ? 'visible' : 'hidden' }">{{ editorErrorMessage }}</div>
           </div>
         </div>
-        <div class="top-message-box__btns">
-          <top-button
+        <div class="el-message-box__btns">
+          <el-button
             :loading="cancelButtonLoading"
             :class="[ cancelButtonClasses ]"
             v-if="showCancelButton"
@@ -58,8 +58,8 @@
             @click.native="handleAction('cancel')"
             @keydown.enter="handleAction('cancel')">
             {{ cancelButtonText || t('el.messagebox.cancel') }}
-          </top-button>
-          <top-button
+          </el-button>
+          <el-button
             :loading="confirmButtonLoading"
             ref="confirm"
             :class="[ confirmButtonClasses ]"
@@ -69,7 +69,7 @@
             @click.native="handleAction('confirm')"
             @keydown.enter="handleAction('confirm')">
             {{ confirmButtonText || t('el.messagebox.confirm') }}
-          </top-button>
+          </el-button>
         </div>
       </div>
     </div>
@@ -77,13 +77,13 @@
 </template>
 
 <script type="text/babel">
-  import Popup from 'topband-ui/src/utils/popup';
-  import Locale from 'topband-ui/src/mixins/locale';
-  import ElInput from 'topband-ui/packages/input';
-  import ElButton from 'topband-ui/packages/button';
-  import { addClass, removeClass } from 'topband-ui/src/utils/dom';
-  import { t } from 'topband-ui/src/locale';
-  import Dialog from 'topband-ui/src/utils/aria-dialog';
+  import Popup from 'element-ui/src/utils/popup';
+  import Locale from 'element-ui/src/mixins/locale';
+  import ElInput from 'element-ui/packages/input';
+  import ElButton from 'element-ui/packages/button';
+  import { addClass, removeClass } from 'element-ui/src/utils/dom';
+  import { t } from 'element-ui/src/locale';
+  import Dialog from 'element-ui/src/utils/aria-dialog';
 
   let messageBox;
   let typeMap = {
@@ -134,11 +134,11 @@
     computed: {
       icon() {
         const { type, iconClass } = this;
-        return iconClass || (type && typeMap[type] ? `top-icon-${ typeMap[type] }` : '');
+        return iconClass || (type && typeMap[type] ? `el-icon-${ typeMap[type] }` : '');
       },
 
       confirmButtonClasses() {
-        return `top-button--primary ${ this.confirmButtonClass }`;
+        return `el-button--primary ${ this.confirmButtonClass }`;
       },
       cancelButtonClasses() {
         return `${ this.cancelButtonClass }`;
@@ -224,8 +224,8 @@
         return true;
       },
       getFirstFocus() {
-        const btn = this.$el.querySelector('.top-message-box__btns .top-button');
-        const title = this.$el.querySelector('.top-message-box__btns .top-message-box__title');
+        const btn = this.$el.querySelector('.el-message-box__btns .el-button');
+        const title = this.$el.querySelector('.el-message-box__btns .el-message-box__title');
         return btn || title;
       },
       getInputElement() {

@@ -43,7 +43,6 @@
     p {
       margin: 0;
     }
-
   }
 
   @include e(icon) {
@@ -63,28 +62,26 @@
     &:hover {
       color: $--notification-close-hover-color;
     }
-
   }
 
-  .top-icon-success {
+  .el-icon-success {
     color: $--notification-success-color;
   }
 
-  .top-icon-error {
+  .el-icon-error {
     color: $--notification-danger-color;
   }
 
-  .top-icon-info {
+  .el-icon-info {
     color: $--notification-info-color;
   }
 
-  .top-icon-warning {
+  .el-icon-warning {
     color: $--notification-warning-color;
   }
-
 }
 
-.top-notification-fade-enter {
+.el-notification-fade-enter {
   &.right {
     right: 0;
     transform: translateX(100%);
@@ -94,9 +91,8 @@
     left: 0;
     transform: translateX(-100%);
   }
-
 }
 
-.top-notification-fade-leave-active {
+.el-notification-fade-leave-active {
   opacity: 0;
 }

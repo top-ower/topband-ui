@@ -9,11 +9,11 @@ describe('Tag', () => {
   it('create', () => {
     vm = createVue({
       template: `
-      <top-tag></top-tag>
+      <el-tag></el-tag>
       `
     }, true);
-    expect(vm.$el.classList.contains('top-tag')).to.be.true;
-    expect(vm.$el.classList.contains('top-tag__close')).to.be.false;
+    expect(vm.$el.classList.contains('el-tag')).to.be.true;
+    expect(vm.$el.classList.contains('el-tag__close')).to.be.false;
     expect(vm.$el.classList.contains('is-hit')).to.be.false;
     expect(vm.$el.classList.contains('md-fade-center')).to.be.false;
   });
@@ -21,7 +21,7 @@ describe('Tag', () => {
   it('text', () => {
     vm = createVue({
       template: `
-      <top-tag>标签</top-tag>
+      <el-tag>标签</el-tag>
       `
     }, true);
     expect(vm.$el.textContent.length).to.be.at.least(2);
@@ -30,16 +30,16 @@ describe('Tag', () => {
   it('type', () => {
     vm = createVue({
       template: `
-      <top-tag type="primary"></top-tag>
+      <el-tag type="primary"></el-tag>
       `
     }, true);
-    expect(vm.$el.classList.contains('top-tag--primary')).to.be.true;
+    expect(vm.$el.classList.contains('el-tag--primary')).to.be.true;
   });
 
   it('hit', () => {
     vm = createVue({
       template: `
-      <top-tag hit></top-tag>
+      <el-tag hit></el-tag>
       `
     }, true);
     expect(vm.$el.classList.contains('is-hit')).to.be.true;
@@ -48,7 +48,7 @@ describe('Tag', () => {
   it('closable', done => {
     vm = createVue({
       template: `
-      <top-tag closable @close="handleClose">关闭标签</top-tag>
+      <el-tag closable @close="handleClose">关闭标签</el-tag>
       `,
       data() {
         return {
@@ -61,7 +61,7 @@ describe('Tag', () => {
         }
       }
     }, true);
-    var closeBtn = vm.$el.querySelector('.top-tag .top-tag__close');
+    var closeBtn = vm.$el.querySelector('.el-tag .el-tag__close');
     expect(closeBtn).to.exist;
     closeBtn.click();
     vm.$nextTick(_ => {
@@ -73,7 +73,7 @@ describe('Tag', () => {
   it('closeTransition', () => {
     vm = createVue({
       template: `
-      <top-tag closable closeTransition></top-tag>
+      <el-tag closable closeTransition></el-tag>
       `
     }, true);
     expect(vm.$el.classList.contains('md-fade-center')).to.be.false;
@@ -82,7 +82,7 @@ describe('Tag', () => {
   it('color', () => {
     vm = createVue({
       template: `
-      <top-tag ref="tag" color="rgb(0, 0, 0)"></top-tag>
+      <el-tag ref="tag" color="rgb(0, 0, 0)"></el-tag>
       `
     }, true);
     expect(vm.$el.style.backgroundColor).to.equal('rgb(0, 0, 0)');
@@ -91,7 +91,7 @@ describe('Tag', () => {
   it('click', done => {
     vm = createVue({
       template: `
-      <top-tag ref="tag" @click="handleClick">点击标签</top-tag>
+      <el-tag ref="tag" @click="handleClick">点击标签</el-tag>
       `,
       data() {
         return {

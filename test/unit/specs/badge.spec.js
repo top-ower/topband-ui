@@ -14,22 +14,22 @@ describe('Badge', () => {
 
   it('is fixed', () => {
     vm = createVue(`
-      <top-badge>
+      <el-badge>
         <button>click</button>
-      </top-badge>
+      </el-badge>
     `);
 
-    expect(vm.$el.querySelector('.top-badge__content.is-fixed')).to.exist;
+    expect(vm.$el.querySelector('.el-badge__content.is-fixed')).to.exist;
   });
 
   it('is dot', () => {
     vm = createVue(`
-      <top-badge is-dot>
+      <el-badge is-dot>
         <button>click</button>
-      </top-badge>
+      </el-badge>
     `);
 
-    expect(vm.$el.querySelector('.top-badge__content.is-dot')).to.exist;
+    expect(vm.$el.querySelector('.el-badge__content.is-dot')).to.exist;
   });
 
   it('max', () => {

@@ -9,8 +9,8 @@ describe('Radio', () => {
   it('create', done => {
     vm = createVue({
       template: `
-        <top-radio v-model="radio" label="a">
-        </top-radio>
+        <el-radio v-model="radio" label="a">
+        </el-radio>
       `,
       data() {
         return {
@@ -19,7 +19,7 @@ describe('Radio', () => {
       }
     }, true);
     let radioElm = vm.$el;
-    expect(radioElm.classList.contains('top-radio')).to.be.true;
+    expect(radioElm.classList.contains('el-radio')).to.be.true;
     radioElm.click();
     setTimeout(_ => {
       expect(radioElm.querySelector('.is-checked')).to.be.ok;
@@ -29,12 +29,12 @@ describe('Radio', () => {
   it('disabled', done => {
     vm = createVue({
       template: `
-        <top-radio
+        <el-radio
           v-model="radio"
           label="3"
           disabled
         >
-        </top-radio>
+        </el-radio>
       `,
       data() {
         return {
@@ -53,12 +53,12 @@ describe('Radio', () => {
   it('border', () => {
     vm = createVue({
       template: `
-        <top-radio
+        <el-radio
           v-model="radio"
           label="3"
           border
         >
-        </top-radio>
+        </el-radio>
       `,
       data() {
         return {
@@ -72,12 +72,12 @@ describe('Radio', () => {
   it('change event', done => {
     vm = createVue({
       template: `
-        <top-radio
+        <el-radio
           v-model="radio"
           label="3"
           @change="handleChange"
         >
-        </top-radio>
+        </el-radio>
       `,
       data() {
         return {
@@ -101,12 +101,12 @@ describe('Radio', () => {
   it('change event only triggers on user input', done => {
     vm = createVue({
       template: `
-        <top-radio
+        <el-radio
           v-model="radio"
           label="3"
           @change="handleChange"
         >
-        </top-radio>
+        </el-radio>
       `,
       data() {
         return {
@@ -130,11 +130,11 @@ describe('Radio', () => {
     it('create', done => {
       vm = createVue({
         template: `
-          <top-radio-group v-model="radio">
-            <top-radio :label="3" ref="radio1">备选项</top-radio>
-            <top-radio :label="6" ref="radio2">备选项</top-radio>
-            <top-radio :label="9">备选项</top-radio>
-          </top-radio-group>
+          <el-radio-group v-model="radio">
+            <el-radio :label="3" ref="radio1">备选项</el-radio>
+            <el-radio :label="6" ref="radio2">备选项</el-radio>
+            <el-radio :label="9">备选项</el-radio>
+          </el-radio-group>
         `,
         data() {
           return {
@@ -156,11 +156,11 @@ describe('Radio', () => {
     it('disabled', done => {
       vm = createVue({
         template: `
-          <top-radio-group v-model="radio" disabled>
-            <top-radio :label="3" ref="radio1">备选项</top-radio>
-            <top-radio :label="6" ref="radio2">备选项</top-radio>
-            <top-radio :label="9">备选项</top-radio>
-          </top-radio-group>
+          <el-radio-group v-model="radio" disabled>
+            <el-radio :label="3" ref="radio1">备选项</el-radio>
+            <el-radio :label="6" ref="radio2">备选项</el-radio>
+            <el-radio :label="9">备选项</el-radio>
+          </el-radio-group>
         `,
         data() {
           return {
@@ -181,11 +181,11 @@ describe('Radio', () => {
     it('change event', done => {
       vm = createVue({
         template: `
-          <top-radio-group v-model="radio" @change="onChange">
-            <top-radio :label="3">备选项</top-radio>
-            <top-radio :label="6" ref="radio2">备选项</top-radio>
-            <top-radio :label="9">备选项</top-radio>
-          </top-radio-group>
+          <el-radio-group v-model="radio" @change="onChange">
+            <el-radio :label="3">备选项</el-radio>
+            <el-radio :label="6" ref="radio2">备选项</el-radio>
+            <el-radio :label="9">备选项</el-radio>
+          </el-radio-group>
         `,
         methods: {
           onChange(val) {
@@ -209,11 +209,11 @@ describe('Radio', () => {
     it('change event only triggers on user input', done => {
       vm = createVue({
         template: `
-          <top-radio-group v-model="radio" @change="onChange">
-            <top-radio :label="3">备选项</top-radio>
-            <top-radio :label="6">备选项</top-radio>
-            <top-radio :label="9">备选项</top-radio>
-          </top-radio-group>
+          <el-radio-group v-model="radio" @change="onChange">
+            <el-radio :label="3">备选项</el-radio>
+            <el-radio :label="6">备选项</el-radio>
+            <el-radio :label="9">备选项</el-radio>
+          </el-radio-group>
         `,
         methods: {
           onChange(val) {
@@ -236,11 +236,11 @@ describe('Radio', () => {
     it('disabled when children is radio button', done => {
       vm = createVue({
         template: `
-          <top-radio-group v-model="radio" disabled>
-            <top-radio-button :label="3" ref="radio1">备选项</top-radio-button>
-            <top-radio-button :label="6" ref="radio2">备选项</top-radio-button>
-            <top-radio-button :label="9">备选项</top-radio-button>
-          </top-radio-group>
+          <el-radio-group v-model="radio" disabled>
+            <el-radio-button :label="3" ref="radio1">备选项</el-radio-button>
+            <el-radio-button :label="6" ref="radio2">备选项</el-radio-button>
+            <el-radio-button :label="9">备选项</el-radio-button>
+          </el-radio-group>
         `,
         data() {
           return {
@@ -261,11 +261,11 @@ describe('Radio', () => {
     it('keyboard event', done => {
       vm = createVue({
         template: `
-          <top-radio-group v-model="radio">
-            <top-radio-button ref="radio1" :label="3">备选项</top-radio-button>
-            <top-radio-button ref="radio2" :label="6">备选项</top-radio-button>
-            <top-radio-button ref="radio3" :label="9">备选项</top-radio-button>
-          </top-radio-group>
+          <el-radio-group v-model="radio">
+            <el-radio-button ref="radio1" :label="3">备选项</el-radio-button>
+            <el-radio-button ref="radio2" :label="6">备选项</el-radio-button>
+            <el-radio-button ref="radio3" :label="9">备选项</el-radio-button>
+          </el-radio-group>
         `,
         data() {
           return {
@@ -302,11 +302,11 @@ describe('Radio', () => {
       it('create', done => {
         vm = createVue({
           template: `
-            <top-radio-group v-model="radio">
-              <top-radio-button :label="3" ref="radio1">备选项</top-radio-button>
-              <top-radio-button :label="6" ref="radio2">备选项</top-radio-button>
-              <top-radio-button :label="9">备选项</top-radio-button>
-            </top-radio-group>
+            <el-radio-group v-model="radio">
+              <el-radio-button :label="3" ref="radio1">备选项</el-radio-button>
+              <el-radio-button :label="6" ref="radio2">备选项</el-radio-button>
+              <el-radio-button :label="9">备选项</el-radio-button>
+            </el-radio-group>
           `,
           data() {
             return {
@@ -326,11 +326,11 @@ describe('Radio', () => {
       it('custom color', done => {
         vm = createVue({
           template: `
-            <top-radio-group v-model="radio" fill="#000" text-color="#ff0">
-              <top-radio-button :label="3" ref="radio1">备选项</top-radio-button>
-              <top-radio-button :label="6" ref="radio2">备选项</top-radio-button>
-              <top-radio-button :label="9">备选项</top-radio-button>
-            </top-radio-group>
+            <el-radio-group v-model="radio" fill="#000" text-color="#ff0">
+              <el-radio-button :label="3" ref="radio1">备选项</el-radio-button>
+              <el-radio-button :label="6" ref="radio2">备选项</el-radio-button>
+              <el-radio-button :label="9">备选项</el-radio-button>
+            </el-radio-group>
           `,
           data() {
             return {
@@ -348,11 +348,11 @@ describe('Radio', () => {
       it('change event', done => {
         vm = createVue({
           template: `
-            <top-radio-group v-model="radio" @change="onChange">
-              <top-radio-button :label="3">备选项</top-radio-button>
-              <top-radio-button :label="6" ref="radio2">备选项</top-radio-button>
-              <top-radio-button :label="9">备选项</top-radio-button>
-            </top-radio-group>
+            <el-radio-group v-model="radio" @change="onChange">
+              <el-radio-button :label="3">备选项</el-radio-button>
+              <el-radio-button :label="6" ref="radio2">备选项</el-radio-button>
+              <el-radio-button :label="9">备选项</el-radio-button>
+            </el-radio-group>
           `,
           methods: {
             onChange(val) {
@@ -376,11 +376,11 @@ describe('Radio', () => {
       it('change event only triggers on user input', done => {
         vm = createVue({
           template: `
-            <top-radio-group v-model="radio" @change="onChange">
-              <top-radio-button :label="3">备选项</top-radio-button>
-              <top-radio-button :label="6" ref="radio2">备选项</top-radio-button>
-              <top-radio-button :label="9">备选项</top-radio-button>
-            </top-radio-group>
+            <el-radio-group v-model="radio" @change="onChange">
+              <el-radio-button :label="3">备选项</el-radio-button>
+              <el-radio-button :label="6" ref="radio2">备选项</el-radio-button>
+              <el-radio-button :label="9">备选项</el-radio-button>
+            </el-radio-group>
           `,
           methods: {
             onChange(val) {
@@ -403,11 +403,11 @@ describe('Radio', () => {
       it('size', done => {
         vm = createVue({
           template: `
-            <top-radio-group v-model="radio" size="large">
-              <top-radio-button :label="3" ref="radio1">备选项</top-radio-button>
-              <top-radio-button :label="6" ref="radio2">备选项</top-radio-button>
-              <top-radio-button :label="9">备选项</top-radio-button>
-            </top-radio-group>
+            <el-radio-group v-model="radio" size="large">
+              <el-radio-button :label="3" ref="radio1">备选项</el-radio-button>
+              <el-radio-button :label="6" ref="radio2">备选项</el-radio-button>
+              <el-radio-button :label="9">备选项</el-radio-button>
+            </el-radio-group>
           `,
           data() {
             return {
@@ -416,7 +416,7 @@ describe('Radio', () => {
           }
         }, true);
         setTimeout(_ => {
-          expect(vm.$el.querySelectorAll('.top-radio-button--large').length).to.be.equal(3);
+          expect(vm.$el.querySelectorAll('.el-radio-button--large').length).to.be.equal(3);
           done();
         }, 10);
       });

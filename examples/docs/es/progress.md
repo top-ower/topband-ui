@@ -5,11 +5,11 @@ Progreso es usado para mostrar el estado de la operación actual e informar al u
 
 :::demo Usa el atributo `percentage` para asignar el porcentage. Este es **requerido** y tiene que ser un valor entre `0-100`.
 ```html
-<top-progress :percentage="0"></top-progress>
-<top-progress :percentage="70"></top-progress>
-<top-progress :percentage="80" color="#8e71c7"></top-progress>
-<top-progress :percentage="100" status="success"></top-progress>
-<top-progress :percentage="50" status="exception"></top-progress>
+<el-progress :percentage="0"></el-progress>
+<el-progress :percentage="70"></el-progress>
+<el-progress :percentage="80" color="#8e71c7"></el-progress>
+<el-progress :percentage="100" status="success"></el-progress>
+<el-progress :percentage="50" status="exception"></el-progress>
 ```
 :::
 
@@ -18,11 +18,11 @@ En este caso el porcentage no toma espacio adicional.
 
 :::demo El atributo `stroke-width` decide el ancho de la barra de progreso, y usa el atributo `text-inside` para poner la descripción dentro de la misma.
 ```html
-<top-progress :text-inside="true" :stroke-width="18" :percentage="0"></top-progress>
-<top-progress :text-inside="true" :stroke-width="18" :percentage="70"></top-progress>
-<top-progress :text-inside="true" :stroke-width="18" :percentage="80" color="rgba(142, 113, 199, 0.7)"></top-progress>
-<top-progress :text-inside="true" :stroke-width="18" :percentage="100" status="success"></top-progress>
-<top-progress :text-inside="true" :stroke-width="18" :percentage="50" status="exception"></top-progress>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="0"></el-progress>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="70"></el-progress>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="80" color="rgba(142, 113, 199, 0.7)"></el-progress>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="100" status="success"></el-progress>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="50" status="exception"></el-progress>
 ```
 :::
 
@@ -30,12 +30,12 @@ En este caso el porcentage no toma espacio adicional.
 
 :::demo Puede asignar el atributo `type` como `circle` para usar la barra circular de progreso, y usar el atributo `width` para cambiar el tamaño del círculo.
 ```html
-<top-progress type="circle" :percentage="0"></top-progress>
-<top-progress type="circle" :percentage="25"></top-progress>
-<top-progress type="circle" :percentage="80" color="#8e71c7"></top-progress>
-<top-progress type="circle" :percentage="100" status="success"></top-progress>
-<top-progress type="circle" :percentage="50" status="exception"></top-progress>
-<top-progress type="circle" :percentage="100" status="text">Done</top-progress>
+<el-progress type="circle" :percentage="0"></el-progress>
+<el-progress type="circle" :percentage="25"></el-progress>
+<el-progress type="circle" :percentage="80" color="#8e71c7"></el-progress>
+<el-progress type="circle" :percentage="100" status="success"></el-progress>
+<el-progress type="circle" :percentage="50" status="exception"></el-progress>
+<el-progress type="circle" :percentage="100" status="text">Done</el-progress>
 ```
 :::
 

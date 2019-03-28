@@ -1,13 +1,13 @@
 <template>
   <div
-    class="top-autocomplete"
+    class="el-autocomplete"
     v-clickoutside="close"
     aria-haspopup="listbox"
     role="combobox"
     :aria-expanded="suggestionVisible"
     :aria-owns="id"
   >
-    <top-input
+    <el-input
       ref="input"
       v-bind="[$props, $attrs]"
       @input="handleChange"
@@ -31,8 +31,8 @@
       <template slot="suffix" v-if="$slots.suffix">
         <slot name="suffix"></slot>
       </template>
-    </top-input>
-    <top-autocomplete-suggestions
+    </el-input>
+    <el-autocomplete-suggestions
       visible-arrow
       :class="[popperClass ? popperClass : '']"
       :popper-options="popperOptions"
@@ -53,31 +53,31 @@
           {{ item[valueKey] }}
         </slot>
       </li>
-    </top-autocomplete-suggestions>
+    </el-autocomplete-suggestions>
   </div>
 </template>
 <script>
   import debounce from 'throttle-debounce/debounce';
-  import TOPInput from 'topband-ui/packages/input';
-  import Clickoutside from 'topband-ui/src/utils/clickoutside';
-  import TOPAutocompleteSuggestions from './autocomplete-suggestions.vue';
-  import Emitter from 'topband-ui/src/mixins/emitter';
-  import Migrating from 'topband-ui/src/mixins/migrating';
-  import { generateId } from 'topband-ui/src/utils/util';
-  import Focus from 'topband-ui/src/mixins/focus';
+  import ElInput from 'element-ui/packages/input';
+  import Clickoutside from 'element-ui/src/utils/clickoutside';
+  import ElAutocompleteSuggestions from './autocomplete-suggestions.vue';
+  import Emitter from 'element-ui/src/mixins/emitter';
+  import Migrating from 'element-ui/src/mixins/migrating';
+  import { generateId } from 'element-ui/src/utils/util';
+  import Focus from 'element-ui/src/mixins/focus';
 
   export default {
-    name: 'TOPAutocomplete',
+    name: 'ElAutocomplete',
 
     mixins: [Emitter, Focus('input'), Migrating],
 
     inheritAttrs: false,
 
-    componentName: 'TOPAutocomplete',
+    componentName: 'ElAutocomplete',
 
     components: {
-      TOPInput,
-      TOPAutocompleteSuggestions
+      ElInput,
+      ElAutocompleteSuggestions
     },
 
     directives: { Clickoutside },
@@ -148,7 +148,7 @@
         return (isValidData || this.loading) && this.activated;
       },
       id() {
-        return `top-autocomplete-${generateId()}`;
+        return `el-autocomplete-${generateId()}`;
       }
     },
     watch: {
@@ -242,8 +242,8 @@
         if (index >= this.suggestions.length) {
           index = this.suggestions.length - 1;
         }
-        const suggestion = this.$refs.suggestions.$el.querySelector('.top-autocomplete-suggestion__wrap');
-        const suggestionList = suggestion.querySelectorAll('.top-autocomplete-suggestion__list li');
+        const suggestion = this.$refs.suggestions.$el.querySelector('.el-autocomplete-suggestion__wrap');
+        const suggestionList = suggestion.querySelectorAll('.el-autocomplete-suggestion__list li');
 
         let highlightItem = suggestionList[index];
         let scrollTop = suggestion.scrollTop;

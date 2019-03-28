@@ -1,6 +1,6 @@
 <template>
   <div
-    class="top-slider__button-wrapper"
+    class="el-slider__button-wrapper"
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
     @mousedown="onButtonDown"
@@ -16,19 +16,19 @@
     @keydown.down.prevent="onLeftKeyDown"
     @keydown.up.prevent="onRightKeyDown"
   >
-    <top-tooltip
+    <el-tooltip
       placement="top"
       ref="tooltip"
       :popper-class="tooltipClass"
       :disabled="!showTooltip">
       <span slot="content">{{ formatValue }}</span>
-      <div class="top-slider__button" :class="{ 'hover': hovering, 'dragging': dragging }"></div>
-    </top-tooltip>
+      <div class="el-slider__button" :class="{ 'hover': hovering, 'dragging': dragging }"></div>
+    </el-tooltip>
   </div>
 </template>
 
 <script>
-  import ElTooltip from 'topband-ui/packages/tooltip';
+  import ElTooltip from 'element-ui/packages/tooltip';
 
   export default {
     name: 'ElSliderButton',

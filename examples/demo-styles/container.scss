@@ -1,42 +1,43 @@
-.top-header, .top-footer {
+.el-header,
+.el-footer {
   background-color: #b3c0d1;
   color: #333;
   line-height: 60px;
 }
 
-.top-aside {
+.el-aside {
   color: #333;
 }
 
 #chang-jian-ye-mian-bu-ju + .demo-container {
-  .top-header, .top-footer {
+  .el-header,
+  .el-footer {
     text-align: center;
   }
 
-  .top-aside {
+  .el-aside {
     background-color: #d3dce6;
     text-align: center;
     line-height: 200px;
   }
 
-  .top-main {
+  .el-main {
     background-color: #e9eef3;
     color: #333;
     text-align: center;
     line-height: 160px;
   }
 
-  & > .source > .top-container {
+  & > .source > .el-container {
     margin-bottom: 40px;
 
-    &:nth-child(5) .top-aside, &:nth-child(6) .top-aside {
+    &:nth-child(5) .el-aside,
+    &:nth-child(6) .el-aside {
       line-height: 260px;
     }
 
-    &:nth-child(7) .top-aside {
+    &:nth-child(7) .el-aside {
       line-height: 320px;
     }
-
   }
-
 }

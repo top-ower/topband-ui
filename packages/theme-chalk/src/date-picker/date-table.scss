@@ -6,36 +6,30 @@
   user-select: none;
 
   @include when(week-mode) {
-    .top-date-table__row {
+    .el-date-table__row {
       &:hover {
         div {
           background-color: $--datepicker-inrange-color;
         }
-
         td.available:hover {
           color: $--datepicker-font-color;
         }
-
         td:first-child div {
           margin-left: 5px;
           border-top-left-radius: 15px;
           border-bottom-left-radius: 15px;
         }
-
         td:last-child div {
           margin-right: 5px;
           border-top-right-radius: 15px;
           border-bottom-right-radius: 15px;
         }
-
       }
 
       &.current div {
         background-color: $--datepicker-inrange-color;
       }
-
     }
-
   }
 
   td {
@@ -65,22 +59,21 @@
       border-radius: 50%;
     }
 
-    &.next-month, &.prev-month {
+    &.next-month,
+    &.prev-month {
       color: $--datepicker-off-font-color;
     }
 
     &.today {
       position: relative;
-
       span {
         color: $--color-primary;
         font-weight: bold;
       }
-
-      &.start-date span, &.end-date span {
+      &.start-date span,
+      &.end-date span {
         color: $--color-white;
       }
-
     }
 
     &.available:hover {
@@ -89,23 +82,22 @@
 
     &.in-range div {
       background-color: $--datepicker-inrange-color;
-
       &:hover {
         background-color: $--datepicker-inrange-hover-color;
       }
-
     }
 
     &.current:not(.disabled) span {
       color: $--color-white;
       background-color: $--datepicker-active-color;
     }
-
-    &.start-date div, &.end-date div {
+    &.start-date div,
+    &.end-date div {
       color: $--color-white;
     }
 
-    &.start-date span, &.end-date span {
+    &.start-date span,
+    &.end-date span {
       background-color: $--datepicker-active-color;
     }
 
@@ -133,11 +125,9 @@
       margin-right: 5px;
       background-color: $--datepicker-inrange-color;
       border-radius: 15px;
-
       &:hover {
         background-color: $--datepicker-inrange-hover-color;
       }
-
     }
 
     &.selected span {
@@ -150,7 +140,6 @@
       font-size: 80%;
       color: $--datepicker-header-font-color;
     }
-
   }
 
   th {
@@ -159,5 +148,4 @@
     font-weight: 400;
     border-bottom: solid 1px $--border-color-lighter;
   }
-
 }

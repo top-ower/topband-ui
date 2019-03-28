@@ -97,8 +97,8 @@ Element 为了避免视觉传达差异，使用一套特定的调色板来规定
 
 Element 主要品牌颜色是鲜艳、友好的蓝色。
 
-<top-row :gutter="12">
-  <top-col :span="10" :xs="{span: 12}">
+<el-row :gutter="12">
+  <el-col :span="10" :xs="{span: 12}">
     <div class="demo-color-box" :style="{ background: primary }">Brand Color
       <div class="value">#409EFF</div>
       <div class="bg-color-sub" :style="{ background: tintColor(primary, 0.9) }">
@@ -110,15 +110,15 @@ Element 主要品牌颜色是鲜艳、友好的蓝色。
         ></div>
       </div>
     </div>
-  </top-col>
-</top-row>
+  </el-col>
+</el-row>
 
 ### 辅助色
 
 除了主色外的场景色，需要在不同的场景中使用（例如危险色表示危险的操作）。
 
-<top-row :gutter="12">
-  <top-col :span="6" :xs="{span: 12}">
+<el-row :gutter="12">
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box"
     :style="{ background: success }"
     >Success<div class="value">#67C23A</div>
@@ -134,8 +134,8 @@ Element 主要品牌颜色是鲜艳、友好的蓝色。
         </div>
       </div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box"
     :style="{ background: warning }"
     >Warning<div class="value">#E6A23C</div>
@@ -151,8 +151,8 @@ Element 主要品牌颜色是鲜艳、友好的蓝色。
         </div>
       </div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box"
     :style="{ background: danger }"
     >Danger<div class="value">#F56C6C</div>
@@ -168,8 +168,8 @@ Element 主要品牌颜色是鲜艳、友好的蓝色。
         </div>
       </div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box"
     :style="{ background: info }"
     >Info<div class="value">#909399</div>
@@ -185,15 +185,15 @@ Element 主要品牌颜色是鲜艳、友好的蓝色。
         </div>
       </div>
     </div>
-  </top-col>
-</top-row>
+  </el-col>
+</el-row>
 
 ### 中性色
 
 中性色用于文本、背景和边框颜色。通过运用不同的中性色，来表现层次结构。
 
-<top-row :gutter="12">
-  <top-col :span="6" :xs="{span: 12}">
+<el-row :gutter="12">
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box-group">
       <div class="demo-color-box demo-color-box-other"
       :style="{ background: textPrimary }"
@@ -209,8 +209,8 @@ Element 主要品牌颜色是鲜艳、友好的蓝色。
       :style="{ background: textPlaceholder }"
       >占位文字<div class="value">{{textPlaceholder}}</div></div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box-group">
       <div class="demo-color-box demo-color-box-other demo-color-box-lite"
       :style="{ background: borderBase }"
@@ -225,8 +225,8 @@ Element 主要品牌颜色是鲜艳、友好的蓝色。
       :style="{ background: borderExtraLight }"
       >四级边框<div class="value">{{borderExtraLight}}</div></div>
     </div>
-  </top-col>
-  <top-col :span="6" :xs="{span: 12}">
+  </el-col>
+  <el-col :span="6" :xs="{span: 12}">
     <div class="demo-color-box-group">
       <div 
       class="demo-color-box demo-color-box-other"
@@ -239,5 +239,5 @@ Element 主要品牌颜色是鲜艳、友好的蓝色。
       <div class="demo-color-box demo-color-box-other bg-transparent">透明<div class="value">Transparent</div>
       </div>
     </div>
-  </top-col>
-</top-row>
+  </el-col>
+</el-row>

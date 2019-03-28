@@ -2,7 +2,7 @@ import { ElementUIComponent, ElementUIComponentSize } from './component'
 
 /** FormItem Component */
 export declare class ElFormItem extends ElementUIComponent {
-  /** A key of `model` of the enclosing `top-form` component */
+  /** A key of `model` of the enclosing `el-form` component */
   prop: string
 
   /** Label */

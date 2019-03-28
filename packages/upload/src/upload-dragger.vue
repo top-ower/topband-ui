@@ -1,6 +1,6 @@
 <template>
   <div
-    class="top-upload-dragger"
+    class="el-upload-dragger"
     :class="{
       'is-dragover': dragover
     }"

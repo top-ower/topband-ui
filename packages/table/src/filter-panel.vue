@@ -1,21 +1,21 @@
 <template>
-  <transition name="top-zoom-in-top">
+  <transition name="el-zoom-in-top">
     <div
-      class="top-table-filter"
+      class="el-table-filter"
       v-if="multiple"
       v-clickoutside="handleOutsideClick"
       v-show="showPopper">
-      <div class="top-table-filter__content">
-        <top-scrollbar wrap-class="top-table-filter__wrap">
-          <top-checkbox-group class="top-table-filter__checkbox-group" v-model="filteredValue">
-            <top-checkbox
+      <div class="el-table-filter__content">
+        <el-scrollbar wrap-class="el-table-filter__wrap">
+          <el-checkbox-group class="el-table-filter__checkbox-group" v-model="filteredValue">
+            <el-checkbox
               v-for="filter in filters"
               :key="filter.value"
-              :label="filter.value">{{ filter.text }}</top-checkbox>
-          </top-checkbox-group>
-        </top-scrollbar>
+              :label="filter.value">{{ filter.text }}</el-checkbox>
+          </el-checkbox-group>
+        </el-scrollbar>
       </div>
-      <div class="top-table-filter__bottom">
+      <div class="el-table-filter__bottom">
         <button @click="handleConfirm"
           :class="{ 'is-disabled': filteredValue.length === 0 }"
           :disabled="filteredValue.length === 0">{{ t('el.table.confirmFilter') }}</button>
@@ -23,15 +23,15 @@
       </div>
     </div>
     <div
-      class="top-table-filter"
+      class="el-table-filter"
       v-else
       v-clickoutside="handleOutsideClick"
       v-show="showPopper">
-      <ul class="top-table-filter__list">
-        <li class="top-table-filter__list-item"
+      <ul class="el-table-filter__list">
+        <li class="el-table-filter__list-item"
             :class="{ 'is-active': filterValue === undefined || filterValue === null }"
             @click="handleSelect(null)">{{ t('el.table.clearFilter') }}</li>
-        <li class="top-table-filter__list-item"
+        <li class="el-table-filter__list-item"
             v-for="filter in filters"
             :label="filter.value"
             :key="filter.value"
@@ -43,13 +43,13 @@
 </template>
 
 <script type="text/babel">
-  import Popper from 'topband-ui/src/utils/vue-popper';
-  import { PopupManager } from 'topband-ui/src/utils/popup';
-  import Locale from 'topband-ui/src/mixins/locale';
-  import Clickoutside from 'topband-ui/src/utils/clickoutside';
+  import Popper from 'element-ui/src/utils/vue-popper';
+  import { PopupManager } from 'element-ui/src/utils/popup';
+  import Locale from 'element-ui/src/mixins/locale';
+  import Clickoutside from 'element-ui/src/utils/clickoutside';
   import Dropdown from './dropdown';
-  import ElCheckbox from 'topband-ui/packages/checkbox';
-  import ElCheckboxGroup from 'topband-ui/packages/checkbox-group';
+  import ElCheckbox from 'element-ui/packages/checkbox';
+  import ElCheckboxGroup from 'element-ui/packages/checkbox-group';
 
   export default {
     name: 'ElTableFilterPanel',
@@ -73,10 +73,10 @@
     },
 
     customRender(h) {
-      return (<div class="top-table-filter">
-        <div class="top-table-filter__content">
+      return (<div class="el-table-filter">
+        <div class="el-table-filter__content">
         </div>
-        <div class="top-table-filter__bottom">
+        <div class="el-table-filter__bottom">
           <button on-click={ this.handleConfirm }>{ this.t('el.table.confirmFilter') }</button>
           <button on-click={ this.handleReset }>{ this.t('el.table.resetFilter') }</button>
         </div>

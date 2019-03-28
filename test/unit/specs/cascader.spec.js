@@ -9,13 +9,13 @@ describe('Cascader', () => {
   it('create', done => {
     vm = createVue({
       template: `
-        <top-cascader
+        <el-cascader
           ref="cascader"
           placeholder="请选择"
           :options="options"
           clearable
           v-model="selectedOptions"
-        ></top-cascader>
+        ></el-cascader>
       `,
       data() {
         return {
@@ -56,36 +56,37 @@ describe('Cascader', () => {
     expect(vm.$el).to.be.exist;
     vm.$el.click();
     setTimeout(_ => {
-      expect(document.body.querySelector('.top-cascader-menus')).to.be.exist;
+      expect(document.body.querySelector('.el-cascader-menus')).to.be.exist;
 
       const menu = vm.$refs.cascader.menu;
       const menuElm = menu.$el;
-      const item1 = menuElm.querySelector('.top-cascader-menu__item');
+      const item1 = menuElm.querySelector('.el-cascader-menu__item');
 
       item1.click();
       menu.$nextTick(_ => {
         expect(menuElm.children.length).to.be.equal(3); // two menus and an arrow
         expect(item1.classList.contains('is-active')).to.be.true;
 
-        const item2 = menuElm.children[2].querySelector('.top-cascader-menu__item');
+        const item2 = menuElm.children[2].querySelector('.el-cascader-menu__item');
         item2.click();
 
         menu.$nextTick(_ => {
           expect(menuElm.children.length).to.be.equal(4);
           expect(item2.classList.contains('is-active')).to.be.true;
 
-          const item3 = menuElm.children[3].querySelector('.top-cascader-menu__item');
+          const item3 = menuElm.children[3].querySelector('.el-cascader-menu__item');
           item3.click();
 
           setTimeout(_ => {
-            expect(document.body.querySelector('.top-cascader-menus').style.display).to.be.equal('none');
+            expect(document.body.querySelector('.el-cascader-menus').style.display).to.be.equal('none');
             expect(vm.selectedOptions[0]).to.be.equal('zhejiang');
             expect(vm.selectedOptions[1]).to.be.equal('hangzhou');
             expect(vm.selectedOptions[2]).to.be.equal('xihu');
+            expect(vm.$refs.cascader.$el.querySelector('.el-input__inner').value).to.be.equal('');
 
             triggerEvent(vm.$refs.cascader.$el, 'mouseenter');
             vm.$nextTick(_ => {
-              vm.$refs.cascader.$el.querySelector('.top-cascader__clearIcon').click();
+              vm.$refs.cascader.$el.querySelector('.el-cascader__clearIcon').click();
               vm.$nextTick(_ => {
                 expect(vm.selectedOptions.length).to.be.equal(0);
                 done();
@@ -100,13 +101,13 @@ describe('Cascader', () => {
   it('should work with zero', done => {
     vm = createVue({
       template: `
-        <top-cascader
+        <el-cascader
           ref="cascader"
           placeholder="请选择"
           :options="options"
           clearable
           v-model="selectedOptions"
-        ></top-cascader>
+        ></el-cascader>
       `,
       data() {
         return {
@@ -147,36 +148,36 @@ describe('Cascader', () => {
     expect(vm.$el).to.be.exist;
     vm.$el.click();
     setTimeout(_ => {
-      expect(document.body.querySelector('.top-cascader-menus')).to.be.exist;
+      expect(document.body.querySelector('.el-cascader-menus')).to.be.exist;
 
       const menu = vm.$refs.cascader.menu;
       const menuElm = menu.$el;
-      const item1 = menuElm.querySelector('.top-cascader-menu__item');
+      const item1 = menuElm.querySelector('.el-cascader-menu__item');
 
       item1.click();
       menu.$nextTick(_ => {
         expect(menuElm.children.length).to.be.equal(3);
         expect(item1.classList.contains('is-active')).to.be.true;
 
-        const item2 = menuElm.children[2].querySelector('.top-cascader-menu__item');
+        const item2 = menuElm.children[2].querySelector('.el-cascader-menu__item');
         item2.click();
 
         menu.$nextTick(_ => {
           expect(menuElm.children.length).to.be.equal(4);
           expect(item2.classList.contains('is-active')).to.be.true;
 
-          const item3 = menuElm.children[3].querySelector('.top-cascader-menu__item');
+          const item3 = menuElm.children[3].querySelector('.el-cascader-menu__item');
           item3.click();
 
           setTimeout(_ => {
-            expect(document.body.querySelector('.top-cascader-menus').style.display).to.be.equal('none');
+            expect(document.body.querySelector('.el-cascader-menus').style.display).to.be.equal('none');
             expect(vm.selectedOptions[0]).to.be.equal('zhejiang');
             expect(vm.selectedOptions[1]).to.be.equal(0);
             expect(vm.selectedOptions[2]).to.be.equal('xihu');
 
             triggerEvent(vm.$refs.cascader.$el, 'mouseenter');
             vm.$nextTick(_ => {
-              vm.$refs.cascader.$el.querySelector('.top-cascader__clearIcon').click();
+              vm.$refs.cascader.$el.querySelector('.el-cascader__clearIcon').click();
               vm.$nextTick(_ => {
                 expect(vm.selectedOptions.length).to.be.equal(0);
                 done();
@@ -190,13 +191,13 @@ describe('Cascader', () => {
   it('not allow clearable', done => {
     vm = createVue({
       template: `
-        <top-cascader
+        <el-cascader
           ref="cascader"
           placeholder="请选择"
           :options="options"
           :clearable="false"
           v-model="selectedOptions"
-        ></top-cascader>
+        ></el-cascader>
       `,
       data() {
         return {
@@ -237,19 +238,19 @@ describe('Cascader', () => {
     expect(vm.$el).to.be.exist;
     triggerEvent(vm.$refs.cascader.$el, 'mouseenter');
     vm.$nextTick(_ => {
-      expect(vm.$refs.cascader.$el.querySelector('.top-cascader__clearIcon')).to.not.exist;
+      expect(vm.$refs.cascader.$el.querySelector('.el-cascader__clearIcon')).to.not.exist;
       done();
     });
   });
   it('disabled options', done => {
     vm = createVue({
       template: `
-        <top-cascader
+        <el-cascader
           ref="cascader"
           placeholder="请选择"
           :options="options"
           v-model="selectedOptions"
-        ></top-cascader>
+        ></el-cascader>
       `,
       data() {
         return {
@@ -291,11 +292,11 @@ describe('Cascader', () => {
     expect(vm.$el).to.be.exist;
     vm.$el.click();
     setTimeout(_ => {
-      expect(document.body.querySelector('.top-cascader-menus')).to.be.exist;
+      expect(document.body.querySelector('.el-cascader-menus')).to.be.exist;
 
       const menu = vm.$refs.cascader.menu;
       const menuElm = menu.$el;
-      const item1 = menuElm.querySelector('.top-cascader-menu__item');
+      const item1 = menuElm.querySelector('.el-cascader-menu__item');
 
       item1.click();
       menu.$nextTick(_ => {
@@ -308,12 +309,12 @@ describe('Cascader', () => {
   it('default value', done => {
     vm = createVue({
       template: `
-        <top-cascader
+        <el-cascader
           ref="cascader"
           placeholder="请选择"
           :options="options"
           v-model="selectedOptions"
-        ></top-cascader>
+        ></el-cascader>
       `,
       data() {
         return {
@@ -354,12 +355,12 @@ describe('Cascader', () => {
     expect(vm.$el).to.be.exist;
     vm.$el.click();
     setTimeout(_ => {
-      expect(document.body.querySelector('.top-cascader-menus')).to.be.exist;
+      expect(document.body.querySelector('.el-cascader-menus')).to.be.exist;
       const menu = vm.$refs.cascader.menu;
       const menuElm = menu.$el;
-      const item1 = menuElm.children[1].querySelector('.top-cascader-menu__item');
-      const item2 = menuElm.children[2].querySelector('.top-cascader-menu__item');
-      const item3 = menuElm.children[3].querySelector('.top-cascader-menu__item');
+      const item1 = menuElm.children[1].querySelector('.el-cascader-menu__item');
+      const item2 = menuElm.children[2].querySelector('.el-cascader-menu__item');
+      const item3 = menuElm.children[3].querySelector('.el-cascader-menu__item');
 
       expect(menuElm.children.length).to.be.equal(4);
       expect(item1.classList.contains('is-active')).to.be.true;
@@ -367,7 +368,7 @@ describe('Cascader', () => {
       expect(item3.classList.contains('is-active')).to.be.true;
       triggerClick(document, 'mouseup');
       setTimeout(_ => {
-        expect(document.body.querySelector('.top-cascader-menus').style.display).to.be.equal('none');
+        expect(document.body.querySelector('.el-cascader-menus').style.display).to.be.equal('none');
         done();
       }, 500);
     }, 300);
@@ -375,13 +376,13 @@ describe('Cascader', () => {
   it('expand by hover', done => {
     vm = createVue({
       template: `
-        <top-cascader
+        <el-cascader
           ref="cascader"
           placeholder="请选择"
           :options="options"
           expand-trigger="hover"
           v-model="selectedOptions"
-        ></top-cascader>
+        ></el-cascader>
       `,
       data() {
         return {
@@ -422,29 +423,29 @@ describe('Cascader', () => {
     expect(vm.$el).to.be.exist;
     vm.$el.click();
     setTimeout(_ => {
-      expect(document.body.querySelector('.top-cascader-menus')).to.be.exist;
+      expect(document.body.querySelector('.el-cascader-menus')).to.be.exist;
 
       const menu = vm.$refs.cascader.menu;
       const menuElm = menu.$el;
-      const item1 = menuElm.querySelector('.top-cascader-menu__item');
+      const item1 = menuElm.querySelector('.el-cascader-menu__item');
 
       triggerEvent(item1, 'mouseenter');
       menu.$nextTick(_ => {
         expect(menuElm.children.length).to.be.equal(3);
         expect(item1.classList.contains('is-active')).to.be.true;
 
-        const item2 = menuElm.children[2].querySelector('.top-cascader-menu__item');
+        const item2 = menuElm.children[2].querySelector('.el-cascader-menu__item');
         triggerEvent(item2, 'mouseenter');
 
         menu.$nextTick(_ => {
           expect(menuElm.children.length).to.be.equal(4);
           expect(item2.classList.contains('is-active')).to.be.true;
 
-          const item3 = menuElm.children[3].querySelector('.top-cascader-menu__item');
+          const item3 = menuElm.children[3].querySelector('.el-cascader-menu__item');
           item3.click();
 
           setTimeout(_ => {
-            expect(document.body.querySelector('.top-cascader-menus').style.display).to.be.equal('none');
+            expect(document.body.querySelector('.el-cascader-menus').style.display).to.be.equal('none');
             expect(vm.selectedOptions[0]).to.be.equal('zhejiang');
             expect(vm.selectedOptions[1]).to.be.equal('hangzhou');
             expect(vm.selectedOptions[2]).to.be.equal('xihu');
@@ -457,13 +458,13 @@ describe('Cascader', () => {
   it('change on select', done => {
     vm = createVue({
       template: `
-        <top-cascader
+        <el-cascader
           ref="cascader"
           placeholder="请选择"
           :options="options"
           change-on-select
           v-model="selectedOptions"
-        ></top-cascader>
+        ></el-cascader>
       `,
       data() {
         return {
@@ -504,11 +505,11 @@ describe('Cascader', () => {
     expect(vm.$el).to.be.exist;
     vm.$el.click();
     setTimeout(_ => {
-      expect(document.body.querySelector('.top-cascader-menus')).to.be.exist;
+      expect(document.body.querySelector('.el-cascader-menus')).to.be.exist;
 
       const menu = vm.$refs.cascader.menu;
       const menuElm = menu.$el;
-      const item1 = menuElm.querySelector('.top-cascader-menu__item');
+      const item1 = menuElm.querySelector('.el-cascader-menu__item');
 
       item1.click();
       menu.$nextTick(_ => {
@@ -516,7 +517,7 @@ describe('Cascader', () => {
         expect(item1.classList.contains('is-active')).to.be.true;
         expect(vm.selectedOptions[0]).to.be.equal('zhejiang');
 
-        const item2 = menuElm.children[2].querySelector('.top-cascader-menu__item');
+        const item2 = menuElm.children[2].querySelector('.el-cascader-menu__item');
         item2.click();
 
         menu.$nextTick(_ => {
@@ -524,11 +525,11 @@ describe('Cascader', () => {
           expect(item2.classList.contains('is-active')).to.be.true;
           expect(vm.selectedOptions[1]).to.be.equal('hangzhou');
 
-          const item3 = menuElm.children[3].querySelector('.top-cascader-menu__item');
+          const item3 = menuElm.children[3].querySelector('.el-cascader-menu__item');
           item3.click();
 
           setTimeout(_ => {
-            expect(document.body.querySelector('.top-cascader-menus').style.display).to.be.equal('none');
+            expect(document.body.querySelector('.el-cascader-menus').style.display).to.be.equal('none');
             expect(vm.selectedOptions[0]).to.be.equal('zhejiang');
             expect(vm.selectedOptions[1]).to.be.equal('hangzhou');
             expect(vm.selectedOptions[2]).to.be.equal('xihu');
@@ -541,14 +542,14 @@ describe('Cascader', () => {
   it('hover and select', done => {
     vm = createVue({
       template: `
-        <top-cascader
+        <el-cascader
           ref="cascader"
           placeholder="请选择"
           :options="options"
           expand-trigger="hover"
           change-on-select
           v-model="selectedOptions"
-        ></top-cascader>
+        ></el-cascader>
       `,
       data() {
         return {
@@ -590,7 +591,7 @@ describe('Cascader', () => {
     vm.$nextTick(() => {
       const menu = vm.$refs.cascader.menu;
       const menuElm = menu.$el;
-      const item1 = menuElm.querySelector('.top-cascader-menu__item');
+      const item1 = menuElm.querySelector('.el-cascader-menu__item');
 
       triggerEvent(item1, 'mouseenter');
       menu.$nextTick(() => {
@@ -611,14 +612,14 @@ describe('Cascader', () => {
   it('filterable', done => {
     vm = createVue({
       template: `
-        <top-cascader
+        <el-cascader
           ref="cascader"
           placeholder="请选择"
           :options="options"
           filterable
           :debounce="0"
           v-model="selectedOptions"
-        ></top-cascader>
+        ></el-cascader>
       `,
       data() {
         return {
@@ -661,11 +662,11 @@ describe('Cascader', () => {
     vm.$nextTick(_ => {
       vm.$refs.cascader.handleInputChange('z');
       setTimeout(_ => {
-        expect(document.body.querySelector('.top-cascader-menus')).to.be.exist;
+        expect(document.body.querySelector('.el-cascader-menus')).to.be.exist;
 
         const menu = vm.$refs.cascader.menu;
         const menuElm = menu.$el;
-        const item1 = menuElm.querySelector('.top-cascader-menu__item');
+        const item1 = menuElm.querySelector('.el-cascader-menu__item');
 
         expect(menuElm.children.length).to.be.equal(2);
         expect(menuElm.children[1].children.length).to.be.equal(3);
@@ -673,7 +674,7 @@ describe('Cascader', () => {
         item1.click();
 
         setTimeout(_ => {
-          expect(document.body.querySelector('.top-cascader-menus').style.display).to.be.equal('none');
+          expect(document.body.querySelector('.el-cascader-menus').style.display).to.be.equal('none');
           expect(vm.selectedOptions[0]).to.be.equal('zhejiang');
           expect(vm.selectedOptions[1]).to.be.equal('hangzhou');
           expect(vm.selectedOptions[2]).to.be.equal('xihu');
@@ -685,12 +686,12 @@ describe('Cascader', () => {
   it('props', done => {
     vm = createVue({
       template: `
-        <top-cascader
+        <el-cascader
           ref="cascader"
           :options="options"
           :props="props"
           v-model="selectedOptions"
-        ></top-cascader>
+        ></el-cascader>
       `,
       data() {
         return {
@@ -717,15 +718,15 @@ describe('Cascader', () => {
     }, true);
     vm.$el.click();
     setTimeout(_ => {
-      expect(document.body.querySelector('.top-cascader-menus')).to.be.exist;
+      expect(document.body.querySelector('.el-cascader-menus')).to.be.exist;
 
       const menu = vm.$refs.cascader.menu;
       const menuElm = menu.$el;
-      let items = menuElm.querySelectorAll('.top-cascader-menu__item');
+      let items = menuElm.querySelectorAll('.el-cascader-menu__item');
       expect(items.length).to.equal(2);
       items[0].click();
       setTimeout(_ => {
-        items = menuElm.querySelectorAll('.top-cascader-menu__item');
+        items = menuElm.querySelectorAll('.el-cascader-menu__item');
         expect(items.length).to.equal(4);
         expect(items[items.length - 1].innerText).to.equal('NingBo');
         done();
@@ -735,12 +736,12 @@ describe('Cascader', () => {
   it('show last level', done => {
     vm = createVue({
       template: `
-        <top-cascader
+        <el-cascader
           ref="cascader"
           :options="options"
           :show-all-levels="false"
           v-model="selectedOptions"
-        ></top-cascader>
+        ></el-cascader>
       `,
       data() {
         return {
@@ -779,7 +780,7 @@ describe('Cascader', () => {
       }
     }, true);
     setTimeout(_ => {
-      const span = vm.$el.querySelector('.top-cascader__label');
+      const span = vm.$el.querySelector('.el-cascader__label');
       expect(span.innerText).to.equal('Jiang Bei');
       done();
     }, 100);
@@ -788,13 +789,13 @@ describe('Cascader', () => {
     it('event:focus & blur', done => {
       vm = createVue({
         template: `
-          <top-cascader
+          <el-cascader
             ref="cascader"
             placeholder="请选择"
             :options="options"
             clearable
             v-model="selectedOptions"
-          ></top-cascader>
+          ></el-cascader>
         `,
         data() {
           return {

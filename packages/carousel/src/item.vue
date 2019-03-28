@@ -1,10 +1,10 @@
 <template>
   <div
     v-show="ready"
-    class="top-carousel__item"
+    class="el-carousel__item"
     :class="{
       'is-active': active,
-      'top-carousel__item--card': $parent.type === 'card',
+      'el-carousel__item--card': $parent.type === 'card',
       'is-in-stage': inStage,
       'is-hover': hover,
       'is-animating': animating
@@ -18,7 +18,7 @@
     <div
       v-if="$parent.type === 'card'"
       v-show="!active"
-      class="top-carousel__mask">
+      class="el-carousel__mask">
     </div>
     <slot></slot>
   </div>
@@ -27,7 +27,7 @@
 <script>
   const CARD_SCALE = 0.83;
   export default {
-    name: 'TOPCarouselItem',
+    name: 'ElCarouselItem',
 
     props: {
       name: String,

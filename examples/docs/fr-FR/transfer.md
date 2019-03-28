@@ -6,10 +6,10 @@ Permet de transférer des options d'une liste à une autre de manière ergonomiq
 :::demo Les données sont passée via l'attribut `data`. Ce doit être un tableau d'objets, chaque objet ayant les propriétés suivantes: `key` étant l'identifiant de l'objet, `label` étant le texte à afficher et `disabled` indiquant si l'objet est désactivé. Ces objets sont synchronisés avec `v-model`, sa valeur étant un tableau d'identifiants des objets. Si vous ne souhaitez pas avoir une liste vide par défaut, vous pouvez donc initialiser `v-model` avec un tableau.
 ```html
 <template>
-  <top-transfer
+  <el-transfer
     v-model="value1"
     :data="data">
-  </top-transfer>
+  </el-transfer>
 </template>
 
 <script>
@@ -43,13 +43,13 @@ Vous pouvez filtrer les options.
 :::demo Ajoutez l'attribut `filterable` activer le filtrage. Par défaut, si la propriété `label` de l'objet contient le mot-clé, il sera inclus dans les résultats. Vous pouvez aussi implémenter votre propre filtre grâce à `filter-method`. Cette fonction est lancée à chaque changement de mot-clé. Si elle retourne `true` l'objet en question sera dans les résultats.
 ```html
 <template>
-  <top-transfer
+  <el-transfer
     filterable
     :filter-method="filterMethod"
     filter-placeholder="State Abbreviations"
     v-model="value2"
     :data="data2">
-  </top-transfer>
+  </el-transfer>
 </template>
 
 <script>
@@ -90,7 +90,7 @@ Vous pouvez personnaliser les titres, les textes des boutons, les fonctions de r
 <template>
   <p style="text-align: center; margin: 0 0 20px">Utilise render-content</p>
   <div style="text-align: center">
-    <top-transfer
+    <el-transfer
       style="text-align: left; display: inline-block"
       v-model="value3"
       filterable
@@ -105,12 +105,12 @@ Vous pouvez personnaliser les titres, les textes des boutons, les fonctions de r
       }"
       @change="handleChange"
       :data="data">
-      <top-button class="transfer-footer" slot="left-footer" size="small">Opération</top-button>
-      <top-button class="transfer-footer" slot="right-footer" size="small">Opération</top-button>
-    </top-transfer>
+      <el-button class="transfer-footer" slot="left-footer" size="small">Opération</el-button>
+      <el-button class="transfer-footer" slot="right-footer" size="small">Opération</el-button>
+    </el-transfer>
     <p style="text-align: center; margin: 50px 0 20px">Utilise des slots</p>
     <div style="text-align: center">
-      <top-transfer
+      <el-transfer
         style="text-align: left; display: inline-block"
         v-model="value4"
         filterable
@@ -125,9 +125,9 @@ Vous pouvez personnaliser les titres, les textes des boutons, les fonctions de r
         @change="handleChange"
         :data="data">
         <span slot-scope="{ option }">{{ option.key }} - {{ option.label }}</span>
-        <top-button class="transfer-footer" slot="left-footer" size="small">Opération</top-button>
-        <top-button class="transfer-footer" slot="right-footer" size="small">Opération</top-button>
-      </top-transfer>
+        <el-button class="transfer-footer" slot="left-footer" size="small">Opération</el-button>
+        <el-button class="transfer-footer" slot="right-footer" size="small">Opération</el-button>
+      </el-transfer>
     </div>
   </div>
 </template>
@@ -180,14 +180,14 @@ Par défaut, Transfer utilise `key`, `label` et `disabled` de vos objets. Si vos
 :::demo Les objets de cet exemple n'ont pas de `key` ni `label`, à la place ils ont `value` et `desc`. Vous devez donc configurer les alias de `key` et `label`.
 ```html
 <template>
-  <top-transfer
+  <el-transfer
     v-model="value5"
     :props="{
       key: 'value',
       label: 'desc'
     }"
     :data="data3">
-  </top-transfer>
+  </el-transfer>
 </template>
 
 <script>

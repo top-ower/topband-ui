@@ -14,7 +14,7 @@
   border: 1px solid $--tag-border;
   white-space: nowrap;
 
-  .top-icon-close {
+  .el-icon-close {
     border-radius: 50%;
     text-align: center;
     position: relative;
@@ -36,7 +36,6 @@
       background-color: $--tag-background-color;
       color: $--color-white;
     }
-
   }
 
   @include m(info) {
@@ -48,15 +47,14 @@
       border-color: $--tag-info-color;
     }
 
-    .top-tag__close {
+    .el-tag__close {
       color: $--tag-info-color;
     }
 
-    .top-tag__close:hover {
+    .el-tag__close:hover {
       background-color: $--tag-info-color;
       color: $--color-white;
     }
-
   }
 
   @include m(success) {
@@ -68,15 +66,14 @@
       border-color: $--tag-success-color;
     }
 
-    .top-tag__close {
+    .el-tag__close {
       color: $--tag-success-color;
     }
 
-    .top-tag__close:hover {
+    .el-tag__close:hover {
       background-color: $--tag-success-color;
       color: $--color-white;
     }
-
   }
 
   @include m(warning) {
@@ -88,15 +85,14 @@
       border-color: $--tag-warning-color;
     }
 
-    .top-tag__close {
+    .el-tag__close {
       color: $--tag-warning-color;
     }
 
-    .top-tag__close:hover {
+    .el-tag__close:hover {
       background-color: $--tag-warning-color;
       color: $--color-white;
     }
-
   }
 
   @include m(danger) {
@@ -108,25 +104,23 @@
       border-color: $--tag-danger-color;
     }
 
-    .top-tag__close {
+    .el-tag__close {
       color: $--tag-danger-color;
     }
 
-    .top-tag__close:hover {
+    .el-tag__close:hover {
       background-color: $--tag-danger-color;
       color: $--color-white;
     }
-
   }
 
   @include m(medium) {
     height: 28px;
     line-height: 26px;
 
-    .top-icon-close {
+    .el-icon-close {
       transform: scale(.8);
     }
-
   }
 
   @include m(small) {
@@ -134,10 +128,9 @@
     padding: 0 8px;
     line-height: 22px;
 
-    .top-icon-close {
+    .el-icon-close {
       transform: scale(.8);
     }
-
   }
 
   @include m(mini) {
@@ -145,11 +138,9 @@
     padding: 0 5px;
     line-height: 19px;
 
-    .top-icon-close {
+    .el-icon-close {
       margin-left: -3px;
       transform: scale(.7);
     }
-
   }
-
 }

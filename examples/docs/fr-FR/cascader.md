@@ -10,20 +10,20 @@ Il y a deux manières de dérouler la liste des options.
 ```html
 <div class="block">
   <span class="demonstration">Les options se déroulent après un clic (défaut)</span>
-  <top-cascader
+  <el-cascader
     :options="options"
     v-model="selectedOptions"
     @change="handleChange">
-  </top-cascader>
+  </el-cascader>
 </div>
 <div class="block">
   <span class="demonstration">Les options se déroulent au passage de la souris</span>
-  <top-cascader
+  <el-cascader
     expand-trigger="hover"
     :options="options"
     v-model="selectedOptions2"
     @change="handleChange">
-  </top-cascader>
+  </el-cascader>
 </div>
 
 <script>
@@ -245,9 +245,9 @@ Désactivez une option en configurant `disabled` dans l'objet option.
 
 :::demo Dans cet exemple, le premier item dans le tableau `options` est configuré avec `disabled: true`, il est donc désactivé. Par défaut, Cascader recherche le champ `disabled` dans chaque option; si vous utilisez un autre nom de champ pour indiquer que l'option est désactivée, vous pouvez l'assigner dans l'attribut `props` (voir la table de l'API ci-dessous). Les champs `value`, `label` et `children` peuvent être personnalisés de la même manière.
 ```html
-<top-cascader
+<el-cascader
   :options="optionsWithDisabled"
-></top-cascader>
+></el-cascader>
 <script>
   export default {
     data() {
@@ -461,10 +461,10 @@ Le champ peut n'afficher que le dernier niveau au lieu de tous.
 
 :::demo L'attribut `show-all-levels` détermine si tous les niveaux sont affichés. Si il est à `false`, seul le dernier niveau est affiché.
 ```html
-<top-cascader
+<el-cascader
     :options="options"
     :show-all-levels="false"
-></top-cascader>
+></el-cascader>
 <script>
   export default {
     data() {
@@ -675,10 +675,10 @@ Le champ peut n'afficher que le dernier niveau au lieu de tous.
 
 :::demo La valeur par défaut peut être définit grâce à un tableau.
 ```html
-<top-cascader
+<el-cascader
   :options="options"
   v-model="selectedOptions3"
-></top-cascader>
+></el-cascader>
 <script>
   export default {
     data() {
@@ -892,10 +892,10 @@ Les options parentes peuvent aussi être sélectionnées.
 
 :::demo Par défaut seules les options de dernier niveau peuvent être sélectionnées. En réglant `change-on-select` à `true`, les options parentes peuvent aussi être sélectionnées.
 ```html
-<top-cascader
+<el-cascader
   :options="options"
   change-on-select
-></top-cascader>
+></el-cascader>
 <script>
   export default {
     data() {
@@ -1108,11 +1108,11 @@ Il est possible de charger dynamiquement les options quand on clique ou passe la
 
 :::demo Dans cet exemple, les optionsn'ont pas de données de villes au moment de l'initialisation. Grâce à l'évènement `active-item-change` vous pouvez charger les villes de manière dynamique. De plus, cet exemple montre comment `props` peut être utilisé.
 ```html
-<top-cascader
+<el-cascader
   :options="options2"
   @active-item-change="handleItemChange"
   :props="props"
-></top-cascader>
+></el-cascader>
 
 <script>
   export default {
@@ -1157,24 +1157,24 @@ Il est possible de charger dynamiquement les options quand on clique ou passe la
 
 Recherchez une option particulière en entrant des mots-clé.
 
-:::demo Ajouter `filterable` à `top-cascader` active le filtrage.
+:::demo Ajouter `filterable` à `el-cascader` active le filtrage.
 ```html
 <div class="block">
   <span class="demonstration">Only options of the last level can be selected</span>
-  <top-cascader
+  <el-cascader
     placeholder="Try searching: Guide"
     :options="options"
     filterable
-  ></top-cascader>
+  ></el-cascader>
 </div>
 <div class="block">
   <span class="demonstration">Options of all levels can be selected</span>
-  <top-cascader
+  <el-cascader
     placeholder="Try searching: Guide"
     :options="options"
     filterable
     change-on-select
-  ></top-cascader>
+  ></el-cascader>
 </div>
 
 <script>
@@ -1386,10 +1386,9 @@ Recherchez une option particulière en entrant des mots-clé.
 ### Attributs
 | Attribut | Description         | Type    | Options       | Défaut|
 |---------- |-------------------- |---------|-------------  |-------- |
-| value / v-model | La valeur liée.  | boolean / string / number | — | — |
+| value / v-model | Valeur sélectionnée. | array | — | — |
 | options   | Données des options. | array | — | — |
 | props | Options de configuration, voir la table suivante. | object | — | — |
-| value | Valeur sélectionnée. | array | — | — |
 | separator | Séparateur des options. | string | — | / |
 | popper-class | Classe personnalisée pour le menu déroulant du Cascader | string | — | — |
 | placeholder | Placeholder du champ. | string | — | Select |

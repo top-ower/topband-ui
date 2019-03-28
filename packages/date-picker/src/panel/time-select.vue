@@ -1,26 +1,26 @@
 <template>
-  <transition name="top-zoom-in-top" @before-enter="handleMenuEnter" @after-leave="$emit('dodestroy')">
+  <transition name="el-zoom-in-top" @before-enter="handleMenuEnter" @after-leave="$emit('dodestroy')">
     <div
       ref="popper"
       v-show="visible"
       :style="{ width: width + 'px' }"
       :class="popperClass"
-      class="top-picker-panel time-select top-popper">
-      <top-scrollbar noresize wrap-class="top-picker-panel__content">
+      class="el-picker-panel time-select el-popper">
+      <el-scrollbar noresize wrap-class="el-picker-panel__content">
         <div class="time-select-item"
           v-for="item in items"
           :class="{ selected: value === item.value, disabled: item.disabled, default: item.value === defaultValue }"
           :disabled="item.disabled"
           :key="item.value"
           @click="handleClick(item)">{{ item.value }}</div>
-      </top-scrollbar>
+      </el-scrollbar>
     </div>
   </transition>
 </template>
 
 <script type="text/babel">
-  import TOPScrollbar from 'topband-ui/packages/scrollbar';
-  import scrollIntoView from 'topband-ui/src/utils/scroll-into-view';
+  import ElScrollbar from 'element-ui/packages/scrollbar';
+  import scrollIntoView from 'element-ui/src/utils/scroll-into-view';
 
   const parseTime = function(time) {
     const values = (time || '').split(':');
@@ -74,7 +74,7 @@
   };
 
   export default {
-    components: { TOPScrollbar },
+    components: { ElScrollbar },
 
     watch: {
       value(val) {
@@ -95,7 +95,7 @@
       },
 
       scrollToOption(selector = '.selected') {
-        const menu = this.$refs.popper.querySelector('.top-picker-panel__content');
+        const menu = this.$refs.popper.querySelector('.el-picker-panel__content');
         scrollIntoView(menu, menu.querySelector(selector));
       },
 

@@ -1,4 +1,4 @@
-import scrollbarWidth from 'topband-ui/src/utils/scrollbar-width';
+import scrollbarWidth from 'element-ui/src/utils/scrollbar-width';
 import Vue from 'vue';
 
 class TableLayout {
@@ -44,7 +44,7 @@ class TableLayout {
     if (typeof height !== 'string' && typeof height !== 'number') return;
     const bodyWrapper = this.table.bodyWrapper;
     if (this.table.$el && bodyWrapper) {
-      const body = bodyWrapper.querySelector('.top-table__body');
+      const body = bodyWrapper.querySelector('.el-table__body');
       this.scrollY = body.offsetHeight > this.bodyHeight;
     }
   }

@@ -1,14 +1,14 @@
 <template>
   <div :class="[
-    type === 'textarea' ? 'top-textarea' : 'top-input',
-    inputSize ? 'top-input--' + inputSize : '',
+    type === 'textarea' ? 'el-textarea' : 'el-input',
+    inputSize ? 'el-input--' + inputSize : '',
     {
       'is-disabled': inputDisabled,
-      'top-input-group': $slots.prepend || $slots.append,
-      'top-input-group--append': $slots.append,
-      'top-input-group--prepend': $slots.prepend,
-      'top-input--prefix': $slots.prefix || prefixIcon,
-      'top-input--suffix': $slots.suffix || suffixIcon || clearable || showPassword
+      'el-input-group': $slots.prepend || $slots.append,
+      'el-input-group--append': $slots.append,
+      'el-input-group--prepend': $slots.prepend,
+      'el-input--prefix': $slots.prefix || prefixIcon,
+      'el-input--suffix': $slots.suffix || suffixIcon || clearable || showPassword
     }
     ]"
     @mouseenter="hovering = true"
@@ -16,13 +16,13 @@
   >
     <template v-if="type !== 'textarea'">
       <!-- 前置元素 -->
-      <div class="top-input-group__prepend" v-if="$slots.prepend">
+      <div class="el-input-group__prepend" v-if="$slots.prepend">
         <slot name="prepend"></slot>
       </div>
       <input
         :tabindex="tabindex"
         v-if="type !== 'textarea'"
-        class="top-input__inner"
+        class="el-input__inner"
         v-bind="$attrs"
         :type="showPassword ? (passwordVisible ? 'text': 'password') : type"
         :disabled="inputDisabled"
@@ -38,48 +38,48 @@
         :aria-label="label"
       >
       <!-- 前置内容 -->
-      <span class="top-input__prefix" v-if="$slots.prefix || prefixIcon">
+      <span class="el-input__prefix" v-if="$slots.prefix || prefixIcon">
         <slot name="prefix"></slot>
-        <i class="top-input__icon"
+        <i class="el-input__icon"
            v-if="prefixIcon"
            :class="prefixIcon">
         </i>
       </span>
       <!-- 后置内容 -->
       <span
-        class="top-input__suffix"
+        class="el-input__suffix"
         v-if="$slots.suffix || suffixIcon || showClear || showPassword || validateState && needStatusIcon">
-        <span class="top-input__suffix-inner">
+        <span class="el-input__suffix-inner">
           <template v-if="!showClear || !showPwdVisible">
             <slot name="suffix"></slot>
-            <i class="top-input__icon"
+            <i class="el-input__icon"
               v-if="suffixIcon"
               :class="suffixIcon">
             </i>
           </template>
           <i v-if="showClear"
-            class="top-input__icon top-icon-circle-close top-input__clear"
+            class="el-input__icon el-icon-circle-close el-input__clear"
             @click="clear"
           ></i>
           <i v-if="showPwdVisible"
-            class="top-input__icon top-icon-view top-input__clear"
+            class="el-input__icon el-icon-view el-input__clear"
             @click="handlePasswordVisible"
           ></i>
         </span>
-        <i class="top-input__icon"
+        <i class="el-input__icon"
           v-if="validateState"
-          :class="['top-input__validateIcon', validateIcon]">
+          :class="['el-input__validateIcon', validateIcon]">
         </i>
       </span>
       <!-- 后置元素 -->
-      <div class="top-input-group__append" v-if="$slots.append">
+      <div class="el-input-group__append" v-if="$slots.append">
         <slot name="append"></slot>
       </div>
     </template>
     <textarea
       v-else
       :tabindex="tabindex"
-      class="top-textarea__inner"
+      class="el-textarea__inner"
       @compositionstart="handleCompositionStart"
       @compositionend="handleCompositionEnd"
       @input="handleInput"
@@ -98,10 +98,10 @@
   </div>
 </template>
 <script>
-  import emitter from 'topband-ui/src/mixins/emitter';
-  import Migrating from 'topband-ui/src/mixins/migrating';
+  import emitter from 'element-ui/src/mixins/emitter';
+  import Migrating from 'element-ui/src/mixins/migrating';
   import calcTextareaHeight from './calcTextareaHeight';
-  import merge from 'topband-ui/src/utils/merge';
+  import merge from 'element-ui/src/utils/merge';
 
   export default {
     name: 'ElInput',
@@ -189,9 +189,9 @@
       },
       validateIcon() {
         return {
-          validating: 'top-icon-loading',
-          success: 'top-icon-circle-check',
-          error: 'top-icon-circle-close'
+          validating: 'el-icon-loading',
+          success: 'el-icon-circle-check',
+          error: 'el-icon-circle-close'
         }[this.validateState];
       },
       textareaStyle() {
@@ -315,7 +315,7 @@
         this.$emit('change', event.target.value);
       },
       calcIconOffset(place) {
-        let elList = [].slice.call(this.$el.querySelectorAll(`.top-input__${place}`) || []);
+        let elList = [].slice.call(this.$el.querySelectorAll(`.el-input__${place}`) || []);
         if (!elList.length) return;
         let el = null;
         for (let i = 0; i < elList.length; i++) {
@@ -332,7 +332,7 @@
 
         const pendant = pendantMap[place];
         if (this.$slots[pendant]) {
-          el.style.transform = `translateX(${place === 'suffix' ? '-' : ''}${this.$el.querySelector(`.top-input-group__${pendant}`).offsetWidth}px)`;
+          el.style.transform = `translateX(${place === 'suffix' ? '-' : ''}${this.$el.querySelector(`.el-input-group__${pendant}`).offsetWidth}px)`;
         } else {
           el.removeAttribute('style');
         }

@@ -1,16 +1,16 @@
 <template>
-  <div class="top-collapse-item" :class="{'is-active': isActive}">
+  <div class="el-collapse-item" :class="{'is-active': isActive}">
     <div
       role="tab"
       :aria-expanded="isActive"
-      :aria-controls="`top-collapse-content-${id}`"
-      :aria-describedby ="`top-collapse-content-${id}`"
+      :aria-controls="`el-collapse-content-${id}`"
+      :aria-describedby ="`el-collapse-content-${id}`"
     >
       <div
-        class="top-collapse-item__header"
+        class="el-collapse-item__header"
         @click="handleHeaderClick"
         role="button"
-        :id="`top-collapse-head-${id}`"
+        :id="`el-collapse-head-${id}`"
         tabindex="0"
         @keyup.space.enter.stop="handleEnterClick"
         :class="{
@@ -22,40 +22,40 @@
       >
         <slot name="title">{{title}}</slot>
         <i
-          class="top-collapse-item__arrow top-icon-arrow-right"
+          class="el-collapse-item__arrow el-icon-arrow-right"
           :class="{'is-active': isActive}">
         </i>
       </div>
     </div>
-    <top-collapse-transition>
+    <el-collapse-transition>
       <div
-        class="top-collapse-item__wrap"
+        class="el-collapse-item__wrap"
         v-show="isActive"
         role="tabpanel"
         :aria-hidden="!isActive"
-        :aria-labelledby="`top-collapse-head-${id}`"
-        :id="`top-collapse-content-${id}`"
+        :aria-labelledby="`el-collapse-head-${id}`"
+        :id="`el-collapse-content-${id}`"
       >
-        <div class="top-collapse-item__content">
+        <div class="el-collapse-item__content">
           <slot></slot>
         </div>
       </div>
-    </top-collapse-transition>
+    </el-collapse-transition>
   </div>
 </template>
 <script>
-  import TOPCollapseTransition from 'topband-ui/src/transitions/collapse-transition';
-  import Emitter from 'topband-ui/src/mixins/emitter';
-  import { generateId } from 'topband-ui/src/utils/util';
+  import ElCollapseTransition from 'element-ui/src/transitions/collapse-transition';
+  import Emitter from 'element-ui/src/mixins/emitter';
+  import { generateId } from 'element-ui/src/utils/util';
 
   export default {
-    name: 'TOPCollapseItem',
+    name: 'ElCollapseItem',
 
-    componentName: 'TOPCollapseItem',
+    componentName: 'ElCollapseItem',
 
     mixins: [Emitter],
 
-    components: { TOPCollapseTransition },
+    components: { ElCollapseTransition },
 
     data() {
       return {
@@ -101,12 +101,12 @@
         }, 50);
       },
       handleHeaderClick() {
-        this.dispatch('TOPCollapse', 'item-click', this);
+        this.dispatch('ElCollapse', 'item-click', this);
         this.focusing = false;
         this.isClick = true;
       },
       handleEnterClick() {
-        this.dispatch('TOPCollapse', 'item-click', this);
+        this.dispatch('ElCollapse', 'item-click', this);
       }
     }
   };

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="top-step"
+    class="el-step"
     :style="style"
     :class="[
       !isSimple && `is-${$parent.direction}`,
@@ -10,42 +10,42 @@
      ]">
     <!-- icon & line -->
     <div
-      class="top-step__head"
+      class="el-step__head"
       :class="`is-${currentStatus}`">
       <div
-        class="top-step__line"
+        class="el-step__line"
         :style="isLast ? '' : { marginRight: $parent.stepOffset + 'px' }"
       >
-        <i class="top-step__line-inner" :style="lineStyle"></i>
+        <i class="el-step__line-inner" :style="lineStyle"></i>
       </div>
 
-      <div class="top-step__icon" :class="`is-${icon ? 'icon' : 'text'}`">
+      <div class="el-step__icon" :class="`is-${icon ? 'icon' : 'text'}`">
         <slot
           v-if="currentStatus !== 'success' && currentStatus !== 'error'"
           name="icon">
-          <i v-if="icon" class="top-step__icon-inner" :class="[icon]"></i>
-          <div class="top-step__icon-inner" v-if="!icon && !isSimple">{{ index + 1 }}</div>
+          <i v-if="icon" class="el-step__icon-inner" :class="[icon]"></i>
+          <div class="el-step__icon-inner" v-if="!icon && !isSimple">{{ index + 1 }}</div>
         </slot>
         <i
           v-else
-          :class="['top-icon-' + (currentStatus === 'success' ? 'check' : 'close')]"
-          class="top-step__icon-inner is-status"
+          :class="['el-icon-' + (currentStatus === 'success' ? 'check' : 'close')]"
+          class="el-step__icon-inner is-status"
         >
         </i>
       </div>
     </div>
     <!-- title & description -->
-    <div class="top-step__main">
+    <div class="el-step__main">
       <div
-        class="top-step__title"
+        class="el-step__title"
         ref="title"
         :class="['is-' + currentStatus]">
         <slot name="title">{{ title }}</slot>
       </div>
-      <div v-if="isSimple" class="top-step__arrow"></div>
+      <div v-if="isSimple" class="el-step__arrow"></div>
       <div
         v-else
-        class="top-step__description"
+        class="el-step__description"
         :class="['is-' + currentStatus]">
         <slot name="description">{{ description }}</slot>
       </div>

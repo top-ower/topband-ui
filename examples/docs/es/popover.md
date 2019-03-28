@@ -8,43 +8,43 @@ Similar a un Tooltip, Popover está construido con `Vue-popper`. Así que para a
 
 ```html
 <template>
-  <top-popover
+  <el-popover
     placement="top-start"
     title="Title"
     width="200"
     trigger="hover"
     content="this is content, this is content, this is content">
-    <top-button slot="reference">Hover to activate</top-button>
-  </top-popover>
+    <el-button slot="reference">Hover to activate</el-button>
+  </el-popover>
 
-  <top-popover
+  <el-popover
     placement="bottom"
     title="Title"
     width="200"
     trigger="click"
     content="this is content, this is content, this is content">
-    <top-button slot="reference">Click to activate</top-button>
-  </top-popover>
+    <el-button slot="reference">Click to activate</el-button>
+  </el-popover>
 
-  <top-popover
+  <el-popover
     ref="popover"
     placement="right"
     title="Title"
     width="200"
     trigger="focus"
     content="this is content, this is content, this is content">
-  </top-popover>
-  <top-button v-popover:popover>Focus to activate</top-button>
+  </el-popover>
+  <el-button v-popover:popover>Focus to activate</el-button>
 
-  <top-popover
+  <el-popover
     placement="bottom"
     title="Title"
     width="200"
     trigger="manual"
     content="this is content, this is content, this is content"
     v-model="visible">
-    <top-button slot="reference" @click="visible = !visible">Manual to activate</top-button>
-  </top-popover>
+    <el-button slot="reference" @click="visible = !visible">Manual to activate</el-button>
+  </el-popover>
 </template>
 
 <script>
@@ -65,17 +65,17 @@ Otros componentes pueden anidarse dentro de popover. A continuación un ejemplo 
 :::demo Reemplaza el atributo `content` con un `slot`.
 
 ```html
-<top-popover
+<el-popover
   placement="right"
   width="400"
   trigger="click">
-  <top-table :data="gridData">
-    <top-table-column width="150" property="date" label="date"></top-table-column>
-    <top-table-column width="100" property="name" label="name"></top-table-column>
-    <top-table-column width="300" property="address" label="address"></top-table-column>
-  </top-table>
-  <top-button slot="reference">Click to activate</top-button>
-</top-popover>
+  <el-table :data="gridData">
+    <el-table-column width="150" property="date" label="date"></el-table-column>
+    <el-table-column width="100" property="name" label="name"></el-table-column>
+    <el-table-column width="300" property="address" label="address"></el-table-column>
+  </el-table>
+  <el-button slot="reference">Click to activate</el-button>
+</el-popover>
 
 <script>
   export default {
@@ -111,17 +111,17 @@ Por supuesto, puedes anidar otras operaciones. Es más ligero que utilizar un `d
 
 :::demo
 ```html
-<top-popover
+<el-popover
   placement="top"
   width="160"
   v-model="visible2">
   <p>Are you sure to delete this?</p>
   <div style="text-align: right; margin: 0">
-    <top-button size="mini" type="text" @click="visible2 = false">cancel</top-button>
-    <top-button type="primary" size="mini" @click="visible2 = false">confirm</top-button>
+    <el-button size="mini" type="text" @click="visible2 = false">cancel</el-button>
+    <el-button type="primary" size="mini" @click="visible2 = false">confirm</el-button>
   </div>
-  <top-button slot="reference">Delete</top-button>
-</top-popover>
+  <el-button slot="reference">Delete</el-button>
+</el-popover>
 
 <script>
   export default {
@@ -146,7 +146,7 @@ Por supuesto, puedes anidar otras operaciones. Es más ligero que utilizar un `d
 | disabled       | si el popover está deshabilitado         | boolean        | —                                        | false                                    |
 | value / v-model | si el popover está visible               | Boolean        | —                                        | false                                    |
 | offset         | popover offset                           | number         | —                                        | 0                                        |
-| transition     | popover transition animation             | string         | —                                        | top-fade-in-linear                        |
+| transition     | popover transition animation             | string         | —                                        | el-fade-in-linear                        |
 | visible-arrow  | si una flecha del tooltip es mostrada o no. Para más información, por favor refiérase a [Vue-popper](https://github.com/element-component/vue-popper) | boolean        | —                                        | true                                     |
 | popper-options | parámetros para [popper.js](https://popper.js.org/documentation.html) | object         | por favor, refiérase a [popper.js](https://popper.js.org/documentation.html) | `{ boundariesElement: 'body', gpuAcceleration: false }` |
 | popper-class   | clase propia para popover                | string         | —                                        | —                                        |

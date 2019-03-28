@@ -1,9 +1,9 @@
 <template>
   <li
-    class="top-dropdown-menu__item"
+    class="el-dropdown-menu__item"
     :class="{
       'is-disabled': disabled,
-      'top-dropdown-menu__item--divided': divided
+      'el-dropdown-menu__item--divided': divided
     }"
     @click="handleClick"
     :aria-disabled="disabled"
@@ -14,7 +14,7 @@
   </li>
 </template>
 <script>
-  import Emitter from 'topband-ui/src/mixins/emitter';
+  import Emitter from 'element-ui/src/mixins/emitter';
 
   export default {
     name: 'ElDropdownItem',

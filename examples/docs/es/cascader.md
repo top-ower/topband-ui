@@ -11,20 +11,20 @@ Existen dos maneras de expandir los elementos hijo de la opción.
 ```html
 <div class="block">
   <span class="demonstration">Child options expand when clicked (default)</span>
-  <top-cascader
+  <el-cascader
     :options="options"
     v-model="selectedOptions"
     @change="handleChange">
-  </top-cascader>
+  </el-cascader>
 </div>
 <div class="block">
   <span class="demonstration">Child options expand when hovered</span>
-  <top-cascader
+  <el-cascader
     expand-trigger="hover"
     :options="options"
     v-model="selectedOptions2"
     @change="handleChange">
-  </top-cascader>
+  </el-cascader>
 </div>
 
 <script>
@@ -247,9 +247,9 @@ Para desactivar una opción configure un campo `disabled` en el objeto de opció
 :::demo En este ejemplo, el primer elemento del array `options` tiene un campo  `disabled: true` , por lo que está desactivado. Por defecto, Cascader verifica el campo `disabled` en cada objeto de opción; si está utilizando otro nombre de campo para indicar si una opción está deshabilitada, puede asignarla en el atributo `props` (consulte la tabla API a continuación para obtener más detalles). Y por supuesto, el valor de `value`, `label` y `children` también se pueden personalizar de la misma manera.
 
 ```html
-<top-cascader
+<el-cascader
   :options="optionsWithDisabled"
-></top-cascader>
+></el-cascader>
 <script>
   export default {
     data() {
@@ -464,10 +464,10 @@ Puede mostrar sólo el último nivel en lugar de todos los niveles.
 :::demo El atributo `show-all-levels` define si se visualizan todos los niveles. Si es `false`, sólo se muestra el último nivel.
 
 ```html
-<top-cascader
+<el-cascader
     :options="options"
     :show-all-levels="false"
-></top-cascader>
+></el-cascader>
 <script>
   export default {
     data() {
@@ -678,10 +678,10 @@ Puede mostrar sólo el último nivel en lugar de todos los niveles.
 
 :::demo El valor por defecto se puede definir con un array.
 ```html
-<top-cascader
+<el-cascader
   :options="options"
   v-model="selectedOptions3"
-></top-cascader>
+></el-cascader>
 <script>
   export default {
     data() {
@@ -896,10 +896,10 @@ También se pueden seleccionar las opciones del elemento padre.
 :::demo Por defecto sólo se pueden seleccionar las opciones del último nivel. Al asignar `change-on-select` a `true`, también se pueden seleccionar opciones en los niveles superiores.
 
 ```html
-<top-cascader
+<el-cascader
   :options="options"
   change-on-select
-></top-cascader>
+></el-cascader>
 <script>
   export default {
     data() {
@@ -1113,11 +1113,11 @@ Se puede hacer una carga dinamica de elementos hijos cuando se hace clic en el e
 :::demo En este ejemplo, el array de opciones no tiene datos de ciudades cuando se inicializa. Con el evento `active-item-change`, puede cargar dinámicamente las ciudades de un estado específico. Además, este ejemplo también demuestra cómo se utilizan los`props`.
 
 ```html
-<top-cascader
+<el-cascader
   :options="options2"
   @active-item-change="handleItemChange"
   :props="props"
-></top-cascader>
+></el-cascader>
 
 <script>
   export default {
@@ -1162,25 +1162,25 @@ Se puede hacer una carga dinamica de elementos hijos cuando se hace clic en el e
 
 Buscar y seleccionar opciones con una palabra clave.
 
-:::demo Añadir `filterable` a `top-cascader` permite filtrar
+:::demo Añadir `filterable` a `el-cascader` permite filtrar
 
 ```html
 <div class="block">
   <span class="demonstration">Only options of the last level can be selected</span>
-  <top-cascader
+  <el-cascader
     placeholder="Try searching: Guide"
     :options="options"
     filterable
-  ></top-cascader>
+  ></el-cascader>
 </div>
 <div class="block">
   <span class="demonstration">Options of all levels can be selected</span>
-  <top-cascader
+  <el-cascader
     placeholder="Try searching: Guide"
     :options="options"
     filterable
     change-on-select
-  ></top-cascader>
+  ></el-cascader>
 </div>
 
 <script>
@@ -1392,10 +1392,9 @@ Buscar y seleccionar opciones con una palabra clave.
 ### Atributos
 | Atributo         | Descripción                              | Tipo            | Opciones              | Por defecto |
 | ---------------- | ---------------------------------------- | --------------- | --------------------- | ----------- |
-| value / v-model   | valor enlazado                           | boolean / string / number | —                     | —           |
+| value / v-model   | valor seleccionado                           | array | —                     | —           |
 | options          | datos de las opciones                    | array           | —                     | —           |
 | props            | opciones de configuracion,  mire la tabla siguiente | object          | —                     | —           |
-| value            | valor seleccionado                       | array           | —                     | —           |
 | popper-class     | nombre de clase para el Cascader's dropdown | string          | —                     | —           |
 | placeholder      | input placeholder                        | string          | —                     | Select      |
 | disabled         | si Cascader esta disabled                | boolean         | —                     | false       |

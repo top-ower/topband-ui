@@ -1,7 +1,7 @@
 <script>
-  import { isDef } from 'topband-ui/src/utils/shared';
-  import scrollIntoView from 'topband-ui/src/utils/scroll-into-view';
-  import { generateId } from 'topband-ui/src/utils/util';
+  import { isDef } from 'element-ui/src/utils/shared';
+  import scrollIntoView from 'element-ui/src/utils/scroll-into-view';
+  import { generateId } from 'element-ui/src/utils/util';
 
   const copyArray = (arr, props) => {
     if (!arr || !Array.isArray(arr) || !props) return arr;
@@ -28,7 +28,7 @@
   };
 
   export default {
-    name: 'TOPCascaderMenu',
+    name: 'ElCascaderMenu',
 
     data() {
       return {
@@ -270,8 +270,8 @@
           return (
             <li
               class={{
-                'top-cascader-menu__item': true,
-                'top-cascader-menu__item--extensible': item.children,
+                'el-cascader-menu__item': true,
+                'el-cascader-menu__item--extensible': item.children,
                 'is-active': item.value === activeValue[menuIndex],
                 'is-disabled': item.disabled
               }}
@@ -307,8 +307,8 @@
         return (
           <ul
             class={{
-              'top-cascader-menu': true,
-              'top-cascader-menu--flexible': isFlat
+              'el-cascader-menu': true,
+              'el-cascader-menu--flexible': isFlat
             }}
             {...hoverMenuEvent}
             style={menuStyle}
@@ -356,11 +356,11 @@
       }
 
       return (
-        <transition name="top-zoom-in-top" on-before-enter={this.handleMenuEnter} on-after-leave={this.handleMenuLeave}>
+        <transition name="el-zoom-in-top" on-before-enter={this.handleMenuEnter} on-after-leave={this.handleMenuLeave}>
           <div
             v-show={visible}
             class={[
-              'top-cascader-menus top-popper',
+              'el-cascader-menus el-popper',
               popperClass
             ]}
             ref="wrapper"

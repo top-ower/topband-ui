@@ -1,6 +1,6 @@
 <template>
   <div
-    class="top-rate"
+    class="el-rate"
     @keydown="handleKey"
     role="slider"
     :aria-valuenow="currentValue"
@@ -10,7 +10,7 @@
     tabindex="0">
     <span
       v-for="(item, key) in max"
-      class="top-rate__item"
+      class="el-rate__item"
       @mousemove="setCurrentValue(item, $event)"
       @mouseleave="resetCurrentValue"
       @click="selectValue(item)"
@@ -18,23 +18,23 @@
       :key="key">
       <i
         :class="[classes[item - 1], { 'hover': hoverIndex === item }]"
-        class="top-rate__icon"
+        class="el-rate__icon"
         :style="getIconStyle(item)">
         <i
           v-if="showDecimalIcon(item)"
           :class="decimalIconClass"
           :style="decimalStyle"
-          class="top-rate__decimal">
+          class="el-rate__decimal">
         </i>
       </i>
     </span>
-    <span v-if="showText || showScore" class="top-rate__text" :style="{ color: textColor }">{{ text }}</span>
+    <span v-if="showText || showScore" class="el-rate__text" :style="{ color: textColor }">{{ text }}</span>
   </div>
 </template>
 
 <script>
-  import { hasClass } from 'topband-ui/src/utils/dom';
-  import Migrating from 'topband-ui/src/mixins/migrating';
+  import { hasClass } from 'element-ui/src/utils/dom';
+  import Migrating from 'element-ui/src/mixins/migrating';
 
   export default {
     name: 'ElRate',
@@ -89,16 +89,16 @@
       iconClasses: {
         type: Array,
         default() {
-          return ['top-icon-star-on', 'top-icon-star-on', 'top-icon-star-on'];
+          return ['el-icon-star-on', 'el-icon-star-on', 'el-icon-star-on'];
         }
       },
       voidIconClass: {
         type: String,
-        default: 'top-icon-star-off'
+        default: 'el-icon-star-off'
       },
       disabledVoidIconClass: {
         type: String,
-        default: 'top-icon-star-on'
+        default: 'el-icon-star-on'
       },
       disabled: {
         type: Boolean,
@@ -315,10 +315,10 @@
         /* istanbul ignore if */
         if (this.allowHalf) {
           let target = event.target;
-          if (hasClass(target, 'top-rate__item')) {
-            target = target.querySelector('.top-rate__icon');
+          if (hasClass(target, 'el-rate__item')) {
+            target = target.querySelector('.el-rate__icon');
           }
-          if (hasClass(target, 'top-rate__decimal')) {
+          if (hasClass(target, 'el-rate__decimal')) {
             target = target.parentNode;
           }
           this.pointerAtLeftHalf = event.offsetX * 2 <= target.clientWidth;

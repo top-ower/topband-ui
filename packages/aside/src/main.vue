@@ -1,14 +1,14 @@
 <template>
-  <aside class="top-aside" :style="{ width }">
+  <aside class="el-aside" :style="{ width }">
     <slot></slot>
   </aside>
 </template>
 
 <script>
   export default {
-    name: 'TOPAside',
+    name: 'ElAside',
 
-    componentName: 'TOPAside',
+    componentName: 'ElAside',
 
     props: {
       width: {

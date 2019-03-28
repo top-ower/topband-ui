@@ -1,13 +1,13 @@
 <template>
   <button
-    class="top-button"
+    class="el-button"
     @click="handleClick"
     :disabled="buttonDisabled || loading"
     :autofocus="autofocus"
     :type="nativeType"
     :class="[
-      type ? 'top-button--' + type : '',
-      buttonSize ? 'top-button--' + buttonSize : '',
+      type ? 'el-button--' + type : '',
+      buttonSize ? 'el-button--' + buttonSize : '',
       {
         'is-disabled': buttonDisabled,
         'is-loading': loading,
@@ -17,14 +17,14 @@
       }
     ]"
   >
-    <i class="top-icon-loading" v-if="loading"></i>
+    <i class="el-icon-loading" v-if="loading"></i>
     <i :class="icon" v-if="icon && !loading"></i>
     <span v-if="$slots.default"><slot></slot></span>
   </button>
 </template>
 <script>
   export default {
-    name: 'TOPButton',
+    name: 'ElButton',
 
     inject: {
       elForm: {
@@ -59,13 +59,13 @@
 
     computed: {
       _elFormItemSize() {
-        return (this.topFormItem || {}).topFormItemSize;
+        return (this.elFormItem || {}).elFormItemSize;
       },
       buttonSize() {
-        return this.size || this._topFormItemSize || (this.$ELEMENT || {}).size;
+        return this.size || this._elFormItemSize || (this.$ELEMENT || {}).size;
       },
       buttonDisabled() {
-        return this.disabled || (this.topForm || {}).disabled;
+        return this.disabled || (this.elForm || {}).disabled;
       }
     },
 

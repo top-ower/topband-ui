@@ -9,14 +9,14 @@ Used for rating
 ```html
 <div class="block">
   <span class="demonstration">Default</span>
-  <top-rate v-model="value1"></top-rate>
+  <el-rate v-model="value1"></el-rate>
 </div>
 <div class="block">
   <span class="demonstration">Color for different levels</span>
-  <top-rate
+  <el-rate
     v-model="value2"
     :colors="['#99A9BF', '#F7BA2A', '#FF9900']">
-  </top-rate>
+  </el-rate>
 </div>
 
 <script>
@@ -39,11 +39,11 @@ Using text to indicate rating score
 :::demo Add attribute `show-text` to display text at the right of Rate. You can assign texts for different scores using `texts`. `texts` is an array whose length should be equal to the max score `max`.
 
 ```html
-<top-rate
+<el-rate
   v-model="value3"
   :texts="['oops', 'disappointed', 'normal', 'good', 'great']"
   show-text>
-</top-rate>
+</el-rate>
 
 <script>
   export default {
@@ -64,12 +64,12 @@ You can use different icons to distinguish different rate components.
 :::demo You can customize icons for three different levels using `icon-classes`. In this example, we also use `void-icon-class` to set the icon if it is unselected.
 
 ```html
-<top-rate
+<el-rate
   v-model="value4"
   :icon-classes="['icon-rate-face-1', 'icon-rate-face-2', 'icon-rate-face-3']"
   void-icon-class="icon-rate-face-off"
   :colors="['#99A9BF', '#F7BA2A', '#FF9900']">
-</top-rate>
+</el-rate>
 
 <script>
   export default {
@@ -90,13 +90,13 @@ Read-only Rate is for displaying rating score. Half star is supported.
 :::demo Use attribute `disabled` to make the component read-only. Add `show-score` to display the rating score at the right side. Additionally, you can use attribute `score-template` to provide a score template. It must contain `{value}`, and `{value}` will be replaced with the rating score.
 
 ```html
-<top-rate
+<el-rate
   v-model="value5"
   disabled
   show-score
   text-color="#ff9900"
   score-template="{value} points">
-</top-rate>
+</el-rate>
 
 <script>
   export default {
@@ -122,9 +122,9 @@ Read-only Rate is for displaying rating score. Half star is supported.
 | colors | color array for icons. It should have 3 elements, each of which corresponds with a score level  | array | — | ['#F7BA2A', '#F7BA2A', '#F7BA2A'] |
 | void-color | color of unselected icons | string | — | #C6D1DE |
 | disabled-void-color | color of unselected read-only icons | string | — | #EFF2F7 |
-| icon-classes |  array of class names of icons. It should have 3 elements, each of which corresponds with a score level | array | — | ['top-icon-star-on', 'top-icon-star-on','top-icon-star-on'] |
-| void-icon-class | class name of unselected icons | string | — | top-icon-star-off |
-| disabled-void-icon-class | class name of unselected read-only icons | string | — | top-icon-star-on |
+| icon-classes |  array of class names of icons. It should have 3 elements, each of which corresponds with a score level | array | — | ['el-icon-star-on', 'el-icon-star-on','el-icon-star-on'] |
+| void-icon-class | class name of unselected icons | string | — | el-icon-star-off |
+| disabled-void-icon-class | class name of unselected read-only icons | string | — | el-icon-star-on |
 | show-text | whether to display texts | boolean | — | false |
 | show-score | whether to display current score. show-score and show-text cannot be true at the same time | boolean | — | false |
 | text-color | color of texts | string | — | #1F2D3D |

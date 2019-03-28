@@ -1,12 +1,12 @@
 <template>
-  <transition name="top-zoom-in-top" @after-leave="doDestroy">
-    <ul class="top-dropdown-menu top-popper" :class="[size && `top-dropdown-menu--${size}`]" v-show="showPopper">
+  <transition name="el-zoom-in-top" @after-leave="doDestroy">
+    <ul class="el-dropdown-menu el-popper" :class="[size && `el-dropdown-menu--${size}`]" v-show="showPopper">
       <slot></slot>
     </ul>
   </transition>
 </template>
 <script>
-  import Popper from 'topband-ui/src/utils/vue-popper';
+  import Popper from 'element-ui/src/utils/vue-popper';
 
   export default {
     name: 'ElDropdownMenu',
@@ -44,8 +44,11 @@
     },
 
     mounted() {
-      this.$parent.popperElm = this.popperElm = this.$el;
-      this.referenceElm = this.$parent.$el;
+      this.dropdown.popperElm = this.popperElm = this.$el;
+      this.referenceElm = this.dropdown.$el;
+      // compatible with 2.6 new v-slot syntax
+      // issue link https://github.com/ElemeFE/element/issues/14345
+      this.dropdown.initDomOperation();
     },
 
     watch: {

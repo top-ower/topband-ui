@@ -1,8 +1,8 @@
 <script type="text/jsx">
-  import emitter from 'topband-ui/src/mixins/emitter';
-  import Migrating from 'topband-ui/src/mixins/migrating';
-  import Menubar from 'topband-ui/src/utils/menu/aria-menubar';
-  import { addClass, removeClass, hasClass } from 'topband-ui/src/utils/dom';
+  import emitter from 'element-ui/src/mixins/emitter';
+  import Migrating from 'element-ui/src/mixins/migrating';
+  import Menubar from 'element-ui/src/utils/menu/aria-menubar';
+  import { addClass, removeClass, hasClass } from 'element-ui/src/utils/dom';
 
   export default {
     name: 'ElMenu',
@@ -14,9 +14,9 @@
           key={ +this.collapse }
           style={{ backgroundColor: this.backgroundColor || '' }}
           class={{
-            'top-menu--horizontal': this.mode === 'horizontal',
-            'top-menu--collapse': this.collapse,
-            "top-menu": true
+            'el-menu--horizontal': this.mode === 'horizontal',
+            'el-menu--collapse': this.collapse,
+            "el-menu": true
           }}
         >
           { this.$slots.default }
@@ -25,9 +25,9 @@
 
       if (this.collapseTransition) {
         return (
-          <top-menu-collapse-transition>
+          <el-menu-collapse-transition>
             { component }
-          </top-menu-collapse-transition>
+          </el-menu-collapse-transition>
         );
       } else {
         return component;
@@ -45,7 +45,7 @@
     },
 
     components: {
-      'top-menu-collapse-transition': {
+      'el-menu-collapse-transition': {
         functional: true,
         render(createElement, context) {
           const data = {
@@ -58,28 +58,28 @@
               },
 
               enter(el) {
-                addClass(el, 'top-opacity-transition');
+                addClass(el, 'el-opacity-transition');
                 el.style.opacity = 1;
               },
 
               afterEnter(el) {
-                removeClass(el, 'top-opacity-transition');
+                removeClass(el, 'el-opacity-transition');
                 el.style.opacity = '';
               },
 
               beforeLeave(el) {
                 if (!el.dataset) el.dataset = {};
 
-                if (hasClass(el, 'top-menu--collapse')) {
-                  removeClass(el, 'top-menu--collapse');
+                if (hasClass(el, 'el-menu--collapse')) {
+                  removeClass(el, 'el-menu--collapse');
                   el.dataset.oldOverflow = el.style.overflow;
                   el.dataset.scrollWidth = el.clientWidth;
-                  addClass(el, 'top-menu--collapse');
+                  addClass(el, 'el-menu--collapse');
                 } else {
-                  addClass(el, 'top-menu--collapse');
+                  addClass(el, 'el-menu--collapse');
                   el.dataset.oldOverflow = el.style.overflow;
                   el.dataset.scrollWidth = el.clientWidth;
-                  removeClass(el, 'top-menu--collapse');
+                  removeClass(el, 'el-menu--collapse');
                 }
 
                 el.style.width = el.scrollWidth + 'px';

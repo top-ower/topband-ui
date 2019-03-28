@@ -10,8 +10,8 @@ Displays at the top, and disappears after 3 seconds.
 
 ```html
 <template>
-  <top-button :plain="true" @click="open">Show message</top-button>
-  <top-button :plain="true" @click="openVn">VNode</top-button>
+  <el-button :plain="true" @click="open">Show message</el-button>
+  <el-button :plain="true" @click="openVn">VNode</el-button>
 </template>
 
 <script>
@@ -43,10 +43,10 @@ Used to show the feedback of Success, Warning, Message and Error activities.
 :::demo When you need more customizations, Message component can also take an object as parameter. For example, setting value of `type` can define different types, and its default is `info`. In such cases the main body is passed in as the value of `message`. Also, we have registered methods for different types, so you can directly call it without passing a type like `open4`.
 ```html
 <template>
-  <top-button :plain="true" @click="open2">success</top-button>
-  <top-button :plain="true" @click="open3">warning</top-button>
-  <top-button :plain="true" @click="open">message</top-button>
-  <top-button :plain="true" @click="open4">error</top-button>
+  <el-button :plain="true" @click="open2">success</el-button>
+  <el-button :plain="true" @click="open3">warning</el-button>
+  <el-button :plain="true" @click="open">message</el-button>
+  <el-button :plain="true" @click="open4">error</el-button>
 </template>
 
 <script>
@@ -85,10 +85,10 @@ A close button can be added.
 :::demo A default Message cannot be closed manually. If you need a closable message, you can set `showClose` field. Besides, same as notification, message has a controllable `duration`. Default duration is 3000 ms, and it won't disappear when set to `0`.
 ```html
 <template>
-  <top-button :plain="true" @click="open5">message</top-button>
-  <top-button :plain="true" @click="open6">success</top-button>
-  <top-button :plain="true" @click="open7">warning</top-button>
-  <top-button :plain="true" @click="open8">error</top-button>
+  <el-button :plain="true" @click="open5">message</el-button>
+  <el-button :plain="true" @click="open6">success</el-button>
+  <el-button :plain="true" @click="open7">warning</el-button>
+  <el-button :plain="true" @click="open8">error</el-button>
 </template>
 
 <script>
@@ -137,7 +137,7 @@ Use the `center` attribute to center the text.
 
 ```html
 <template>
-  <top-button :plain="true" @click="openCenter">Centered text</top-button>
+  <el-button :plain="true" @click="openCenter">Centered text</el-button>
 </template>
 
 <script>
@@ -162,7 +162,7 @@ Use the `center` attribute to center the text.
 
 ```html
 <template>
-  <top-button :plain="true" @click="openHTML">Use HTML String</top-button>
+  <el-button :plain="true" @click="openHTML">Use HTML String</el-button>
 </template>
 
 <script>
@@ -193,7 +193,7 @@ Element has added a global method `$message` for Vue.prototype. So in a vue inst
 Import `Message`:
 
 ```javascript
-import { Message } from 'topband-ui';
+import { Message } from 'element-ui';
 ```
 
 In this case you should call `Message(options)`. We have also registered methods for different types, e.g. `Message.success(options)`. You can call `Message.closeAll()` to manually close all the instances.

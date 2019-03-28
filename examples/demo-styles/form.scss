@@ -1,9 +1,8 @@
 .demo-form.demo-zh-CN {
-  .top-select .top-input {
+  .el-select .el-input {
     width: 380px;
   }
-
-  .top-form {
+  .el-form {
     width: 460px;
   }
 
@@ -11,17 +10,17 @@
     text-align: center;
   }
 
-  .top-checkbox-group {
+  .el-checkbox-group {
     width: 320px;
     margin: 0;
     padding: 0;
     list-style: none;
 
-    &:after, &:before {
+    &:after,
+    &:before {
       content: " ";
       display: table;
     }
-
     &:after {
       clear: both;
       visibility: hidden;
@@ -29,58 +28,46 @@
       height: 0;
     }
 
-    .top-checkbox {
+    .el-checkbox {
       float: left;
       width: 160px;
       padding-right: 20px;
       margin: 0;
       padding: 0;
 
-      + .top-checkbox {
+      + .el-checkbox {
         margin-left: 0;
       }
-
     }
-
   }
-
   .demo-form-normal {
     width: 460px;
   }
-
   .demo-form-inline {
     width: auto;
 
-    .top-input {
+    .el-input {
       width: 150px;
     }
-
     > * {
       margin-right: 10px;
     }
-
   }
-
   .demo-ruleForm {
     width: 460px;
 
-    .top-select .top-input {
+    .el-select .el-input {
       width: 360px;
     }
-
   }
-
   .demo-dynamic {
-    .top-input {
+    .el-input {
       margin-right: 10px;
       width: 270px;
       vertical-align: top;
     }
-
   }
-
   .fr {
     float: right;
   }
-
 }

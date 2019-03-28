@@ -1,9 +1,9 @@
-import TOPCol from './src/col';
+import ElCol from './src/col';
 
 /* istanbul ignore next */
-TOPCol.install = function(Vue) {
-  Vue.component(TOPCol.name, TOPCol);
+ElCol.install = function(Vue) {
+  Vue.component(ElCol.name, ElCol);
 };
 
-export default TOPCol;
+export default ElCol;
 

@@ -1,35 +1,35 @@
 <template>
-  <transition name="top-zoom-in-top" @after-leave="$emit('dodestroy')">
+  <transition name="el-zoom-in-top" @after-leave="$emit('dodestroy')">
     <div
       v-show="visible"
-      class="top-picker-panel top-date-range-picker top-popper"
+      class="el-picker-panel el-date-range-picker el-popper"
       :class="[{
         'has-sidebar': $slots.sidebar || shortcuts
       }, popperClass]">
-      <div class="top-picker-panel__body-wrapper">
-        <slot name="sidebar" class="top-picker-panel__sidebar"></slot>
-        <div class="top-picker-panel__sidebar" v-if="shortcuts">
+      <div class="el-picker-panel__body-wrapper">
+        <slot name="sidebar" class="el-picker-panel__sidebar"></slot>
+        <div class="el-picker-panel__sidebar" v-if="shortcuts">
           <button
             type="button"
-            class="top-picker-panel__shortcut"
+            class="el-picker-panel__shortcut"
             v-for="(shortcut, key) in shortcuts"
             :key="key"
             @click="handleShortcutClick(shortcut)">{{shortcut.text}}</button>
         </div>
-        <div class="top-picker-panel__body">
-          <div class="top-picker-panel__content top-date-range-picker__content is-left">
-            <div class="top-date-range-picker__header">
+        <div class="el-picker-panel__body">
+          <div class="el-picker-panel__content el-date-range-picker__content is-left">
+            <div class="el-date-range-picker__header">
               <button
                 type="button"
                 @click="leftPrevYear"
-                class="top-picker-panel__icon-btn top-icon-d-arrow-left"></button>
+                class="el-picker-panel__icon-btn el-icon-d-arrow-left"></button>
               <button
                 type="button"
                 v-if="unlinkPanels"
                 @click="leftNextYear"
                 :disabled="!enableYearArrow"
                 :class="{ 'is-disabled': !enableYearArrow }"
-                class="top-picker-panel__icon-btn top-icon-d-arrow-right"></button>
+                class="el-picker-panel__icon-btn el-icon-d-arrow-right"></button>
               <div>{{ leftLabel }}</div>
             </div>
             <month-table
@@ -44,19 +44,19 @@
               @pick="handleRangePick">
             </month-table>
           </div>
-          <div class="top-picker-panel__content top-date-range-picker__content is-right">
-            <div class="top-date-range-picker__header">
+          <div class="el-picker-panel__content el-date-range-picker__content is-right">
+            <div class="el-date-range-picker__header">
               <button
                 type="button"
                 v-if="unlinkPanels"
                 @click="rightPrevYear"
                 :disabled="!enableYearArrow"
                 :class="{ 'is-disabled': !enableYearArrow }"
-                class="top-picker-panel__icon-btn top-icon-d-arrow-left"></button>
+                class="el-picker-panel__icon-btn el-icon-d-arrow-left"></button>
               <button
                 type="button"
                 @click="rightNextYear"
-                class="top-picker-panel__icon-btn top-icon-d-arrow-right"></button>
+                class="el-picker-panel__icon-btn el-icon-d-arrow-right"></button>
               <div>{{ rightLabel }}</div>
             </div>
             <month-table
@@ -85,11 +85,11 @@
     nextYear,
     nextMonth
   } from '../util';
-  import Clickoutside from 'topband-ui/src/utils/clickoutside';
-  import Locale from 'topband-ui/src/mixins/locale';
+  import Clickoutside from 'element-ui/src/utils/clickoutside';
+  import Locale from 'element-ui/src/mixins/locale';
   import MonthTable from '../basic/month-table';
-  import TOPInput from 'topband-ui/packages/input';
-  import TOPButton from 'topband-ui/packages/button';
+  import ElInput from 'element-ui/packages/input';
+  import ElButton from 'element-ui/packages/button';
 
   const calcDefaultValue = (defaultValue) => {
     if (Array.isArray(defaultValue)) {
@@ -284,6 +284,6 @@
       }
     },
 
-    components: { MonthTable, TOPInput, TOPButton }
+    components: { MonthTable, ElInput, ElButton }
   };
 </script>

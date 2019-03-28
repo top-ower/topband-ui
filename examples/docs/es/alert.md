@@ -10,22 +10,22 @@ Los componentes de alertas no son elementos overlay de la página y no desaparec
 
 ```html
 <template>
-  <top-alert
+  <el-alert
     title="success alert"
     type="success">
-  </top-alert>
-  <top-alert
+  </el-alert>
+  <el-alert
     title="info alert"
     type="info">
-  </top-alert>
-  <top-alert
+  </el-alert>
+  <el-alert
     title="warning alert"
     type="warning">
-  </top-alert>
-  <top-alert
+  </el-alert>
+  <el-alert
     title="error alert"
     type="error">
-  </top-alert>
+  </el-alert>
 </template>
 ```
 :::
@@ -39,21 +39,21 @@ Personalizar el botón de cerrar como texto u otros símbolos.
 
 ```html
 <template>
-  <top-alert
+  <el-alert
     title="unclosable alert"
     type="success"
     :closable="false">
-  </top-alert>
-  <top-alert
+  </el-alert>
+  <el-alert
     title="customized close-text"
     type="info"
     close-text="Gotcha">
-  </top-alert>
-  <top-alert
+  </el-alert>
+  <el-alert
     title="alert with callback"
     type="warning"
     @close="hello">
-  </top-alert>
+  </el-alert>
 </template>
 
 <script>
@@ -77,26 +77,26 @@ Mostrar un icono mejora la legibilidad.
 
 ```html
 <template>
-  <top-alert
+  <el-alert
     title="success alert"
     type="success"
     show-icon>
-  </top-alert>
-  <top-alert
+  </el-alert>
+  <el-alert
     title="info alert"
     type="info"
     show-icon>
-  </top-alert>
-  <top-alert
+  </el-alert>
+  <el-alert
     title="warning alert"
     type="warning"
     show-icon>
-  </top-alert>
-  <top-alert
+  </el-alert>
+  <el-alert
     title="error alert"
     type="error"
     show-icon>
-  </top-alert>
+  </el-alert>
 </template>
 ```
 :::
@@ -109,30 +109,30 @@ Para centrar el texto utilice el atributo `center`.
 
 ```html
 <template>
-  <top-alert
+  <el-alert
     title="success alert"
     type="success"
     center
     show-icon>
-  </top-alert>
-  <top-alert
+  </el-alert>
+  <el-alert
     title="info alert"
     type="info"
     center
     show-icon>
-  </top-alert>
-  <top-alert
+  </el-alert>
+  <el-alert
     title="warning alert"
     type="warning"
     center
     show-icon>
-  </top-alert>
-  <top-alert
+  </el-alert>
+  <el-alert
     title="error alert"
     type="error"
     center
     show-icon>
-  </top-alert>
+  </el-alert>
 </template>
 ```
 :::
@@ -145,11 +145,11 @@ Descripción incluye un mensaje con información más detallada.
 
 ```html
 <template>
-  <top-alert
+  <el-alert
     title="with description"
     type="success"
     description="This is a description.">
-  </top-alert>
+  </el-alert>
 </template>
 ```
 :::
@@ -160,30 +160,30 @@ Descripción incluye un mensaje con información más detallada.
 
 ```html
 <template>
-  <top-alert
+  <el-alert
     title="success alert"
     type="success"
     description="more text description"
     show-icon>
-  </top-alert>
-  <top-alert
+  </el-alert>
+  <el-alert
     title="info alert"
     type="info"
     description="more text description"
     show-icon>
-  </top-alert>
-  <top-alert
+  </el-alert>
+  <el-alert
     title="warning alert"
     type="warning"
     description="more text description"
     show-icon>
-  </top-alert>
-  <top-alert
+  </el-alert>
+  <el-alert
     title="error alert"
     type="error"
     description="more text description"
     show-icon>
-  </top-alert>
+  </el-alert>
 </template>
 ```
 :::

@@ -11,23 +11,23 @@
 <template>
   <div class="block">
     <span class="demonstration">默认</span>
-    <top-slider v-model="value1"></top-slider>
+    <el-slider v-model="value1"></el-slider>
   </div>
   <div class="block">
     <span class="demonstration">自定义初始值</span>
-    <top-slider v-model="value2"></top-slider>
+    <el-slider v-model="value2"></el-slider>
   </div>
   <div class="block">
     <span class="demonstration">隐藏 Tooltip</span>
-    <top-slider v-model="value3" :show-tooltip="false"></top-slider>
+    <el-slider v-model="value3" :show-tooltip="false"></el-slider>
   </div>
   <div class="block">
     <span class="demonstration">格式化 Tooltip</span>
-    <top-slider v-model="value4" :format-tooltip="formatTooltip"></top-slider>
+    <el-slider v-model="value4" :format-tooltip="formatTooltip"></el-slider>
   </div>
   <div class="block">
     <span class="demonstration">禁用</span>
-    <top-slider v-model="value5" disabled></top-slider>
+    <el-slider v-model="value5" disabled></el-slider>
   </div>
 </template>
 
@@ -61,18 +61,18 @@
 <template>
   <div class="block">
     <span class="demonstration">不显示间断点</span>
-    <top-slider
+    <el-slider
       v-model="value6"
       :step="10">
-    </top-slider>
+    </el-slider>
   </div>
   <div class="block">
     <span class="demonstration">显示间断点</span>
-    <top-slider
+    <el-slider
       v-model="value7"
       :step="10"
       show-stops>
-    </top-slider>
+    </el-slider>
   </div>
 </template>
 
@@ -97,10 +97,10 @@
 ```html
 <template>
   <div class="block">
-    <top-slider
+    <el-slider
       v-model="value8"
       show-input>
-    </top-slider>
+    </el-slider>
   </div>
 </template>
 
@@ -124,12 +124,12 @@
 ```html
 <template>
   <div class="block">
-    <top-slider
+    <el-slider
       v-model="value9"
       range
       show-stops
       :max="10">
-    </top-slider>
+    </el-slider>
   </div>
 </template>
 
@@ -151,11 +151,11 @@
 ```html
 <template>
   <div class="block">
-    <top-slider
+    <el-slider
       v-model="value10"
       vertical
       height="200px">
-    </top-slider>
+    </el-slider>
   </div>
 </template>
 

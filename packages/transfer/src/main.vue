@@ -1,5 +1,5 @@
 <template>
-  <div class="top-transfer">
+  <div class="el-transfer">
     <transfer-panel
       v-bind="$props"
       ref="leftPanel"
@@ -10,23 +10,23 @@
       @checked-change="onSourceCheckedChange">
       <slot name="left-footer"></slot>
     </transfer-panel>
-    <div class="top-transfer__buttons">
-      <top-button
+    <div class="el-transfer__buttons">
+      <el-button
         type="primary"
-        :class="['top-transfer__button', hasButtonTexts ? 'is-with-texts' : '']"
+        :class="['el-transfer__button', hasButtonTexts ? 'is-with-texts' : '']"
         @click.native="addToLeft"
         :disabled="rightChecked.length === 0">
-        <i class="top-icon-arrow-left"></i>
+        <i class="el-icon-arrow-left"></i>
         <span v-if="buttonTexts[0] !== undefined">{{ buttonTexts[0] }}</span>
-      </top-button>
-      <top-button
+      </el-button>
+      <el-button
         type="primary"
-        :class="['top-transfer__button', hasButtonTexts ? 'is-with-texts' : '']"
+        :class="['el-transfer__button', hasButtonTexts ? 'is-with-texts' : '']"
         @click.native="addToRight"
         :disabled="leftChecked.length === 0">
         <span v-if="buttonTexts[1] !== undefined">{{ buttonTexts[1] }}</span>
-        <i class="top-icon-arrow-right"></i>
-      </top-button>
+        <i class="el-icon-arrow-right"></i>
+      </el-button>
     </div>
     <transfer-panel
       v-bind="$props"
@@ -42,11 +42,11 @@
 </template>
 
 <script>
-  import ElButton from 'topband-ui/packages/button';
-  import Emitter from 'topband-ui/src/mixins/emitter';
-  import Locale from 'topband-ui/src/mixins/locale';
+  import ElButton from 'element-ui/packages/button';
+  import Emitter from 'element-ui/src/mixins/emitter';
+  import Locale from 'element-ui/src/mixins/locale';
   import TransferPanel from './transfer-panel.vue';
-  import Migrating from 'topband-ui/src/mixins/migrating';
+  import Migrating from 'element-ui/src/mixins/migrating';
 
   export default {
     name: 'ElTransfer',

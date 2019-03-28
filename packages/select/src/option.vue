@@ -2,7 +2,7 @@
   <li
     @mouseenter="hoverItem"
     @click.stop="selectOptionClick"
-    class="top-select-dropdown__item"
+    class="el-select-dropdown__item"
     v-show="visible"
     :class="{
       'selected': itemSelected,
@@ -16,8 +16,8 @@
 </template>
 
 <script type="text/babel">
-  import Emitter from 'topband-ui/src/mixins/emitter';
-  import { getValueByPath, escapeRegexpString } from 'topband-ui/src/utils/util';
+  import Emitter from 'element-ui/src/mixins/emitter';
+  import { getValueByPath, escapeRegexpString } from 'element-ui/src/utils/util';
 
   export default {
     mixins: [Emitter],

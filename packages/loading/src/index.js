@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import loadingVue from './loading.vue';
-import { addClass, removeClass, getStyle } from 'topband-ui/src/utils/dom';
-import { PopupManager } from 'topband-ui/src/utils/popup';
-import afterLeave from 'topband-ui/src/utils/after-leave';
-import merge from 'topband-ui/src/utils/merge';
+import { addClass, removeClass, getStyle } from 'element-ui/src/utils/dom';
+import { PopupManager } from 'element-ui/src/utils/popup';
+import afterLeave from 'element-ui/src/utils/after-leave';
+import merge from 'element-ui/src/utils/merge';
 
 const LoadingConstructor = Vue.extend(loadingVue);
 
@@ -28,8 +28,8 @@ LoadingConstructor.prototype.close = function() {
     const target = this.fullscreen || this.body
       ? document.body
       : this.target;
-    removeClass(target, 'top-loading-parent--relative');
-    removeClass(target, 'top-loading-parent--hidden');
+    removeClass(target, 'el-loading-parent--relative');
+    removeClass(target, 'el-loading-parent--hidden');
     if (this.$el && this.$el.parentNode) {
       this.$el.parentNode.removeChild(this.$el);
     }
@@ -88,10 +88,10 @@ const Loading = (options = {}) => {
 
   addStyle(options, parent, instance);
   if (instance.originalPosition !== 'absolute' && instance.originalPosition !== 'fixed') {
-    addClass(parent, 'top-loading-parent--relative');
+    addClass(parent, 'el-loading-parent--relative');
   }
   if (options.fullscreen && options.lock) {
-    addClass(parent, 'top-loading-parent--hidden');
+    addClass(parent, 'el-loading-parent--hidden');
   }
   parent.appendChild(instance.$el);
   Vue.nextTick(() => {

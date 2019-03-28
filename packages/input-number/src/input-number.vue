@@ -2,31 +2,31 @@
   <div
     @dragstart.prevent
     :class="[
-      'top-input-number',
-      inputNumberSize ? 'top-input-number--' + inputNumberSize : '',
+      'el-input-number',
+      inputNumberSize ? 'el-input-number--' + inputNumberSize : '',
       { 'is-disabled': inputNumberDisabled },
       { 'is-without-controls': !controls },
       { 'is-controls-right': controlsAtRight }
     ]">
     <span
-      class="top-input-number__decrease"
+      class="el-input-number__decrease"
       role="button"
       v-if="controls"
       v-repeat-click="decrease"
       :class="{'is-disabled': minDisabled}"
       @keydown.enter="decrease">
-      <i :class="`top-icon-${controlsAtRight ? 'arrow-down' : 'minus'}`"></i>
+      <i :class="`el-icon-${controlsAtRight ? 'arrow-down' : 'minus'}`"></i>
     </span>
     <span
-      class="top-input-number__increase"
+      class="el-input-number__increase"
       role="button"
       v-if="controls"
       v-repeat-click="increase"
       :class="{'is-disabled': maxDisabled}"
       @keydown.enter="increase">
-      <i :class="`top-icon-${controlsAtRight ? 'arrow-up' : 'plus'}`"></i>
+      <i :class="`el-icon-${controlsAtRight ? 'arrow-up' : 'plus'}`"></i>
     </span>
-    <top-input
+    <el-input
       ref="input"
       :value="displayValue"
       :placeholder="placeholder"
@@ -42,13 +42,13 @@
       @focus="handleFocus"
       @input="handleInput"
       @change="handleInputChange">
-    </top-input>
+    </el-input>
   </div>
 </template>
 <script>
-  import ElInput from 'topband-ui/packages/input';
-  import Focus from 'topband-ui/src/mixins/focus';
-  import RepeatClick from 'topband-ui/src/directives/repeat-click';
+  import ElInput from 'element-ui/packages/input';
+  import Focus from 'element-ui/src/mixins/focus';
+  import RepeatClick from 'element-ui/src/directives/repeat-click';
 
   export default {
     name: 'ElInputNumber',

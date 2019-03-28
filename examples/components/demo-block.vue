@@ -26,18 +26,18 @@
       <transition name="text-slide">
         <span v-show="hovering">{{ controlText }}</span>
       </transition>
-      <top-tooltip effect="dark" :content="langConfig['tooltip-text']" placement="right">
+      <el-tooltip effect="dark" :content="langConfig['tooltip-text']" placement="right">
         <transition name="text-slide">
-          <top-button
+          <el-button
             v-show="hovering || isExpanded"
             size="small"
             type="text"
             class="control-button"
             @click.stop="goCodepen">
             {{ langConfig['button-text'] }}
-          </top-button>
+          </el-button>
         </transition>
-      </top-tooltip>
+      </el-tooltip>
     </div>
   </div>
 </template>
@@ -206,10 +206,10 @@
         // since 2.6.2 use code rather than jsfiddle https://blog.codepen.io/documentation/api/prefill/
         const { script, html, style } = this.codepen;
         const resourcesTpl = '<scr' + 'ipt src="//unpkg.com/vue/dist/vue.js"></scr' + 'ipt>' +
-        '\n<scr' + `ipt src="//unpkg.com/topband-ui@${ version }/lib/index.js"></scr` + 'ipt>';
+        '\n<scr' + `ipt src="//unpkg.com/element-ui@${ version }/lib/index.js"></scr` + 'ipt>';
         let jsTpl = (script || '').replace(/export default/, 'var Main =').trim();
         let htmlTpl = `${resourcesTpl}\n<div id="app">\n${html.trim()}\n</div>`;
-        let cssTpl = `@import url("//unpkg.com/topband-ui@${ version }/lib/theme-chalk/index.css");\n${(style || '').trim()}\n`;
+        let cssTpl = `@import url("//unpkg.com/element-ui@${ version }/lib/theme-chalk/index.css");\n${(style || '').trim()}\n`;
         jsTpl = jsTpl
           ? jsTpl + '\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount(\'#app\')'
           : 'new Vue().$mount(\'#app\')';
@@ -264,7 +264,7 @@
       },
 
       iconClass() {
-        return this.isExpanded ? 'top-icon-caret-top' : 'top-icon-caret-bottom';
+        return this.isExpanded ? 'el-icon-caret-top' : 'el-icon-caret-bottom';
       },
 
       controlText() {
@@ -294,7 +294,7 @@
           return;
         }
         setTimeout(() => {
-          this.scrollParent = document.querySelector('.page-component__scroll > .top-scrollbar__wrap');
+          this.scrollParent = document.querySelector('.page-component__scroll > .el-scrollbar__wrap');
           this.scrollParent && this.scrollParent.addEventListener('scroll', this.scrollHandler);
           this.scrollHandler();
         }, 200);

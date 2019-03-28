@@ -5,15 +5,15 @@ Muestra la localización de la página actual, haciendo más fácil el poder ir 
 ### Uso básico
 
 
-:::demo En `top-breadcrumb`, cada `top-breadcrumb-item` es un tag que representa cada nivel empezando desde la homepage. Este componente tiene un atributo `String` llamado `separator`, el mismo determina el caracter separador. El valor por defecto es '/'.
+:::demo En `el-breadcrumb`, cada `el-breadcrumb-item` es un tag que representa cada nivel empezando desde la homepage. Este componente tiene un atributo `String` llamado `separator`, el mismo determina el caracter separador. El valor por defecto es '/'.
 
 ```html
-<top-breadcrumb separator="/">
-  <top-breadcrumb-item :to="{ path: '/' }">homepage</top-breadcrumb-item>
-  <top-breadcrumb-item><a href="/">promotion management</a></top-breadcrumb-item>
-  <top-breadcrumb-item>promotion list</top-breadcrumb-item>
-  <top-breadcrumb-item>promotion detail</top-breadcrumb-item>
-</top-breadcrumb>
+<el-breadcrumb separator="/">
+  <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
+  <el-breadcrumb-item><a href="/">promotion management</a></el-breadcrumb-item>
+  <el-breadcrumb-item>promotion list</el-breadcrumb-item>
+  <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
+</el-breadcrumb>
 ```
 :::
 
@@ -22,12 +22,12 @@ Muestra la localización de la página actual, haciendo más fácil el poder ir 
 :::demo Setee `separator-class` para que utilice `iconfont` como separador，el mismo va a cubrir `separator`
 
 ```html
-<top-breadcrumb separator-class="top-icon-arrow-right">
-  <top-breadcrumb-item :to="{ path: '/' }">homepage</top-breadcrumb-item>
-  <top-breadcrumb-item>promotion management</top-breadcrumb-item>
-  <top-breadcrumb-item>promotion list</top-breadcrumb-item>
-  <top-breadcrumb-item>promotion detail</top-breadcrumb-item>
-</top-breadcrumb>
+<el-breadcrumb separator-class="el-icon-arrow-right">
+  <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
+  <el-breadcrumb-item>promotion management</el-breadcrumb-item>
+  <el-breadcrumb-item>promotion list</el-breadcrumb-item>
+  <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
+</el-breadcrumb>
 ```
 :::
 

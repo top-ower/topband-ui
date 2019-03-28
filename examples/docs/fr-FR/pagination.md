@@ -9,17 +9,17 @@ Si vous avez beaucoup de données à afficher sur une seule page, il est préfé
 ```html
 <div class="block">
   <span class="demonstration">Quand vous avez quelques pages</span>
-  <top-pagination
+  <el-pagination
     layout="prev, pager, next"
     :total="50">
-  </top-pagination>
+  </el-pagination>
 </div>
 <div class="block">
   <span class="demonstration">Quand vous avez plus que 7 pages</span>
-  <top-pagination
+  <el-pagination
     layout="prev, pager, next"
     :total="1000">
-  </top-pagination>
+  </el-pagination>
 </div>
 ```
 :::
@@ -29,12 +29,12 @@ Si vous avez beaucoup de données à afficher sur une seule page, il est préfé
 :::demo Par défaut, Pagination réduit les boutons lorsqu'il y a plus de 7 pages. Ce nombre est configurable avec l'attribut `pager-count`.
 
 ```html
-<top-pagination
+<el-pagination
   :page-size="20"
   :pager-count="11"
   layout="prev, pager, next"
   :total="1000">
-</top-pagination>
+</el-pagination>
 ```
 :::
 
@@ -43,11 +43,11 @@ Si vous avez beaucoup de données à afficher sur une seule page, il est préfé
 :::demo Réglez l'attribut `background` pour change la couleur de fond des boutons.
 
 ```html
-<top-pagination
+<el-pagination
   background
   layout="prev, pager, next"
   :total="1000">
-</top-pagination>
+</el-pagination>
 ```
 :::
 
@@ -58,11 +58,11 @@ Utilisez une pagination de taille réduite si vous manquez d'espace.
 :::demo Ajoutez simplement l'attribut `small` et la pagination sera de taille réduite.
 
 ```html
-<top-pagination
+<el-pagination
   small
   layout="prev, pager, next"
   :total="50">
-</top-pagination>
+</el-pagination>
 ```
 :::
 
@@ -76,18 +76,18 @@ Vous pouvez ajouter plus de modules suivant vos besoins.
 <template>
   <div class="block">
     <span class="demonstration">Total d'entrées</span>
-    <top-pagination
+    <el-pagination
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page.sync="currentPage1"
       :page-size="100"
       layout="total, prev, pager, next"
       :total="1000">
-    </top-pagination>
+    </el-pagination>
   </div>
   <div class="block">
     <span class="demonstration">Changement de taille de la page</span>
-    <top-pagination
+    <el-pagination
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page.sync="currentPage2"
@@ -95,22 +95,22 @@ Vous pouvez ajouter plus de modules suivant vos besoins.
       :page-size="100"
       layout="sizes, prev, pager, next"
       :total="1000">
-    </top-pagination>
+    </el-pagination>
   </div>
   <div class="block">
     <span class="demonstration">Aller à</span>
-    <top-pagination
+    <el-pagination
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page.sync="currentPage3"
       :page-size="100"
       layout="prev, pager, next, jumper"
       :total="1000">
-    </top-pagination>
+    </el-pagination>
   </div>
   <div class="block">
     <span class="demonstration">Tous en même temps</span>
-    <top-pagination
+    <el-pagination
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page.sync="currentPage4"
@@ -118,7 +118,7 @@ Vous pouvez ajouter plus de modules suivant vos besoins.
       :page-size="100"
       layout="total, sizes, prev, pager, next, jumper"
       :total="400">
-    </top-pagination>
+    </el-pagination>
   </div>
 </template>
 <script>

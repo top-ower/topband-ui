@@ -7,13 +7,13 @@ Switch est utilisé pour choisir entre deux états opposés.
 :::demo Liez `v-model` à une variable de type `Boolean`. Les attributs `active-color` et `inactive-color` déterminent les couleurs des deux états.
 
 ```html
-<top-switch v-model="value1">
-</top-switch>
-<top-switch
+<el-switch v-model="value1">
+</el-switch>
+<el-switch
   v-model="value2"
   active-color="#13ce66"
   inactive-color="#ff4949">
-</top-switch>
+</el-switch>
 
 <script>
   export default {
@@ -33,19 +33,19 @@ Switch est utilisé pour choisir entre deux états opposés.
 :::demo Utilisez `active-text` et `inactive-text` pour afficher une description de chaque étape.
 
 ```html
-<top-switch
+<el-switch
   v-model="value3"
   active-text="Paiement mensuel"
   inactive-text="Paiement annuel">
-</top-switch>
-<top-switch
+</el-switch>
+<el-switch
   style="display: block"
   v-model="value4"
   active-color="#13ce66"
   inactive-color="#ff4949"
   active-text="Paiement mensuel"
   inactive-text="Paiement annuel">
-</top-switch>
+</el-switch>
 
 <script>
   export default {
@@ -65,15 +65,15 @@ Switch est utilisé pour choisir entre deux états opposés.
 :::demo Vous pouvez utiliser `active-value` et `inactive-value` pour déterminer la valeur de chaque état. Ils prennent un `Boolean`, `String` ou `Number`.
 
 ```html
-<top-tooltip :content="'Valeur de l\'état: ' + value5" placement="top">
-  <top-switch
+<el-tooltip :content="'Valeur de l\'état: ' + value5" placement="top">
+  <el-switch
     v-model="value5"
     active-color="#13ce66"
     inactive-color="#ff4949"
     active-value="100"
     inactive-value="0">
-  </top-switch>
-</top-tooltip>
+  </el-switch>
+</el-tooltip>
 
 <script>
   export default {
@@ -93,14 +93,14 @@ Switch est utilisé pour choisir entre deux états opposés.
 :::demo Ajoutez l'attribut `disabled` pour désactiver le switch.
 
 ```html
-<top-switch
+<el-switch
   v-model="value6"
   disabled>
-</top-switch>
-<top-switch
+</el-switch>
+<el-switch
   v-model="value7"
   disabled>
-</top-switch>
+</el-switch>
 
 <script>
   export default {

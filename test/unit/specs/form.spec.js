@@ -25,11 +25,11 @@ describe('Form', () => {
   it('label width', done => {
     vm = createVue({
       template: `
-        <top-form ref="form" :model="form" labtop-width="80px">
-          <top-form-item label="活动名称">
-            <top-input v-model="form.name"></top-input>
-          </top-form-item>
-        </top-form>
+        <el-form ref="form" :model="form" label-width="80px">
+          <el-form-item label="活动名称">
+            <el-input v-model="form.name"></el-input>
+          </el-form-item>
+        </el-form>
       `,
       data() {
         return {
@@ -39,21 +39,21 @@ describe('Form', () => {
         };
       }
     }, true);
-    expect(vm.$el.querySelector('.top-form-item__label').style.width).to.equal('80px');
-    expect(vm.$el.querySelector('.top-form-item__content').style.marginLeft).to.equal('80px');
+    expect(vm.$el.querySelector('.el-form-item__label').style.width).to.equal('80px');
+    expect(vm.$el.querySelector('.el-form-item__content').style.marginLeft).to.equal('80px');
     done();
   });
   it('inline form', done => {
     vm = createVue({
       template: `
-        <top-form ref="form" :model="form" inline>
-          <top-form-item>
-            <top-input v-model="form.name"></top-input>
-          </top-form-item>
-          <top-form-item>
-            <top-input v-model="form.address"></top-input>
-          </top-form-item>
-        </top-form>
+        <el-form ref="form" :model="form" inline>
+          <el-form-item>
+            <el-input v-model="form.name"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-input v-model="form.address"></el-input>
+          </el-form-item>
+        </el-form>
       `,
       data() {
         return {
@@ -64,29 +64,29 @@ describe('Form', () => {
         };
       }
     }, true);
-    expect(vm.$el.classList.contains('top-form--inline')).to.be.true;
+    expect(vm.$el.classList.contains('el-form--inline')).to.be.true;
     done();
   });
   it('label position', done => {
     vm = createVue({
       template: `
         <div>
-          <top-form :model="form" labtop-position="top" ref="labelTop">
-            <top-form-item>
-              <top-input v-model="form.name"></top-input>
-            </top-form-item>
-            <top-form-item>
-              <top-input v-model="form.address"></top-input>
-            </top-form-item>
-          </top-form>
-          <top-form :model="form" labtop-position="left" ref="labelLeft">
-            <top-form-item>
-              <top-input v-model="form.name"></top-input>
-            </top-form-item>
-            <top-form-item>
-              <top-input v-model="form.address"></top-input>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" label-position="top" ref="labelTop">
+            <el-form-item>
+              <el-input v-model="form.name"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-input v-model="form.address"></el-input>
+            </el-form-item>
+          </el-form>
+          <el-form :model="form" label-position="left" ref="labelLeft">
+            <el-form-item>
+              <el-input v-model="form.name"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-input v-model="form.address"></el-input>
+            </el-form-item>
+          </el-form>
         </div>
       `,
       data() {
@@ -98,19 +98,19 @@ describe('Form', () => {
         };
       }
     }, true);
-    expect(vm.$refs.labelTop.$el.classList.contains('top-form--labtop-top')).to.be.true;
-    expect(vm.$refs.labelLeft.$el.classList.contains('top-form--labtop-left')).to.be.true;
+    expect(vm.$refs.labelTop.$el.classList.contains('el-form--label-top')).to.be.true;
+    expect(vm.$refs.labelLeft.$el.classList.contains('el-form--label-left')).to.be.true;
     done();
   });
   it('label size', () => {
     vm = createVue({
       template: `
         <div>
-          <top-form :model="form" size="mini" ref="labelMini">
-            <top-form-item>
-              <top-input v-model="form.name"></top-input>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" size="mini" ref="labelMini">
+            <el-form-item>
+              <el-input v-model="form.name"></el-input>
+            </el-form-item>
+          </el-form>
         </div>
       `,
       data() {
@@ -121,13 +121,13 @@ describe('Form', () => {
         };
       }
     }, true);
-    expect(vm.$refs.labelMini.$el.children[0].classList.contains('top-form-item--mini')).to.be.true;
+    expect(vm.$refs.labelMini.$el.children[0].classList.contains('el-form-item--mini')).to.be.true;
   });
   it('show message', done => {
     vm = createVue({
       template: `
-        <top-form :model="form" ref="form">
-          <top-form-item label="活动名称" prop="name" :show-message="false"
+        <el-form :model="form" ref="form">
+          <el-form-item label="活动名称" prop="name" :show-message="false"
             :rules="{
               required: true,
               message: '请输入活动名称',
@@ -136,9 +136,9 @@ describe('Form', () => {
               max: 6
             }"
           >
-            <top-input v-model="form.name"></top-input>
-          </top-form-item>
-        </top-form>
+            <el-input v-model="form.name"></el-input>
+          </el-form-item>
+        </el-form>
       `,
       data() {
         return {
@@ -151,7 +151,7 @@ describe('Form', () => {
     vm.$refs.form.validate(valid => {
       expect(valid).to.not.true;
       vm.$refs.form.$nextTick(_ => {
-        expect(vm.$el.querySelector('.top-form-item__error')).to.not.exist;
+        expect(vm.$el.querySelector('.el-form-item__error')).to.not.exist;
         done();
       });
     });
@@ -159,22 +159,22 @@ describe('Form', () => {
   it('reset field', done => {
     vm = createVue({
       template: `
-        <top-form ref="form" :model="form" :rules="rules">
-          <top-form-item label="活动名称" prop="name">
-            <top-input v-model="form.name" ref="fieldName"></top-input>
-          </top-form-item>
-          <top-form-item label="活动地址" prop="address">
-            <top-input v-model="form.address" ref="fieldAddr"></top-input>
-          </top-form-item>
-          <top-form-item label="活动性质" prop="type">
-            <top-checkbox-group v-model="form.type">
-              <top-checkbox label="美食/餐厅线上活动" name="type"></top-checkbox>
-              <top-checkbox label="地推活动" name="type"></top-checkbox>
-              <top-checkbox label="线下主题活动" name="type"></top-checkbox>
-              <top-checkbox label="单纯品牌曝光" name="type"></top-checkbox>
-            </top-checkbox-group>
-          </top-form-item>
-        </top-form>
+        <el-form ref="form" :model="form" :rules="rules">
+          <el-form-item label="活动名称" prop="name">
+            <el-input v-model="form.name" ref="fieldName"></el-input>
+          </el-form-item>
+          <el-form-item label="活动地址" prop="address">
+            <el-input v-model="form.address" ref="fieldAddr"></el-input>
+          </el-form-item>
+          <el-form-item label="活动性质" prop="type">
+            <el-checkbox-group v-model="form.type">
+              <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
+              <el-checkbox label="地推活动" name="type"></el-checkbox>
+              <el-checkbox label="线下主题活动" name="type"></el-checkbox>
+              <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
+            </el-checkbox-group>
+          </el-form-item>
+        </el-form>
       `,
       data() {
         return {
@@ -216,22 +216,22 @@ describe('Form', () => {
   it('clear validate', done => {
     vm = createVue({
       template: `
-        <top-form ref="form" :model="form" :rules="rules">
-          <top-form-item label="活动名称" prop="name">
-            <top-input v-model="form.name"></top-input>
-          </top-form-item>
-          <top-form-item label="活动地址" prop="address">
-            <top-input v-model="form.address"></top-input>
-          </top-form-item>
-          <top-form-item label="活动性质" prop="type">
-            <top-checkbox-group v-model="form.type">
-              <top-checkbox label="美食/餐厅线上活动" name="type"></top-checkbox>
-              <top-checkbox label="地推活动" name="type"></top-checkbox>
-              <top-checkbox label="线下主题活动" name="type"></top-checkbox>
-              <top-checkbox label="单纯品牌曝光" name="type"></top-checkbox>
-            </top-checkbox-group>
-          </top-form-item>
-        </top-form>
+        <el-form ref="form" :model="form" :rules="rules">
+          <el-form-item label="活动名称" prop="name">
+            <el-input v-model="form.name"></el-input>
+          </el-form-item>
+          <el-form-item label="活动地址" prop="address">
+            <el-input v-model="form.address"></el-input>
+          </el-form-item>
+          <el-form-item label="活动性质" prop="type">
+            <el-checkbox-group v-model="form.type">
+              <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
+              <el-checkbox label="地推活动" name="type"></el-checkbox>
+              <el-checkbox label="线下主题活动" name="type"></el-checkbox>
+              <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
+            </el-checkbox-group>
+          </el-form-item>
+        </el-form>
       `,
       data() {
         return {
@@ -274,21 +274,21 @@ describe('Form', () => {
   it('form item nest', done => {
     vm = createVue({
       template: `
-        <top-form ref="form" :model="form" :rules="rules">
-          <top-form-item label="活动时间" required>
-            <top-col :span="11">
-              <top-form-item prop="date1">
-                <top-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></top-date-picker>
-              </top-form-item>
-            </top-col>
-            <top-col class="line" :span="2">-</top-col>
-            <top-col :span="11">
-              <top-form-item prop="date2">
-                <top-time-picker placeholder="选择时间" v-model="form.date2" style="width: 100%;"></top-time-picker>
-              </top-form-item>
-            </top-col>
-          </top-form-item>
-        </top-form>
+        <el-form ref="form" :model="form" :rules="rules">
+          <el-form-item label="活动时间" required>
+            <el-col :span="11">
+              <el-form-item prop="date1">
+                <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
+              </el-form-item>
+            </el-col>
+            <el-col class="line" :span="2">-</el-col>
+            <el-col :span="11">
+              <el-form-item prop="date2">
+                <el-time-picker placeholder="选择时间" v-model="form.date2" style="width: 100%;"></el-time-picker>
+              </el-form-item>
+            </el-col>
+          </el-form-item>
+        </el-form>
       `,
       data() {
         return {
@@ -319,11 +319,11 @@ describe('Form', () => {
     it('input', done => {
       vm = createVue({
         template: `
-          <top-form :model="form" :rules="rules" ref="form">
-            <top-form-item label="活动名称" prop="name" ref="field">
-              <top-input v-model="form.name"></top-input>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" :rules="rules" ref="form">
+            <el-form-item label="活动名称" prop="name" ref="field">
+              <el-input v-model="form.name"></el-input>
+            </el-form-item>
+          </el-form>
         `,
         data() {
           return {
@@ -365,11 +365,11 @@ describe('Form', () => {
     it('textarea', done => {
       vm = createVue({
         template: `
-          <top-form :model="form" :rules="rules" ref="form">
-            <top-form-item label="活动名称" prop="name" ref="field">
-              <top-input type="textarea" v-model="form.name"></top-input>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" :rules="rules" ref="form">
+            <el-form-item label="活动名称" prop="name" ref="field">
+              <el-input type="textarea" v-model="form.name"></el-input>
+            </el-form-item>
+          </el-form>
         `,
         data() {
           return {
@@ -411,14 +411,14 @@ describe('Form', () => {
     it('selector', done => {
       vm = createVue({
         template: `
-          <top-form :model="form" :rules="rules" ref="form">
-            <top-form-item label="记住密码" prop="region" ref="field">
-              <top-select v-model="form.region" placeholder="请选择活动区域">
-                <top-option label="区域一" value="shanghai"></top-option>
-                <top-option label="区域二" ref="opt" value="beijing"></top-option>
-              </top-select>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" :rules="rules" ref="form">
+            <el-form-item label="记住密码" prop="region" ref="field">
+              <el-select v-model="form.region" placeholder="请选择活动区域">
+                <el-option label="区域一" value="shanghai"></el-option>
+                <el-option label="区域二" ref="opt" value="beijing"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-form>
         `,
         data() {
           return {
@@ -459,11 +459,11 @@ describe('Form', () => {
     it('datepicker', done => {
       vm = createVue({
         template: `
-          <top-form :model="form" :rules="rules" ref="form">
-            <top-form-item label="记住密码" prop="date" ref="field">
-              <top-date-picker type="date" ref="picker" placeholder="选择日期" v-model="form.date" style="width: 100%;"></top-date-picker>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" :rules="rules" ref="form">
+            <el-form-item label="记住密码" prop="date" ref="field">
+              <el-date-picker type="date" ref="picker" placeholder="选择日期" v-model="form.date" style="width: 100%;"></el-date-picker>
+            </el-form-item>
+          </el-form>
         `,
         data() {
           return {
@@ -515,11 +515,11 @@ describe('Form', () => {
     it('timepicker', done => {
       vm = createVue({
         template: `
-          <top-form :model="form" :rules="rules" ref="form">
-            <top-form-item label="记住密码" prop="date" ref="field">
-              <top-time-picker ref="picker" placeholder="选择时间" v-model="form.date" style="width: 100%;"></top-time-picker>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" :rules="rules" ref="form">
+            <el-form-item label="记住密码" prop="date" ref="field">
+              <el-time-picker ref="picker" placeholder="选择时间" v-model="form.date" style="width: 100%;"></el-time-picker>
+            </el-form-item>
+          </el-form>
         `,
         data() {
           return {
@@ -562,13 +562,13 @@ describe('Form', () => {
     it('checkbox', done => {
       vm = createVue({
         template: `
-          <top-form :model="form" :rules="rules" ref="form">
-            <top-form-item label="是否接受协议" prop="accept" ref="field">
-              <top-checkbox v-model="form.accept">
+          <el-form :model="form" :rules="rules" ref="form">
+            <el-form-item label="是否接受协议" prop="accept" ref="field">
+              <el-checkbox v-model="form.accept">
                 <span>接受协议</span>
-              </top-checkbox>
-            </top-form-item>
-          </top-form>
+              </el-checkbox>
+            </el-form-item>
+          </el-form>
         `,
         data() {
           return {
@@ -614,16 +614,16 @@ describe('Form', () => {
     it('checkbox group', done => {
       vm = createVue({
         template: `
-          <top-form :model="form" :rules="rules" ref="form">
-            <top-form-item label="活动名称" prop="type" ref="field">
-              <top-checkbox-group v-model="form.type">
-                <top-checkbox label="美食/餐厅线上活动" name="type"></top-checkbox>
-                <top-checkbox label="地推活动" name="type"></top-checkbox>
-                <top-checkbox label="线下主题活动" name="type"></top-checkbox>
-                <top-checkbox label="单纯品牌曝光" name="type"></top-checkbox>
-              </top-checkbox-group>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" :rules="rules" ref="form">
+            <el-form-item label="活动名称" prop="type" ref="field">
+              <el-checkbox-group v-model="form.type">
+                <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
+                <el-checkbox label="地推活动" name="type"></el-checkbox>
+                <el-checkbox label="线下主题活动" name="type"></el-checkbox>
+                <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
+              </el-checkbox-group>
+            </el-form-item>
+          </el-form>
         `,
         data() {
           return {
@@ -660,14 +660,14 @@ describe('Form', () => {
     it('radio group', done => {
       vm = createVue({
         template: `
-          <top-form :model="form" :rules="rules" ref="form">
-            <top-form-item label="活动名称" prop="type" ref="field">
-              <top-radio-group v-model="form.type">
-                <top-radio label="线上品牌商赞助"></top-radio>
-                <top-radio label="线下场地免费"></top-radio>
-              </top-radio-group>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" :rules="rules" ref="form">
+            <el-form-item label="活动名称" prop="type" ref="field">
+              <el-radio-group v-model="form.type">
+                <el-radio label="线上品牌商赞助"></el-radio>
+                <el-radio label="线下场地免费"></el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </el-form>
         `,
         data() {
           return {
@@ -704,11 +704,11 @@ describe('Form', () => {
     it('validate field', done => {
       vm = createVue({
         template: `
-          <top-form :model="form" :rules="rules" ref="form">
-            <top-form-item label="活动名称" prop="name" ref="field">
-              <top-input v-model="form.name"></top-input>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" :rules="rules" ref="form">
+            <el-form-item label="活动名称" prop="name" ref="field">
+              <el-input v-model="form.name"></el-input>
+            </el-form-item>
+          </el-form>
         `,
         data() {
           return {
@@ -743,11 +743,11 @@ describe('Form', () => {
       };
       vm = createVue({
         template: `
-          <top-form :model="form" :rules="rules" ref="form">
-            <top-form-item label="活动名称" prop="name" ref="field">
-              <top-input v-model="form.name"></top-input>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" :rules="rules" ref="form">
+            <el-form-item label="活动名称" prop="name" ref="field">
+              <el-input v-model="form.name"></el-input>
+            </el-form-item>
+          </el-form>
         `,
         data() {
           return {
@@ -784,11 +784,11 @@ describe('Form', () => {
     it('error', done => {
       vm = createVue({
         template: `
-          <top-form :model="form" :rules="rules" ref="form">
-            <top-form-item label="活动名称" prop="name" :error="error" ref="field">
-              <top-input v-model="form.name"></top-input>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" :rules="rules" ref="form">
+            <el-form-item label="活动名称" prop="name" :error="error" ref="field">
+              <el-input v-model="form.name"></el-input>
+            </el-form-item>
+          </el-form>
         `,
         data() {
           return {
@@ -831,11 +831,11 @@ describe('Form', () => {
       };
       vm = createVue({
         template: `
-          <top-form :model="form" :rules="rules" ref="form">
-            <top-form-item label="活动名称" prop="name" ref="field">
-              <top-input v-model="form.name"></top-input>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" :rules="rules" ref="form">
+            <el-form-item label="活动名称" prop="name" ref="field">
+              <el-input v-model="form.name"></el-input>
+            </el-form-item>
+          </el-form>
         `,
         data() {
           return {
@@ -865,11 +865,11 @@ describe('Form', () => {
       };
       vm = createVue({
         template: `
-          <top-form :model="form" :rules="rules" ref="form">
-            <top-form-item label="活动名称" prop="name" ref="field">
-              <top-input v-model="form.name"></top-input>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" :rules="rules" ref="form">
+            <el-form-item label="活动名称" prop="name" ref="field">
+              <el-input v-model="form.name"></el-input>
+            </el-form-item>
+          </el-form>
         `,
         data() {
           return {
@@ -893,14 +893,14 @@ describe('Form', () => {
   it('validate event', done => {
     vm = createVue({
       template: `
-          <top-form :model="form" :rules="rules" ref="form" @validate="onValidate">
-            <top-form-item label="活动名称" prop="name" ref="name">
-              <top-input v-model="form.name"></top-input>
-            </top-form-item>
-            <top-form-item label="活动地点" prop="addr" ref="addr">
-              <top-input v-model="form.addr"></top-input>
-            </top-form-item>
-          </top-form>
+          <el-form :model="form" :rules="rules" ref="form" @validate="onValidate">
+            <el-form-item label="活动名称" prop="name" ref="name">
+              <el-input v-model="form.name"></el-input>
+            </el-form-item>
+            <el-form-item label="活动地点" prop="addr" ref="addr">
+              <el-input v-model="form.addr"></el-input>
+            </el-form-item>
+          </el-form>
         `,
       data() {
         return {

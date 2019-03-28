@@ -1,8 +1,8 @@
-import TOPButtonGroup from '../button/src/button-group';
+import ElButtonGroup from '../button/src/button-group';
 
 /* istanbul ignore next */
-TOPButtonGroup.install = function(Vue) {
-  Vue.component(TOPButtonGroup.name, TOPButtonGroup);
+ElButtonGroup.install = function(Vue) {
+  Vue.component(ElButtonGroup.name, ElButtonGroup);
 };
 
-export default TOPButtonGroup;
+export default ElButtonGroup;

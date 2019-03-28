@@ -7,11 +7,11 @@ Used for marking and selection.
 :::demo Use the `type` attribute to define Tag's type. In addition, the `color` attribute can be used to set the background color of the Tag.
 
 ```html
-<top-tag>Tag One</top-tag>
-<top-tag type="success">Tag Two</top-tag>
-<top-tag type="info">Tag Three</top-tag>
-<top-tag type="warning">Tag Four</top-tag>
-<top-tag type="danger">Tag Five</top-tag>
+<el-tag>Tag One</el-tag>
+<el-tag type="success">Tag Two</el-tag>
+<el-tag type="info">Tag Three</el-tag>
+<el-tag type="warning">Tag Four</el-tag>
+<el-tag type="danger">Tag Five</el-tag>
 ```
 :::
 
@@ -20,13 +20,13 @@ Used for marking and selection.
 :::demo `closable` attribute can be used to define a removable tag. It accepts a `Boolean`. By default the removal of Tag has a fading animation. If you don't want to use it, you can set the `disable-transitions` attribute, which accepts a `Boolean`, to `true`. `close` event triggers when Tag is removed.
 
 ```html
-<top-tag
+<el-tag
   v-for="tag in tags"
   :key="tag.name"
   closable
   :type="tag.type">
   {{tag.name}}
-</top-tag>
+</el-tag>
 
 <script>
   export default {
@@ -52,15 +52,15 @@ You can use the `close` event to add and remove tag dynamically.
 
 :::demo
 ```html
-<top-tag
+<el-tag
   :key="tag"
   v-for="tag in dynamicTags"
   closable
   :disable-transitions="false"
   @close="handleClose(tag)">
   {{tag}}
-</top-tag>
-<top-input
+</el-tag>
+<el-input
   class="input-new-tag"
   v-if="inputVisible"
   v-model="inputValue"
@@ -69,11 +69,11 @@ You can use the `close` event to add and remove tag dynamically.
   @keyup.enter.native="handleInputConfirm"
   @blur="handleInputConfirm"
 >
-</top-input>
-<top-button v-else class="button-new-tag" size="small" @click="showInput">+ New Tag</top-button>
+</el-input>
+<el-button v-else class="button-new-tag" size="small" @click="showInput">+ New Tag</el-button>
 
 <style>
-  .top-tag + .top-tag {
+  .el-tag + .el-tag {
     margin-left: 10px;
   }
   .button-new-tag {
@@ -132,10 +132,10 @@ Besides default size, Tag component provides three additional sizes for you to c
 :::demo Use attribute `size` to set additional sizes with `medium`, `small` or `mini`.
 
 ```html
-<top-tag>Default</top-tag>
-<top-tag size="medium">Medium</top-tag>
-<top-tag size="small">Small</top-tag>
-<top-tag size="mini">Mini</top-tag>
+<el-tag>Default</el-tag>
+<el-tag size="medium">Medium</el-tag>
+<el-tag size="small">Small</el-tag>
+<el-tag size="mini">Mini</el-tag>
 ```
 :::
 

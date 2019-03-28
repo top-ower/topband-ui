@@ -1,9 +1,9 @@
 <template>
-  <transition name="top-message-fade" @after-leave="handleAfterLeave">
+  <transition name="el-message-fade" @after-leave="handleAfterLeave">
     <div
       :class="[
-        'top-message',
-        type && !iconClass ? `top-message--${ type }` : '',
+        'el-message',
+        type && !iconClass ? `el-message--${ type }` : '',
         center ? 'is-center' : '',
         showClose ? 'is-closable' : '',
         customClass
@@ -15,10 +15,10 @@
       <i :class="iconClass" v-if="iconClass"></i>
       <i :class="typeClass" v-else></i>
       <slot>
-        <p v-if="!dangerouslyUseHTMLString" class="top-message__content">{{ message }}</p>
-        <p v-else v-html="message" class="top-message__content"></p>
+        <p v-if="!dangerouslyUseHTMLString" class="el-message__content">{{ message }}</p>
+        <p v-else v-html="message" class="el-message__content"></p>
       </slot>
-      <i v-if="showClose" class="top-message__closeBtn top-icon-close" @click="close"></i>
+      <i v-if="showClose" class="el-message__closeBtn el-icon-close" @click="close"></i>
     </div>
   </transition>
 </template>
@@ -52,7 +52,7 @@
     computed: {
       typeClass() {
         return this.type && !this.iconClass
-          ? `top-message__icon top-icon-${ typeMap[this.type] }`
+          ? `el-message__icon el-icon-${ typeMap[this.type] }`
           : '';
       }
     },

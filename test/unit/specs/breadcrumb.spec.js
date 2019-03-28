@@ -8,15 +8,15 @@ describe('Breadcrumb', () => {
 
   it('create', done => {
     vm = createVue(`
-      <top-breadcrumb separator=">">
-        <top-breadcrumb-item to="/">首页</top-breadcrumb-item>
-        <top-breadcrumb-item>活动管理</top-breadcrumb-item>
-        <top-breadcrumb-item>活动列表</top-breadcrumb-item>
-        <top-breadcrumb-item>活动详情</top-breadcrumb-item>
-      </top-breadcrumb>
+      <el-breadcrumb separator=">">
+        <el-breadcrumb-item to="/">首页</el-breadcrumb-item>
+        <el-breadcrumb-item>活动管理</el-breadcrumb-item>
+        <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+        <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+      </el-breadcrumb>
     `);
     vm.$nextTick(_ => {
-      expect(vm.$el.querySelector('.top-breadcrumb__separator').innerText).to.equal('>');
+      expect(vm.$el.querySelector('.el-breadcrumb__separator').innerText).to.equal('>');
       done();
     });
   });

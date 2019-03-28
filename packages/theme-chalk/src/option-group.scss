@@ -3,6 +3,7 @@
 
 @include b(select-group) {
   $gap: 20px;
+
   margin: 0;
   padding: 0;
 
@@ -25,9 +26,7 @@
         height: 1px;
         background: $--border-color-light;
       }
-
     }
-
   }
 
   @include e(title) {
@@ -37,8 +36,7 @@
     line-height: $--select-group-height;
   }
 
-  & .top-select-dropdown__item {
+  & .el-select-dropdown__item {
     padding-left: $gap;
   }
-
 }

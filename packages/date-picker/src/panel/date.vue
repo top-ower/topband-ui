@@ -1,34 +1,34 @@
 <template>
-  <transition name="top-zoom-in-top" @after-enter="handleEnter" @after-leave="handleLeave">
+  <transition name="el-zoom-in-top" @after-enter="handleEnter" @after-leave="handleLeave">
     <div
       v-show="visible"
-      class="top-picker-panel top-date-picker top-popper"
+      class="el-picker-panel el-date-picker el-popper"
       :class="[{
         'has-sidebar': $slots.sidebar || shortcuts,
         'has-time': showTime
       }, popperClass]">
-      <div class="top-picker-panel__body-wrapper">
-        <slot name="sidebar" class="top-picker-panel__sidebar"></slot>
-        <div class="top-picker-panel__sidebar" v-if="shortcuts">
+      <div class="el-picker-panel__body-wrapper">
+        <slot name="sidebar" class="el-picker-panel__sidebar"></slot>
+        <div class="el-picker-panel__sidebar" v-if="shortcuts">
           <button
             type="button"
-            class="top-picker-panel__shortcut"
+            class="el-picker-panel__shortcut"
             v-for="(shortcut, key) in shortcuts"
             :key="key"
             @click="handleShortcutClick(shortcut)">{{ shortcut.text }}</button>
         </div>
-        <div class="top-picker-panel__body">
-          <div class="top-date-picker__time-header" v-if="showTime">
-            <span class="top-date-picker__editor-wrap">
-              <top-input
+        <div class="el-picker-panel__body">
+          <div class="el-date-picker__time-header" v-if="showTime">
+            <span class="el-date-picker__editor-wrap">
+              <el-input
                 :placeholder="t('el.datepicker.selectDate')"
                 :value="visibleDate"
                 size="small"
                 @input="val => userInputDate = val"
                 @change="handleVisibleDateChange" />
             </span>
-            <span class="top-date-picker__editor-wrap" v-clickoutside="handleTimePickClose">
-              <top-input
+            <span class="el-date-picker__editor-wrap" v-clickoutside="handleTimePickClose">
+              <el-input
                 ref="input"
                 @focus="timePickerVisible = true"
                 :placeholder="t('el.datepicker.selectTime')"
@@ -46,48 +46,48 @@
             </span>
           </div>
           <div
-            class="top-date-picker__header"
-            :class="{ 'top-date-picker__header--bordered': currentView === 'year' || currentView === 'month' }"
+            class="el-date-picker__header"
+            :class="{ 'el-date-picker__header--bordered': currentView === 'year' || currentView === 'month' }"
             v-show="currentView !== 'time'">
             <button
               type="button"
               @click="prevYear"
               :aria-label="t(`el.datepicker.prevYear`)"
-              class="top-picker-panel__icon-btn top-date-picker__prev-btn top-icon-d-arrow-left">
+              class="el-picker-panel__icon-btn el-date-picker__prev-btn el-icon-d-arrow-left">
             </button>
             <button
               type="button"
               @click="prevMonth"
               v-show="currentView === 'date'"
               :aria-label="t(`el.datepicker.prevMonth`)"
-              class="top-picker-panel__icon-btn top-date-picker__prev-btn top-icon-arrow-left">
+              class="el-picker-panel__icon-btn el-date-picker__prev-btn el-icon-arrow-left">
             </button>
             <span
               @click="showYearPicker"
               role="button"
-              class="top-date-picker__header-label">{{ yearLabel }}</span>
+              class="el-date-picker__header-label">{{ yearLabel }}</span>
             <span
               @click="showMonthPicker"
               v-show="currentView === 'date'"
               role="button"
-              class="top-date-picker__header-label"
+              class="el-date-picker__header-label"
               :class="{ active: currentView === 'month' }">{{t(`el.datepicker.month${ month + 1 }`)}}</span>
             <button
               type="button"
               @click="nextYear"
               :aria-label="t(`el.datepicker.nextYear`)"
-              class="top-picker-panel__icon-btn top-date-picker__next-btn top-icon-d-arrow-right">
+              class="el-picker-panel__icon-btn el-date-picker__next-btn el-icon-d-arrow-right">
             </button>
             <button
               type="button"
               @click="nextMonth"
               v-show="currentView === 'date'"
               :aria-label="t(`el.datepicker.nextMonth`)"
-              class="top-picker-panel__icon-btn top-date-picker__next-btn top-icon-arrow-right">
+              class="el-picker-panel__icon-btn el-date-picker__next-btn el-icon-arrow-right">
             </button>
           </div>
 
-          <div class="top-picker-panel__content">
+          <div class="el-picker-panel__content">
             <date-table
               v-show="currentView === 'date'"
               @pick="handleDatePick"
@@ -119,23 +119,23 @@
       </div>
 
       <div
-        class="top-picker-panel__footer"
+        class="el-picker-panel__footer"
         v-show="footerVisible && currentView === 'date'">
-        <top-button
+        <el-button
           size="mini"
           type="text"
-          class="top-picker-panel__link-btn"
+          class="el-picker-panel__link-btn"
           @click="changeToNow"
           v-show="selectionMode !== 'dates'">
           {{ t('el.datepicker.now') }}
-        </top-button>
-        <top-button
+        </el-button>
+        <el-button
           plain
           size="mini"
-          class="top-picker-panel__link-btn"
+          class="el-picker-panel__link-btn"
           @click="confirm">
           {{ t('el.datepicker.confirm') }}
-        </top-button>
+        </el-button>
       </div>
     </div>
   </transition>
@@ -161,10 +161,10 @@
     extractTimeFormat,
     timeWithinRange
   } from '../util';
-  import Clickoutside from 'topband-ui/src/utils/clickoutside';
-  import Locale from 'topband-ui/src/mixins/locale';
-  import TOPInput from 'topband-ui/packages/input';
-  import TOPButton from 'topband-ui/packages/button';
+  import Clickoutside from 'element-ui/src/utils/clickoutside';
+  import Locale from 'element-ui/src/mixins/locale';
+  import ElInput from 'element-ui/packages/input';
+  import ElButton from 'element-ui/packages/button';
   import TimePicker from './time';
   import YearTable from '../basic/year-table';
   import MonthTable from '../basic/month-table';
@@ -499,7 +499,7 @@
     },
 
     components: {
-      TimePicker, YearTable, MonthTable, DateTable, TOPInput, TOPButton
+      TimePicker, YearTable, MonthTable, DateTable, ElInput, ElButton
     },
 
     data() {

@@ -5,8 +5,8 @@
       @after-enter="handleAfterEnter"
       @after-leave="handleAfterLeave">
       <div
-        class="top-popover top-popper"
-        :class="[popperClass, content && 'top-popover--plain']"
+        class="el-popover el-popper"
+        :class="[popperClass, content && 'el-popover--plain']"
         ref="popper"
         v-show="!disabled && showPopper"
         :style="{ width: width + 'px' }"
@@ -14,7 +14,7 @@
         :id="tooltipId"
         :aria-hidden="(disabled || !showPopper) ? 'true' : 'false'"
       >
-        <div class="top-popover__title" v-if="title" v-text="title"></div>
+        <div class="el-popover__title" v-if="title" v-text="title"></div>
         <slot>{{ content }}</slot>
       </div>
     </transition>
@@ -22,10 +22,10 @@
   </span>
 </template>
 <script>
-import Popper from 'topband-ui/src/utils/vue-popper';
-import { on, off } from 'topband-ui/src/utils/dom';
-import { addClass, removeClass } from 'topband-ui/src/utils/dom';
-import { generateId } from 'topband-ui/src/utils/util';
+import Popper from 'element-ui/src/utils/vue-popper';
+import { on, off } from 'element-ui/src/utils/dom';
+import { addClass, removeClass } from 'element-ui/src/utils/dom';
+import { generateId } from 'element-ui/src/utils/util';
 
 export default {
   name: 'ElPopover',
@@ -63,7 +63,7 @@ export default {
 
   computed: {
     tooltipId() {
-      return `top-popover-${generateId()}`;
+      return `el-popover-${generateId()}`;
     }
   },
   watch: {
@@ -84,7 +84,7 @@ export default {
     }
     // 可访问性
     if (reference) {
-      addClass(reference, 'top-popover__reference');
+      addClass(reference, 'el-popover__reference');
       reference.setAttribute('aria-describedby', this.tooltipId);
       reference.setAttribute('tabindex', 0); // tab序列
       popper.setAttribute('tabindex', 0);

@@ -33,7 +33,7 @@ describe('Select', () => {
     const vm = createVue({
       template: `
         <div>
-          <top-select
+          <el-select
             ref="select"
             v-model="value"
             :multiple="multiple"
@@ -48,14 +48,14 @@ describe('Select', () => {
             :loading="loading"
             :remoteMethod="remoteMethod"
             :automatic-dropdown="automaticDropdown">
-            <top-option
+            <el-option
               v-for="item in options"
               :label="item.label"
               :key="item.value"
               :disabled="item.disabled"
               :value="item.value">
-            </top-option>
-          </top-select>
+            </el-option>
+          </el-select>
         </div>
       `,
 
@@ -88,15 +88,15 @@ describe('Select', () => {
 
   it('create', () => {
     vm = createTest(Select, true);
-    expect(vm.$el.className).to.equal('top-select');
-    expect(vm.$el.querySelector('.top-input__inner').placeholder).to.equal('请选择');
+    expect(vm.$el.className).to.equal('el-select');
+    expect(vm.$el.querySelector('.el-input__inner').placeholder).to.equal('请选择');
     vm.toggleMenu();
     expect(vm.visible).to.true;
   });
 
   it('options rendered correctly', () => {
     vm = getSelectVm();
-    const options = vm.$el.querySelectorAll('.top-select-dropdown__item');
+    const options = vm.$el.querySelectorAll('.el-select-dropdown__item');
     const result = [].every.call(options, (option, index) => {
       let text = option.querySelector('span').textContent;
       return text === vm.options[index].label;
@@ -106,7 +106,7 @@ describe('Select', () => {
 
   it('custom dropdown class', () => {
     vm = getSelectVm({ popperClass: 'custom-dropdown' });
-    const dropdown = vm.$el.querySelector('.top-select-dropdown');
+    const dropdown = vm.$el.querySelector('.el-select-dropdown');
     expect(dropdown.classList.contains('custom-dropdown')).to.true;
   });
 
@@ -114,14 +114,14 @@ describe('Select', () => {
     vm = createVue({
       template: `
         <div>
-          <top-select v-model="value">
-            <top-option
+          <el-select v-model="value">
+            <el-option
               v-for="item in options"
               :label="item.label"
               :key="item.value"
               :value="item.value">
-            </top-option>
-          </top-select>
+            </el-option>
+          </el-select>
         </div>
       `,
 
@@ -139,7 +139,7 @@ describe('Select', () => {
       }
     }, true);
     setTimeout(() => {
-      expect(vm.$el.querySelector('.top-input__inner').value).to.equal('双皮奶');
+      expect(vm.$el.querySelector('.el-input__inner').value).to.equal('双皮奶');
       done();
     }, 100);
   });
@@ -148,15 +148,15 @@ describe('Select', () => {
     vm = createVue({
       template: `
         <div>
-          <top-select v-model="value" @change="handleChange">
-            <top-option
+          <el-select v-model="value" @change="handleChange">
+            <el-option
               v-for="item in options"
               :label="item.label"
               :key="item.value"
               :value="item.value">
               <p>{{item.label}} {{item.value}}</p>
-            </top-option>
-          </top-select>
+            </el-option>
+          </el-select>
         </div>
       `,
 
@@ -189,7 +189,7 @@ describe('Select', () => {
         }
       }
     }, true);
-    const options = vm.$el.querySelectorAll('.top-select-dropdown__item');
+    const options = vm.$el.querySelectorAll('.el-select-dropdown__item');
     expect(vm.value).to.equal('');
     triggerEvent(options[2], 'mouseenter');
     options[2].click();
@@ -210,7 +210,7 @@ describe('Select', () => {
     vm = getSelectVm();
     vm.options[1].disabled = true;
     setTimeout(() => {
-      const options = vm.$el.querySelectorAll('.top-select-dropdown__item');
+      const options = vm.$el.querySelectorAll('.el-select-dropdown__item');
       expect(options[1].classList.contains('is-disabled')).to.true;
       options[1].click();
       setTimeout(() => {
@@ -222,21 +222,21 @@ describe('Select', () => {
 
   it('disabled select', () => {
     vm = createTest(Select, { disabled: true }, true);
-    expect(vm.$el.querySelector('.top-input').classList.contains('is-disabled')).to.true;
+    expect(vm.$el.querySelector('.el-input').classList.contains('is-disabled')).to.true;
   });
 
   it('visible event', done => {
     vm = createVue({
       template: `
         <div>
-          <top-select v-model="value" @visible-change="handleVisibleChange">
-            <top-option
+          <el-select v-model="value" @visible-change="handleVisibleChange">
+            <el-option
               v-for="item in options"
               :label="item.label"
               :key="item.value"
               :value="item.value">
-            </top-option>
-          </top-select>
+            </el-option>
+          </el-select>
         </div>
       `,
 
@@ -285,7 +285,7 @@ describe('Select', () => {
     vm.value = '选项1';
     select.inputHovering = true;
     setTimeout(() => {
-      const iconClear = vm.$el.querySelector('.top-input__icon.top-icon-circle-close');
+      const iconClear = vm.$el.querySelector('.el-input__icon.el-icon-circle-close');
       expect(iconClear).to.exist;
       iconClear.click();
       expect(vm.value).to.equal('');
@@ -297,14 +297,14 @@ describe('Select', () => {
     vm = createVue({
       template: `
         <div>
-          <top-select v-model="value" value-key="id">
-            <top-option
+          <el-select v-model="value" value-key="id">
+            <el-option
               v-for="item in options"
               :label="item.label"
               :key="item.id"
               :value="item">
-            </top-option>
-          </top-select>
+            </el-option>
+          </el-select>
         </div>
       `,
 
@@ -325,8 +325,8 @@ describe('Select', () => {
       }
     }, true);
     setTimeout(() => {
-      expect(vm.$el.querySelector('.top-input__inner').value).to.equal('label1');
-      expect(vm.$el.querySelector('.top-select-dropdown__item').classList.contains('selected'));
+      expect(vm.$el.querySelector('.el-input__inner').value).to.equal('label1');
+      expect(vm.$el.querySelector('.el-select-dropdown__item').classList.contains('selected'));
       done();
     }, 100);
   });
@@ -335,15 +335,15 @@ describe('Select', () => {
     vm = createTest({
       template: `
         <div>
-          <top-select v-model="value">
-            <top-option
+          <el-select v-model="value">
+            <el-option
               v-for="item in options"
               :label="item.label"
               :key="item.value"
               :value="item.value">
-            </top-option>
-            <i slot="prefix" class="top-input__icon top-icon-search"></i>
-          </top-select>
+            </el-option>
+            <i slot="prefix" class="el-input__icon el-icon-search"></i>
+          </el-select>
         </div>
       `,
 
@@ -354,22 +354,22 @@ describe('Select', () => {
         };
       }
     });
-    expect(vm.$el.querySelector('.top-input__icon').classList.contains('top-icon-search')).to.be.true;
+    expect(vm.$el.querySelector('.el-input__icon').classList.contains('el-icon-search')).to.be.true;
   });
 
-  it('custom top-option template', () => {
+  it('custom el-option template', () => {
     vm = createVue({
       template: `
         <div>
-          <top-select v-model="value">
-            <top-option
+          <el-select v-model="value">
+            <el-option
               v-for="item in options"
               :label="item.label"
               :key="item.value"
               :value="item.value">
               <p>{{item.label}} {{item.value}}</p>
-            </top-option>
-          </top-select>
+            </el-option>
+          </el-select>
         </div>
       `,
 
@@ -383,27 +383,27 @@ describe('Select', () => {
         };
       }
     }, true);
-    expect(vm.$el.querySelector('.top-select-dropdown__item p').textContent).to.equal('label value');
+    expect(vm.$el.querySelector('.el-select-dropdown__item p').textContent).to.equal('label value');
   });
 
   it('option group', () => {
     vm = createVue({
       template: `
         <div>
-          <top-select v-model="value">
-            <top-option-group
+          <el-select v-model="value">
+            <el-option-group
               v-for="group in options"
               :key="group.label"
               :disabled="group.disabled"
               :label="group.label">
-              <top-option
+              <el-option
                 v-for="item in group.options"
                 :label="item.label"
                 :key="item.value"
                 :value="item.value">
-              </top-option>
-            </top-option-group>
-          </top-select>
+              </el-option>
+            </el-option-group>
+          </el-select>
         </div>
       `,
 
@@ -439,8 +439,8 @@ describe('Select', () => {
         };
       }
     }, true);
-    const groups = vm.$el.querySelectorAll('.top-select-group__wrap');
-    const options = groups[1].querySelectorAll('.top-select-dropdown__item');
+    const groups = vm.$el.querySelectorAll('.el-select-group__wrap');
+    const options = groups[1].querySelectorAll('.el-select-dropdown__item');
     expect(groups.length).to.equal(2);
     expect(options.length).to.equal(4);
     expect(options[0].querySelector('span').textContent).to.equal('成都');
@@ -483,18 +483,18 @@ describe('Select', () => {
     vm = createVue({
       template: `
         <div>
-          <top-select
+          <el-select
             v-model="value"
             default-first-option
             filterable
           >
-            <top-option
+            <el-option
               v-for="item in options"
               :label="item"
               :key="item"
               :value="item"
             />
-          </top-select>
+          </el-select>
         </div>
       `,
       data() {
@@ -526,7 +526,7 @@ describe('Select', () => {
       select.selectedLabel = 'new';
       select.onInputChange();
       setTimeout(() => {
-        const options = document.querySelectorAll('.top-select-dropdown__item span');
+        const options = document.querySelectorAll('.el-select-dropdown__item span');
         const target = [].filter.call(options, option => option.innerText === 'new');
         target[0].click();
         setTimeout(() => {
@@ -539,7 +539,7 @@ describe('Select', () => {
 
   it('multiple select', done => {
     vm = getSelectVm({ multiple: true });
-    const options = vm.$el.querySelectorAll('.top-select-dropdown__item');
+    const options = vm.$el.querySelectorAll('.el-select-dropdown__item');
     vm.value = ['选项1'];
     setTimeout(() => {
       options[1].click();
@@ -547,7 +547,7 @@ describe('Select', () => {
         options[3].click();
         setTimeout(() => {
           expect(vm.value.indexOf('选项2') > -1 && vm.value.indexOf('选项4') > -1).to.true;
-          const tagCloseIcons = vm.$el.querySelectorAll('.top-tag__close');
+          const tagCloseIcons = vm.$el.querySelectorAll('.el-tag__close');
           tagCloseIcons[0].click();
           setTimeout(() => {
             expect(vm.value.indexOf('选项1')).to.equal(-1);
@@ -563,15 +563,15 @@ describe('Select', () => {
     vm = createVue({
       template: `
         <div>
-          <top-select v-model="value" multiple @remove-tag="handleRemoveTag">
-            <top-option
+          <el-select v-model="value" multiple @remove-tag="handleRemoveTag">
+            <el-option
               v-for="item in options"
               :label="item.label"
               :key="item.value"
               :value="item.value">
               <p>{{item.label}} {{item.value}}</p>
-            </top-option>
-          </top-select>
+            </el-option>
+          </el-select>
         </div>
       `,
 
@@ -605,7 +605,7 @@ describe('Select', () => {
     }, true);
     expect(vm.value.length).to.equal(2);
     setTimeout(() => {
-      const tagCloseIcons = vm.$el.querySelectorAll('.top-tag__close');
+      const tagCloseIcons = vm.$el.querySelectorAll('.el-tag__close');
       tagCloseIcons[1].click();
       setTimeout(() => {
         expect(vm.value.length).to.equal(1);
@@ -623,7 +623,7 @@ describe('Select', () => {
 
   it('multiple limit', done => {
     vm = getSelectVm({ multiple: true, multipleLimit: 1 });
-    const options = vm.$el.querySelectorAll('.top-select-dropdown__item');
+    const options = vm.$el.querySelectorAll('.el-select-dropdown__item');
     options[1].click();
     setTimeout(() => {
       expect(vm.value.indexOf('选项2') > -1).to.true;
@@ -677,7 +677,7 @@ describe('Select', () => {
   it('event:focus & blur', done => {
     vm = createVue({
       template: `
-        <top-select ref="select"></top-select>
+        <el-select ref="select"></el-select>
       `
     }, true);
 
@@ -700,9 +700,9 @@ describe('Select', () => {
     vm = createVue({
       template: `
         <div>
-          <top-select v-model="value" ref="select">
-            <top-option label="1" :value="1" />
-          </top-select>
+          <el-select v-model="value" ref="select">
+            <el-option label="1" :value="1" />
+          </el-select>
         </div>
       `,
       data() {
@@ -718,7 +718,7 @@ describe('Select', () => {
     vm.$refs.select.$on('focus', spySelectFocus);
     vm.$refs.select.$refs.reference.$on('focus', spyInputFocus);
 
-    const option = vm.$el.querySelectorAll('.top-select-dropdown__item')[0];
+    const option = vm.$el.querySelectorAll('.el-select-dropdown__item')[0];
     triggerEvent(option, 'mouseenter');
     option.click();
 
@@ -754,7 +754,7 @@ describe('Select', () => {
   it('focus', done => {
     vm = createVue({
       template: `
-        <top-select ref="select"></top-select>
+        <el-select ref="select"></el-select>
       `
     }, true);
     const spy = sinon.spy();
@@ -773,11 +773,11 @@ describe('Select', () => {
     vm = createVue({
       template: `
         <div>
-          <top-select v-model="value" @change="change" ref="select">
-            <top-option label="1" :value="1" />
-            <top-option label="2" :value="2" />
-            <top-option label="3" :value="3" />
-          </top-select>
+          <el-select v-model="value" @change="change" ref="select">
+            <el-option label="1" :value="1" />
+            <el-option label="2" :value="2" />
+            <el-option label="3" :value="3" />
+          </el-select>
         </div>
       `,
       data() {
@@ -791,7 +791,7 @@ describe('Select', () => {
     vm.value = 2;
     setTimeout(() => {
       expect(callCount).to.equal(0);
-      const options = vm.$el.querySelectorAll('.top-select-dropdown__item');
+      const options = vm.$el.querySelectorAll('.el-select-dropdown__item');
       triggerEvent(options[2], 'mouseenter');
       options[2].click();
       setTimeout(() => {
@@ -805,9 +805,9 @@ describe('Select', () => {
     vm = createVue({
       template: `
         <div>
-          <top-select v-model="value">
+          <el-select v-model="value">
             <div class="empty-slot" slot="empty">EmptySlot</div>
-          </top-select>
+          </el-select>
         </div>
       `,
       data() {

@@ -51,7 +51,7 @@ module.exports = {
         test: /\.(jsx?|babel|es6)$/,
         include: process.cwd(),
         exclude: config.jsexclude,
-        loader: 'babtop-loader'
+        loader: 'babel-loader'
       },
       {
         test: /\.vue$/,

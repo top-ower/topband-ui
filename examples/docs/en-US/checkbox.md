@@ -6,12 +6,12 @@ A group of options for multiple choices.
 
 Checkbox can be used alone to switch between two states.
 
-:::demo Define `v-model`(bind variable) in `top-checkbox`. The default value is a `Boolean` for single `checkbox`, and it becomes `true` when selected. Content inside the `top-checkbox` tag will become the description following the button of the checkbox.
+:::demo Define `v-model`(bind variable) in `el-checkbox`. The default value is a `Boolean` for single `checkbox`, and it becomes `true` when selected. Content inside the `el-checkbox` tag will become the description following the button of the checkbox.
 
 ```html
 <template>
   <!-- `checked` should be true or false -->
-  <top-checkbox v-model="checked">Option</top-checkbox>
+  <el-checkbox v-model="checked">Option</el-checkbox>
 </template>
 <script>
   export default {
@@ -33,8 +33,8 @@ Disabled state for checkbox.
 
 ```html
 <template>
-  <top-checkbox v-model="checked1" disabled>Option</top-checkbox>
-  <top-checkbox v-model="checked2" disabled>Option</top-checkbox>
+  <el-checkbox v-model="checked1" disabled>Option</el-checkbox>
+  <el-checkbox v-model="checked2" disabled>Option</el-checkbox>
 </template>
 <script>
   export default {
@@ -53,17 +53,17 @@ Disabled state for checkbox.
 
 It is used for multiple checkboxes which are bound in one group, and indicates whether one option is selected by checking if it is checked.
 
-:::demo `checkbox-group` element can manage multiple checkboxes in one group by using `v-model` which is bound as an `Array`. Inside the `top-checkbox` element, `label` is the value of the checkbox. If no content is nested in that tag, `label` will be rendered as the description following the button of the checkbox. `label` also corresponds with the element values in the array. It is selected if the specified value exists in the array, and vice versa.
+:::demo `checkbox-group` element can manage multiple checkboxes in one group by using `v-model` which is bound as an `Array`. Inside the `el-checkbox` element, `label` is the value of the checkbox. If no content is nested in that tag, `label` will be rendered as the description following the button of the checkbox. `label` also corresponds with the element values in the array. It is selected if the specified value exists in the array, and vice versa.
 
 ```html
 <template>
-  <top-checkbox-group v-model="checkList">
-    <top-checkbox label="Option A"></top-checkbox>
-    <top-checkbox label="Option B"></top-checkbox>
-    <top-checkbox label="Option C"></top-checkbox>
-    <top-checkbox label="disabled" disabled></top-checkbox>
-    <top-checkbox label="selected and disabled" disabled></top-checkbox>
-  </top-checkbox-group>
+  <el-checkbox-group v-model="checkList">
+    <el-checkbox label="Option A"></el-checkbox>
+    <el-checkbox label="Option B"></el-checkbox>
+    <el-checkbox label="Option C"></el-checkbox>
+    <el-checkbox label="disabled" disabled></el-checkbox>
+    <el-checkbox label="selected and disabled" disabled></el-checkbox>
+  </el-checkbox-group>
 </template>
 
 <script>
@@ -86,11 +86,11 @@ The `indeterminate` property can help you to achieve a 'check all' effect.
 
 ```html
 <template>
-  <top-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">Check all</top-checkbox>
+  <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">Check all</el-checkbox>
   <div style="margin: 15px 0;"></div>
-  <top-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
-    <top-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</top-checkbox>
-  </top-checkbox-group>
+  <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+    <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+  </el-checkbox-group>
 </template>
 <script>
   const cityOptions = ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen'];
@@ -127,12 +127,12 @@ The `min` and `max` properties can help you to limit the number of checked items
 
 ```html
 <template>
-  <top-checkbox-group 
+  <el-checkbox-group 
     v-model="checkedCities1"
     :min="1"
     :max="2">
-    <top-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</top-checkbox>
-  </top-checkbox-group>
+    <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+  </el-checkbox-group>
 </template>
 <script>
   const cityOptions = ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen'];
@@ -152,28 +152,28 @@ The `min` and `max` properties can help you to limit the number of checked items
 
 Checkbox with button styles.
 
-:::demo You just need to change `top-checkbox` element into `top-checkbox-button` element. We also provide `size` attribute.
+:::demo You just need to change `el-checkbox` element into `el-checkbox-button` element. We also provide `size` attribute.
 ```html
 <template>
   <div>
-    <top-checkbox-group v-model="checkboxGroup1">
-      <top-checkbox-button v-for="city in cities" :label="city" :key="city">{{city}}</top-checkbox-button>
-    </top-checkbox-group>
+    <el-checkbox-group v-model="checkboxGroup1">
+      <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox-button>
+    </el-checkbox-group>
   </div>
   <div style="margin-top: 20px">
-    <top-checkbox-group v-model="checkboxGroup2" size="medium">
-      <top-checkbox-button v-for="city in cities" :label="city" :key="city">{{city}}</top-checkbox-button>
-    </top-checkbox-group>
+    <el-checkbox-group v-model="checkboxGroup2" size="medium">
+      <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox-button>
+    </el-checkbox-group>
   </div>
   <div style="margin-top: 20px">
-    <top-checkbox-group v-model="checkboxGroup3" size="small">
-      <top-checkbox-button v-for="city in cities" :label="city" :disabled="city === 'Beijing'" :key="city">{{city}}</top-checkbox-button>
-    </top-checkbox-group>
+    <el-checkbox-group v-model="checkboxGroup3" size="small">
+      <el-checkbox-button v-for="city in cities" :label="city" :disabled="city === 'Beijing'" :key="city">{{city}}</el-checkbox-button>
+    </el-checkbox-group>
   </div>
   <div style="margin-top: 20px">
-    <top-checkbox-group v-model="checkboxGroup4" size="mini" disabled>
-      <top-checkbox-button v-for="city in cities" :label="city" :key="city">{{city}}</top-checkbox-button>
-    </top-checkbox-group>
+    <el-checkbox-group v-model="checkboxGroup4" size="mini" disabled>
+      <el-checkbox-button v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox-button>
+    </el-checkbox-group>
   </div>
 </template>
 <script>
@@ -200,24 +200,24 @@ Checkbox with button styles.
 ```html
 <template>
   <div>
-    <top-checkbox v-model="checked3" label="Option1" border></top-checkbox>
-    <top-checkbox v-model="checked4" label="Option2" border></top-checkbox>
+    <el-checkbox v-model="checked3" label="Option1" border></el-checkbox>
+    <el-checkbox v-model="checked4" label="Option2" border></el-checkbox>
   </div>
   <div style="margin-top: 20px">
-    <top-checkbox v-model="checked5" label="Option1" border size="medium"></top-checkbox>
-    <top-checkbox v-model="checked6" label="Option2" border size="medium"></top-checkbox>
+    <el-checkbox v-model="checked5" label="Option1" border size="medium"></el-checkbox>
+    <el-checkbox v-model="checked6" label="Option2" border size="medium"></el-checkbox>
   </div>
   <div style="margin-top: 20px">
-    <top-checkbox-group v-model="checkboxGroup5" size="small">
-      <top-checkbox label="Option1" border></top-checkbox>
-      <top-checkbox label="Option2" border disabled></top-checkbox>
-    </top-checkbox-group>
+    <el-checkbox-group v-model="checkboxGroup5" size="small">
+      <el-checkbox label="Option1" border></el-checkbox>
+      <el-checkbox label="Option2" border disabled></el-checkbox>
+    </el-checkbox-group>
   </div>
   <div style="margin-top: 20px">
-    <top-checkbox-group v-model="checkboxGroup6" size="mini" disabled>
-      <top-checkbox label="Option1" border></top-checkbox>
-      <top-checkbox label="Option2" border></top-checkbox>
-    </top-checkbox-group>
+    <el-checkbox-group v-model="checkboxGroup6" size="mini" disabled>
+      <el-checkbox label="Option1" border></el-checkbox>
+      <el-checkbox label="Option2" border></el-checkbox>
+    </el-checkbox-group>
   </div>
 </template>
 

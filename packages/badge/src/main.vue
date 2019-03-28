@@ -1,13 +1,13 @@
 <template>
-  <div class="top-badge">
+  <div class="el-badge">
     <slot></slot>
-    <transition name="top-zoom-in-center">
+    <transition name="el-zoom-in-center">
       <sup
         v-show="!hidden && (content || content === 0 || isDot)"
         v-text="content"
-        class="top-badge__content"
+        class="el-badge__content"
         :class="[
-          'top-badge__content--' + type,
+          'el-badge__content--' + type,
           {
             'is-fixed': $slots.default,
             'is-dot': isDot
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'TOPBadge',
+  name: 'ElBadge',
 
   props: {
     value: {},

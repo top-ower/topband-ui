@@ -1,6 +1,6 @@
 <template>
   <div
-    class="top-select-dropdown top-popper"
+    class="el-select-dropdown el-popper"
     :class="[{ 'is-multiple': $parent.multiple }, popperClass]"
     :style="{ minWidth: minWidth }">
     <slot></slot>
@@ -8,7 +8,7 @@
 </template>
 
 <script type="text/babel">
-  import Popper from 'topband-ui/src/utils/vue-popper';
+  import Popper from 'element-ui/src/utils/vue-popper';
 
   export default {
     name: 'ElSelectDropdown',

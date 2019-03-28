@@ -5,15 +5,15 @@ Displays the location of the current page, making it easier to browser back.
 ### Basic usage
 
 
-:::demo In `top-breadcrumb`, each `top-breadcrumb-item` is a tag that stands for every level starting from homepage. This component has a `String` attribute `separator`, and it determines the separator. Its default value is '/'.
+:::demo In `el-breadcrumb`, each `el-breadcrumb-item` is a tag that stands for every level starting from homepage. This component has a `String` attribute `separator`, and it determines the separator. Its default value is '/'.
 
 ```html
-<top-breadcrumb separator="/">
-  <top-breadcrumb-item :to="{ path: '/' }">homepage</top-breadcrumb-item>
-  <top-breadcrumb-item><a href="/">promotion management</a></top-breadcrumb-item>
-  <top-breadcrumb-item>promotion list</top-breadcrumb-item>
-  <top-breadcrumb-item>promotion detail</top-breadcrumb-item>
-</top-breadcrumb>
+<el-breadcrumb separator="/">
+  <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
+  <el-breadcrumb-item><a href="/">promotion management</a></el-breadcrumb-item>
+  <el-breadcrumb-item>promotion list</el-breadcrumb-item>
+  <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
+</el-breadcrumb>
 ```
 :::
 
@@ -22,12 +22,12 @@ Displays the location of the current page, making it easier to browser back.
 :::demo Set `separator-class` to use `iconfont` as the separator，it will cover `separator`
 
 ```html
-<top-breadcrumb separator-class="top-icon-arrow-right">
-  <top-breadcrumb-item :to="{ path: '/' }">homepage</top-breadcrumb-item>
-  <top-breadcrumb-item>promotion management</top-breadcrumb-item>
-  <top-breadcrumb-item>promotion list</top-breadcrumb-item>
-  <top-breadcrumb-item>promotion detail</top-breadcrumb-item>
-</top-breadcrumb>
+<el-breadcrumb separator-class="el-icon-arrow-right">
+  <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
+  <el-breadcrumb-item>promotion management</el-breadcrumb-item>
+  <el-breadcrumb-item>promotion list</el-breadcrumb-item>
+  <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
+</el-breadcrumb>
 ```
 :::
 

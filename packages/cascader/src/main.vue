@@ -1,12 +1,12 @@
 <template>
   <span
-    class="top-cascader"
+    class="el-cascader"
     :class="[
       {
         'is-opened': menuVisible,
         'is-disabled': cascaderDisabled
       },
-      cascaderSize ? 'top-cascader--' + cascaderSize : ''
+      cascaderSize ? 'el-cascader--' + cascaderSize : ''
     ]"
     @click="handleClick"
     @mouseenter="inputHover = true"
@@ -17,7 +17,7 @@
     v-clickoutside="handleClickoutside"
     @keydown="handleKeydown"
   >
-    <top-input
+    <el-input
       ref="input"
       :readonly="readonly"
       :placeholder="currentLabels.length ? undefined : placeholder"
@@ -36,18 +36,18 @@
         <i
           key="1"
           v-if="clearable && inputHover && currentLabels.length"
-          class="top-input__icon top-icon-circle-close top-cascader__clearIcon"
+          class="el-input__icon el-icon-circle-close el-cascader__clearIcon"
           @click="clearValue"
         ></i>
         <i
           key="2"
           v-else
-          class="top-input__icon top-icon-arrow-down"
+          class="el-input__icon el-icon-arrow-down"
           :class="{ 'is-reverse': menuVisible }"
         ></i>
       </template>
-    </top-input>
-    <span class="top-cascader__label" v-show="inputValue === '' && !isOnComposition">
+    </el-input>
+    <span class="el-cascader__label" v-show="inputValue === '' && !isOnComposition">
       <template v-if="showAllLevels">
         <template v-for="(label, index) in currentLabels">
           {{ label }}
@@ -63,15 +63,15 @@
 
 <script>
 import Vue from 'vue';
-import TOPCascaderMenu from './menu';
-import TOPInput from 'topband-ui/packages/input';
-import Popper from 'topband-ui/src/utils/vue-popper';
-import Clickoutside from 'topband-ui/src/utils/clickoutside';
-import emitter from 'topband-ui/src/mixins/emitter';
-import Locale from 'topband-ui/src/mixins/locale';
-import { t } from 'topband-ui/src/locale';
+import ElCascaderMenu from './menu';
+import ElInput from 'element-ui/packages/input';
+import Popper from 'element-ui/src/utils/vue-popper';
+import Clickoutside from 'element-ui/src/utils/clickoutside';
+import emitter from 'element-ui/src/mixins/emitter';
+import Locale from 'element-ui/src/mixins/locale';
+import { t } from 'element-ui/src/locale';
 import debounce from 'throttle-debounce/debounce';
-import { generateId, escapeRegexpString, isIE, isEdge } from 'topband-ui/src/utils/util';
+import { generateId, escapeRegexpString, isIE, isEdge } from 'element-ui/src/utils/util';
 
 const popperMixin = {
   props: {
@@ -91,7 +91,7 @@ const popperMixin = {
 };
 
 export default {
-  name: 'TOPCascader',
+  name: 'ElCascader',
 
   directives: { Clickoutside },
 
@@ -237,11 +237,7 @@ export default {
       this.currentValue = value;
     },
     currentValue(value) {
-      this.dispatch('TOPFormItem', 'top.form.change', [value]);
-    },
-    currentLabels(value) {
-      const inputLabel = this.showAllLevels ? value.join('/') : value[value.length - 1] ;
-      this.$refs.input.$refs.input.setAttribute('value', inputLabel);
+      this.dispatch('ElFormItem', 'el.form.change', [value]);
     },
     options: {
       deep: true,
@@ -257,7 +253,7 @@ export default {
 
   methods: {
     initMenu() {
-      this.menu = new Vue(TOPCascaderMenu).$mount();
+      this.menu = new Vue(ElCascaderMenu).$mount();
       this.menu.options = this.options;
       this.menu.props = this.props;
       this.menu.expandTrigger = this.expandTrigger;
@@ -306,7 +302,7 @@ export default {
       } else if (keyCode === 40) { // down
         this.menuVisible = true; // 打开
         setTimeout(() => {
-          const firstMenu = this.popperElm.querySelectorAll('.top-cascader-menu')[0];
+          const firstMenu = this.popperElm.querySelectorAll('.el-cascader-menu')[0];
           firstMenu.querySelectorAll("[tabindex='-1']")[0].focus();
         });
         e.stopPropagation();
@@ -375,7 +371,7 @@ export default {
       const h = this._c;
       return label.split(keyword)
         .map((node, index) => index === 0 ? node : [
-          h('span', { class: { 'top-cascader-menu__item__keyword': true }}, [this._v(keyword)]),
+          h('span', { class: { 'el-cascader-menu__item__keyword': true }}, [this._v(keyword)]),
           node
         ]);
     },

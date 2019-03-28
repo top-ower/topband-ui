@@ -8,7 +8,7 @@ Voici la structure basique.
 
 :::demo
 ```html
-<top-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></top-tree>
+<el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
 
 <script>
   export default {
@@ -71,13 +71,13 @@ Vous pouvez activer la sélection des noeuds.
 
 :::demo cate exemple montre également comment charger des données de manière asynchrone.
 ```html
-<top-tree
+<el-tree
   :props="props"
   :load="loadNode"
   lazy
   show-checkbox
   @check-change="handleCheckChange">
-</top-tree>
+</el-tree>
 
 <script>
   export default {
@@ -137,12 +137,12 @@ Vous pouvez activer la sélection des noeuds.
 
 :::demo Les données d'un noeud ne sont pas accessibles tant que la noeud n'est pas cliqué, l'arbre ne peut donc pas prédire si un noeud sera une feuille. C'est pourquoi un bouton de menu est ajouté à chaque noeud, et si c'est  une feuille il disparaîtra après le clic. Vous pouvez également dire par avance à l'arbre si un noeud est une feuille, pour éviter l'apparition du bouton de menu.
 ```html
-<top-tree
+<el-tree
   :props="props1"
   :load="loadNode1"
   lazy
   show-checkbox>
-</top-tree>
+</el-tree>
 
 <script>
   export default {
@@ -185,12 +185,12 @@ Les checkbox des noeuds peuvent être désactivées individuellement.
 
 :::demo Dans cet exemple, la propriété `disabled` est ajoutée à `defaultProps`, et certains noeuds ont `disabled:true`. Les checkbox correspondantes sont donc désactivées.
 ```html
-<top-tree
+<el-tree
   :data="data3"
   :props="defaultProps"
   show-checkbox
   @check-change="handleCheckChange">
-</top-tree>
+</el-tree>
 
 <script>
   export default {
@@ -242,14 +242,14 @@ Certains noeuds peuvent être ouverts et/ou sélectionnés par défaut.
 
 :::demo Utilisez `default-expanded-keys` et `default-checked-keys` pour réglez respectivement les noeuds ouverts et les noeuds sélectionnés par défaut. Notez que `node-key` est requis dans ce cas. Sa valeurs est le nom d'une clé dans l'objets data, et sa valeur devrait être unique dans tout l'arbre.
 ```html
-<top-tree
+<el-tree
   :data="data2"
   show-checkbox
   node-key="id"
   :default-expanded-keys="[2, 3]"
   :default-checked-keys="[5]"
   :props="defaultProps">
-</top-tree>
+</el-tree>
 
 <script>
   export default {
@@ -305,7 +305,7 @@ Certains noeuds peuvent être ouverts et/ou sélectionnés par défaut.
 
 :::demo Cet exemple montre comment récupérer et sélectionner des noeuds. Vous pouvez utiliser deux approches: les noeuds ou les clés. Dans le cas des clés, `node-key` est requis.
 ```html
-<top-tree
+<el-tree
   :data="data2"
   show-checkbox
   default-expand-all
@@ -313,14 +313,14 @@ Certains noeuds peuvent être ouverts et/ou sélectionnés par défaut.
   ref="tree"
   highlight-current
   :props="defaultProps">
-</top-tree>
+</el-tree>
 
 <div class="buttons">
-  <top-button @click="getCheckedNodes">Récupération par noeud</top-button>
-  <top-button @click="getCheckedKeys">Récupération par clé</top-button>
-  <top-button @click="setCheckedNodes">Sélection par noeud</top-button>
-  <top-button @click="setCheckedKeys">Sélection par clé</top-button>
-  <top-button @click="resetChecked">Reset</top-button>
+  <el-button @click="getCheckedNodes">Récupération par noeud</el-button>
+  <el-button @click="getCheckedKeys">Récupération par clé</el-button>
+  <el-button @click="setCheckedNodes">Sélection par noeud</el-button>
+  <el-button @click="setCheckedKeys">Sélection par clé</el-button>
+  <el-button @click="resetChecked">Reset</el-button>
 </div>
 
 <script>
@@ -406,18 +406,18 @@ Le contenu des noeuds peut être personnalisé, afin de pouvoir ajouter des icô
 <div class="custom-tree-container">
   <div class="block">
     <p>Avec render-content</p>
-    <top-tree
+    <el-tree
       :data="data4"
       show-checkbox
       node-key="id"
       default-expand-all
       :expand-on-click-node="false"
       :render-content="renderContent">
-    </top-tree>
+    </el-tree>
   </div>
   <div class="block">
     <p>Avec un slot</p>
-    <top-tree
+    <el-tree
       :data="data5"
       show-checkbox
       node-key="id"
@@ -426,21 +426,21 @@ Le contenu des noeuds peut être personnalisé, afin de pouvoir ajouter des icô
       <span class="custom-tree-node" slot-scope="{ node, data }">
         <span>{{ node.label }}</span>
         <span>
-          <top-button
+          <el-button
             type="text"
             size="mini"
             @click="() => append(data)">
             Ajouter
-          </top-button>
-          <top-button
+          </el-button>
+          <el-button
             type="text"
             size="mini"
             @click="() => remove(node, data)">
             Supprimer
-          </top-button>
+          </el-button>
         </span>
       </span>
-    </top-tree>
+    </el-tree>
   </div>
 </div>
 
@@ -511,8 +511,8 @@ Le contenu des noeuds peut être personnalisé, afin de pouvoir ajouter des icô
           <span class="custom-tree-node">
             <span>{node.label}</span>
             <span>
-              <top-button size="mini" type="text" on-click={ () => this.append(data) }>Ajouter</top-button>
-              <top-button size="mini" type="text" on-click={ () => this.remove(node, data) }>Supprimer</top-button>
+              <el-button size="mini" type="text" on-click={ () => this.append(data) }>Ajouter</el-button>
+              <el-button size="mini" type="text" on-click={ () => this.remove(node, data) }>Supprimer</el-button>
             </span>
           </span>);
       }
@@ -539,19 +539,19 @@ Les noeuds peuvent être filtrés par mot-clé.
 
 :::demo Utilisez la méthode `filter` de l'instance de Tree pour pouvoir filtrer les noeuds, son paramètre étant le mot-clé. Notez que pour que cela fonctionne, `filter-node-method` est requis, sa valeur étant la méthode de filtrage.
 ```html
-<top-input
+<el-input
   placeholder="Filter keyword"
   v-model="filterText">
-</top-input>
+</el-input>
 
-<top-tree
+<el-tree
   class="filter-tree"
   :data="data2"
   :props="defaultProps"
   default-expand-all
   :filter-node-method="filterNode"
   ref="tree2">
-</top-tree>
+</el-tree>
 
 <script>
   export default {
@@ -623,12 +623,12 @@ Vous pouvez utiliser un mode accordéon afin que seul un noeud par niveau soit o
 
 :::demo
 ```html
-<top-tree
+<el-tree
   :data="data"
   :props="defaultProps"
   accordion
   @node-click="handleNodeClick">
-</top-tree>
+</el-tree>
 
 <script>
   export default {
@@ -691,7 +691,7 @@ Vous pouvez déplacer les noeuds par drag'n drop en ajoutant l'attribut `draggab
 
 :::demo
 ```html
-<top-tree
+<el-tree
   :data="data6"
   node-key="id"
   default-expand-all
@@ -704,7 +704,7 @@ Vous pouvez déplacer les noeuds par drag'n drop en ajoutant l'attribut `draggab
   draggable
   :allow-drop="allowDrop"
   :allow-drag="allowDrag">
-</top-tree>
+</el-tree>
 
 <script>
   export default {

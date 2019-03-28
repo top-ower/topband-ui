@@ -7,11 +7,11 @@ Les tags sont utiles sont marquer certaines données afin d'ajouter des informat
 :::demo Utilisez l'attribut `type` pour définir le type de tag. De plus, l'attribut `color` détermine la couleur de fond.
 
 ```html
-<top-tag>Tag 1</top-tag>
-<top-tag type="success">Tag 2</top-tag>
-<top-tag type="info">Tag 3</top-tag>
-<top-tag type="warning">Tag 4</top-tag>
-<top-tag type="danger">Tag 5</top-tag>
+<el-tag>Tag 1</el-tag>
+<el-tag type="success">Tag 2</el-tag>
+<el-tag type="info">Tag 3</el-tag>
+<el-tag type="warning">Tag 4</el-tag>
+<el-tag type="danger">Tag 5</el-tag>
 ```
 :::
 
@@ -20,13 +20,13 @@ Les tags sont utiles sont marquer certaines données afin d'ajouter des informat
 :::demo L'attribut `closable` détermine si un tag est supprimable grâce à un `Boolean`. Par défaut la suppression bénéficie d'un animation de fading. Utilisez `disable-transitions` si vous ne souhaitez pas d'animations en utilisant un `Boolean` à `true`. L'évènement `close` se déclenche quand un tag est supprimé.
 
 ```html
-<top-tag
+<el-tag
   v-for="tag in tags"
   :key="tag.name"
   closable
   :type="tag.type">
   {{tag.name}}
-</top-tag>
+</el-tag>
 
 <script>
   export default {
@@ -52,15 +52,15 @@ Vous pouvez utiliser l'évènement `close` pour ajouter et supprimer des tags dy
 
 :::demo
 ```html
-<top-tag
+<el-tag
   :key="tag"
   v-for="tag in dynamicTags"
   closable
   :disable-transitions="false"
   @close="handleClose(tag)">
   {{tag}}
-</top-tag>
-<top-input
+</el-tag>
+<el-input
   class="input-new-tag"
   v-if="inputVisible"
   v-model="inputValue"
@@ -69,11 +69,11 @@ Vous pouvez utiliser l'évènement `close` pour ajouter et supprimer des tags dy
   @keyup.enter.native="handleInputConfirm"
   @blur="handleInputConfirm"
 >
-</top-input>
-<top-button v-else class="button-new-tag" size="small" @click="showInput">+ Nouveau Tag</top-button>
+</el-input>
+<el-button v-else class="button-new-tag" size="small" @click="showInput">+ Nouveau Tag</el-button>
 
 <style>
-  .top-tag + .top-tag {
+  .el-tag + .el-tag {
     margin-left: 10px;
   }
   .button-new-tag {
@@ -132,10 +132,10 @@ En plus de la taille par défaut, Tag fournit d'autres tailles pour vos composan
 :::demo Utilisez `size` pour choisir une autre taille parmi `medium`, `small` ou `mini`.
 
 ```html
-<top-tag>Défaut</top-tag>
-<top-tag size="medium">Medium</top-tag>
-<top-tag size="small">Small</top-tag>
-<top-tag size="mini">Mini</top-tag>
+<el-tag>Défaut</el-tag>
+<el-tag size="medium">Medium</el-tag>
+<el-tag size="small">Small</el-tag>
+<el-tag size="mini">Mini</el-tag>
 ```
 :::
 

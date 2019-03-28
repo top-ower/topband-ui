@@ -15,7 +15,6 @@
       display: table;
       clear: both;
     }
-
   }
 
   @include e(content) {
@@ -53,7 +52,6 @@
       background-color: #e6f1fe;
       color: $--datepicker-active-color;
     }
-
   }
 
   @include e(btn) {
@@ -71,7 +69,6 @@
       color: #cccccc;
       cursor: not-allowed;
     }
-
   }
 
   @include e(icon-btn) {
@@ -93,18 +90,16 @@
       &:hover {
         cursor: not-allowed;
       }
-
     }
-
   }
 
   @include e(link-btn) {
     vertical-align: middle;
   }
-
 }
 
-.top-picker-panel *[slot=sidebar], .top-picker-panel__sidebar {
+.el-picker-panel *[slot=sidebar],
+.el-picker-panel__sidebar {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -116,6 +111,7 @@
   overflow: auto;
 }
 
-.top-picker-panel *[slot=sidebar] + .top-picker-panel__body, .top-picker-panel__sidebar + .top-picker-panel__body {
+.el-picker-panel *[slot=sidebar] + .el-picker-panel__body,
+.el-picker-panel__sidebar + .el-picker-panel__body {
   margin-left: 110px;
 }

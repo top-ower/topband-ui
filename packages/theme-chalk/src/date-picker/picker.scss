@@ -7,44 +7,44 @@
   display: inline-block;
   text-align: left;
 
-  &.top-input, &.top-input__inner {
+  &.el-input,
+  &.el-input__inner {
     width: 220px;
   }
 
   @include m((monthrange)) {
-    &.top-input, &.top-input__inner {
+    &.el-input,
+    &.el-input__inner {
       width: 300px;
     }
-
   }
 
   @include m((daterange, timerange)) {
-    &.top-input, &.top-input__inner {
+    &.el-input,
+    &.el-input__inner {
       width: 350px;
     }
-
   }
 
   @include m(datetimerange) {
-    &.top-input, &.top-input__inner {
+    &.el-input,
+    &.el-input__inner {
       width: 400px;
     }
-
   }
 
   @include m(dates) {
-    .top-input__inner {
+    .el-input__inner {
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-
   }
 
-  .top-icon-circle-close {
+  .el-icon-circle-close {
     cursor: pointer;
   }
 
-  .top-range__icon {
+  .el-range__icon {
     font-size: 14px;
     margin-left: -5px;
     color: $--color-text-placeholder;
@@ -52,7 +52,7 @@
     line-height: 32px;
   }
 
-  .top-range-input {
+  .el-range-input {
     appearance: none;
     border: none;
     outline: none;
@@ -68,10 +68,9 @@
     &::placeholder {
       color: $--color-text-placeholder;
     }
-
   }
 
-  .top-range-separator {
+  .el-range-separator {
     display: inline-block;
     height: 100%;
     padding: 0 5px;
@@ -83,7 +82,7 @@
     color: $--color-text-primary;
   }
 
-  .top-range__close-icon {
+  .el-range__close-icon {
     font-size: 14px;
     color: $--color-text-placeholder;
     width: 25px;
@@ -91,17 +90,16 @@
     float: right;
     line-height: 32px;
   }
-
 }
 
 @include b(range-editor) {
-  &.top-input__inner {
+  &.el-input__inner {
     display: inline-flex;
     align-items: center;
     padding: 3px 10px;
   }
 
-  .top-range-input {
+  .el-range-input {
     line-height: 1;
   }
 
@@ -111,67 +109,66 @@
     &:hover {
       border-color: $--color-primary;
     }
-
   }
 
   @include m(medium) {
-    &.top-input__inner {
+    &.el-input__inner {
       height: $--input-medium-height;
     }
 
-    .top-range-separator {
+    .el-range-separator {
       line-height: 28px;
       font-size: $--input-medium-font-size;
     }
 
-    .top-range-input {
+    .el-range-input {
       font-size: $--input-medium-font-size;
     }
 
-    .top-range__icon, .top-range__close-icon {
+    .el-range__icon,
+    .el-range__close-icon {
       line-height: 28px;
     }
-
   }
 
   @include m(small) {
-    &.top-input__inner {
+    &.el-input__inner {
       height: $--input-small-height;
     }
 
-    .top-range-separator {
+    .el-range-separator {
       line-height: 24px;
       font-size: $--input-small-font-size;
     }
 
-    .top-range-input {
+    .el-range-input {
       font-size: $--input-small-font-size;
     }
 
-    .top-range__icon, .top-range__close-icon {
+    .el-range__icon,
+    .el-range__close-icon {
       line-height: 24px;
     }
-
   }
 
   @include m(mini) {
-    &.top-input__inner {
+    &.el-input__inner {
       height: $--input-mini-height;
     }
 
-    .top-range-separator {
+    .el-range-separator {
       line-height: 20px;
       font-size: $--input-mini-font-size;
     }
 
-    .top-range-input {
+    .el-range-input {
       font-size: $--input-mini-font-size;
     }
 
-    .top-range__icon, .top-range__close-icon {
+    .el-range__icon,
+    .el-range__close-icon {
       line-height: 20px;
     }
-
   }
 
   @include when(disabled) {
@@ -188,17 +185,13 @@
       background-color: $--input-disabled-fill;
       color: $--input-disabled-color;
       cursor: not-allowed;
-
       &::placeholder {
         color: $--input-disabled-placeholder-color;
       }
-
     }
 
-    .top-range-separator {
+    .el-range-separator {
       color: $--input-disabled-color;
     }
-
   }
-
 }

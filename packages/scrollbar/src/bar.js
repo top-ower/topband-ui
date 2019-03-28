@@ -1,4 +1,4 @@
-import { on, off } from 'topband-ui/src/utils/dom';
+import { on, off } from 'element-ui/src/utils/dom';
 import { renderThumbStyle, BAR_MAP } from './util';
 
 /* istanbul ignore next */
@@ -26,11 +26,11 @@ export default {
 
     return (
       <div
-        class={ ['top-scrollbar__bar', 'is-' + bar.key] }
+        class={ ['el-scrollbar__bar', 'is-' + bar.key] }
         onMousedown={ this.clickTrackHandler } >
         <div
           ref="thumb"
-          class="top-scrollbar__thumb"
+          class="el-scrollbar__thumb"
           onMousedown={ this.clickThumbHandler }
           style={ renderThumbStyle({ size, move, bar }) }>
         </div>

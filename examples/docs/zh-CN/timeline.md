@@ -11,20 +11,20 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
 <div class="block">
   <div class="radio">
     排序：
-    <top-radio-group v-model="reverse">
-      <top-radio :label="true">倒序</top-radio>
-      <top-radio :label="false">正序</top-radio>
-    </top-radio-group>
+    <el-radio-group v-model="reverse">
+      <el-radio :label="true">倒序</el-radio>
+      <el-radio :label="false">正序</el-radio>
+    </el-radio-group>
   </div>
 
-  <top-timeline :reverse="reverse">
-    <top-timeline-item
+  <el-timeline :reverse="reverse">
+    <el-timeline-item
       v-for="(activity, index) in activities"
       :key="index"
       :timestamp="activity.timestamp">
       {{activity.content}}
-    </top-timeline-item>
-  </top-timeline>
+    </el-timeline-item>
+  </el-timeline>
 </div>
 
 <script>
@@ -56,8 +56,8 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
 :::demo
 ```html
 <div class="block">
-  <top-timeline>
-    <top-timeline-item
+  <el-timeline>
+    <el-timeline-item
       v-for="(activity, index) in activities2"
       :key="index"
       :icon="activity.icon"
@@ -66,8 +66,8 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
       :size="activity.size"
       :timestamp="activity.timestamp">
       {{activity.content}}
-    </top-timeline-item>
-  </top-timeline>
+    </el-timeline-item>
+  </el-timeline>
 </div>
 
 <script>
@@ -79,7 +79,7 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
           timestamp: '2018-04-12 20:46',
           size: 'large',
           type: 'primary',
-          icon: 'top-icon-more'
+          icon: 'el-icon-more'
         }, {
           content: '支持自定义颜色',
           timestamp: '2018-04-03 20:46',
@@ -106,26 +106,26 @@ Timeline 可拆分成多个按照时间戳正序或倒序排列的 activity，�
 :::demo
 ```html
 <div class="block">
-  <top-timeline>
-    <top-timeline-item timestamp="2018/4/12" placement="top">
-      <top-card>
+  <el-timeline>
+    <el-timeline-item timestamp="2018/4/12" placement="top">
+      <el-card>
         <h4>更新 Github 模板</h4>
         <p>王小虎 提交于 2018/4/12 20:46</p>
-      </top-card>
-    </top-timeline-item>
-    <top-timeline-item timestamp="2018/4/3" placement="top">
-      <top-card>
+      </el-card>
+    </el-timeline-item>
+    <el-timeline-item timestamp="2018/4/3" placement="top">
+      <el-card>
         <h4>更新 Github 模板</h4>
         <p>王小虎 提交于 2018/4/3 20:46</p>
-      </top-card>
-    </top-timeline-item>
-    <top-timeline-item timestamp="2018/4/2" placement="top">
-      <top-card>
+      </el-card>
+    </el-timeline-item>
+    <el-timeline-item timestamp="2018/4/2" placement="top">
+      <el-card>
         <h4>更新 Github 模板</h4>
         <p>王小虎 提交于 2018/4/2 20:46</p>
-      </top-card>
-    </top-timeline-item>
-  </top-timeline>
+      </el-card>
+    </el-timeline-item>
+  </el-timeline>
 </div>
 ```
 :::

@@ -1,8 +1,8 @@
-import TOPDialog from './src/component';
+import ElDialog from './src/component';
 
 /* istanbul ignore next */
-TOPDialog.install = function(Vue) {
-  Vue.component(TOPDialog.name, TOPDialog);
+ElDialog.install = function(Vue) {
+  Vue.component(ElDialog.name, ElDialog);
 };
 
-export default TOPDialog;
+export default ElDialog;

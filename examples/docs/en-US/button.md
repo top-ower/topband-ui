@@ -7,41 +7,41 @@ Commonly used button.
 :::demo Use `type`, `plain`, `round` and `circle` to define Button's style.
 
 ```html
-<top-row>
-  <top-button>Default</top-button>
-  <top-button type="primary">Primary</top-button>
-  <top-button type="success">Success</top-button>
-  <top-button type="info">Info</top-button>
-  <top-button type="warning">Warning</top-button>
-  <top-button type="danger">Danger</top-button>
-</top-row>
+<el-row>
+  <el-button>Default</el-button>
+  <el-button type="primary">Primary</el-button>
+  <el-button type="success">Success</el-button>
+  <el-button type="info">Info</el-button>
+  <el-button type="warning">Warning</el-button>
+  <el-button type="danger">Danger</el-button>
+</el-row>
 
-<top-row>
-  <top-button plain>Plain</top-button>
-  <top-button type="primary" plain>Primary</top-button>
-  <top-button type="success" plain>Success</top-button>
-  <top-button type="info" plain>Info</top-button>
-  <top-button type="warning" plain>Warning</top-button>
-  <top-button type="danger" plain>Danger</top-button>
-</top-row>
+<el-row>
+  <el-button plain>Plain</el-button>
+  <el-button type="primary" plain>Primary</el-button>
+  <el-button type="success" plain>Success</el-button>
+  <el-button type="info" plain>Info</el-button>
+  <el-button type="warning" plain>Warning</el-button>
+  <el-button type="danger" plain>Danger</el-button>
+</el-row>
 
-<top-row>
-  <top-button round>Round</top-button>
-  <top-button type="primary" round>Primary</top-button>
-  <top-button type="success" round>Success</top-button>
-  <top-button type="info" round>Info</top-button>
-  <top-button type="warning" round>Warning</top-button>
-  <top-button type="danger" round>Danger</top-button>
-</top-row>
+<el-row>
+  <el-button round>Round</el-button>
+  <el-button type="primary" round>Primary</el-button>
+  <el-button type="success" round>Success</el-button>
+  <el-button type="info" round>Info</el-button>
+  <el-button type="warning" round>Warning</el-button>
+  <el-button type="danger" round>Danger</el-button>
+</el-row>
 
-<top-row>
-  <top-button icon="top-icon-search" circle></top-button>
-  <top-button type="primary" icon="top-icon-edit" circle></top-button>
-  <top-button type="success" icon="top-icon-check" circle></top-button>
-  <top-button type="info" icon="top-icon-message" circle></top-button>
-  <top-button type="warning" icon="top-icon-star-off" circle></top-button>
-  <top-button type="danger" icon="top-icon-delete" circle></top-button>
-</top-row>
+<el-row>
+  <el-button icon="el-icon-search" circle></el-button>
+  <el-button type="primary" icon="el-icon-edit" circle></el-button>
+  <el-button type="success" icon="el-icon-check" circle></el-button>
+  <el-button type="info" icon="el-icon-message" circle></el-button>
+  <el-button type="warning" icon="el-icon-star-off" circle></el-button>
+  <el-button type="danger" icon="el-icon-delete" circle></el-button>
+</el-row>
 ```
 :::
 
@@ -52,23 +52,23 @@ The `disabled` attribute determines if the button is disabled.
 :::demo Use `disabled` attribute to determine whether a button is disabled. It accepts a `Boolean` value.
 
 ```html
-<top-row>
-  <top-button disabled>Default</top-button>
-  <top-button type="primary" disabled>Primary</top-button>
-  <top-button type="success" disabled>Success</top-button>
-  <top-button type="info" disabled>Info</top-button>
-  <top-button type="warning" disabled>Warning</top-button>
-  <top-button type="danger" disabled>Danger</top-button>
-</top-row>
+<el-row>
+  <el-button disabled>Default</el-button>
+  <el-button type="primary" disabled>Primary</el-button>
+  <el-button type="success" disabled>Success</el-button>
+  <el-button type="info" disabled>Info</el-button>
+  <el-button type="warning" disabled>Warning</el-button>
+  <el-button type="danger" disabled>Danger</el-button>
+</el-row>
 
-<top-row>
-  <top-button plain disabled>Plain</top-button>
-  <top-button type="primary" plain disabled>Primary</top-button>
-  <top-button type="success" plain disabled>Success</top-button>
-  <top-button type="info" plain disabled>Info</top-button>
-  <top-button type="warning" plain disabled>Warning</top-button>
-  <top-button type="danger" plain disabled>Danger</top-button>
-</top-row>
+<el-row>
+  <el-button plain disabled>Plain</el-button>
+  <el-button type="primary" plain disabled>Primary</el-button>
+  <el-button type="success" plain disabled>Success</el-button>
+  <el-button type="info" plain disabled>Info</el-button>
+  <el-button type="warning" plain disabled>Warning</el-button>
+  <el-button type="danger" plain disabled>Danger</el-button>
+</el-row>
 ```
 :::
 
@@ -78,8 +78,8 @@ Buttons without border and background.
 
 :::demo
 ```html
-<top-button type="text">Text Button</top-button>
-<top-button type="text" disabled>Text Button</top-button>
+<el-button type="text">Text Button</el-button>
+<el-button type="text" disabled>Text Button</el-button>
 ```
 :::
 
@@ -90,11 +90,11 @@ Use icons to add more meaning to Button. You can use icon alone to save some spa
 :::demo Use the `icon` attribute to add icon. You can find the icon list in Element icon component. Adding icons to the right side of the text is achievable with an `<i>` tag. Custom icons can be used as well.
 
 ```html
-<top-button type="primary" icon="top-icon-edit"></top-button>
-<top-button type="primary" icon="top-icon-share"></top-button>
-<top-button type="primary" icon="top-icon-delete"></top-button>
-<top-button type="primary" icon="top-icon-search">Search</top-button>
-<top-button type="primary">Upload<i class="top-icon-upload top-icon-right"></i></top-button>
+<el-button type="primary" icon="el-icon-edit"></el-button>
+<el-button type="primary" icon="el-icon-share"></el-button>
+<el-button type="primary" icon="el-icon-delete"></el-button>
+<el-button type="primary" icon="el-icon-search">Search</el-button>
+<el-button type="primary">Upload<i class="el-icon-upload el-icon-right"></i></el-button>
 ```
 :::
 
@@ -102,18 +102,18 @@ Use icons to add more meaning to Button. You can use icon alone to save some spa
 
 Displayed as a button group, can be used to group a series of similar operations.
 
-:::demo Use tag `<top-button-group>` to group your buttons.
+:::demo Use tag `<el-button-group>` to group your buttons.
 
 ```html
-<top-button-group>
-  <top-button type="primary" icon="top-icon-arrow-left">Previous Page</top-button>
-  <top-button type="primary">Next Page<i class="top-icon-arrow-right top-icon-right"></i></top-button>
-</top-button-group>
-<top-button-group>
-  <top-button type="primary" icon="top-icon-edit"></top-button>
-  <top-button type="primary" icon="top-icon-share"></top-button>
-  <top-button type="primary" icon="top-icon-delete"></top-button>
-</top-button-group>
+<el-button-group>
+  <el-button type="primary" icon="el-icon-arrow-left">Previous Page</el-button>
+  <el-button type="primary">Next Page<i class="el-icon-arrow-right el-icon-right"></i></el-button>
+</el-button-group>
+<el-button-group>
+  <el-button type="primary" icon="el-icon-edit"></el-button>
+  <el-button type="primary" icon="el-icon-share"></el-button>
+  <el-button type="primary" icon="el-icon-delete"></el-button>
+</el-button-group>
 ```
 :::
 
@@ -124,7 +124,7 @@ Click the button to load data, then the button displays a loading state.
 :::demo Set `loading` attribute to `true` to display loading state.
 
 ```html
-<top-button type="primary" :loading="true">Loading</top-button>
+<el-button type="primary" :loading="true">Loading</el-button>
 ```
 :::
 
@@ -135,18 +135,18 @@ Besides default size, Button component provides three additional sizes for you t
 :::demo Use attribute `size` to set additional sizes with `medium`, `small` or `mini`.
 
 ```html
-<top-row>
-  <top-button>Default</top-button>
-  <top-button size="medium">Medium</top-button>
-  <top-button size="small">Small</top-button>
-  <top-button size="mini">Mini</top-button>
-</top-row>
-<top-row>
-  <top-button round>Default</top-button>
-  <top-button size="medium" round>Medium</top-button>
-  <top-button size="small" round>Small</top-button>
-  <top-button size="mini" round>Mini</top-button>
-</top-row>
+<el-row>
+  <el-button>Default</el-button>
+  <el-button size="medium">Medium</el-button>
+  <el-button size="small">Small</el-button>
+  <el-button size="mini">Mini</el-button>
+</el-row>
+<el-row>
+  <el-button round>Default</el-button>
+  <el-button size="medium" round>Medium</el-button>
+  <el-button size="small" round>Small</el-button>
+  <el-button size="mini" round>Mini</el-button>
+</el-row>
 ```
 :::
 

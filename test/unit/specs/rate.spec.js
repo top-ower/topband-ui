@@ -10,7 +10,7 @@ describe('Rate', () => {
 
   it('create', () => {
     vm = createTest(Rate, { max: 10 }, true);
-    const stars = vm.$el.querySelectorAll('.top-rate__item');
+    const stars = vm.$el.querySelectorAll('.el-rate__item');
     expect(stars.length).to.equal(10);
   });
 
@@ -18,10 +18,10 @@ describe('Rate', () => {
     vm = createVue({
       template: `
         <div>
-          <top-rate
+          <el-rate
             v-model="value"
             show-text
-            :texts="['1', '2', '3', '4', '5']"></top-rate>
+            :texts="['1', '2', '3', '4', '5']"></el-rate>
         </div>
       `,
 
@@ -31,7 +31,7 @@ describe('Rate', () => {
         };
       }
     }, true);
-    const text = vm.$el.querySelector('.top-rate__text');
+    const text = vm.$el.querySelector('.el-rate__text');
     expect(text.textContent).to.equal('4');
   });
 
@@ -39,7 +39,7 @@ describe('Rate', () => {
     vm = createVue({
       template: `
         <div>
-          <top-rate v-model="value"></top-rate>
+          <el-rate v-model="value"></el-rate>
         </div>
       `,
 
@@ -62,7 +62,7 @@ describe('Rate', () => {
     vm = createVue({
       template: `
         <div>
-          <top-rate v-model="value"></top-rate>
+          <el-rate v-model="value"></el-rate>
         </div>
       `,
 
@@ -72,7 +72,7 @@ describe('Rate', () => {
         };
       }
     }, true);
-    const thirdStar = vm.$el.querySelectorAll('.top-rate__item')[2];
+    const thirdStar = vm.$el.querySelectorAll('.el-rate__item')[2];
     thirdStar.click();
     expect(vm.value).to.equal(3);
   });
@@ -81,7 +81,7 @@ describe('Rate', () => {
     vm = createVue({
       template: `
         <div>
-          <top-rate v-model="value" :colors="['#99A9BF', '#F7BA2A', '#FF9900']"></top-rate>
+          <el-rate v-model="value" :colors="['#99A9BF', '#F7BA2A', '#FF9900']"></el-rate>
         </div>
       `,
 
@@ -91,7 +91,7 @@ describe('Rate', () => {
         };
       }
     }, true);
-    const thirdIcon = vm.$el.querySelectorAll('.top-rate__item')[2].querySelector('.top-rate__icon');
+    const thirdIcon = vm.$el.querySelectorAll('.el-rate__item')[2].querySelector('.el-rate__icon');
     expect(thirdIcon.style.color).to.equal('rgb(255, 153, 0)');
   });
 
@@ -99,7 +99,7 @@ describe('Rate', () => {
     vm = createVue({
       template: `
         <div>
-          <top-rate v-model="value" :colors="colors"></top-rate>
+          <el-rate v-model="value" :colors="colors"></el-rate>
         </div>
       `,
 
@@ -122,7 +122,7 @@ describe('Rate', () => {
     setTimeout(() => {
       vm.muted = true;
       vm.$nextTick(() => {
-        const thirdIcon = vm.$el.querySelectorAll('.top-rate__item')[2].querySelector('.top-rate__icon');
+        const thirdIcon = vm.$el.querySelectorAll('.el-rate__item')[2].querySelector('.el-rate__icon');
         expect(thirdIcon.style.color).to.equal('rgb(153, 153, 153)');
         done();
       });
@@ -133,7 +133,7 @@ describe('Rate', () => {
     vm = createVue({
       template: `
         <div>
-          <top-rate v-model="value" :low-threshold="3"></top-rate>
+          <el-rate v-model="value" :low-threshold="3"></el-rate>
         </div>
       `,
 
@@ -143,7 +143,7 @@ describe('Rate', () => {
         };
       }
     }, true);
-    const thirdIcon = vm.$el.querySelectorAll('.top-rate__item')[2].querySelector('.top-rate__icon');
+    const thirdIcon = vm.$el.querySelectorAll('.el-rate__item')[2].querySelector('.el-rate__icon');
     expect(thirdIcon.style.color).to.equal('rgb(247, 186, 42)');
   });
 
@@ -151,7 +151,7 @@ describe('Rate', () => {
     const vm1 = createVue({
       template: `
         <div>
-          <top-rate v-model="value" disabled show-text></top-rate>
+          <el-rate v-model="value" disabled show-text></el-rate>
         </div>
       `,
 
@@ -164,7 +164,7 @@ describe('Rate', () => {
     const vm2 = createVue({
       template: `
         <div>
-          <top-rate v-model="value" disabled show-text></top-rate>
+          <el-rate v-model="value" disabled show-text></el-rate>
         </div>
       `,
 
@@ -174,13 +174,13 @@ describe('Rate', () => {
         };
       }
     }, true);
-    const firstStar = vm1.$el.querySelectorAll('.top-rate__item')[0];
+    const firstStar = vm1.$el.querySelectorAll('.el-rate__item')[0];
     firstStar.click();
     vm1.$children[0].resetCurrentValue();
     expect(vm1.value).to.equal(3.7);
 
-    const fourthStar = vm2.$el.querySelectorAll('.top-rate__item')[3];
-    const halfStar = fourthStar.querySelector('.top-rate__decimal');
+    const fourthStar = vm2.$el.querySelectorAll('.el-rate__item')[3];
+    const halfStar = fourthStar.querySelector('.el-rate__decimal');
     expect(halfStar.style.width).to.equal('0%');
   });
 
@@ -188,7 +188,7 @@ describe('Rate', () => {
     vm = createVue({
       template: `
         <div>
-          <top-rate v-model="value" allow-half></top-rate>
+          <el-rate v-model="value" allow-half></el-rate>
         </div>
       `,
 
@@ -199,7 +199,7 @@ describe('Rate', () => {
       }
     }, true);
     const rate = vm.$children[0];
-    const secondStar = vm.$el.querySelectorAll('.top-rate__item')[1];
+    const secondStar = vm.$el.querySelectorAll('.el-rate__item')[1];
     rate.setCurrentValue(1, { target: secondStar, offsetX: 2 });
     secondStar.click();
     rate.resetCurrentValue();

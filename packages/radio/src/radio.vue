@@ -1,8 +1,8 @@
 <template>
   <label
-    class="top-radio"
+    class="el-radio"
     :class="[
-      border && radioSize ? 'top-radio--' + radioSize : '',
+      border && radioSize ? 'el-radio--' + radioSize : '',
       { 'is-disabled': isDisabled },
       { 'is-focus': focus },
       { 'is-bordered': border },
@@ -14,15 +14,15 @@
     :tabindex="tabIndex"
     @keydown.space.stop.prevent="model = isDisabled ? model : label"
   >
-    <span class="top-radio__input"
+    <span class="el-radio__input"
       :class="{
         'is-disabled': isDisabled,
         'is-checked': model === label
       }"
     >
-      <span class="top-radio__inner"></span>
+      <span class="el-radio__inner"></span>
       <input
-        class="top-radio__original"
+        class="el-radio__original"
         :value="label"
         type="radio"
         aria-hidden="true"
@@ -35,14 +35,14 @@
         tabindex="-1"
       >
     </span>
-    <span class="top-radio__label" @keydown.stop>
+    <span class="el-radio__label" @keydown.stop>
       <slot></slot>
       <template v-if="!$slots.default">{{label}}</template>
     </span>
   </label>
 </template>
 <script>
-  import Emitter from 'topband-ui/src/mixins/emitter';
+  import Emitter from 'element-ui/src/mixins/emitter';
 
   export default {
     name: 'ElRadio',

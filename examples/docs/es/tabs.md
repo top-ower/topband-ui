@@ -10,12 +10,12 @@ Tabulación básica y concisa
 
 ```html
 <template>
-  <top-tabs v-model="activeName" @tab-click="handleClick">
-    <top-tab-pane label="User" name="first">User</top-tab-pane>
-    <top-tab-pane label="Config" name="second">Config</top-tab-pane>
-    <top-tab-pane label="Role" name="third">Role</top-tab-pane>
-    <top-tab-pane label="Task" name="fourth">Task</top-tab-pane>
-  </top-tabs>
+  <el-tabs v-model="activeName" @tab-click="handleClick">
+    <el-tab-pane label="User" name="first">User</el-tab-pane>
+    <el-tab-pane label="Config" name="second">Config</el-tab-pane>
+    <el-tab-pane label="Role" name="third">Role</el-tab-pane>
+    <el-tab-pane label="Task" name="fourth">Task</el-tab-pane>
+  </el-tabs>
 </template>
 <script>
   export default {
@@ -42,12 +42,12 @@ Pestañas diseñadas como tarjetas.
 
 ```html
 <template>
-  <top-tabs type="card" @tab-click="handleClick">
-    <top-tab-pane label="User">User</top-tab-pane>
-    <top-tab-pane label="Config">Config</top-tab-pane>
-    <top-tab-pane label="Role">Role</top-tab-pane>
-    <top-tab-pane label="Task">Task</top-tab-pane>
-  </top-tabs>
+  <el-tabs type="card" @tab-click="handleClick">
+    <el-tab-pane label="User">User</el-tab-pane>
+    <el-tab-pane label="Config">Config</el-tab-pane>
+    <el-tab-pane label="Role">Role</el-tab-pane>
+    <el-tab-pane label="Task">Task</el-tab-pane>
+  </el-tabs>
 </template>
 <script>
   export default {
@@ -73,12 +73,12 @@ Pestañas de tarjeta con bordes.
 :::demo Establecer `type` a `border-card`.
 
 ```html
-<top-tabs type="border-card">
-  <top-tab-pane label="User">User</top-tab-pane>
-  <top-tab-pane label="Config">Config</top-tab-pane>
-  <top-tab-pane label="Role">Role</top-tab-pane>
-  <top-tab-pane label="Task">Task</top-tab-pane>
-</top-tabs>
+<el-tabs type="border-card">
+  <el-tab-pane label="User">User</el-tab-pane>
+  <el-tab-pane label="Config">Config</el-tab-pane>
+  <el-tab-pane label="Role">Role</el-tab-pane>
+  <el-tab-pane label="Task">Task</el-tab-pane>
+</el-tabs>
 ```
 
 :::
@@ -91,19 +91,19 @@ Es posible usar el atributo `tab-position` para establecer la posición de la ta
 
 ```html
 <template>
-  <top-radio-group v-model="tabPosition" style="margin-bottom: 30px;">
-    <top-radio-button label="top">top</top-radio-button>
-    <top-radio-button label="right">right</top-radio-button>
-    <top-radio-button label="bottom">bottom</top-radio-button>
-    <top-radio-button label="left">left</top-radio-button>
-  </top-radio-group>
+  <el-radio-group v-model="tabPosition" style="margin-bottom: 30px;">
+    <el-radio-button label="top">top</el-radio-button>
+    <el-radio-button label="right">right</el-radio-button>
+    <el-radio-button label="bottom">bottom</el-radio-button>
+    <el-radio-button label="left">left</el-radio-button>
+  </el-radio-group>
 
-  <top-tabs :tab-position="tabPosition" style="height: 200px;">
-    <top-tab-pane label="User">User</top-tab-pane>
-    <top-tab-pane label="Config">Config</top-tab-pane>
-    <top-tab-pane label="Role">Role</top-tab-pane>
-    <top-tab-pane label="Task">Task</top-tab-pane>
-  </top-tabs>
+  <el-tabs :tab-position="tabPosition" style="height: 200px;">
+    <el-tab-pane label="User">User</el-tab-pane>
+    <el-tab-pane label="Config">Config</el-tab-pane>
+    <el-tab-pane label="Role">Role</el-tab-pane>
+    <el-tab-pane label="Task">Task</el-tab-pane>
+  </el-tabs>
 </template>
 <script>
   export default {
@@ -123,15 +123,15 @@ Es posible usar slots con nombre para personalizar el contenido de la etiqueta d
 
 :::demo
 ```html
-<top-tabs type="border-card">
-  <top-tab-pane>
-    <span slot="label"><i class="top-icon-date"></i> Route</span>
+<el-tabs type="border-card">
+  <el-tab-pane>
+    <span slot="label"><i class="el-icon-date"></i> Route</span>
     Route
-  </top-tab-pane>
-  <top-tab-pane label="Config">Config</top-tab-pane>
-  <top-tab-pane label="Role">Role</top-tab-pane>
-  <top-tab-pane label="Task">Task</top-tab-pane>
-</top-tabs>
+  </el-tab-pane>
+  <el-tab-pane label="Config">Config</el-tab-pane>
+  <el-tab-pane label="Role">Role</el-tab-pane>
+  <el-tab-pane label="Task">Task</el-tab-pane>
+</el-tabs>
 ```
 :::
 
@@ -141,16 +141,16 @@ Solo las pestañas de tipo tarjeta soportan adición y cierre.
 
 :::demo
 ```html
-<top-tabs v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
-  <top-tab-pane
+<el-tabs v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
+  <el-tab-pane
     v-for="(item, index) in editableTabs"
     :key="item.name"
     :label="item.title"
     :name="item.name"
   >
     {{item.content}}
-  </top-tab-pane>
-</top-tabs>
+  </el-tab-pane>
+</el-tabs>
 <script>
   export default {
     data() {
@@ -208,23 +208,23 @@ Solo las pestañas de tipo tarjeta soportan adición y cierre.
 :::demo
 ```html
 <div style="margin-bottom: 20px;">
-  <top-button
+  <el-button
     size="small"
     @click="addTab(editableTabsValue2)"
   >
     add tab
-  </top-button>
+  </el-button>
 </div>
-<top-tabs v-model="editableTabsValue2" type="card" closable @tab-remove="removeTab">
-  <top-tab-pane
+<el-tabs v-model="editableTabsValue2" type="card" closable @tab-remove="removeTab">
+  <el-tab-pane
     v-for="(item, index) in editableTabs2"
     :key="item.name"
     :label="item.title"
     :name="item.name"
   >
     {{item.content}}
-  </top-tab-pane>
-</top-tabs>
+  </el-tab-pane>
+</el-tabs>
 <script>
   export default {
     data() {

@@ -4,11 +4,11 @@ Input numerical values with a customizable range.
 
 ### Basic usage
 
-:::demo Bind a variable to `v-model` in `<top-input-number>` element and you are set.
+:::demo Bind a variable to `v-model` in `<el-input-number>` element and you are set.
 
 ```html
 <template>
-  <top-input-number v-model="num1" @change="handleChange" :min="1" :max="10"></top-input-number>
+  <el-input-number v-model="num1" @change="handleChange" :min="1" :max="10"></el-input-number>
 </template>
 <script>
   export default {
@@ -33,7 +33,7 @@ Input numerical values with a customizable range.
 
 ```html
 <template>
-  <top-input-number v-model="num2" :disabled="true"></top-input-number>
+  <el-input-number v-model="num2" :disabled="true"></el-input-number>
 </template>
 <script>
   export default {
@@ -55,7 +55,7 @@ Allows you to define incremental steps.
 
 ```html
 <template>
-  <top-input-number v-model="num3" :step="2"></top-input-number>
+  <el-input-number v-model="num3" :step="2"></el-input-number>
 </template>
 <script>
   export default {
@@ -75,7 +75,7 @@ Allows you to define incremental steps.
 
 ```html
 <template>
-  <top-input-number v-model="num9" :precision="2" :step="0.1" :max="10"></top-input-number>
+  <el-input-number v-model="num9" :precision="2" :step="0.1" :max="10"></el-input-number>
 </template>
 <script>
   export default {
@@ -102,10 +102,10 @@ Use attribute `size` to set additional sizes with `medium`, `small` or `mini`.
 
 ```html
 <template>
-  <top-input-number v-model="num4"></top-input-number>
-    <top-input-number size="medium" v-model="num5"></top-input-number>
-    <top-input-number size="small" v-model="num6"></top-input-number>
-    <top-input-number size="mini" v-model="num7"></top-input-number>
+  <el-input-number v-model="num4"></el-input-number>
+    <el-input-number size="medium" v-model="num5"></el-input-number>
+    <el-input-number size="small" v-model="num6"></el-input-number>
+    <el-input-number size="mini" v-model="num7"></el-input-number>
 </template>
 <script>
   export default {
@@ -127,7 +127,7 @@ Use attribute `size` to set additional sizes with `medium`, `small` or `mini`.
 :::demo Set `controls-position` to decide the position of control buttons.
 ```html
 <template>
-  <top-input-number v-model="num8" controls-position="right" @change="handleChange" :min="1" :max="10"></top-input-number>
+  <el-input-number v-model="num8" controls-position="right" @change="handleChange" :min="1" :max="10"></el-input-number>
 </template>
 <script>
   export default {

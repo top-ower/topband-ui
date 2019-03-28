@@ -32,7 +32,7 @@ export default ${ComponentName};`
   {
     filename: 'src/main.vue',
     content: `<template>
-  <div class="top-${componentname}"></div>
+  <div class="el-${componentname}"></div>
 </template>
 
 <script>

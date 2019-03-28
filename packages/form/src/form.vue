@@ -1,13 +1,13 @@
 <template>
-  <form class="top-form" :class="[
-    labelPosition ? 'top-form--labtop-' + labelPosition : '',
-    { 'top-form--inline': inline }
+  <form class="el-form" :class="[
+    labelPosition ? 'el-form--label-' + labelPosition : '',
+    { 'el-form--inline': inline }
   ]">
     <slot></slot>
   </form>
 </template>
 <script>
-  import objectAssign from 'topband-ui/src/utils/merge';
+  import objectAssign from 'element-ui/src/utils/merge';
 
   export default {
     name: 'ElForm',

@@ -13,7 +13,6 @@
   &:last-child {
     border-right: none;
   }
-
 }
 
 .demo-pagination .first .demonstration {
@@ -30,11 +29,9 @@
 .demo-pagination .last .block {
   padding: 30px 24px;
   border-bottom: solid 1px #eff2f6;
-
   &:last-child {
     border-bottom: none;
   }
-
 }
 
 .demo-pagination .last .demonstration {
@@ -43,7 +40,7 @@
   line-height: 44px;
 }
 
-.demo-pagination .last .demonstration + .top-pagination {
+.demo-pagination .last .demonstration + .el-pagination {
   width: 70%;
   margin: 5px 20px 0 0;
 }

@@ -1,18 +1,18 @@
 <template>
-  <div class="top-transfer-panel">
-    <p class="top-transfer-panel__header">
-      <top-checkbox
+  <div class="el-transfer-panel">
+    <p class="el-transfer-panel__header">
+      <el-checkbox
         v-model="allChecked"
         @change="handleAllCheckedChange"
         :indeterminate="isIndeterminate">
         {{ title }}
         <span>{{ checkedSummary }}</span>
-      </top-checkbox>
+      </el-checkbox>
     </p>
     
-    <div :class="['top-transfer-panel__body', hasFooter ? 'is-with-footer' : '']">
-      <top-input
-        class="top-transfer-panel__filter"
+    <div :class="['el-transfer-panel__body', hasFooter ? 'is-with-footer' : '']">
+      <el-input
+        class="el-transfer-panel__filter"
         v-model="query"
         size="small"
         :placeholder="placeholder"
@@ -20,42 +20,42 @@
         @mouseleave.native="inputHover = false"
         v-if="filterable">
         <i slot="prefix"
-          :class="['top-input__icon', 'top-icon-' + inputIcon]"
+          :class="['el-input__icon', 'el-icon-' + inputIcon]"
           @click="clearQuery"
         ></i>
-      </top-input>
-      <top-checkbox-group
+      </el-input>
+      <el-checkbox-group
         v-model="checked"
         v-show="!hasNoMatch && data.length > 0"
         :class="{ 'is-filterable': filterable }"
-        class="top-transfer-panel__list">
-        <top-checkbox
-          class="top-transfer-panel__item"
+        class="el-transfer-panel__list">
+        <el-checkbox
+          class="el-transfer-panel__item"
           :label="item[keyProp]"
           :disabled="item[disabledProp]"
           :key="item[keyProp]"
           v-for="item in filteredData">
           <option-content :option="item"></option-content>
-        </top-checkbox>
-      </top-checkbox-group>
+        </el-checkbox>
+      </el-checkbox-group>
       <p
-        class="top-transfer-panel__empty"
+        class="el-transfer-panel__empty"
         v-show="hasNoMatch">{{ t('el.transfer.noMatch') }}</p>
       <p
-        class="top-transfer-panel__empty"
+        class="el-transfer-panel__empty"
         v-show="data.length === 0 && !hasNoMatch">{{ t('el.transfer.noData') }}</p>
     </div>
-    <p class="top-transfer-panel__footer" v-if="hasFooter">
+    <p class="el-transfer-panel__footer" v-if="hasFooter">
       <slot></slot>
     </p>
   </div>
 </template>
 
 <script>
-  import ElCheckboxGroup from 'topband-ui/packages/checkbox-group';
-  import ElCheckbox from 'topband-ui/packages/checkbox';
-  import ElInput from 'topband-ui/packages/input';
-  import Locale from 'topband-ui/src/mixins/locale';
+  import ElCheckboxGroup from 'element-ui/packages/checkbox-group';
+  import ElCheckbox from 'element-ui/packages/checkbox';
+  import ElInput from 'element-ui/packages/input';
+  import Locale from 'element-ui/src/mixins/locale';
 
   export default {
     mixins: [Locale],

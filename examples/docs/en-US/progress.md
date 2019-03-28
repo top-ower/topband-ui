@@ -6,11 +6,11 @@ Progress is used to show the progress of current operation, and inform the user 
 
 :::demo Use `percentage` attribute to set the percentage. It's **required** and must be between `0-100`.
 ```html
-<top-progress :percentage="0"></top-progress>
-<top-progress :percentage="70"></top-progress>
-<top-progress :percentage="80" color="#8e71c7"></top-progress>
-<top-progress :percentage="100" status="success"></top-progress>
-<top-progress :percentage="50" status="exception"></top-progress>
+<el-progress :percentage="0"></el-progress>
+<el-progress :percentage="70"></el-progress>
+<el-progress :percentage="80" color="#8e71c7"></el-progress>
+<el-progress :percentage="100" status="success"></el-progress>
+<el-progress :percentage="50" status="exception"></el-progress>
 ```
 :::
 
@@ -20,11 +20,11 @@ In this case the percentage takes no additional space.
 
 :::demo `stroke-width` attribute decides the `width` of progress bar, and use `text-inside` attribute to put description inside the progress bar.
 ```html
-<top-progress :text-inside="true" :stroke-width="18" :percentage="0"></top-progress>
-<top-progress :text-inside="true" :stroke-width="18" :percentage="70"></top-progress>
-<top-progress :text-inside="true" :stroke-width="18" :percentage="80" color="rgba(142, 113, 199, 0.7)"></top-progress>
-<top-progress :text-inside="true" :stroke-width="18" :percentage="100" status="success"></top-progress>
-<top-progress :text-inside="true" :stroke-width="18" :percentage="50" status="exception"></top-progress>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="0"></el-progress>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="70"></el-progress>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="80" color="rgba(142, 113, 199, 0.7)"></el-progress>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="100" status="success"></el-progress>
+<el-progress :text-inside="true" :stroke-width="18" :percentage="50" status="exception"></el-progress>
 ```
 :::
 
@@ -32,12 +32,12 @@ In this case the percentage takes no additional space.
 
 :::demo You can specify `type` attribute to `circle` to use circular progress bar, and use `width` attribute to change the size of circle.
 ```html
-<top-progress type="circle" :percentage="0"></top-progress>
-<top-progress type="circle" :percentage="25"></top-progress>
-<top-progress type="circle" :percentage="80" color="#8e71c7"></top-progress>
-<top-progress type="circle" :percentage="100" status="success"></top-progress>
-<top-progress type="circle" :percentage="50" status="exception"></top-progress>
-<top-progress type="circle" :percentage="100" status="text">Done</top-progress>
+<el-progress type="circle" :percentage="0"></el-progress>
+<el-progress type="circle" :percentage="25"></el-progress>
+<el-progress type="circle" :percentage="80" color="#8e71c7"></el-progress>
+<el-progress type="circle" :percentage="100" status="success"></el-progress>
+<el-progress type="circle" :percentage="50" status="exception"></el-progress>
+<el-progress type="circle" :percentage="100" status="text">Done</el-progress>
 ```
 :::
 

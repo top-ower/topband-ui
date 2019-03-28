@@ -1,15 +1,15 @@
 <template>
-  <ul @click="onPagerClick" class="top-pager">
+  <ul @click="onPagerClick" class="el-pager">
     <li
       :class="{ active: currentPage === 1, disabled }"
       v-if="pageCount > 0"
       class="number">1</li>
     <li
-      class="top-icon more btn-quickprev"
+      class="el-icon more btn-quickprev"
       :class="[quickprevIconClass, { disabled }]"
       v-if="showPrevMore"
       @mouseenter="onMouseenter('left')"
-      @mouseleave="quickprevIconClass = 'top-icon-more'">
+      @mouseleave="quickprevIconClass = 'el-icon-more'">
     </li>
     <li
       v-for="pager in pagers"
@@ -17,11 +17,11 @@
       :class="{ active: currentPage === pager, disabled }"
       class="number">{{ pager }}</li>
     <li
-      class="top-icon more btn-quicknext"
+      class="el-icon more btn-quicknext"
       :class="[quicknextIconClass, { disabled }]"
       v-if="showNextMore"
       @mouseenter="onMouseenter('right')"
-      @mouseleave="quicknextIconClass = 'top-icon-more'">
+      @mouseleave="quicknextIconClass = 'el-icon-more'">
     </li>
     <li
       :class="{ active: currentPage === pageCount, disabled }"
@@ -46,11 +46,11 @@
 
     watch: {
       showPrevMore(val) {
-        if (!val) this.quickprevIconClass = 'top-icon-more';
+        if (!val) this.quickprevIconClass = 'el-icon-more';
       },
 
       showNextMore(val) {
-        if (!val) this.quicknextIconClass = 'top-icon-more';
+        if (!val) this.quicknextIconClass = 'el-icon-more';
       }
     },
 
@@ -93,9 +93,9 @@
       onMouseenter(direction) {
         if (this.disabled) return;
         if (direction === 'left') {
-          this.quickprevIconClass = 'top-icon-d-arrow-left';
+          this.quickprevIconClass = 'el-icon-d-arrow-left';
         } else {
-          this.quicknextIconClass = 'top-icon-d-arrow-right';
+          this.quicknextIconClass = 'el-icon-d-arrow-right';
         }
       }
     },
@@ -155,8 +155,8 @@
         current: null,
         showPrevMore: false,
         showNextMore: false,
-        quicknextIconClass: 'top-icon-more',
-        quickprevIconClass: 'top-icon-more'
+        quicknextIconClass: 'el-icon-more',
+        quickprevIconClass: 'el-icon-more'
       };
     }
   };

@@ -73,7 +73,7 @@ export declare class ElTableColumn extends ElementUIComponent {
   /** The order of the sorting strategies used when sorting the data. Works when `sortable` is `true`. */
   sortOrders: SortOrders[]
 
-  /** Whether column width can be resized. Works when border of `top-table` is `true` */
+  /** Whether column width can be resized. Works when border of `el-table` is `true` */
   resizable: boolean
 
   /** Function that formats content */

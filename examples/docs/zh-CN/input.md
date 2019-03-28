@@ -14,7 +14,7 @@ Input 为受控组件，它**总会显示 Vue 绑定值**。
 
 :::demo
 ```html
-<top-input v-model="input" placeholder="请输入内容"></top-input>
+<el-input v-model="input" placeholder="请输入内容"></el-input>
 
 <script>
 export default {
@@ -33,11 +33,11 @@ export default {
 
 :::demo 通过 `disabled` 属性指定是否禁用 input 组件
 ```html
-<top-input
+<el-input
   placeholder="请输入内容"
   v-model="input1"
   :disabled="true">
-</top-input>
+</el-input>
 
 <script>
 export default {
@@ -56,11 +56,11 @@ export default {
 :::demo 使用`clearable`属性即可得到一个可清空的输入框
 
 ```html
-<top-input
+<el-input
   placeholder="请输入内容"
   v-model="input10"
   clearable>
-</top-input>
+</el-input>
 
 <script>
   export default {
@@ -79,7 +79,7 @@ export default {
 :::demo 使用`show-password`属性即可得到一个可切换显示隐藏的密码框
 
 ```html
-<top-input placeholder="请输入密码" v-model="input11" show-password></top-input>
+<el-input placeholder="请输入密码" v-model="input11" show-password></el-input>
 
 <script>
   export default {
@@ -101,29 +101,29 @@ export default {
 ```html
 <div class="demo-input-suffix">
   属性方式：
-  <top-input
+  <el-input
     placeholder="请选择日期"
-    suffix-icon="top-icon-date"
+    suffix-icon="el-icon-date"
     v-model="input2">
-  </top-input>
-  <top-input
+  </el-input>
+  <el-input
     placeholder="请输入内容"
-    prefix-icon="top-icon-search"
+    prefix-icon="el-icon-search"
     v-model="input21">
-  </top-input>
+  </el-input>
 </div>
 <div class="demo-input-suffix">
   slot 方式：
-  <top-input
+  <el-input
     placeholder="请选择日期"
     v-model="input22">
-    <i slot="suffix" class="top-input__icon top-icon-date"></i>
-  </top-input>
-  <top-input
+    <i slot="suffix" class="el-input__icon el-icon-date"></i>
+  </el-input>
+  <el-input
     placeholder="请输入内容"
     v-model="input23">
-    <i slot="prefix" class="top-input__icon top-icon-search"></i>
-  </top-input>
+    <i slot="prefix" class="el-input__icon el-icon-search"></i>
+  </el-input>
 </div>
 
 <script>
@@ -147,12 +147,12 @@ export default {
 
 :::demo 文本域高度可通过 `rows` 属性控制
 ```html
-<top-input
+<el-input
   type="textarea"
   :rows="2"
   placeholder="请输入内容"
   v-model="textarea">
-</top-input>
+</el-input>
 
 <script>
 export default {
@@ -172,19 +172,19 @@ export default {
 
 :::demo
 ```html
-<top-input
+<el-input
   type="textarea"
   autosize
   placeholder="请输入内容"
   v-model="textarea2">
-</top-input>
+</el-input>
 <div style="margin: 20px 0;"></div>
-<top-input
+<el-input
   type="textarea"
   :autosize="{ minRows: 2, maxRows: 4}"
   placeholder="请输入内容"
   v-model="textarea3">
-</top-input>
+</el-input>
 
 <script>
 export default {
@@ -206,30 +206,30 @@ export default {
 :::demo 可通过 slot 来指定在 input 中前置或者后置内容。
 ```html
 <div>
-  <top-input placeholder="请输入内容" v-model="input3">
+  <el-input placeholder="请输入内容" v-model="input3">
     <template slot="prepend">Http://</template>
-  </top-input>
+  </el-input>
 </div>
 <div style="margin-top: 15px;">
-  <top-input placeholder="请输入内容" v-model="input4">
+  <el-input placeholder="请输入内容" v-model="input4">
     <template slot="append">.com</template>
-  </top-input>
+  </el-input>
 </div>
 <div style="margin-top: 15px;">
-  <top-input placeholder="请输入内容" v-model="input5" class="input-with-select">
-    <top-select v-model="select" slot="prepend" placeholder="请选择">
-      <top-option label="餐厅名" value="1"></top-option>
-      <top-option label="订单号" value="2"></top-option>
-      <top-option label="用户电话" value="3"></top-option>
-    </top-select>
-    <top-button slot="append" icon="top-icon-search"></top-button>
-  </top-input>
+  <el-input placeholder="请输入内容" v-model="input5" class="input-with-select">
+    <el-select v-model="select" slot="prepend" placeholder="请选择">
+      <el-option label="餐厅名" value="1"></el-option>
+      <el-option label="订单号" value="2"></el-option>
+      <el-option label="用户电话" value="3"></el-option>
+    </el-select>
+    <el-button slot="append" icon="el-icon-search"></el-button>
+  </el-input>
 </div>
 <style>
-  .top-select .top-input {
+  .el-select .el-input {
     width: 130px;
   }
-  .input-with-select .top-input-group__prepend {
+  .input-with-select .el-input-group__prepend {
     background-color: #fff;
   }
 </style>
@@ -253,29 +253,29 @@ export default {
 :::demo 可通过 `size` 属性指定输入框的尺寸，除了默认的大小外，还提供了 large、small 和 mini 三种尺寸。
 ```html
 <div class="demo-input-size">
-  <top-input
+  <el-input
     placeholder="请输入内容"
-    suffix-icon="top-icon-date"
+    suffix-icon="el-icon-date"
     v-model="input6">
-  </top-input>
-  <top-input
+  </el-input>
+  <el-input
     size="medium"
     placeholder="请输入内容"
-    suffix-icon="top-icon-date"
+    suffix-icon="el-icon-date"
     v-model="input7">
-  </top-input>
-  <top-input
+  </el-input>
+  <el-input
     size="small"
     placeholder="请输入内容"
-    suffix-icon="top-icon-date"
+    suffix-icon="el-icon-date"
     v-model="input8">
-  </top-input>
-  <top-input
+  </el-input>
+  <el-input
     size="mini"
     placeholder="请输入内容"
-    suffix-icon="top-icon-date"
+    suffix-icon="el-icon-date"
     v-model="input9">
-  </top-input>
+  </el-input>
 </div>
 
 <script>
@@ -299,29 +299,29 @@ export default {
 
 :::demo autocomplete 是一个可带输入建议的输入框组件，`fetch-suggestions` 是一个返回输入建议的方法属性，如 querySearch(queryString, cb)，在该方法中你可以在你的输入建议数据准备好时通过 cb(data) 返回到 autocomplete 组件中。
 ```html
-<top-row class="demo-autocomplete">
-  <top-col :span="12">
+<el-row class="demo-autocomplete">
+  <el-col :span="12">
     <div class="sub-title">激活即列出输入建议</div>
-    <top-autocomplete
+    <el-autocomplete
       class="inline-input"
       v-model="state1"
       :fetch-suggestions="querySearch"
       placeholder="请输入内容"
       @select="handleSelect"
-    ></top-autocomplete>
-  </top-col>
-  <top-col :span="12">
+    ></el-autocomplete>
+  </el-col>
+  <el-col :span="12">
     <div class="sub-title">输入后匹配输入建议</div>
-    <top-autocomplete
+    <el-autocomplete
       class="inline-input"
       v-model="state2"
       :fetch-suggestions="querySearch"
       placeholder="请输入内容"
       :trigger-on-focus="false"
       @select="handleSelect"
-    ></top-autocomplete>
-  </top-col>
-</top-row>
+    ></el-autocomplete>
+  </el-col>
+</el-row>
 <script>
   export default {
     data() {
@@ -413,14 +413,14 @@ export default {
 
 :::demo 使用`scoped slot`自定义输入建议的模板。该 scope 的参数为`item`，表示当前输入建议对象。
 ```html
-<top-autocomplete
+<el-autocomplete
   popper-class="my-autocomplete"
   v-model="state3"
   :fetch-suggestions="querySearch"
   placeholder="请输入内容"
   @select="handleSelect">
   <i
-    class="top-icon-edit top-input__icon"
+    class="el-icon-edit el-input__icon"
     slot="suffix"
     @click="handleIconClick">
   </i>
@@ -428,7 +428,7 @@ export default {
     <div class="name">{{ item.value }}</div>
     <span class="addr">{{ item.address }}</span>
   </template>
-</top-autocomplete>
+</el-autocomplete>
 
 <style>
 .my-autocomplete {
@@ -545,12 +545,12 @@ export default {
 
 :::demo
 ```html
-<top-autocomplete
+<el-autocomplete
   v-model="state4"
   :fetch-suggestions="querySearchAsync"
   placeholder="请输入内容"
   @select="handleSelect"
-></top-autocomplete>
+></el-autocomplete>
 <script>
   export default {
     data() {

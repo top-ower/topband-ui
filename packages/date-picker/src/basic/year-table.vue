@@ -1,5 +1,5 @@
 <template>
-  <table @click="handleYearTableClick" class="top-year-table">
+  <table @click="handleYearTableClick" class="el-year-table">
     <tbody>
     <tr>
       <td class="available" :class="getCellStyle(startYear + 0)">
@@ -44,9 +44,9 @@
 </template>
 
 <script type="text/babel">
-  import { hasClass } from 'topband-ui/src/utils/dom';
+  import { hasClass } from 'element-ui/src/utils/dom';
   import { isDate, range, nextDate, getDayCountOfYear } from '../util';
-  import { arrayFindIndex, coerceTruthyValueToArray } from 'topband-ui/src/utils/util';
+  import { arrayFindIndex, coerceTruthyValueToArray } from 'element-ui/src/utils/util';
 
   const datesInYear = year => {
     const numOfDays = getDayCountOfYear(year);

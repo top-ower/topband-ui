@@ -1,6 +1,6 @@
-import { hasClass, addClass, removeClass } from 'topband-ui/src/utils/dom';
-import ElCheckbox from 'topband-ui/packages/checkbox';
-import ElTag from 'topband-ui/packages/tag';
+import { hasClass, addClass, removeClass } from 'element-ui/src/utils/dom';
+import ElCheckbox from 'element-ui/packages/checkbox';
+import ElTag from 'element-ui/packages/tag';
 import Vue from 'vue';
 import FilterPanel from './filter-panel.vue';
 import LayoutObserver from './layout-observer';
@@ -76,7 +76,7 @@ export default {
     if (isGroup) this.$parent.isGroup = true;
     return (
       <table
-        class="top-table__header"
+        class="el-table__header"
         cellspacing="0"
         cellpadding="0"
         border="0">
@@ -126,7 +126,7 @@ export default {
                         }
                         {
                           column.filterable
-                            ? <span class="top-table__column-filter-trigger" on-click={ ($event) => this.handleFilterClick($event, column) }><i class={ ['top-icon-arrow-down', column.filterOpened ? 'top-icon-arrow-up' : ''] }></i></span>
+                            ? <span class="el-table__column-filter-trigger" on-click={ ($event) => this.handleFilterClick($event, column) }><i class={ ['el-icon-arrow-down', column.filterOpened ? 'el-icon-arrow-up' : ''] }></i></span>
                             : ''
                         }
                       </div>
@@ -311,7 +311,7 @@ export default {
       event.stopPropagation();
       const target = event.target;
       let cell = target.tagName === 'TH' ? target : target.parentNode;
-      cell = cell.querySelector('.top-table__column-filter-trigger') || cell;
+      cell = cell.querySelector('.el-table__column-filter-trigger') || cell;
       const table = this.$parent;
 
       let filterPanel = this.filterPanels[column.id];

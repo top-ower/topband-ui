@@ -8,43 +8,43 @@ Similar to Tooltip, Popover is also built with `Vue-popper`. So for some duplica
 
 ```html
 <template>
-  <top-popover
+  <el-popover
     placement="top-start"
     title="Title"
     width="200"
     trigger="hover"
     content="this is content, this is content, this is content">
-    <top-button slot="reference">Hover to activate</top-button>
-  </top-popover>
+    <el-button slot="reference">Hover to activate</el-button>
+  </el-popover>
 
-  <top-popover
+  <el-popover
     placement="bottom"
     title="Title"
     width="200"
     trigger="click"
     content="this is content, this is content, this is content">
-    <top-button slot="reference">Click to activate</top-button>
-  </top-popover>
+    <el-button slot="reference">Click to activate</el-button>
+  </el-popover>
 
-  <top-popover
+  <el-popover
     ref="popover"
     placement="right"
     title="Title"
     width="200"
     trigger="focus"
     content="this is content, this is content, this is content">
-  </top-popover>
-  <top-button v-popover:popover>Focus to activate</top-button>
+  </el-popover>
+  <el-button v-popover:popover>Focus to activate</el-button>
 
-  <top-popover
+  <el-popover
     placement="bottom"
     title="Title"
     width="200"
     trigger="manual"
     content="this is content, this is content, this is content"
     v-model="visible">
-    <top-button slot="reference" @click="visible = !visible">Manual to activate</top-button>
-  </top-popover>
+    <el-button slot="reference" @click="visible = !visible">Manual to activate</el-button>
+  </el-popover>
 </template>
 
 <script>
@@ -66,17 +66,17 @@ Other components can be nested in popover. Following is an example of nested tab
 :::demo replace the `content` attribute with a default `slot`.
 
 ```html
-<top-popover
+<el-popover
   placement="right"
   width="400"
   trigger="click">
-  <top-table :data="gridData">
-    <top-table-column width="150" property="date" label="date"></top-table-column>
-    <top-table-column width="100" property="name" label="name"></top-table-column>
-    <top-table-column width="300" property="address" label="address"></top-table-column>
-  </top-table>
-  <top-button slot="reference">Click to activate</top-button>
-</top-popover>
+  <el-table :data="gridData">
+    <el-table-column width="150" property="date" label="date"></el-table-column>
+    <el-table-column width="100" property="name" label="name"></el-table-column>
+    <el-table-column width="300" property="address" label="address"></el-table-column>
+  </el-table>
+  <el-button slot="reference">Click to activate</el-button>
+</el-popover>
 
 <script>
   export default {
@@ -112,17 +112,17 @@ Of course, you can nest other operations. It's more light-weight than using a di
 
 :::demo
 ```html
-<top-popover
+<el-popover
   placement="top"
   width="160"
   v-model="visible2">
   <p>Are you sure to delete this?</p>
   <div style="text-align: right; margin: 0">
-    <top-button size="mini" type="text" @click="visible2 = false">cancel</top-button>
-    <top-button type="primary" size="mini" @click="visible2 = false">confirm</top-button>
+    <el-button size="mini" type="text" @click="visible2 = false">cancel</el-button>
+    <el-button type="primary" size="mini" @click="visible2 = false">confirm</el-button>
   </div>
-  <top-button slot="reference">Delete</top-button>
-</top-popover>
+  <el-button slot="reference">Delete</el-button>
+</el-popover>
 
 <script>
   export default {
@@ -147,7 +147,7 @@ Of course, you can nest other operations. It's more light-weight than using a di
 |  disabled       |  whether Popover is disabled  | boolean    | — |  false |
 |  value / v-model        |  whether popover is visible  | Boolean           | — |  false |
 |  offset        |  popover offset  | number           | — |  0 |
-|  transition     |  popover transition animation      | string             | — | top-fade-in-linear |
+|  transition     |  popover transition animation      | string             | — | el-fade-in-linear |
 |  visible-arrow   |  whether a tooltip arrow is displayed or not. For more info, please refer to [Vue-popper](https://github.com/element-component/vue-popper) | boolean | — | true |
 |  popper-options        | parameters for [popper.js](https://popper.js.org/documentation.html) | object            | please refer to [popper.js](https://popper.js.org/documentation.html) | `{ boundariesElement: 'body', gpuAcceleration: false }` |
 |  popper-class        |  custom class name for popover | string | — | — |

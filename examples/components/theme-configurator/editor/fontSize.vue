@@ -4,18 +4,18 @@
       {{displayName}}
     </div>
     <div class="config-content">
-      <top-select 
+      <el-select 
         v-model="value" 
         class="select"
         @change="onSelectChange"
       >
-        <top-option
+        <el-option
           v-for="item in options"
           :key="item.value"
           :label="item.label"
           :value="item.value">
-        </top-option>
-      </top-select>
+        </el-option>
+      </el-select>
     </div>
   </section>
 </template>

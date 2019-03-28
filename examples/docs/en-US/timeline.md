@@ -11,20 +11,20 @@ Timeline can be split into multiple activities in ascending or descending. Times
 <div class="block">
   <div class="radio">
     Order: 
-    <top-radio-group v-model="reverse">
-      <top-radio :label="true">descending</top-radio>
-      <top-radio :label="false">ascending</top-radio>
-    </top-radio-group>
+    <el-radio-group v-model="reverse">
+      <el-radio :label="true">descending</el-radio>
+      <el-radio :label="false">ascending</el-radio>
+    </el-radio-group>
   </div>
 
-  <top-timeline :reverse="reverse">
-    <top-timeline-item
+  <el-timeline :reverse="reverse">
+    <el-timeline-item
       v-for="(activity, index) in activities"
       :key="index"
       :timestamp="activity.timestamp">
       {{activity.content}}
-    </top-timeline-item>
-  </top-timeline>
+    </el-timeline-item>
+  </el-timeline>
 </div>
 
 <script>
@@ -56,8 +56,8 @@ Size, color, and icons can be customized in node.
 :::demo
 ```html
 <div class="block">
-  <top-timeline>
-    <top-timeline-item
+  <el-timeline>
+    <el-timeline-item
       v-for="(activity, index) in activities2"
       :key="index"
       :icon="activity.icon"
@@ -66,8 +66,8 @@ Size, color, and icons can be customized in node.
       :size="activity.size"
       :timestamp="activity.timestamp">
       {{activity.content}}
-    </top-timeline-item>
-  </top-timeline>
+    </el-timeline-item>
+  </el-timeline>
 </div>
 
 <script>
@@ -79,7 +79,7 @@ Size, color, and icons can be customized in node.
           timestamp: '2018-04-12 20:46',
           size: 'large',
           type: 'primary',
-          icon: 'top-icon-more'
+          icon: 'el-icon-more'
         }, {
           content: 'Custom color',
           timestamp: '2018-04-03 20:46',
@@ -106,26 +106,26 @@ Timestamp can be placed on top of content when content is too high.
 :::demo
 ```html
 <div class="block">
-  <top-timeline>
-    <top-timeline-item timestamp="2018/4/12" placement="top">
-      <top-card>
+  <el-timeline>
+    <el-timeline-item timestamp="2018/4/12" placement="top">
+      <el-card>
         <h4>Update Github template</h4>
         <p>Tom committed 2018/4/12 20:46</p>
-      </top-card>
-    </top-timeline-item>
-    <top-timeline-item timestamp="2018/4/3" placement="top">
-      <top-card>
+      </el-card>
+    </el-timeline-item>
+    <el-timeline-item timestamp="2018/4/3" placement="top">
+      <el-card>
         <h4>Update Github template</h4>
         <p>Tom committed 2018/4/3 20:46</p>
-      </top-card>
-    </top-timeline-item>
-    <top-timeline-item timestamp="2018/4/2" placement="top">
-      <top-card>
+      </el-card>
+    </el-timeline-item>
+    <el-timeline-item timestamp="2018/4/2" placement="top">
+      <el-card>
         <h4>Update Github template</h4>
         <p>Tom committed 2018/4/2 20:46</p>
-      </top-card>
-    </top-timeline-item>
-  </top-timeline>
+      </el-card>
+    </el-timeline-item>
+  </el-timeline>
 </div>
 ```
 :::

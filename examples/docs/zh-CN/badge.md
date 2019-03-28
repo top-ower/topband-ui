@@ -8,34 +8,34 @@
 :::demo 定义`value`属性，它接受`Number`或者`String`。
 
 ```html
-<top-badge :value="12" class="item">
-  <top-button size="small">评论</top-button>
-</top-badge>
-<top-badge :value="3" class="item">
-  <top-button size="small">回复</top-button>
-</top-badge>
-<top-badge :value="1" class="item" type="primary">
-  <top-button size="small">评论</top-button>
-</top-badge>
-<top-badge :value="2" class="item" type="warning">
-  <top-button size="small">回复</top-button>
-</top-badge>
+<el-badge :value="12" class="item">
+  <el-button size="small">评论</el-button>
+</el-badge>
+<el-badge :value="3" class="item">
+  <el-button size="small">回复</el-button>
+</el-badge>
+<el-badge :value="1" class="item" type="primary">
+  <el-button size="small">评论</el-button>
+</el-badge>
+<el-badge :value="2" class="item" type="warning">
+  <el-button size="small">回复</el-button>
+</el-badge>
 
-<top-dropdown trigger="click">
-  <span class="top-dropdown-link">
-    点我查看<i class="top-icon-caret-bottom top-icon--right"></i>
+<el-dropdown trigger="click">
+  <span class="el-dropdown-link">
+    点我查看<i class="el-icon-caret-bottom el-icon--right"></i>
   </span>
-  <top-dropdown-menu slot="dropdown">
-    <top-dropdown-item class="clearfix">
+  <el-dropdown-menu slot="dropdown">
+    <el-dropdown-item class="clearfix">
       评论
-      <top-badge class="mark" :value="12" />
-    </top-dropdown-item>
-    <top-dropdown-item class="clearfix">
+      <el-badge class="mark" :value="12" />
+    </el-dropdown-item>
+    <el-dropdown-item class="clearfix">
       回复
-      <top-badge class="mark" :value="3" />
-    </top-dropdown-item>
-  </top-dropdown-menu>
-</top-dropdown>
+      <el-badge class="mark" :value="3" />
+    </el-dropdown-item>
+  </el-dropdown-menu>
+</el-dropdown>
 
 <style>
 .item {
@@ -52,12 +52,12 @@
 :::demo 由`max`属性定义，它接受一个`Number`，需要注意的是，只有当`value`为`Number`时，它才会生效。
 
 ```html
-<top-badge :value="200" :max="99" class="item">
-  <top-button size="small">评论</top-button>
-</top-badge>
-<top-badge :value="100" :max="10" class="item">
-  <top-button size="small">回复</top-button>
-</top-badge>
+<el-badge :value="200" :max="99" class="item">
+  <el-button size="small">评论</el-button>
+</el-badge>
+<el-badge :value="100" :max="10" class="item">
+  <el-button size="small">回复</el-button>
+</el-badge>
 
 <style>
 .item {
@@ -74,12 +74,12 @@
 :::demo 定义`value`为`String`类型是时可以用于显示自定义文本。
 
 ```html
-<top-badge value="new" class="item">
-  <top-button size="small">评论</top-button>
-</top-badge>
-<top-badge value="hot" class="item">
-  <top-button size="small">回复</top-button>
-</top-badge>
+<el-badge value="new" class="item">
+  <el-button size="small">评论</el-button>
+</el-badge>
+<el-badge value="hot" class="item">
+  <el-button size="small">回复</el-button>
+</el-badge>
 
 <style>
 .item {
@@ -96,10 +96,10 @@
 :::demo 除了数字外，设置`is-dot`属性，它接受一个`Boolean`。
 
 ```html
-<top-badge is-dot class="item">数据查询</top-badge>
-<top-badge is-dot class="item">
-  <top-button class="share-button" icon="top-icon-share" type="primary"></top-button>
-</top-badge>
+<el-badge is-dot class="item">数据查询</el-badge>
+<el-badge is-dot class="item">
+  <el-button class="share-button" icon="el-icon-share" type="primary"></el-button>
+</el-badge>
 
 <style>
 .item {

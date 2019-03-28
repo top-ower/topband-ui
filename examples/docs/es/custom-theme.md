@@ -14,15 +14,15 @@ Este sitio, le permitirá obtener una vista previa del tema con un nuevo color e
 $--color-primary: teal;
 
 /* Ubicación de la fuente, obligatoria */
-$--font-path: '~topband-ui/lib/theme-chalk/fonts';
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
 
-@import "~topband-ui/packages/theme-chalk/src/index";
+@import "~element-ui/packages/theme-chalk/src/index";
 ```
 
 Entonces, en el archivo principal del proyecto, importe este archivo de estilos en lugar de los estilos de Element:
 ```JS
 import Vue from 'vue'
-import Element from 'topband-ui'
+import Element from 'element-ui'
 import './element-variables.scss'
 
 Vue.use(Element)
@@ -100,21 +100,21 @@ Por defecto, el archivo de tema construido es colocado dentro de `./theme`. Pued
 
 ```javascript
 import '../theme/index.css'
-import ElementUI from 'topband-ui'
+import ElementUI from 'element-ui'
 import Vue from 'vue'
 
 Vue.use(ElementUI)
 ```
 
 #### <strong>Importar un tema de componente bajo demanda</strong>
-Si esta utilizando `babtop-plugin-component` para importar bajo demanda, solo debe modificar el archivo `.babelrc` y especificar en la propiedad `styleLibraryName` la ruta en donde se encuentra localizado su tema personalizado relativo a `.babelrc`. **Nota** el carácter `~` es obligatorio:
+Si esta utilizando `babel-plugin-component` para importar bajo demanda, solo debe modificar el archivo `.babelrc` y especificar en la propiedad `styleLibraryName` la ruta en donde se encuentra localizado su tema personalizado relativo a `.babelrc`. **Nota** el carácter `~` es obligatorio:
 ```json
 {
   "plugins": [
     [
       "component",
       {
-        "libraryName": "topband-ui",
+        "libraryName": "element-ui",
         "styleLibraryName": "~theme"
       }
     ]
@@ -122,4 +122,4 @@ Si esta utilizando `babtop-plugin-component` para importar bajo demanda, solo de
 }
 ```
 
-Si no esta familiarizado con `babtop-plugin-component`, por favor diríjase a la documentación sobre <a href="./#/en-US/component/quickstart">Como Iniciar</a>. Para más detalles, consulte el [repositorio del proyecto](https://github.com/ElementUI/element-theme) de `element-theme`.
+Si no esta familiarizado con `babel-plugin-component`, por favor diríjase a la documentación sobre <a href="./#/en-US/component/quickstart">Como Iniciar</a>. Para más detalles, consulte el [repositorio del proyecto](https://github.com/ElementUI/element-theme) de `element-theme`.
